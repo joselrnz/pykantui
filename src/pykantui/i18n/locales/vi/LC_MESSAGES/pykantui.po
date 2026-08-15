@@ -1,0 +1,1833 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: pykantui 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 18:39-0500\n"
+"PO-Revision-Date: 2026-08-12 08:34+0000\n"
+"Last-Translator: pykantui contributors\n"
+"Language: vi\n"
+"Language-Team: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: src/pykantui/cli/main.py:33
+msgid "Terminal kanban board"
+msgstr "Bảng Kanban trong terminal"
+
+#: src/pykantui/cli/main.py:39
+msgid "interface language; saved to config.json (default: auto)"
+msgstr "ngôn ngữ giao diện; đã lưu vào config.json (mặc định: tự động)"
+
+#: src/pykantui/cli/main.py:45
+msgid ""
+"adjacent commits H/L immediately; jump highlights a column and waits for "
+"enter"
+msgstr "liền kề cam kết H/L ngay lập tức; nhảy đánh dấu một cột và chờ nhập"
+
+#: src/pykantui/cli/main.py:50
+msgid "theme name; saved to config.json (default: cyberpunk)"
+msgstr "tên chủ đề; đã lưu vào config.json (mặc định: cyberpunk)"
+
+#: src/pykantui/cli/main.py:56
+msgid "corner style for cards, fields and dialogs; saved to config.json"
+msgstr "kiểu góc cho thẻ, trường và hộp thoại; đã lưu vào config.json"
+
+#: src/pykantui/cli/main.py:62
+msgid "apply column moves without the confirmation dialog"
+msgstr "áp dụng di chuyển cột mà không có hộp thoại xác nhận"
+
+#: src/pykantui/cli/main.py:66
+msgid "open a throwaway board with sample tasks"
+msgstr "mở một bảng dùng một lần với các nhiệm vụ mẫu"
+
+#: src/pykantui/cli/main.py:68
+msgid "open a local JSON board (the default)"
+msgstr "mở một bảng JSON cục bộ (mặc định)"
+
+#: src/pykantui/cli/main.py:69
+msgid "path to the board file"
+msgstr "đường dẫn đến tập tin bảng"
+
+#: src/pykantui/cli/main.py:71
+msgid "print the board as text, without starting the TUI"
+msgstr "in bảng dưới dạng văn bản mà không cần khởi động TUI"
+
+#: src/pykantui/cli/main.py:146 src/pykantui/cli/main.py:237
+#, python-brace-format
+msgid "error: {error}"
+msgstr "lỗi: {error}"
+
+#: src/pykantui/cli/main.py:238
+msgid "(run `kbn sync` to fix, or `kbn board --file ...` for a local board)"
+msgstr "(chạy `kbn sync` để sửa hoặc `kbn board --file ...` cho bảng cục bộ)"
+
+#: src/pykantui/commands/columns.py:24
+msgid "add, rename, reorder or delete board columns"
+msgstr "thêm, đổi tên, sắp xếp lại hoặc xóa các cột trong bảng"
+
+#: src/pykantui/commands/columns.py:28
+msgid "show the current columns (the default)"
+msgstr "hiển thị các cột hiện tại (mặc định)"
+
+#: src/pykantui/commands/columns.py:30
+msgid "add a column"
+msgstr "thêm một cột"
+
+#: src/pykantui/commands/columns.py:32
+msgid "column id, name or position to insert after"
+msgstr "id cột, tên hoặc vị trí cần chèn sau"
+
+#: src/pykantui/commands/columns.py:33
+msgid "comma-separated provider statuses for this column"
+msgstr "trạng thái nhà cung cấp được phân tách bằng dấu phẩy cho cột này"
+
+#: src/pykantui/commands/columns.py:34
+msgid "create it hidden"
+msgstr "tạo nó ẩn"
+
+#: src/pykantui/commands/columns.py:36
+msgid "rename a column"
+msgstr "đổi tên một cột"
+
+#: src/pykantui/commands/columns.py:40
+msgid "delete a column and rehome its cards"
+msgstr "xóa một cột và đặt lại thẻ của nó"
+
+#: src/pykantui/commands/columns.py:42
+msgid "where its cards go (default: the first column)"
+msgstr "thẻ của nó đi đâu (mặc định: cột đầu tiên)"
+
+#: src/pykantui/commands/columns.py:44
+msgid "change a column's position"
+msgstr "thay đổi vị trí của cột"
+
+#: src/pykantui/commands/columns.py:46
+msgid "1-based position"
+msgstr "vị trí dựa trên 1"
+
+#: src/pykantui/commands/columns.py:48
+msgid "set which column means reset, start or finish"
+msgstr "đặt cột nào có nghĩa là đặt lại, bắt đầu hoặc kết thúc"
+
+#: src/pykantui/commands/columns.py:52
+msgid "set the provider statuses that land in a column"
+msgstr "đặt trạng thái của nhà cung cấp trong một cột"
+
+#: src/pykantui/commands/columns.py:54
+msgid "comma-separated; empty string clears them"
+msgstr "được phân tách bằng dấu phẩy; chuỗi trống xóa chúng"
+
+#: src/pykantui/commands/columns.py:56
+msgid "make a hidden column visible"
+msgstr "hiển thị cột ẩn"
+
+#: src/pykantui/commands/columns.py:58
+msgid "hide a column without deleting it"
+msgstr "ẩn một cột mà không xóa nó"
+
+#: src/pykantui/commands/columns.py:63
+msgid "set the number of visible columns, adding or removing at the end"
+msgstr "đặt số lượng cột hiển thị, thêm hoặc bớt ở cuối"
+
+#: src/pykantui/commands/columns.py:67
+msgid "restore the default shape"
+msgstr "khôi phục hình dạng mặc định"
+
+#: src/pykantui/commands/columns.py:68 src/pykantui/commands/tasks.py:45
+msgid "skip the confirmation"
+msgstr "bỏ qua xác nhận"
+
+#: src/pykantui/commands/graph.py:25
+msgid "render the workspace as an HTML graph"
+msgstr "hiển thị không gian làm việc dưới dạng biểu đồ HTML"
+
+#: src/pykantui/commands/graph.py:27 src/pykantui/commands/sync.py:31
+msgid "the workspace (default: found by walking up)"
+msgstr "không gian làm việc (mặc định: được tìm thấy bằng cách đi lên)"
+
+#: src/pykantui/commands/graph.py:32
+#, python-brace-format
+msgid "where to write it (default: ./{name})"
+msgstr "viết nó ở đâu (mặc định: ./{name})"
+
+#: src/pykantui/commands/graph.py:34
+msgid "open it in a browser afterwards"
+msgstr "sau đó mở nó trong trình duyệt"
+
+#: src/pykantui/commands/init.py:43
+msgid "create a workspace from a tracker"
+msgstr "tạo không gian làm việc từ trình theo dõi"
+
+#: src/pykantui/commands/init.py:45
+msgid "which tracker; see --list-types"
+msgstr "trình theo dõi nào; xem --list-types"
+
+#: src/pykantui/commands/init.py:46
+msgid "print the available trackers and exit"
+msgstr "in các trình theo dõi có sẵn và thoát"
+
+#: src/pykantui/commands/init.py:50
+msgid "print the boards/projects this token can see, ready to paste into .env"
+msgstr "in các bảng/dự án mà mã thông báo này có thể nhìn thấy, sẵn sàng dán vào .env"
+
+#: src/pykantui/commands/init.py:52
+msgid "where to create the workspace"
+msgstr "tạo không gian làm việc ở đâu"
+
+#: src/pykantui/commands/init.py:53
+msgid "a name for the workspace"
+msgstr "tên cho không gian làm việc"
+
+#: src/pykantui/commands/init.py:58
+msgid "type the path instead of browsing for it"
+msgstr "gõ đường dẫn thay vì duyệt tìm nó"
+
+#: src/pykantui/commands/init.py:64
+msgid "column folder naming (default: slug — lowercase, dashes)"
+msgstr "đặt tên thư mục cột (mặc định: slug - chữ thường, dấu gạch ngang)"
+
+#: src/pykantui/commands/init.py:66
+msgid "do not create a git repository"
+msgstr "không tạo kho git"
+
+#: src/pykantui/commands/init.py:67
+msgid "set up but do not pull yet"
+msgstr "đã cài rồi nhưng chưa kéo"
+
+#: src/pykantui/commands/init.py:72
+msgid "finish after setup instead of opening the new board"
+msgstr "kết thúc sau khi thiết lập thay vì mở bảng mới"
+
+#: src/pykantui/commands/init.py:74
+msgid "never prompt; fail instead"
+msgstr "không bao giờ nhắc nhở; thay vào đó thất bại"
+
+#: src/pykantui/commands/init_interactive.py:113
+msgid "Authentication cancelled"
+msgstr "Authentication cancelled"
+
+#: src/pykantui/commands/init_interactive.py:140
+#, python-brace-format
+msgid "Validated project: {project}"
+msgstr "Validated project: {project}"
+
+#: src/pykantui/commands/init_interactive.py:176
+msgid "skipped"
+msgstr "đã bỏ qua"
+
+#: src/pykantui/commands/init_interactive.py:198
+msgid "Setup complete"
+msgstr "Thiết lập hoàn tất"
+
+#: src/pykantui/commands/init_interactive.py:230
+msgid "Enter credentials again"
+msgstr "Enter credentials again"
+
+#: src/pykantui/commands/init_interactive.py:231
+msgid "retry authentication"
+msgstr "retry authentication"
+
+#: src/pykantui/commands/init_interactive.py:238
+msgid "Cancel setup"
+msgstr "Cancel setup"
+
+#: src/pykantui/commands/init_interactive.py:239
+msgid "create nothing"
+msgstr "create nothing"
+
+#: src/pykantui/commands/init_interactive.py:242
+msgid "No workspace or credential file has been created."
+msgstr "No workspace or credential file has been created."
+
+#: src/pykantui/commands/init_interactive.py:245
+#, python-brace-format
+msgid "Could not connect to {provider}"
+msgstr "Could not connect to {provider}"
+
+#: src/pykantui/commands/init_interactive.py:246
+msgid "retry or cancel"
+msgstr "retry or cancel"
+
+#: src/pykantui/commands/init_interactive.py:289
+#, python-brace-format
+msgid "Configured project {project} is not visible; choose an available project"
+msgstr "Configured project {project} is not visible; choose an available project"
+
+#: src/pykantui/commands/init_interactive.py:292
+#: src/pykantui/commands/init_interactive.py:300
+#: src/pykantui/pages/init_wizard.py:328
+#, python-brace-format
+msgid "No {provider} projects found"
+msgstr "Không tìm thấy dự án {provider}"
+
+#: src/pykantui/commands/init_interactive.py:295
+#, python-brace-format
+msgid "Checking {provider} projects again"
+msgstr "Đang kiểm tra lại các dự án {provider}"
+
+#: src/pykantui/commands/init_interactive.py:298
+#, python-brace-format
+msgid "{provider} projects found"
+msgstr "Đã tìm thấy dự án {provider}"
+
+#: src/pykantui/commands/new.py:44
+msgid "draft a story as markdown, without sending it"
+msgstr "soạn thảo một câu chuyện dưới dạng đánh dấu mà không gửi nó"
+
+#: src/pykantui/commands/new.py:46
+msgid "the story title"
+msgstr "tiêu đề câu chuyện"
+
+#: src/pykantui/commands/new.py:47
+msgid "the workspace"
+msgstr "không gian làm việc"
+
+#: src/pykantui/commands/new.py:48
+msgid "which column to draft it into"
+msgstr "cột nào để soạn thảo nó vào"
+
+#: src/pykantui/commands/new.py:53
+msgid "issue type; see --types for what this project accepts"
+msgstr "loại vấn đề; xem --types để biết dự án này chấp nhận những gì"
+
+#: src/pykantui/commands/new.py:55
+msgid "the description"
+msgstr "mô tả"
+
+#: src/pykantui/commands/new.py:56
+msgid "key of the epic it belongs to"
+msgstr "chìa khóa của sử thi nó thuộc về"
+
+#: src/pykantui/commands/new.py:57
+msgid "repeatable"
+msgstr "có thể lặp lại"
+
+#: src/pykantui/commands/new.py:58
+msgid "repeatable Jira component"
+msgstr "thành phần Jira có thể lặp lại"
+
+#: src/pykantui/commands/new.py:61
+msgid "list the columns and exit"
+msgstr "liệt kê các cột và thoát"
+
+#: src/pykantui/commands/new.py:62
+msgid "list the issue types and exit"
+msgstr "liệt kê các loại vấn đề và thoát"
+
+#: src/pykantui/commands/new.py:63
+msgid "list Jira components and exit"
+msgstr "liệt kê các thành phần Jira rồi thoát"
+
+#: src/pykantui/commands/new.py:67
+msgid "do not assign it to yourself (drafts are your work by default)"
+msgstr "đừng tự giao nó cho chính mình (bản nháp là tác phẩm của bạn theo mặc định)"
+
+#: src/pykantui/commands/sync.py:29
+msgid "reconcile a workspace with its provider"
+msgstr "điều hòa không gian làm việc với nhà cung cấp của nó"
+
+#: src/pykantui/commands/sync.py:32
+msgid "do not ask before sending changes to the provider"
+msgstr "không hỏi trước khi gửi thay đổi cho nhà cung cấp"
+
+#: src/pykantui/commands/sync.py:33
+msgid "show what would be sent, and send nothing"
+msgstr "hiển thị những gì sẽ được gửi và không gửi gì"
+
+#: src/pykantui/commands/sync.py:34
+msgid "never send, whatever changed locally"
+msgstr "không bao giờ gửi, bất cứ điều gì thay đổi cục bộ"
+
+#: src/pykantui/commands/sync.py:35
+msgid "ignore the cached issue list"
+msgstr "bỏ qua danh sách vấn đề được lưu trong bộ nhớ cache"
+
+#: src/pykantui/commands/sync.py:39
+msgid "write only issues assigned to or reported by you (the cache still holds all)"
+msgstr "chỉ ghi các vấn đề do bạn chỉ định hoặc báo cáo (bộ đệm vẫn giữ tất cả)"
+
+#: src/pykantui/commands/sync.py:45
+msgid "mirror the whole project, whatever the workspace is set to"
+msgstr "phản chiếu toàn bộ dự án, bất kể không gian làm việc được đặt thành"
+
+#: src/pykantui/commands/sync.py:51
+msgid "send even where the provider also changed the issue, overwriting it"
+msgstr "gửi ngay cả khi nhà cung cấp cũng đã thay đổi vấn đề, ghi đè lên nó"
+
+#: src/pykantui/commands/sync.py:56
+msgid "use provider values for conflicts while sending safe local changes"
+msgstr ""
+"dùng giá trị của nhà cung cấp cho xung đột khi gửi các thay đổi cục bộ an "
+"toàn"
+
+#: src/pykantui/commands/sync.py:61
+msgid ""
+"retry draft creates whose previous outcome was unknown, after checking the "
+"provider"
+msgstr ""
+"thử tạo lại các bản nháp có kết quả trước đó không xác định sau khi kiểm tra"
+" nhà cung cấp"
+
+#: src/pykantui/commands/sync.py:63
+msgid "do not commit the result"
+msgstr "không cam kết kết quả"
+
+#: src/pykantui/commands/tasks.py:21
+msgid "add or remove cards"
+msgstr "thêm hoặc xóa thẻ"
+
+#: src/pykantui/commands/tasks.py:25
+msgid "add one card, or several numbered ones"
+msgstr "thêm một thẻ hoặc nhiều thẻ được đánh số"
+
+#: src/pykantui/commands/tasks.py:27
+msgid "column id, name or position (default: the first)"
+msgstr "id cột, tên hoặc vị trí (mặc định: đầu tiên)"
+
+#: src/pykantui/commands/tasks.py:28
+msgid "add this many, numbered from 1"
+msgstr "thêm số này vào, đánh số từ 1"
+
+#: src/pykantui/commands/tasks.py:29
+msgid "body text for the card"
+msgstr "văn bản nội dung cho thẻ"
+
+#: src/pykantui/commands/tasks.py:30
+msgid "due date, or +N for N days from today"
+msgstr "ngày đáo hạn hoặc +N cho N ngày kể từ hôm nay"
+
+#: src/pykantui/commands/tasks.py:35
+msgid "comma-separated card ids that must finish first"
+msgstr "id thẻ được phân tách bằng dấu phẩy phải hoàn thành trước"
+
+#: src/pykantui/commands/tasks.py:39
+msgid "delete cards by id"
+msgstr "xóa thẻ theo id"
+
+#: src/pykantui/commands/tasks.py:43
+msgid "delete every card in a column"
+msgstr "xóa mọi thẻ trong một cột"
+
+#: src/pykantui/commands/onboarding/connection.py:25
+#, python-brace-format
+msgid "Listing {provider} projects"
+msgstr "Listing {provider} projects"
+
+#: src/pykantui/commands/onboarding/connection.py:27
+msgid "project"
+msgstr "project"
+
+#: src/pykantui/commands/onboarding/connection.py:27
+msgid "projects"
+msgstr "projects"
+
+#: src/pykantui/commands/onboarding/connection.py:28
+#, python-brace-format
+msgid "{count} {noun} available"
+msgstr "{count} {noun} available"
+
+#: src/pykantui/commands/onboarding/connection.py:30
+#, python-brace-format
+msgid "Confirming {provider} identity"
+msgstr "Confirming {provider} identity"
+
+#: src/pykantui/commands/onboarding/connection.py:32
+#, python-brace-format
+msgid "Connected as {identity}"
+msgstr "Connected as {identity}"
+
+#: src/pykantui/commands/onboarding/credentials.py:53
+#, python-brace-format
+msgid "Detected {provider} credentials: {sources}"
+msgstr "Detected {provider} credentials: {sources}"
+
+#: src/pykantui/commands/onboarding/credentials.py:62
+#, python-brace-format
+msgid "Set up {provider} credentials"
+msgstr "Thiết lập thông tin xác thực {provider}"
+
+#: src/pykantui/commands/onboarding/credentials.py:63
+msgid "choose how to provide credentials"
+msgstr "chọn cách cung cấp thông tin xác thực"
+
+#: src/pykantui/commands/onboarding/credentials.py:98
+#, python-brace-format
+msgid "{provider} still needs {fields}"
+msgstr "{provider} still needs {fields}"
+
+#: src/pykantui/commands/onboarding/credentials.py:116
+msgid "Credentials are already stored privately in ~/.pykantui/auth.json"
+msgstr "Credentials are already stored privately in ~/.pykantui/auth.json"
+
+#: src/pykantui/commands/onboarding/credentials.py:119
+msgid ""
+"Credentials supplied by command line will be stored privately after "
+"validation"
+msgstr ""
+"Credentials supplied by command line will be stored privately after "
+"validation"
+
+#: src/pykantui/commands/onboarding/credentials.py:128
+#, python-brace-format
+msgid "Keep {provider} credentials?"
+msgstr "Lưu thông tin xác thực {provider}?"
+
+#: src/pykantui/commands/onboarding/credentials.py:129
+msgid "choose where credentials are reused"
+msgstr "chọn nơi tái sử dụng thông tin xác thực"
+
+#: src/pykantui/commands/onboarding/credentials.py:133
+msgid "Using existing environment variables; no credential was copied"
+msgstr "Using existing environment variables; no credential was copied"
+
+#: src/pykantui/commands/onboarding/credentials.py:137
+#, python-brace-format
+msgid "Credentials are not saved. For future runs, set: {names}"
+msgstr "Credentials are not saved. For future runs, set: {names}"
+
+#: src/pykantui/commands/onboarding/credentials.py:196
+msgid "Get personal credentials"
+msgstr "Lấy thông tin xác thực cá nhân"
+
+#: src/pykantui/commands/onboarding/credentials.py:197
+msgid "no app registration"
+msgstr "không cần đăng ký ứng dụng"
+
+#: src/pykantui/commands/onboarding/credentials.py:199
+#, python-brace-format
+msgid "Set up {provider} API access"
+msgstr "Thiết lập quyền truy cập API cho {provider}"
+
+#: src/pykantui/commands/onboarding/credentials.py:200
+msgid "Power-Up registration required"
+msgstr "cần đăng ký Power-Up"
+
+#: src/pykantui/commands/onboarding/credentials.py:202
+msgid "Open provider credential page"
+msgstr "Mở trang thông tin xác thực của nhà cung cấp"
+
+#: src/pykantui/commands/onboarding/credentials.py:203
+msgid "open the provider credential page"
+msgstr "mở trang thông tin xác thực của nhà cung cấp"
+
+#: src/pykantui/commands/onboarding/credentials.py:217
+msgid "Enter existing credentials"
+msgstr "Nhập thông tin xác thực hiện có"
+
+#: src/pykantui/commands/onboarding/credentials.py:221
+msgid "Paste the credential into a masked field."
+msgstr "Dán thông tin xác thực vào trường được che."
+
+#: src/pykantui/commands/onboarding/credentials.py:230
+msgid "Save privately"
+msgstr "Lưu riêng tư"
+
+#: src/pykantui/commands/onboarding/credentials.py:234
+msgid "Owner-only, outside every workspace and local Git history."
+msgstr "Owner-only, outside every workspace and local Git history."
+
+#: src/pykantui/commands/onboarding/credentials.py:240
+msgid "Use environment"
+msgstr "Dùng môi trường"
+
+#: src/pykantui/commands/onboarding/credentials.py:244
+msgid "Keep using the value already exported or loaded from .env; do not copy it."
+msgstr "Keep using the value already exported or loaded from .env; do not copy it."
+
+#: src/pykantui/commands/onboarding/credentials.py:252
+msgid "Use once"
+msgstr "Dùng một lần"
+
+#: src/pykantui/commands/onboarding/credentials.py:253
+msgid "not saved"
+msgstr "không lưu"
+
+#: src/pykantui/commands/onboarding/credentials.py:256
+msgid ""
+"Available for this setup only. Configure the listed environment variables "
+"for reuse."
+msgstr ""
+"Available for this setup only. Configure the listed environment variables "
+"for reuse."
+
+#: src/pykantui/commands/onboarding/credentials.py:268
+#, python-brace-format
+msgid "Opening {provider} credential page"
+msgstr "Đang mở trang thông tin xác thực của {provider}"
+
+#: src/pykantui/commands/onboarding/credentials.py:271
+msgid "Credential page opened"
+msgstr "Đã mở trang thông tin xác thực"
+
+#: src/pykantui/commands/onboarding/credentials.py:273
+#, python-brace-format
+msgid "Open this address in a browser: {url}"
+msgstr "Open this address in a browser: {url}"
+
+#: src/pykantui/commands/onboarding/credentials.py:293
+#, python-brace-format
+msgid "Environment: {names}"
+msgstr "Environment: {names}"
+
+#: src/pykantui/core/actions.py:113 src/pykantui/tui/widgets/app_header.py:33
+msgid "⌘ Menu"
+msgstr "⌘ Trình đơn"
+
+#: src/pykantui/core/actions.py:115
+msgid "▥ View"
+msgstr "▥ Chế độ xem"
+
+#: src/pykantui/i18n/catalog.py:14
+msgid "Filter"
+msgstr "Bộ lọc"
+
+#: src/pykantui/i18n/catalog.py:15 src/pykantui/tui/widgets/dropdowns.py:78
+msgid "Sort"
+msgstr "Sắp xếp"
+
+#: src/pykantui/i18n/catalog.py:16
+msgid "Columns"
+msgstr "Cột"
+
+#: src/pykantui/i18n/catalog.py:17
+msgid "View"
+msgstr "Chế độ xem"
+
+#: src/pykantui/i18n/catalog.py:18 src/pykantui/tui/controllers/columns.py:91
+msgid "Blocked"
+msgstr "Bị chặn"
+
+#: src/pykantui/i18n/catalog.py:19
+msgid "Unblocked"
+msgstr "Đã bỏ chặn"
+
+#: src/pykantui/i18n/catalog.py:20
+msgid "Overdue"
+msgstr "Quá hạn"
+
+#: src/pykantui/i18n/catalog.py:21
+msgid "Due today"
+msgstr "Hạn chót hôm nay"
+
+#: src/pykantui/i18n/catalog.py:22
+msgid "No due date"
+msgstr "Không có ngày đáo hạn"
+
+#: src/pykantui/i18n/catalog.py:23
+msgid "Has notes"
+msgstr "Có ghi chú"
+
+#: src/pykantui/i18n/catalog.py:24 src/pykantui/tui/widgets/dropdowns.py:77
+msgid "Manual"
+msgstr "Hướng dẫn sử dụng"
+
+#: src/pykantui/i18n/catalog.py:25
+msgid "Due"
+msgstr "Đến hạn"
+
+#: src/pykantui/i18n/catalog.py:26
+msgid "Age"
+msgstr "Tuổi"
+
+#: src/pykantui/i18n/catalog.py:27
+msgid "Rows"
+msgstr "Hàng"
+
+#: src/pykantui/i18n/catalog.py:28
+msgid "Split"
+msgstr "Chia đôi"
+
+#: src/pykantui/i18n/catalog.py:29
+msgid "adjacent"
+msgstr "liền kề"
+
+#: src/pykantui/i18n/catalog.py:30
+msgid "jump"
+msgstr "nhảy"
+
+#: src/pykantui/i18n/catalog.py:31
+msgid "New folder"
+msgstr "Thư mục mới"
+
+#: src/pykantui/i18n/catalog.py:32
+msgid "Work Items"
+msgstr "Mục công việc"
+
+#: src/pykantui/i18n/catalog.py:33
+msgid "Info"
+msgstr "Thông tin"
+
+#: src/pykantui/i18n/catalog.py:34
+msgid "Comments"
+msgstr "Bình luận"
+
+#: src/pykantui/i18n/catalog.py:35
+msgid "Related"
+msgstr "Liên quan"
+
+#: src/pykantui/i18n/catalog.py:36
+msgid "Attachments"
+msgstr "Tệp đính kèm"
+
+#: src/pykantui/i18n/catalog.py:37
+msgid "Links"
+msgstr "Liên kết"
+
+#: src/pykantui/i18n/catalog.py:38
+msgid "Subtasks"
+msgstr "Nhiệm vụ phụ"
+
+#: src/pykantui/i18n/catalog.py:39 src/pykantui/pages/init_wizard.py:272
+msgid "Project"
+msgstr "dự án"
+
+#: src/pykantui/i18n/catalog.py:40
+msgid "Sprint"
+msgstr "Chạy nước rút"
+
+#: src/pykantui/i18n/catalog.py:41
+msgid "Query"
+msgstr "Truy vấn"
+
+#: src/pykantui/i18n/catalog.py:42
+msgid "Reporter"
+msgstr "Phóng viên"
+
+#: src/pykantui/i18n/catalog.py:43
+msgid "Created"
+msgstr "Đã tạo"
+
+#: src/pykantui/i18n/catalog.py:44
+msgid "Last Update"
+msgstr "Cập nhật lần cuối"
+
+#: src/pykantui/i18n/catalog.py:45 src/pykantui/workspace/outbound.py:71
+msgid "Due Date"
+msgstr "Ngày đáo hạn"
+
+#: src/pykantui/i18n/catalog.py:46
+msgid "Resolved"
+msgstr "Đã giải quyết"
+
+#: src/pykantui/i18n/catalog.py:47
+msgid "Resolution"
+msgstr "Độ phân giải"
+
+#: src/pykantui/i18n/catalog.py:48
+msgid "Blocked by"
+msgstr "Bị chặn bởi"
+
+#: src/pykantui/i18n/catalog.py:49
+msgid "Time Tracking"
+msgstr "Theo dõi thời gian"
+
+#: src/pykantui/i18n/catalog.py:50
+msgid "Highest"
+msgstr "Cao nhất"
+
+#: src/pykantui/i18n/catalog.py:51
+msgid "Blocker"
+msgstr "Trình chặn"
+
+#: src/pykantui/i18n/catalog.py:52
+msgid "Critical"
+msgstr "Quan trọng"
+
+#: src/pykantui/i18n/catalog.py:53
+msgid "High"
+msgstr "Cao"
+
+#: src/pykantui/i18n/catalog.py:54
+msgid "Medium"
+msgstr "Trung bình"
+
+#: src/pykantui/i18n/catalog.py:55
+msgid "Normal"
+msgstr "Bình thường"
+
+#: src/pykantui/i18n/catalog.py:56
+msgid "Low"
+msgstr "Thấp"
+
+#: src/pykantui/i18n/catalog.py:57
+msgid "Lowest"
+msgstr "Thấp nhất"
+
+#: src/pykantui/i18n/catalog.py:58
+msgid "Trivial"
+msgstr "tầm thường"
+
+#: src/pykantui/pages/chooser.py:130
+msgid "Choose one"
+msgstr "Chọn một"
+
+#: src/pykantui/pages/chooser.py:131
+msgid "type to filter"
+msgstr "gõ để lọc"
+
+#: src/pykantui/pages/chooser.py:141 src/pykantui/pages/folder.py:216
+#: src/pykantui/pages/init_wizard.py:112 src/pykantui/pages/init_wizard.py:324
+msgid "Back"
+msgstr "Quay lại"
+
+#: src/pykantui/pages/chooser.py:142
+msgid "↑↓ move · type to filter · enter choose · esc cancel"
+msgstr "↑↓ di chuyển · gõ để lọc · nhập chọn · esc hủy"
+
+#: src/pykantui/pages/chooser.py:153 src/pykantui/pages/confirm.py:43
+#: src/pykantui/pages/edit.py:109 src/pykantui/pages/folder.py:240
+#: src/pykantui/pages/init_wizard.py:120 src/pykantui/pages/init_wizard.py:340
+#: src/pykantui/pages/sync.py:129 src/pykantui/tui/controllers/columns.py:136
+#: src/pykantui/tui/widgets/compact_footer.py:72
+msgid "Cancel"
+msgstr "Hủy"
+
+#: src/pykantui/pages/chooser.py:154
+msgid "Choose"
+msgstr "Chọn"
+
+#: src/pykantui/pages/confirm.py:36
+msgid "Move this card?"
+msgstr "Di chuyển thẻ này?"
+
+#: src/pykantui/pages/confirm.py:42 src/pykantui/tui/widgets/compact_footer.py:71
+#: src/pykantui/tui/widgets/compact_footer.py:76
+msgid "Move"
+msgstr "Di chuyển"
+
+#: src/pykantui/pages/detail.py:87 src/pykantui/tui/widgets/work_items.py:112
+msgid "Private Markdown notes · local only"
+msgstr "Ghi chú Markdown riêng tư · chỉ cục bộ"
+
+#: src/pykantui/pages/detail.py:92 src/pykantui/pages/init_wizard.py:183
+msgid "Close"
+msgstr "Đóng"
+
+#: src/pykantui/pages/detail.py:113
+msgid "Read-only"
+msgstr "Chỉ đọc"
+
+#: src/pykantui/pages/detail.py:115 src/pykantui/tui/widgets/compact_footer.py:62
+#: src/pykantui/tui/widgets/compact_footer.py:77
+msgid "Edit"
+msgstr "Sửa"
+
+#: src/pykantui/pages/detail.py:125
+msgid "[$success]finished[/]"
+msgstr "[$success]đã hoàn thành[/]"
+
+#: src/pykantui/pages/detail.py:127
+msgid "in progress"
+msgstr "đang tiến hành"
+
+#: src/pykantui/pages/detail.py:129
+msgid "not started"
+msgstr "chưa bắt đầu"
+
+#: src/pykantui/pages/detail.py:133
+#, python-brace-format
+msgid "[$error]blocked by {count}[/]"
+msgstr "[$error]Bị chặn bởi {count}[/]"
+
+#: src/pykantui/pages/detail.py:135
+#, python-brace-format
+msgid "[$warning]blocking {count}[/]"
+msgstr "[$warning]chặn {count}[/]"
+
+#: src/pykantui/pages/detail.py:139
+#, python-brace-format
+msgid "[$error]{days}d overdue[/]"
+msgstr "[$error]{days}d quá hạn[/]"
+
+#: src/pykantui/pages/detail.py:141
+msgid "[$warning]due today[/]"
+msgstr "[$warning]đến hạn hôm nay[/]"
+
+#: src/pykantui/pages/detail.py:178
+msgid "This backend is read-only"
+msgstr "Phần phụ trợ này ở chế độ chỉ đọc"
+
+#: src/pykantui/pages/detail.py:202
+msgid "A card needs a summary"
+msgstr "Một thẻ cần có một bản tóm tắt"
+
+#: src/pykantui/pages/edit.py:55
+#, python-brace-format
+msgid "Edit {key}"
+msgstr "Chỉnh sửa {key}"
+
+#: src/pykantui/pages/edit.py:55 src/pykantui/tui/menu_items.py:64
+#: src/pykantui/tui/widgets/compact_footer.py:81
+msgid "New card"
+msgstr "Thẻ mới"
+
+#: src/pykantui/pages/edit.py:61
+msgid "What needs doing?"
+msgstr "Cần làm gì?"
+
+#: src/pykantui/pages/edit.py:61
+msgid "Title"
+msgstr "Tiêu đề"
+
+#: src/pykantui/pages/edit.py:70 src/pykantui/workspace/outbound.py:67
+msgid "Assignee"
+msgstr "Người được chuyển nhượng"
+
+#: src/pykantui/pages/edit.py:74 src/pykantui/tui/widgets/work_items.py:109
+#: src/pykantui/workspace/outbound.py:64
+msgid "Type"
+msgstr "loại"
+
+#: src/pykantui/pages/edit.py:83 src/pykantui/tui/widgets/card_fields.py:209
+msgid "Select a priority"
+msgstr "Chọn mức độ ưu tiên"
+
+#: src/pykantui/pages/edit.py:84 src/pykantui/workspace/outbound.py:68
+msgid "Priority"
+msgstr "Ưu tiên"
+
+#: src/pykantui/pages/edit.py:90
+msgid "Due date"
+msgstr "Ngày đến hạn"
+
+#: src/pykantui/pages/edit.py:95 src/pykantui/workspace/outbound.py:69
+msgid "Labels"
+msgstr "Nhãn"
+
+#: src/pykantui/pages/edit.py:97 src/pykantui/workspace/outbound.py:70
+msgid "Components"
+msgstr "Thành phần"
+
+#: src/pykantui/pages/edit.py:124 src/pykantui/pages/edit.py:125
+#: src/pykantui/tui/widgets/card_fields.py:199
+#: src/pykantui/tui/widgets/compact_footer.py:79
+msgid "Column"
+msgstr "Cột"
+
+#: src/pykantui/pages/edit.py:165
+msgid "A card needs a title"
+msgstr "Thẻ cần có tiêu đề"
+
+#: src/pykantui/pages/folder.py:207
+msgid "Where should it live?"
+msgstr "Nó nên sống ở đâu?"
+
+#: src/pykantui/pages/folder.py:222
+msgid "↑ Parent"
+msgstr "↑ Phụ huynh"
+
+#: src/pykantui/pages/folder.py:223 src/pykantui/tui/widgets/menu_bar.py:99
+msgid "⌂ Home"
+msgstr "⌂ Trang chủ"
+
+#: src/pykantui/pages/folder.py:224
+msgid "/ Path…"
+msgstr "/ Con đường…"
+
+#: src/pykantui/pages/folder.py:233
+msgid "↑↓ move · enter open · backspace parent · . hidden"
+msgstr "↑↓ di chuyển · nhập mở · backspace cha · . ẩn giấu"
+
+#: src/pykantui/pages/folder.py:242
+msgid "Choose folder"
+msgstr "Chọn thư mục"
+
+#: src/pykantui/pages/grouped_palette.py:141
+msgid "Search commands or groups…"
+msgstr "Tìm kiếm lệnh hoặc nhóm…"
+
+#: src/pykantui/pages/init_wizard.py:121
+msgid "Continue"
+msgstr "Tiếp tục"
+
+#: src/pykantui/pages/init_wizard.py:254
+msgid "Open board"
+msgstr "Mở bảng"
+
+#: src/pykantui/pages/init_wizard.py:254
+msgid "Finish"
+msgstr "Hoàn tất"
+
+#: src/pykantui/pages/init_wizard.py:271
+msgid "Provider"
+msgstr "Nhà cung cấp"
+
+#: src/pykantui/pages/init_wizard.py:273
+msgid "Workspace"
+msgstr "Không gian làm việc"
+
+#: src/pykantui/pages/init_wizard.py:274
+msgid "Initial sync"
+msgstr "Đồng bộ ban đầu"
+
+#: src/pykantui/pages/init_wizard.py:333
+#, python-brace-format
+msgid ""
+"Create a project in {provider}, then return here and check again. No local "
+"files have been created."
+msgstr ""
+"Hãy tạo một dự án trong {provider}, sau đó quay lại đây và kiểm tra lại. "
+"Chưa có tệp cục bộ nào được tạo."
+
+#: src/pykantui/pages/init_wizard.py:341
+msgid "Check again"
+msgstr "Kiểm tra lại"
+
+#: src/pykantui/pages/init_wizard.py:467
+msgid "pykantui - setup"
+msgstr "pykantui - thiết lập"
+
+#: src/pykantui/pages/init_wizard.py:499 src/pykantui/pages/init_wizard.py:504
+msgid "Setup stopped"
+msgstr "Đã dừng thiết lập"
+
+#: src/pykantui/pages/init_wizard.py:500 src/pykantui/pages/init_wizard.py:507
+msgid "Could not finish setup"
+msgstr "Không thể hoàn tất quá trình thiết lập"
+
+#: src/pykantui/pages/init_wizard.py:509
+msgid ""
+"An unexpected error stopped setup. The last completed step is shown behind "
+"this message. Close it, then run `kbn init` again."
+msgstr ""
+"Một lỗi không mong muốn đã dừng thiết lập. Bước hoàn tất gần nhất được hiển "
+"thị phía sau thông báo này. Hãy đóng thông báo rồi chạy lại `kbn init`."
+
+#: src/pykantui/pages/sync.py:76
+msgid "SYNC PREVIEW"
+msgstr "XEM TRƯỚC ĐỒNG BỘ"
+
+#: src/pykantui/pages/sync.py:85
+msgid "LOCAL ONLY"
+msgstr "CHỈ CỤC BỘ"
+
+#: src/pykantui/pages/sync.py:87
+msgid ""
+"• Private Markdown notes\n"
+"• Local Git history\n"
+"• Credentials and cache files"
+msgstr ""
+"• Ghi chú Markdown riêng tư\n"
+"• Lịch sử Git cục bộ\n"
+"• Thông tin đăng nhập và tệp bộ nhớ đệm"
+
+#: src/pykantui/pages/sync.py:92
+msgid ""
+"Choose provider or local for each conflicting field. Undecided cards stay "
+"local."
+msgstr ""
+"Chọn phía nhà cung cấp hoặc cục bộ cho từng trường xung đột. Thẻ chưa quyết "
+"định vẫn ở cục bộ."
+
+#: src/pykantui/pages/sync.py:95
+msgid "RESOLVE CONFLICTS"
+msgstr "GIẢI QUYẾT XUNG ĐỘT"
+
+#: src/pykantui/pages/sync.py:105
+msgid "Keep undecided"
+msgstr "Giữ chưa quyết định"
+
+#: src/pykantui/pages/sync.py:107 src/pykantui/pages/sync.py:120
+#, python-brace-format
+msgid "Use {provider} version"
+msgstr "Dùng phiên bản {provider}"
+
+#: src/pykantui/pages/sync.py:110
+msgid "Send local version"
+msgstr "Gửi phiên bản cục bộ"
+
+#: src/pykantui/pages/sync.py:124
+#, python-brace-format
+msgid "Overwrite {provider}"
+msgstr "Ghi đè {provider}"
+
+#: src/pykantui/pages/sync.py:130
+msgid "Pull only"
+msgstr "Chỉ kéo"
+
+#: src/pykantui/pages/sync.py:131
+msgid "Send ready changes"
+msgstr "Gửi thay đổi đã sẵn sàng"
+
+#: src/pykantui/tui/app.py:133
+msgid "Run this pykantui board command"
+msgstr "Chạy lệnh bảng pykantui này"
+
+#: src/pykantui/tui/app.py:142
+#, python-brace-format
+msgid "Run the {menu} command in pykantui"
+msgstr "Chạy lệnh {menu} trong pykantui"
+
+#: src/pykantui/tui/app.py:148
+#, python-brace-format
+msgid "Sync with {provider}…"
+msgstr "Đồng bộ hóa với {provider}…"
+
+#: src/pykantui/tui/app.py:190
+msgid "card"
+msgid_plural "cards"
+msgstr[0] "thẻ"
+
+#: src/pykantui/tui/app.py:195
+#, python-brace-format
+msgid "{shown} of {total} · {detail}"
+msgstr "{shown} của {total} · {detail}"
+
+#: src/pykantui/tui/app.py:196
+#, python-brace-format
+msgid "{shown} of {total}"
+msgstr "{shown} của {total}"
+
+#: src/pykantui/tui/app.py:259
+msgid "Check your configuration"
+msgstr "Kiểm tra cấu hình của bạn"
+
+#: src/pykantui/tui/app.py:277
+#, python-brace-format
+msgid "Unknown theme {theme!r}; using {fallback}"
+msgstr "Chủ đề không xác định {theme!r}; sử dụng {fallback}"
+
+#: src/pykantui/tui/app.py:301
+msgid "confirm on"
+msgstr "xác nhận trên"
+
+#: src/pykantui/tui/app.py:301
+msgid "confirm off"
+msgstr "xác nhận tắt"
+
+#: src/pykantui/tui/app.py:361
+#, python-brace-format
+msgid "{provider} cannot create cards here"
+msgstr "{provider} không thể tạo thẻ ở đây"
+
+#: src/pykantui/tui/app.py:398
+msgid "Create failed"
+msgstr "Tạo không thành công"
+
+#: src/pykantui/tui/app.py:400 src/pykantui/tui/app.py:446
+msgid "Saved locally"
+msgstr "Đã lưu cục bộ"
+
+#: src/pykantui/tui/app.py:415 src/pykantui/tui/app.py:451
+#, python-brace-format
+msgid "{provider} cards cannot be edited here"
+msgstr "Không thể chỉnh sửa thẻ {provider} tại đây"
+
+#: src/pykantui/tui/app.py:443
+msgid "Save failed"
+msgstr "Lưu không thành công"
+
+#: src/pykantui/tui/menu_items.py:55
+msgid "⌂ Home · ▥ Kanban"
+msgstr "⌂ Trang chủ · ▥ Kanban"
+
+#: src/pykantui/tui/menu_items.py:67
+msgid "Reload files"
+msgstr "Tải lại tập tin"
+
+#: src/pykantui/tui/menu_items.py:75
+msgid "Sync with provider…"
+msgstr "Đồng bộ hóa với nhà cung cấp…"
+
+#: src/pykantui/tui/menu_items.py:78 src/pykantui/tui/palette.py:169
+msgid "Help"
+msgstr "Trợ giúp"
+
+#: src/pykantui/tui/menu_items.py:105
+msgid "+ Save this filter…"
+msgstr "+ Lưu bộ lọc này…"
+
+#: src/pykantui/tui/menu_items.py:106
+msgid "Clear filters"
+msgstr "Xóa bộ lọc"
+
+#: src/pykantui/tui/menu_items.py:116 src/pykantui/tui/widgets/menu_bar.py:200
+msgid "⇵ Reverse"
+msgstr "⇵ Đảo ngược"
+
+#: src/pykantui/tui/menu_items.py:121
+msgid "Add column…"
+msgstr "Thêm cột…"
+
+#: src/pykantui/tui/menu_items.py:122
+msgid "Rename this column…"
+msgstr "Đổi tên cột này…"
+
+#: src/pykantui/tui/menu_items.py:123
+msgid "Hide this column"
+msgstr "Ẩn cột này"
+
+#: src/pykantui/tui/menu_items.py:124
+msgid "Delete this column…"
+msgstr "Xóa cột này…"
+
+#: src/pykantui/tui/menu_items.py:125
+msgid "Expand all columns"
+msgstr "Mở rộng tất cả các cột"
+
+#: src/pykantui/tui/menu_items.py:141
+msgid "[ Narrow work items"
+msgstr "[ Hạng mục công việc thu hẹp"
+
+#: src/pykantui/tui/menu_items.py:142
+msgid "] Widen work items"
+msgstr "] Mở rộng các hạng mục công việc"
+
+#: src/pykantui/tui/menu_items.py:143
+msgid "\\ Reset divider"
+msgstr "\\ Đặt lại bộ chia"
+
+#: src/pykantui/tui/menu_items.py:151
+#, python-brace-format
+msgid "Movement: {mode}"
+msgstr "Phong trào: {mode}"
+
+#: src/pykantui/tui/menu_items.py:156
+msgid "Confirm moves"
+msgstr "Xác nhận di chuyển"
+
+#: src/pykantui/tui/menu_items.py:159
+msgid "Card detail"
+msgstr "Chi tiết thẻ"
+
+#: src/pykantui/tui/menu_items.py:163
+msgid "Collapse this column"
+msgstr "Thu gọn cột này"
+
+#: src/pykantui/tui/controllers/actions.py:256 src/pykantui/tui/menu_items.py:170
+msgid "Keys"
+msgstr "Phím"
+
+#: src/pykantui/tui/controllers/actions.py:247 src/pykantui/tui/menu_items.py:173
+msgid "Where things are stored"
+msgstr "Nơi mọi thứ được lưu trữ"
+
+#: src/pykantui/tui/palette.py:40
+msgid "Return to the Kanban home board"
+msgstr "Quay trở lại bảng chủ Kanban"
+
+#: src/pykantui/tui/palette.py:41
+msgid "Create a card or reload Markdown files"
+msgstr "Tạo thẻ hoặc tải lại các tệp Markdown"
+
+#: src/pykantui/tui/palette.py:54
+msgid "State, provider fields, and saved filters"
+msgstr "Các trường trạng thái, nhà cung cấp và bộ lọc đã lưu"
+
+#: src/pykantui/tui/palette.py:55
+msgid "Manual, title, due date, age, or reverse"
+msgstr "Hướng dẫn sử dụng, tiêu đề, ngày đến hạn, tuổi hoặc đảo ngược"
+
+#: src/pykantui/tui/palette.py:56
+msgid "Add, rename, hide, delete, or expand"
+msgstr "Thêm, đổi tên, ẩn, xóa hoặc mở rộng"
+
+#: src/pykantui/tui/palette.py:57
+msgid "Kanban, Split, Rows, and board behavior"
+msgstr "Hoạt động của Kanban, Split, Rows và board"
+
+#: src/pykantui/tui/palette.py:60
+msgid "Change the filters applied to visible cards"
+msgstr "Thay đổi bộ lọc được áp dụng cho thẻ hiển thị"
+
+#: src/pykantui/tui/palette.py:61
+msgid "Change the order of visible cards"
+msgstr "Thay đổi thứ tự của thẻ hiển thị"
+
+#: src/pykantui/tui/palette.py:62
+msgid "Change the current board columns"
+msgstr "Thay đổi các cột bảng hiện tại"
+
+#: src/pykantui/tui/palette.py:63
+msgid "Change the layout or board behavior"
+msgstr "Thay đổi cách bố trí hoặc hành vi của bảng"
+
+#: src/pykantui/tui/palette.py:64
+msgid "Open this pykantui help topic"
+msgstr "Mở chủ đề trợ giúp pykantui này"
+
+#: src/pykantui/tui/palette.py:72 src/pykantui/tui/widgets/dropdowns.py:67
+msgid "State"
+msgstr "tiểu bang"
+
+#: src/pykantui/tui/palette.py:72
+msgid "Blocked, overdue, due dates, and local notes"
+msgstr "Bị chặn, quá hạn, ngày đến hạn và ghi chú địa phương"
+
+#: src/pykantui/tui/palette.py:76
+msgid "Provider fields"
+msgstr "Trường nhà cung cấp"
+
+#: src/pykantui/tui/palette.py:77
+#, python-brace-format
+msgid "Filters supported by {provider}"
+msgstr "Các bộ lọc được {provider} hỗ trợ"
+
+#: src/pykantui/tui/palette.py:82
+msgid "Saved filters"
+msgstr "Bộ lọc đã lưu"
+
+#: src/pykantui/tui/palette.py:83
+msgid "Apply a saved combination of filters"
+msgstr "Áp dụng kết hợp các bộ lọc đã lưu"
+
+#: src/pykantui/tui/palette.py:107
+msgid "Layout"
+msgstr "Bố cục"
+
+#: src/pykantui/tui/palette.py:107
+msgid "Kanban, Split, or Rows"
+msgstr "Kanban, Tách hoặc Hàng"
+
+#: src/pykantui/tui/palette.py:108
+msgid "Split pane"
+msgstr "Ngăn chia"
+
+#: src/pykantui/tui/palette.py:108
+msgid "Resize or reset the work-items divider"
+msgstr "Thay đổi kích thước hoặc đặt lại bộ chia mục công việc"
+
+#: src/pykantui/tui/palette.py:109
+msgid "Behavior"
+msgstr "Hành vi"
+
+#: src/pykantui/tui/palette.py:109
+msgid "Movement, confirmation, detail, and columns"
+msgstr "Chuyển động, xác nhận, chi tiết và cột"
+
+#: src/pykantui/tui/palette.py:141
+msgid "Board"
+msgstr "bảng"
+
+#: src/pykantui/tui/palette.py:142
+msgid "Home, create cards, and reload local files"
+msgstr "Trang chủ, tạo thẻ và tải lại các tệp cục bộ"
+
+#: src/pykantui/tui/palette.py:147
+msgid "Organize"
+msgstr "tổ chức"
+
+#: src/pykantui/tui/palette.py:148
+msgid "Filter, sort, columns, and layouts"
+msgstr "Lọc, sắp xếp, cột và bố cục"
+
+#: src/pykantui/tui/palette.py:164
+msgid "Review local and provider changes before syncing"
+msgstr "Xem lại các thay đổi cục bộ và nhà cung cấp trước khi đồng bộ hóa"
+
+#: src/pykantui/tui/palette.py:170
+msgid "Keys and where pykantui stores data"
+msgstr "Phím và nơi pykantui lưu trữ dữ liệu"
+
+#: src/pykantui/tui/palette.py:177
+msgid "System"
+msgstr "Hệ thống"
+
+#: src/pykantui/tui/palette.py:178
+msgid "Theme, screenshot, maximize, and application commands"
+msgstr "Các lệnh chủ đề, ảnh chụp màn hình, phóng to và ứng dụng"
+
+#: src/pykantui/tui/controllers/actions.py:42
+#, python-brace-format
+msgid "Movement mode: {mode}"
+msgstr "Chế độ di chuyển: {mode}"
+
+#: src/pykantui/tui/controllers/actions.py:49
+msgid "Moves will ask for confirmation"
+msgstr "Di chuyển sẽ yêu cầu xác nhận"
+
+#: src/pykantui/tui/controllers/actions.py:49
+msgid "Moves apply immediately"
+msgstr "Di chuyển áp dụng ngay lập tức"
+
+#: src/pykantui/tui/controllers/actions.py:163
+msgid "Sprints are a Jira board setting"
+msgstr "Chạy nước rút là cài đặt bảng Jira"
+
+#: src/pykantui/tui/controllers/actions.py:165
+msgid "sprint"
+msgstr "chạy nước rút"
+
+#: src/pykantui/tui/controllers/actions.py:166
+#, python-brace-format
+msgid "Source: {source}. Press Search to re-run."
+msgstr "Nguồn: {source}. Nhấn Tìm kiếm để chạy lại."
+
+#: src/pykantui/tui/controllers/actions.py:208
+#, python-brace-format
+msgid "Saved filter {name}"
+msgstr "Bộ lọc đã lưu {name}"
+
+#: src/pykantui/tui/controllers/actions.py:244
+msgid "in memory (demo board)"
+msgstr "trong bộ nhớ (bảng demo)"
+
+#: src/pykantui/tui/controllers/actions.py:246
+#, python-brace-format
+msgid "Columns and filters: {path}"
+msgstr "Cột và bộ lọc: {path}"
+
+#: src/pykantui/tui/controllers/actions.py:253
+msgid ""
+"hjkl move focus · HL move card · JK reorder · v detail · , menu\n"
+"z collapse · Z expand all · n new · e edit · d delete · r reload · F5 sync"
+msgstr ""
+"tiêu điểm di chuyển hjkl · Thẻ di chuyển HL · sắp xếp lại JK · v chi tiết · "
+", menu\n"
+"z sụp đổ · Z mở rộng tất cả · n mới · e chỉnh sửa · d xóa · r tải lại · Đồng"
+" bộ hóa F5"
+
+#: src/pykantui/tui/controllers/columns.py:32
+msgid "New card here"
+msgstr "Thẻ mới đây"
+
+#: src/pykantui/tui/controllers/columns.py:35
+msgid "Rename column…"
+msgstr "Đổi tên cột…"
+
+#: src/pykantui/tui/controllers/columns.py:36
+msgid "Add column after…"
+msgstr "Thêm cột sau…"
+
+#: src/pykantui/tui/controllers/columns.py:37
+msgid "Hide column"
+msgstr "Ẩn cột"
+
+#: src/pykantui/tui/controllers/columns.py:40
+msgid "Delete all cards…"
+msgstr "Xóa tất cả thẻ…"
+
+#: src/pykantui/tui/controllers/columns.py:42
+msgid "Delete column…"
+msgstr "Xóa cột…"
+
+#: src/pykantui/tui/controllers/columns.py:86
+msgid "Rename column"
+msgstr "Đổi tên cột"
+
+#: src/pykantui/tui/controllers/columns.py:91
+msgid "New column name"
+msgstr "Tên cột mới"
+
+#: src/pykantui/tui/controllers/columns.py:96
+#, python-brace-format
+msgid "There is already a column called {name}"
+msgstr "Đã có một cột tên là {name}"
+
+#: src/pykantui/tui/controllers/columns.py:102
+msgid "At least one column has to stay visible"
+msgstr "Ít nhất một cột phải hiển thị"
+
+#: src/pykantui/tui/controllers/columns.py:106
+#, python-brace-format
+msgid "Delete the {column} column?"
+msgstr "Xóa cột {column}?"
+
+#: src/pykantui/tui/controllers/columns.py:107
+msgid "Delete column"
+msgstr "Xóa cột"
+
+#: src/pykantui/tui/controllers/columns.py:110
+msgid "A board needs at least one column"
+msgstr "Một bảng cần ít nhất một cột"
+
+#: src/pykantui/tui/controllers/columns.py:124
+#, python-brace-format
+msgid "{column} is already empty"
+msgstr "{column} đã trống"
+
+#: src/pykantui/tui/controllers/columns.py:126
+#, python-brace-format
+msgid "Delete {count} card(s) from {column}?"
+msgstr "Xóa (các) thẻ {count} khỏi {column}?"
+
+#: src/pykantui/tui/controllers/columns.py:127
+msgid "Delete cards"
+msgstr "Xóa thẻ"
+
+#: src/pykantui/tui/controllers/sync.py:27
+msgid "this board already shows everything"
+msgstr "bảng này đã hiển thị mọi thứ rồi"
+
+#: src/pykantui/tui/controllers/sync.py:36
+#, python-brace-format
+msgid "could not load the team's cards: {error}"
+msgstr "không nạp được thẻ của đội: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:43
+msgid "showing the whole project — their cards are read-only"
+msgstr "hiển thị toàn bộ dự án - thẻ của họ ở dạng chỉ đọc"
+
+#: src/pykantui/tui/controllers/sync.py:45
+msgid "showing only your cards"
+msgstr "chỉ hiển thị thẻ của bạn"
+
+#: src/pykantui/tui/controllers/sync.py:56
+#, python-brace-format
+msgid "Reload failed: {error}"
+msgstr "Tải lại không thành công: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:62
+msgid "Columns reloaded"
+msgstr "Đã tải lại cột"
+
+#: src/pykantui/tui/controllers/sync.py:66
+msgid "Reloaded local files"
+msgstr "Đã tải lại các tập tin cục bộ"
+
+#: src/pykantui/tui/controllers/sync.py:73
+msgid "This local board has no provider to sync"
+msgstr "Bảng cục bộ này không có nhà cung cấp để đồng bộ hóa"
+
+#: src/pykantui/tui/controllers/sync.py:79
+msgid "This backend cannot sync"
+msgstr "Phần phụ trợ này không thể đồng bộ hóa"
+
+#: src/pykantui/tui/controllers/sync.py:85
+#, python-brace-format
+msgid "Sync preview failed: {error}"
+msgstr "Xem trước đồng bộ hóa không thành công: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:95
+msgid "Sync cancelled — local changes kept"
+msgstr "Đồng bộ hóa đã bị hủy - các thay đổi cục bộ được giữ lại"
+
+#: src/pykantui/tui/controllers/sync.py:109
+#, python-brace-format
+msgid "Sync failed: {error}"
+msgstr "Đồng bộ hóa không thành công: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:115
+msgid "Sync complete"
+msgstr "Đồng bộ hóa hoàn tất"
+
+#: src/pykantui/tui/widgets/app_header.py:37
+msgid "⎇ Sync"
+msgstr "⎇ Đồng bộ hóa"
+
+#: src/pykantui/tui/widgets/board.py:234
+msgid "At least one column has to stay open"
+msgstr "Ít nhất một cột phải mở"
+
+#: src/pykantui/tui/widgets/board.py:382 src/pykantui/tui/widgets/board.py:429
+msgid "Move blocked"
+msgstr "Di chuyển bị chặn"
+
+#: src/pykantui/tui/widgets/board.py:405
+#, python-brace-format
+msgid "Saved to Markdown. Sync sends it to {provider}."
+msgstr "Đã lưu vào Markdown. Đồng bộ hóa sẽ gửi nó tới {provider}."
+
+#: src/pykantui/tui/widgets/board.py:409
+#, python-brace-format
+msgid "This writes to {provider}."
+msgstr "Điều này ghi vào {provider}."
+
+#: src/pykantui/tui/widgets/board.py:411
+msgid "This marks the task finished."
+msgstr "Điều này đánh dấu nhiệm vụ đã hoàn thành."
+
+#: src/pykantui/tui/widgets/board.py:413
+msgid "This clears the start and finish dates."
+msgstr "Điều này sẽ xóa ngày bắt đầu và ngày kết thúc."
+
+#: src/pykantui/tui/widgets/board.py:435
+msgid "Move failed"
+msgstr "Di chuyển không thành công"
+
+#: src/pykantui/tui/widgets/board.py:455
+#, python-brace-format
+msgid "Moved to {column}"
+msgstr "Đã chuyển sang {column}"
+
+#: src/pykantui/tui/widgets/board.py:460
+msgid "Moved"
+msgstr "Đã di chuyển"
+
+#: src/pykantui/tui/widgets/board.py:465
+msgid "Reordering needs Manual sort — the board is showing a sorted view"
+msgstr ""
+"Nhu cầu sắp xếp lại Sắp xếp thủ công - bảng đang hiển thị chế độ xem được "
+"sắp xếp"
+
+#: src/pykantui/tui/widgets/board.py:478
+msgid "Reorder failed"
+msgstr "Sắp xếp lại không thành công"
+
+#: src/pykantui/tui/widgets/board.py:488
+msgid "Delete failed"
+msgstr "Xóa không thành công"
+
+#: src/pykantui/tui/widgets/board.py:502
+msgid "Nothing is blocking this task"
+msgstr "Không có gì đang chặn nhiệm vụ này"
+
+#: src/pykantui/tui/widgets/board.py:502
+msgid "Blockers"
+msgstr "Trình chặn"
+
+#: src/pykantui/tui/widgets/card.py:152
+#, python-brace-format
+msgid "age {days}d"
+msgstr "tuổi {days}n"
+
+#: src/pykantui/tui/widgets/card.py:156
+msgid "no due date"
+msgstr "không có hạn"
+
+#: src/pykantui/tui/widgets/card.py:158
+#, python-brace-format
+msgid "overdue {days}d"
+msgstr "quá hạn {days}n"
+
+#: src/pykantui/tui/widgets/card.py:160
+msgid "due today"
+msgstr "đến hạn hôm nay"
+
+#: src/pykantui/tui/widgets/card.py:162
+#, python-brace-format
+msgid "due in {days}d"
+msgstr "đến hạn sau {days}n"
+
+#: src/pykantui/tui/widgets/card.py:166
+#, python-brace-format
+msgid "blocked ({count})"
+msgstr "bị chặn ({count})"
+
+#: src/pykantui/tui/widgets/card.py:166
+msgid "unblocked"
+msgstr "được bỏ chặn"
+
+#: src/pykantui/tui/widgets/card.py:168
+#, python-brace-format
+msgid "blocking {count}"
+msgstr "chặn {count}"
+
+#: src/pykantui/tui/widgets/card_fields.py:127
+#: src/pykantui/tui/widgets/work_items.py:110
+#: src/pykantui/workspace/outbound.py:62
+msgid "Description"
+msgstr "Mô tả"
+
+#: src/pykantui/tui/widgets/card_fields.py:137
+msgid "Save"
+msgstr "Lưu"
+
+#: src/pykantui/tui/widgets/card_fields.py:138
+msgid "Save draft locally"
+msgstr "Lưu bản nháp cục bộ"
+
+#: src/pykantui/tui/widgets/card_fields.py:138
+msgid "Save locally"
+msgstr "Lưu cục bộ"
+
+#: src/pykantui/tui/widgets/card_fields.py:226
+msgid "Read-only on this backend"
+msgstr "Chỉ đọc trên phần phụ trợ này"
+
+#: src/pykantui/tui/widgets/compact_footer.py:63
+#: src/pykantui/tui/widgets/compact_footer.py:78
+msgid "Details"
+msgstr "Chi tiết"
+
+#: src/pykantui/tui/widgets/compact_footer.py:64
+msgid "Kanban"
+msgstr "Kanban"
+
+#: src/pykantui/tui/widgets/compact_footer.py:70
+msgid "Choose column"
+msgstr "Chọn cột"
+
+#: src/pykantui/tui/widgets/compact_footer.py:81
+#: src/pykantui/tui/widgets/dropdowns.py:115
+#: src/pykantui/tui/widgets/dropdowns.py:224
+msgid "Search"
+msgstr "Tìm kiếm"
+
+#: src/pykantui/tui/widgets/dropdowns.py:66
+msgid "Any state"
+msgstr "Bất kỳ tiểu bang nào"
+
+#: src/pykantui/tui/widgets/dropdowns.py:88
+msgid "Saved filter"
+msgstr "Bộ lọc đã lưu"
+
+#: src/pykantui/tui/widgets/dropdowns.py:89
+msgid "Saved"
+msgstr "Đã lưu"
+
+#: src/pykantui/tui/widgets/dropdowns.py:105
+#: src/pykantui/tui/widgets/dropdowns.py:147
+#: src/pykantui/tui/widgets/dropdowns.py:160
+#, python-brace-format
+msgid "Any {field}"
+msgstr "Bất kỳ {field} nào"
+
+#: src/pykantui/tui/widgets/dropdowns.py:115
+msgid "title or notes…"
+msgstr "tiêu đề hoặc ghi chú…"
+
+#: src/pykantui/tui/widgets/dropdowns.py:189
+msgid "Created From"
+msgstr "Được tạo từ"
+
+#: src/pykantui/tui/widgets/dropdowns.py:193
+msgid "Created Until"
+msgstr "Tạo cho đến khi"
+
+#: src/pykantui/tui/widgets/dropdowns.py:202
+#: src/pykantui/tui/widgets/dropdowns.py:218
+#: src/pykantui/tui/widgets/dropdowns.py:227
+msgid "Live provider queries are unavailable in this workspace"
+msgstr "Truy vấn nhà cung cấp trực tiếp không có sẵn trong không gian làm việc này"
+
+#: src/pykantui/tui/widgets/dropdowns.py:208
+#, python-brace-format
+msgid "Type in a {language} expression to search issues…"
+msgstr "Nhập biểu thức {language} để tìm kiếm sự cố…"
+
+#: src/pykantui/tui/widgets/menu_bar.py:201
+msgid "+ Save"
+msgstr "+ Lưu"
+
+#: src/pykantui/tui/widgets/menu_bar.py:202
+msgid "Clear"
+msgstr "Xóa"
+
+#: src/pykantui/tui/widgets/work_items.py:95
+msgid "Open the card to view or add provider comments."
+msgstr "Mở thẻ để xem hoặc thêm nhận xét của nhà cung cấp."
+
+#: src/pykantui/tui/widgets/work_items.py:101
+msgid "Attachments are not stored in local Markdown."
+msgstr "Tệp đính kèm không được lưu trữ trong Markdown cục bộ."
+
+#: src/pykantui/tui/widgets/work_items.py:109
+msgid "Key"
+msgstr "Chìa khóa"
+
+#: src/pykantui/tui/widgets/work_items.py:109
+#: src/pykantui/workspace/outbound.py:65
+msgid "Status"
+msgstr "Trạng thái"
+
+#: src/pykantui/tui/widgets/work_items.py:109
+#: src/pykantui/tui/widgets/work_items.py:111
+#: src/pykantui/workspace/outbound.py:60
+msgid "Summary"
+msgstr "Tóm tắt"
+
+#: src/pykantui/workspace/models.py:67 src/pykantui/workspace/status.py:68
+#: src/pykantui/workspace/status.py:179
+msgid "conflict"
+msgid_plural "conflicts"
+msgstr[0] "xung đột"
+
+#: src/pykantui/workspace/models.py:67
+msgid "provider check unavailable"
+msgstr "không thể kiểm tra nhà cung cấp"
+
+#: src/pykantui/workspace/models.py:77
+#, python-brace-format
+msgid "      provider: {value}"
+msgstr "      nhà cung cấp: {value}"
+
+#: src/pykantui/workspace/models.py:78
+#, python-brace-format
+msgid "      local: {value}"
+msgstr "      cục bộ: {value}"
+
+#: src/pykantui/workspace/models.py:164
+#, python-brace-format
+msgid "READY TO SEND ({count})"
+msgstr "SẴN SÀNG GỬI ({count})"
+
+#: src/pykantui/workspace/models.py:166
+#, python-brace-format
+msgid "CREATE ({count})"
+msgstr "TẠO ({count})"
+
+#: src/pykantui/workspace/models.py:172
+#, python-brace-format
+msgid "UPDATE ({count})"
+msgstr "CẬP NHẬT ({count})"
+
+#: src/pykantui/workspace/models.py:182
+#, python-brace-format
+msgid "BLOCKED ({count})"
+msgstr "BỊ CHẶN ({count})"
+
+#: src/pykantui/workspace/outbound.py:72
+msgid "Parent"
+msgstr "Mục cha"
+
+#: src/pykantui/workspace/outbound.py:76
+msgid "provider default"
+msgstr "mặc định của nhà cung cấp"
+
+#: src/pykantui/workspace/outbound.py:79
+#, python-brace-format
+msgid "type: {value}"
+msgstr "loại: {value}"
+
+#: src/pykantui/workspace/outbound.py:81
+#, python-brace-format
+msgid "column: {value}"
+msgstr "cột: {value}"
+
+#: src/pykantui/workspace/outbound.py:83
+#, python-brace-format
+msgid "fields: {value}"
+msgstr "trường: {value}"
+
+#: src/pykantui/workspace/status.py:66
+msgid "synced"
+msgstr "đã đồng bộ"
+
+#: src/pykantui/workspace/status.py:67 src/pykantui/workspace/status.py:177
+msgid "unsent edit"
+msgid_plural "unsent edits"
+msgstr[0] "chưa gửi"
+
+#: src/pykantui/workspace/status.py:69 src/pykantui/workspace/status.py:181
+msgid "not synced"
+msgstr "chưa đồng bộ"
+
+#: src/pykantui/workspace/status.py:70 src/pykantui/workspace/status.py:175
+msgid "invalid Markdown"
+msgstr "Markdown không hợp lệ"
+
+#: src/pykantui/workspace/status.py:183
+msgid "all synced"
+msgstr "tất cả đã được đồng bộ hóa"
+
+#~ msgid "Authenticate with {provider}"
+#~ msgstr "Xác thực với {provider}"
+
+#~ msgid "Enter an existing key"
+#~ msgstr "Nhập khóa hiện có"
+
+#~ msgid "Opening {provider} authentication"
+#~ msgstr "Opening {provider} authentication"
+
+#~ msgid "Authentication page opened"
+#~ msgstr "Authentication page opened"
+
+#~ msgid "{credentials} · no OAuth app registration"
+#~ msgstr "{credentials} · không cần đăng ký ứng dụng OAuth"
+
+#~ msgid "{credentials} · Power-Up registration required"
+#~ msgstr "{credentials} · cần đăng ký Power-Up"
+
+#~ msgid "Set up {provider} authentication"
+#~ msgstr "Thiết lập xác thực {provider}"
+
+#~ msgid "choose an authentication method"
+#~ msgstr "chọn phương thức xác thực"
+
+#~ msgid "Opening the board"
+#~ msgstr "Đang mở bảng"

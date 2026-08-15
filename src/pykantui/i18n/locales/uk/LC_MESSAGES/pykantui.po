@@ -1,0 +1,1846 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: pykantui 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 18:39-0500\n"
+"PO-Revision-Date: 2026-08-12 08:33+0000\n"
+"Last-Translator: pykantui contributors\n"
+"Language: uk\n"
+"Language-Team: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: src/pykantui/cli/main.py:33
+msgid "Terminal kanban board"
+msgstr "Канбан-дошка в терміналі"
+
+#: src/pykantui/cli/main.py:39
+msgid "interface language; saved to config.json (default: auto)"
+msgstr "мова інтерфейсу; збережено в config.json (за замовчуванням: автоматично)"
+
+#: src/pykantui/cli/main.py:45
+msgid ""
+"adjacent commits H/L immediately; jump highlights a column and waits for "
+"enter"
+msgstr "сусідній фіксує H/L негайно; jump виділяє стовпець і чекає enter"
+
+#: src/pykantui/cli/main.py:50
+msgid "theme name; saved to config.json (default: cyberpunk)"
+msgstr "назва теми; збережено в config.json (за замовчуванням: кіберпанк)"
+
+#: src/pykantui/cli/main.py:56
+msgid "corner style for cards, fields and dialogs; saved to config.json"
+msgstr "кутовий стиль для карток, полів і діалогів; збережено в config.json"
+
+#: src/pykantui/cli/main.py:62
+msgid "apply column moves without the confirmation dialog"
+msgstr "застосувати переміщення стовпців без діалогового вікна підтвердження"
+
+#: src/pykantui/cli/main.py:66
+msgid "open a throwaway board with sample tasks"
+msgstr "відкрийте брошуру із зразками завдань"
+
+#: src/pykantui/cli/main.py:68
+msgid "open a local JSON board (the default)"
+msgstr "відкрити локальну дошку JSON (за замовчуванням)"
+
+#: src/pykantui/cli/main.py:69
+msgid "path to the board file"
+msgstr "шлях до файлу плати"
+
+#: src/pykantui/cli/main.py:71
+msgid "print the board as text, without starting the TUI"
+msgstr "роздрукувати дошку як текст, не запускаючи TUI"
+
+#: src/pykantui/cli/main.py:146 src/pykantui/cli/main.py:237
+#, python-brace-format
+msgid "error: {error}"
+msgstr "помилка: {error}"
+
+#: src/pykantui/cli/main.py:238
+msgid "(run `kbn sync` to fix, or `kbn board --file ...` for a local board)"
+msgstr ""
+"(запустіть `kbn sync`, щоб виправити, або `kbn board --file ...` для "
+"локальної дошки)"
+
+#: src/pykantui/commands/columns.py:24
+msgid "add, rename, reorder or delete board columns"
+msgstr "додавати, перейменовувати, змінювати порядок або видаляти стовпці дошки"
+
+#: src/pykantui/commands/columns.py:28
+msgid "show the current columns (the default)"
+msgstr "показати поточні стовпці (за замовчуванням)"
+
+#: src/pykantui/commands/columns.py:30
+msgid "add a column"
+msgstr "додати стовпець"
+
+#: src/pykantui/commands/columns.py:32
+msgid "column id, name or position to insert after"
+msgstr "ідентифікатор стовпця, ім'я або позиція для вставки після"
+
+#: src/pykantui/commands/columns.py:33
+msgid "comma-separated provider statuses for this column"
+msgstr "розділені комами статуси постачальників для цього стовпця"
+
+#: src/pykantui/commands/columns.py:34
+msgid "create it hidden"
+msgstr "створити його прихованим"
+
+#: src/pykantui/commands/columns.py:36
+msgid "rename a column"
+msgstr "перейменувати стовпець"
+
+#: src/pykantui/commands/columns.py:40
+msgid "delete a column and rehome its cards"
+msgstr "видалити стовпець і змінити його картки"
+
+#: src/pykantui/commands/columns.py:42
+msgid "where its cards go (default: the first column)"
+msgstr "куди йдуть картки (за замовчуванням: перший стовпець)"
+
+#: src/pykantui/commands/columns.py:44
+msgid "change a column's position"
+msgstr "змінити положення колонки"
+
+#: src/pykantui/commands/columns.py:46
+msgid "1-based position"
+msgstr "1 положення"
+
+#: src/pykantui/commands/columns.py:48
+msgid "set which column means reset, start or finish"
+msgstr "встановити, який стовпець означає скидання, початок або завершення"
+
+#: src/pykantui/commands/columns.py:52
+msgid "set the provider statuses that land in a column"
+msgstr "встановити статуси постачальників, які потрапляють у стовпець"
+
+#: src/pykantui/commands/columns.py:54
+msgid "comma-separated; empty string clears them"
+msgstr "через кому; порожній рядок очищає їх"
+
+#: src/pykantui/commands/columns.py:56
+msgid "make a hidden column visible"
+msgstr "зробити прихований стовпець видимим"
+
+#: src/pykantui/commands/columns.py:58
+msgid "hide a column without deleting it"
+msgstr "приховати стовпець, не видаляючи його"
+
+#: src/pykantui/commands/columns.py:63
+msgid "set the number of visible columns, adding or removing at the end"
+msgstr "встановити кількість видимих стовпців, додаючи або видаляючи в кінці"
+
+#: src/pykantui/commands/columns.py:67
+msgid "restore the default shape"
+msgstr "відновити стандартну форму"
+
+#: src/pykantui/commands/columns.py:68 src/pykantui/commands/tasks.py:45
+msgid "skip the confirmation"
+msgstr "пропустити підтвердження"
+
+#: src/pykantui/commands/graph.py:25
+msgid "render the workspace as an HTML graph"
+msgstr "візуалізувати робочу область як графік HTML"
+
+#: src/pykantui/commands/graph.py:27 src/pykantui/commands/sync.py:31
+msgid "the workspace (default: found by walking up)"
+msgstr "робочий простір (за замовчуванням: знайти, піднявшись)"
+
+#: src/pykantui/commands/graph.py:32
+#, python-brace-format
+msgid "where to write it (default: ./{name})"
+msgstr "де це записати (за замовчуванням: ./{name})"
+
+#: src/pykantui/commands/graph.py:34
+msgid "open it in a browser afterwards"
+msgstr "потім відкрийте його в браузері"
+
+#: src/pykantui/commands/init.py:43
+msgid "create a workspace from a tracker"
+msgstr "створити робочий простір із трекера"
+
+#: src/pykantui/commands/init.py:45
+msgid "which tracker; see --list-types"
+msgstr "який трекер; див. --list-types"
+
+#: src/pykantui/commands/init.py:46
+msgid "print the available trackers and exit"
+msgstr "надрукуйте доступні трекери та вийдіть"
+
+#: src/pykantui/commands/init.py:50
+msgid "print the boards/projects this token can see, ready to paste into .env"
+msgstr ""
+"роздрукувати дошки/проекти, які може бачити цей маркер, готові до вставлення"
+" в .env"
+
+#: src/pykantui/commands/init.py:52
+msgid "where to create the workspace"
+msgstr "де створити робочий простір"
+
+#: src/pykantui/commands/init.py:53
+msgid "a name for the workspace"
+msgstr "ім'я для робочого простору"
+
+#: src/pykantui/commands/init.py:58
+msgid "type the path instead of browsing for it"
+msgstr "введіть шлях замість того, щоб шукати його"
+
+#: src/pykantui/commands/init.py:64
+msgid "column folder naming (default: slug — lowercase, dashes)"
+msgstr "іменування папок стовпців (за замовчуванням: slug — малі літери, тире)"
+
+#: src/pykantui/commands/init.py:66
+msgid "do not create a git repository"
+msgstr "не створюйте репозиторій git"
+
+#: src/pykantui/commands/init.py:67
+msgid "set up but do not pull yet"
+msgstr "налаштував але поки не тягну"
+
+#: src/pykantui/commands/init.py:72
+msgid "finish after setup instead of opening the new board"
+msgstr "завершити після налаштування, а не відкривати нову плату"
+
+#: src/pykantui/commands/init.py:74
+msgid "never prompt; fail instead"
+msgstr "ніколи не підказувати; зазнати невдачі"
+
+#: src/pykantui/commands/init_interactive.py:113
+msgid "Authentication cancelled"
+msgstr "Authentication cancelled"
+
+#: src/pykantui/commands/init_interactive.py:140
+#, python-brace-format
+msgid "Validated project: {project}"
+msgstr "Validated project: {project}"
+
+#: src/pykantui/commands/init_interactive.py:176
+msgid "skipped"
+msgstr "пропущено"
+
+#: src/pykantui/commands/init_interactive.py:198
+msgid "Setup complete"
+msgstr "Налаштування завершено"
+
+#: src/pykantui/commands/init_interactive.py:230
+msgid "Enter credentials again"
+msgstr "Enter credentials again"
+
+#: src/pykantui/commands/init_interactive.py:231
+msgid "retry authentication"
+msgstr "retry authentication"
+
+#: src/pykantui/commands/init_interactive.py:238
+msgid "Cancel setup"
+msgstr "Cancel setup"
+
+#: src/pykantui/commands/init_interactive.py:239
+msgid "create nothing"
+msgstr "create nothing"
+
+#: src/pykantui/commands/init_interactive.py:242
+msgid "No workspace or credential file has been created."
+msgstr "No workspace or credential file has been created."
+
+#: src/pykantui/commands/init_interactive.py:245
+#, python-brace-format
+msgid "Could not connect to {provider}"
+msgstr "Could not connect to {provider}"
+
+#: src/pykantui/commands/init_interactive.py:246
+msgid "retry or cancel"
+msgstr "retry or cancel"
+
+#: src/pykantui/commands/init_interactive.py:289
+#, python-brace-format
+msgid "Configured project {project} is not visible; choose an available project"
+msgstr "Configured project {project} is not visible; choose an available project"
+
+#: src/pykantui/commands/init_interactive.py:292
+#: src/pykantui/commands/init_interactive.py:300
+#: src/pykantui/pages/init_wizard.py:328
+#, python-brace-format
+msgid "No {provider} projects found"
+msgstr "Проєкти {provider} не знайдено"
+
+#: src/pykantui/commands/init_interactive.py:295
+#, python-brace-format
+msgid "Checking {provider} projects again"
+msgstr "Повторна перевірка проєктів {provider}"
+
+#: src/pykantui/commands/init_interactive.py:298
+#, python-brace-format
+msgid "{provider} projects found"
+msgstr "Проєкти {provider} знайдено"
+
+#: src/pykantui/commands/new.py:44
+msgid "draft a story as markdown, without sending it"
+msgstr "створити проект історії як уцінку, не надсилаючи її"
+
+#: src/pykantui/commands/new.py:46
+msgid "the story title"
+msgstr "назва оповідання"
+
+#: src/pykantui/commands/new.py:47
+msgid "the workspace"
+msgstr "робочий простір"
+
+#: src/pykantui/commands/new.py:48
+msgid "which column to draft it into"
+msgstr "до якого стовпця його скласти"
+
+#: src/pykantui/commands/new.py:53
+msgid "issue type; see --types for what this project accepts"
+msgstr "тип випуску; див. --types, щоб дізнатися, що приймає цей проект"
+
+#: src/pykantui/commands/new.py:55
+msgid "the description"
+msgstr "опис"
+
+#: src/pykantui/commands/new.py:56
+msgid "key of the epic it belongs to"
+msgstr "ключ епосу, до якого він належить"
+
+#: src/pykantui/commands/new.py:57
+msgid "repeatable"
+msgstr "повторювані"
+
+#: src/pykantui/commands/new.py:58
+msgid "repeatable Jira component"
+msgstr "повторюваний компонент Jira"
+
+#: src/pykantui/commands/new.py:61
+msgid "list the columns and exit"
+msgstr "перелічіть стовпці та вийдіть"
+
+#: src/pykantui/commands/new.py:62
+msgid "list the issue types and exit"
+msgstr "перелічіть типи проблем і вийдіть"
+
+#: src/pykantui/commands/new.py:63
+msgid "list Jira components and exit"
+msgstr "показати компоненти Jira та вийти"
+
+#: src/pykantui/commands/new.py:67
+msgid "do not assign it to yourself (drafts are your work by default)"
+msgstr "не призначайте це собі (чернетки - це ваша робота за замовчуванням)"
+
+#: src/pykantui/commands/sync.py:29
+msgid "reconcile a workspace with its provider"
+msgstr "узгодити робочий простір з його постачальником"
+
+#: src/pykantui/commands/sync.py:32
+msgid "do not ask before sending changes to the provider"
+msgstr "не запитувати перед надсиланням змін постачальнику"
+
+#: src/pykantui/commands/sync.py:33
+msgid "show what would be sent, and send nothing"
+msgstr "показати, що буде надіслано, і нічого не посилати"
+
+#: src/pykantui/commands/sync.py:34
+msgid "never send, whatever changed locally"
+msgstr "ніколи не надсилайте, незалежно від локальних змін"
+
+#: src/pykantui/commands/sync.py:35
+msgid "ignore the cached issue list"
+msgstr "ігнорувати кешований список проблем"
+
+#: src/pykantui/commands/sync.py:39
+msgid "write only issues assigned to or reported by you (the cache still holds all)"
+msgstr ""
+"записувати лише проблеми, призначені вами або про які ви повідомили (кеш все"
+" одно зберігає всі)"
+
+#: src/pykantui/commands/sync.py:45
+msgid "mirror the whole project, whatever the workspace is set to"
+msgstr "віддзеркалювати весь проект, незалежно від налаштованого робочого простору"
+
+#: src/pykantui/commands/sync.py:51
+msgid "send even where the provider also changed the issue, overwriting it"
+msgstr "надсилати навіть там, де постачальник також змінив проблему, перезаписавши її"
+
+#: src/pykantui/commands/sync.py:56
+msgid "use provider values for conflicts while sending safe local changes"
+msgstr ""
+"використовувати значення провайдера для конфліктів під час надсилання "
+"безпечних локальних змін"
+
+#: src/pykantui/commands/sync.py:61
+msgid ""
+"retry draft creates whose previous outcome was unknown, after checking the "
+"provider"
+msgstr ""
+"повторити створення чернеток із невідомим результатом попередньої спроби "
+"після перевірки провайдера"
+
+#: src/pykantui/commands/sync.py:63
+msgid "do not commit the result"
+msgstr "не фіксувати результат"
+
+#: src/pykantui/commands/tasks.py:21
+msgid "add or remove cards"
+msgstr "додати або видалити картки"
+
+#: src/pykantui/commands/tasks.py:25
+msgid "add one card, or several numbered ones"
+msgstr "додати одну картку або кілька пронумерованих"
+
+#: src/pykantui/commands/tasks.py:27
+msgid "column id, name or position (default: the first)"
+msgstr "ідентифікатор стовпця, назва або позиція (за замовчуванням: перший)"
+
+#: src/pykantui/commands/tasks.py:28
+msgid "add this many, numbered from 1"
+msgstr "додати стільки, пронумерованих від 1"
+
+#: src/pykantui/commands/tasks.py:29
+msgid "body text for the card"
+msgstr "основний текст картки"
+
+#: src/pykantui/commands/tasks.py:30
+msgid "due date, or +N for N days from today"
+msgstr "термін виконання або +N для N днів від сьогодні"
+
+#: src/pykantui/commands/tasks.py:35
+msgid "comma-separated card ids that must finish first"
+msgstr "ідентифікатори карток, розділених комами, які повинні закінчуватися першими"
+
+#: src/pykantui/commands/tasks.py:39
+msgid "delete cards by id"
+msgstr "видалити картки за id"
+
+#: src/pykantui/commands/tasks.py:43
+msgid "delete every card in a column"
+msgstr "видалити кожну картку в стовпці"
+
+#: src/pykantui/commands/onboarding/connection.py:25
+#, python-brace-format
+msgid "Listing {provider} projects"
+msgstr "Listing {provider} projects"
+
+#: src/pykantui/commands/onboarding/connection.py:27
+msgid "project"
+msgstr "project"
+
+#: src/pykantui/commands/onboarding/connection.py:27
+msgid "projects"
+msgstr "projects"
+
+#: src/pykantui/commands/onboarding/connection.py:28
+#, python-brace-format
+msgid "{count} {noun} available"
+msgstr "{count} {noun} available"
+
+#: src/pykantui/commands/onboarding/connection.py:30
+#, python-brace-format
+msgid "Confirming {provider} identity"
+msgstr "Confirming {provider} identity"
+
+#: src/pykantui/commands/onboarding/connection.py:32
+#, python-brace-format
+msgid "Connected as {identity}"
+msgstr "Connected as {identity}"
+
+#: src/pykantui/commands/onboarding/credentials.py:53
+#, python-brace-format
+msgid "Detected {provider} credentials: {sources}"
+msgstr "Detected {provider} credentials: {sources}"
+
+#: src/pykantui/commands/onboarding/credentials.py:62
+#, python-brace-format
+msgid "Set up {provider} credentials"
+msgstr "Налаштувати облікові дані {provider}"
+
+#: src/pykantui/commands/onboarding/credentials.py:63
+msgid "choose how to provide credentials"
+msgstr "виберіть спосіб надання облікових даних"
+
+#: src/pykantui/commands/onboarding/credentials.py:98
+#, python-brace-format
+msgid "{provider} still needs {fields}"
+msgstr "{provider} still needs {fields}"
+
+#: src/pykantui/commands/onboarding/credentials.py:116
+msgid "Credentials are already stored privately in ~/.pykantui/auth.json"
+msgstr "Credentials are already stored privately in ~/.pykantui/auth.json"
+
+#: src/pykantui/commands/onboarding/credentials.py:119
+msgid ""
+"Credentials supplied by command line will be stored privately after "
+"validation"
+msgstr ""
+"Credentials supplied by command line will be stored privately after "
+"validation"
+
+#: src/pykantui/commands/onboarding/credentials.py:128
+#, python-brace-format
+msgid "Keep {provider} credentials?"
+msgstr "Зберегти облікові дані {provider}?"
+
+#: src/pykantui/commands/onboarding/credentials.py:129
+msgid "choose where credentials are reused"
+msgstr "виберіть, де повторно використовувати облікові дані"
+
+#: src/pykantui/commands/onboarding/credentials.py:133
+msgid "Using existing environment variables; no credential was copied"
+msgstr "Using existing environment variables; no credential was copied"
+
+#: src/pykantui/commands/onboarding/credentials.py:137
+#, python-brace-format
+msgid "Credentials are not saved. For future runs, set: {names}"
+msgstr "Credentials are not saved. For future runs, set: {names}"
+
+#: src/pykantui/commands/onboarding/credentials.py:196
+msgid "Get personal credentials"
+msgstr "Отримати особисті облікові дані"
+
+#: src/pykantui/commands/onboarding/credentials.py:197
+msgid "no app registration"
+msgstr "реєстрація застосунку не потрібна"
+
+#: src/pykantui/commands/onboarding/credentials.py:199
+#, python-brace-format
+msgid "Set up {provider} API access"
+msgstr "Налаштувати доступ до API {provider}"
+
+#: src/pykantui/commands/onboarding/credentials.py:200
+msgid "Power-Up registration required"
+msgstr "потрібна реєстрація Power-Up"
+
+#: src/pykantui/commands/onboarding/credentials.py:202
+msgid "Open provider credential page"
+msgstr "Відкрити сторінку облікових даних провайдера"
+
+#: src/pykantui/commands/onboarding/credentials.py:203
+msgid "open the provider credential page"
+msgstr "відкрити сторінку облікових даних провайдера"
+
+#: src/pykantui/commands/onboarding/credentials.py:217
+msgid "Enter existing credentials"
+msgstr "Ввести наявні облікові дані"
+
+#: src/pykantui/commands/onboarding/credentials.py:221
+msgid "Paste the credential into a masked field."
+msgstr "Вставте облікові дані в приховане поле."
+
+#: src/pykantui/commands/onboarding/credentials.py:230
+msgid "Save privately"
+msgstr "Зберегти приватно"
+
+#: src/pykantui/commands/onboarding/credentials.py:234
+msgid "Owner-only, outside every workspace and local Git history."
+msgstr "Owner-only, outside every workspace and local Git history."
+
+#: src/pykantui/commands/onboarding/credentials.py:240
+msgid "Use environment"
+msgstr "Використати середовище"
+
+#: src/pykantui/commands/onboarding/credentials.py:244
+msgid "Keep using the value already exported or loaded from .env; do not copy it."
+msgstr "Keep using the value already exported or loaded from .env; do not copy it."
+
+#: src/pykantui/commands/onboarding/credentials.py:252
+msgid "Use once"
+msgstr "Використати один раз"
+
+#: src/pykantui/commands/onboarding/credentials.py:253
+msgid "not saved"
+msgstr "не збережено"
+
+#: src/pykantui/commands/onboarding/credentials.py:256
+msgid ""
+"Available for this setup only. Configure the listed environment variables "
+"for reuse."
+msgstr ""
+"Available for this setup only. Configure the listed environment variables "
+"for reuse."
+
+#: src/pykantui/commands/onboarding/credentials.py:268
+#, python-brace-format
+msgid "Opening {provider} credential page"
+msgstr "Відкривається сторінка облікових даних {provider}"
+
+#: src/pykantui/commands/onboarding/credentials.py:271
+msgid "Credential page opened"
+msgstr "Сторінку облікових даних відкрито"
+
+#: src/pykantui/commands/onboarding/credentials.py:273
+#, python-brace-format
+msgid "Open this address in a browser: {url}"
+msgstr "Open this address in a browser: {url}"
+
+#: src/pykantui/commands/onboarding/credentials.py:293
+#, python-brace-format
+msgid "Environment: {names}"
+msgstr "Environment: {names}"
+
+#: src/pykantui/core/actions.py:113 src/pykantui/tui/widgets/app_header.py:33
+msgid "⌘ Menu"
+msgstr "⌘ Меню"
+
+#: src/pykantui/core/actions.py:115
+msgid "▥ View"
+msgstr "▥ Вигляд"
+
+#: src/pykantui/i18n/catalog.py:14
+msgid "Filter"
+msgstr "Фільтр"
+
+#: src/pykantui/i18n/catalog.py:15 src/pykantui/tui/widgets/dropdowns.py:78
+msgid "Sort"
+msgstr "Сортування"
+
+#: src/pykantui/i18n/catalog.py:16
+msgid "Columns"
+msgstr "Колонки"
+
+#: src/pykantui/i18n/catalog.py:17
+msgid "View"
+msgstr "Вигляд"
+
+#: src/pykantui/i18n/catalog.py:18 src/pykantui/tui/controllers/columns.py:91
+msgid "Blocked"
+msgstr "заблоковано"
+
+#: src/pykantui/i18n/catalog.py:19
+msgid "Unblocked"
+msgstr "Розблоковано"
+
+#: src/pykantui/i18n/catalog.py:20
+msgid "Overdue"
+msgstr "Прострочена"
+
+#: src/pykantui/i18n/catalog.py:21
+msgid "Due today"
+msgstr "Термін виконання сьогодні"
+
+#: src/pykantui/i18n/catalog.py:22
+msgid "No due date"
+msgstr "Немає терміну виконання"
+
+#: src/pykantui/i18n/catalog.py:23
+msgid "Has notes"
+msgstr "Має нотатки"
+
+#: src/pykantui/i18n/catalog.py:24 src/pykantui/tui/widgets/dropdowns.py:77
+msgid "Manual"
+msgstr "Інструкція"
+
+#: src/pykantui/i18n/catalog.py:25
+msgid "Due"
+msgstr "належний"
+
+#: src/pykantui/i18n/catalog.py:26
+msgid "Age"
+msgstr "Вік"
+
+#: src/pykantui/i18n/catalog.py:27
+msgid "Rows"
+msgstr "Рядки"
+
+#: src/pykantui/i18n/catalog.py:28
+msgid "Split"
+msgstr "Розділено"
+
+#: src/pykantui/i18n/catalog.py:29
+msgid "adjacent"
+msgstr "суміжні"
+
+#: src/pykantui/i18n/catalog.py:30
+msgid "jump"
+msgstr "стрибати"
+
+#: src/pykantui/i18n/catalog.py:31
+msgid "New folder"
+msgstr "Нова папка"
+
+#: src/pykantui/i18n/catalog.py:32
+msgid "Work Items"
+msgstr "Робочі елементи"
+
+#: src/pykantui/i18n/catalog.py:33
+msgid "Info"
+msgstr "Інформація"
+
+#: src/pykantui/i18n/catalog.py:34
+msgid "Comments"
+msgstr "Коментарі"
+
+#: src/pykantui/i18n/catalog.py:35
+msgid "Related"
+msgstr "Пов'язані"
+
+#: src/pykantui/i18n/catalog.py:36
+msgid "Attachments"
+msgstr "Додатки"
+
+#: src/pykantui/i18n/catalog.py:37
+msgid "Links"
+msgstr "Посилання"
+
+#: src/pykantui/i18n/catalog.py:38
+msgid "Subtasks"
+msgstr "Підзавдання"
+
+#: src/pykantui/i18n/catalog.py:39 src/pykantui/pages/init_wizard.py:272
+msgid "Project"
+msgstr "Проект"
+
+#: src/pykantui/i18n/catalog.py:40
+msgid "Sprint"
+msgstr "спринт"
+
+#: src/pykantui/i18n/catalog.py:41
+msgid "Query"
+msgstr "Запит"
+
+#: src/pykantui/i18n/catalog.py:42
+msgid "Reporter"
+msgstr "Репортер"
+
+#: src/pykantui/i18n/catalog.py:43
+msgid "Created"
+msgstr "Створено"
+
+#: src/pykantui/i18n/catalog.py:44
+msgid "Last Update"
+msgstr "Останнє оновлення"
+
+#: src/pykantui/i18n/catalog.py:45 src/pykantui/workspace/outbound.py:71
+msgid "Due Date"
+msgstr "Термін виконання"
+
+#: src/pykantui/i18n/catalog.py:46
+msgid "Resolved"
+msgstr "Вирішено"
+
+#: src/pykantui/i18n/catalog.py:47
+msgid "Resolution"
+msgstr "резолюція"
+
+#: src/pykantui/i18n/catalog.py:48
+msgid "Blocked by"
+msgstr "Заблоковано"
+
+#: src/pykantui/i18n/catalog.py:49
+msgid "Time Tracking"
+msgstr "Відстеження часу"
+
+#: src/pykantui/i18n/catalog.py:50
+msgid "Highest"
+msgstr "Найвищий"
+
+#: src/pykantui/i18n/catalog.py:51
+msgid "Blocker"
+msgstr "Блокувальник"
+
+#: src/pykantui/i18n/catalog.py:52
+msgid "Critical"
+msgstr "Критичний"
+
+#: src/pykantui/i18n/catalog.py:53
+msgid "High"
+msgstr "Високий"
+
+#: src/pykantui/i18n/catalog.py:54
+msgid "Medium"
+msgstr "Середній"
+
+#: src/pykantui/i18n/catalog.py:55
+msgid "Normal"
+msgstr "нормальний"
+
+#: src/pykantui/i18n/catalog.py:56
+msgid "Low"
+msgstr "Низький"
+
+#: src/pykantui/i18n/catalog.py:57
+msgid "Lowest"
+msgstr "Найнижчий"
+
+#: src/pykantui/i18n/catalog.py:58
+msgid "Trivial"
+msgstr "Тривіальний"
+
+#: src/pykantui/pages/chooser.py:130
+msgid "Choose one"
+msgstr "Виберіть одну"
+
+#: src/pykantui/pages/chooser.py:131
+msgid "type to filter"
+msgstr "введіть фільтр"
+
+#: src/pykantui/pages/chooser.py:141 src/pykantui/pages/folder.py:216
+#: src/pykantui/pages/init_wizard.py:112 src/pykantui/pages/init_wizard.py:324
+msgid "Back"
+msgstr "Назад"
+
+#: src/pykantui/pages/chooser.py:142
+msgid "↑↓ move · type to filter · enter choose · esc cancel"
+msgstr "↑↓ перемістити · ввести для фільтрування · ввести вибрати · esc скасувати"
+
+#: src/pykantui/pages/chooser.py:153 src/pykantui/pages/confirm.py:43
+#: src/pykantui/pages/edit.py:109 src/pykantui/pages/folder.py:240
+#: src/pykantui/pages/init_wizard.py:120 src/pykantui/pages/init_wizard.py:340
+#: src/pykantui/pages/sync.py:129 src/pykantui/tui/controllers/columns.py:136
+#: src/pykantui/tui/widgets/compact_footer.py:72
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: src/pykantui/pages/chooser.py:154
+msgid "Choose"
+msgstr "Вибрати"
+
+#: src/pykantui/pages/confirm.py:36
+msgid "Move this card?"
+msgstr "Перемістити цю картку?"
+
+#: src/pykantui/pages/confirm.py:42 src/pykantui/tui/widgets/compact_footer.py:71
+#: src/pykantui/tui/widgets/compact_footer.py:76
+msgid "Move"
+msgstr "рухатися"
+
+#: src/pykantui/pages/detail.py:87 src/pykantui/tui/widgets/work_items.py:112
+msgid "Private Markdown notes · local only"
+msgstr "Приватні нотатки Markdown · лише локальні"
+
+#: src/pykantui/pages/detail.py:92 src/pykantui/pages/init_wizard.py:183
+msgid "Close"
+msgstr "Закрити"
+
+#: src/pykantui/pages/detail.py:113
+msgid "Read-only"
+msgstr "Тільки для читання"
+
+#: src/pykantui/pages/detail.py:115 src/pykantui/tui/widgets/compact_footer.py:62
+#: src/pykantui/tui/widgets/compact_footer.py:77
+msgid "Edit"
+msgstr "Редагувати"
+
+#: src/pykantui/pages/detail.py:125
+msgid "[$success]finished[/]"
+msgstr "[$success]завершено[/]"
+
+#: src/pykantui/pages/detail.py:127
+msgid "in progress"
+msgstr "в процесі"
+
+#: src/pykantui/pages/detail.py:129
+msgid "not started"
+msgstr "не розпочато"
+
+#: src/pykantui/pages/detail.py:133
+#, python-brace-format
+msgid "[$error]blocked by {count}[/]"
+msgstr "[$error]заблоковано {count}[/]"
+
+#: src/pykantui/pages/detail.py:135
+#, python-brace-format
+msgid "[$warning]blocking {count}[/]"
+msgstr "[$warning]блокування {count}[/]"
+
+#: src/pykantui/pages/detail.py:139
+#, python-brace-format
+msgid "[$error]{days}d overdue[/]"
+msgstr "[$error]{days}d прострочено[/]"
+
+#: src/pykantui/pages/detail.py:141
+msgid "[$warning]due today[/]"
+msgstr "[$warning] Термін погашення сьогодні[/]"
+
+#: src/pykantui/pages/detail.py:178
+msgid "This backend is read-only"
+msgstr "Ця серверна частина доступна лише для читання"
+
+#: src/pykantui/pages/detail.py:202
+msgid "A card needs a summary"
+msgstr "Картка потребує резюме"
+
+#: src/pykantui/pages/edit.py:55
+#, python-brace-format
+msgid "Edit {key}"
+msgstr "Редагувати {key}"
+
+#: src/pykantui/pages/edit.py:55 src/pykantui/tui/menu_items.py:64
+#: src/pykantui/tui/widgets/compact_footer.py:81
+msgid "New card"
+msgstr "Нова картка"
+
+#: src/pykantui/pages/edit.py:61
+msgid "What needs doing?"
+msgstr "Що потрібно робити?"
+
+#: src/pykantui/pages/edit.py:61
+msgid "Title"
+msgstr "Назва"
+
+#: src/pykantui/pages/edit.py:70 src/pykantui/workspace/outbound.py:67
+msgid "Assignee"
+msgstr "Цесіонарій"
+
+#: src/pykantui/pages/edit.py:74 src/pykantui/tui/widgets/work_items.py:109
+#: src/pykantui/workspace/outbound.py:64
+msgid "Type"
+msgstr "Тип"
+
+#: src/pykantui/pages/edit.py:83 src/pykantui/tui/widgets/card_fields.py:209
+msgid "Select a priority"
+msgstr "Виберіть пріоритет"
+
+#: src/pykantui/pages/edit.py:84 src/pykantui/workspace/outbound.py:68
+msgid "Priority"
+msgstr "Пріоритет"
+
+#: src/pykantui/pages/edit.py:90
+msgid "Due date"
+msgstr "Термін виконання"
+
+#: src/pykantui/pages/edit.py:95 src/pykantui/workspace/outbound.py:69
+msgid "Labels"
+msgstr "етикетки"
+
+#: src/pykantui/pages/edit.py:97 src/pykantui/workspace/outbound.py:70
+msgid "Components"
+msgstr "Компоненти"
+
+#: src/pykantui/pages/edit.py:124 src/pykantui/pages/edit.py:125
+#: src/pykantui/tui/widgets/card_fields.py:199
+#: src/pykantui/tui/widgets/compact_footer.py:79
+msgid "Column"
+msgstr "Колонка"
+
+#: src/pykantui/pages/edit.py:165
+msgid "A card needs a title"
+msgstr "Для картки потрібен заголовок"
+
+#: src/pykantui/pages/folder.py:207
+msgid "Where should it live?"
+msgstr "Де воно має жити?"
+
+#: src/pykantui/pages/folder.py:222
+msgid "↑ Parent"
+msgstr "↑ Батько"
+
+#: src/pykantui/pages/folder.py:223 src/pykantui/tui/widgets/menu_bar.py:99
+msgid "⌂ Home"
+msgstr "⌂ Головна"
+
+#: src/pykantui/pages/folder.py:224
+msgid "/ Path…"
+msgstr "/ Шлях…"
+
+#: src/pykantui/pages/folder.py:233
+msgid "↑↓ move · enter open · backspace parent · . hidden"
+msgstr "↑↓ перемістити · ввести відкрити · закрити батьківський · . прихований"
+
+#: src/pykantui/pages/folder.py:242
+msgid "Choose folder"
+msgstr "Виберіть папку"
+
+#: src/pykantui/pages/grouped_palette.py:141
+msgid "Search commands or groups…"
+msgstr "Пошук команд або груп…"
+
+#: src/pykantui/pages/init_wizard.py:121
+msgid "Continue"
+msgstr "Продовжити"
+
+#: src/pykantui/pages/init_wizard.py:254
+msgid "Open board"
+msgstr "Відкрити дошку"
+
+#: src/pykantui/pages/init_wizard.py:254
+msgid "Finish"
+msgstr "Завершити"
+
+#: src/pykantui/pages/init_wizard.py:271
+msgid "Provider"
+msgstr "Провайдер"
+
+#: src/pykantui/pages/init_wizard.py:273
+msgid "Workspace"
+msgstr "Робочий простір"
+
+#: src/pykantui/pages/init_wizard.py:274
+msgid "Initial sync"
+msgstr "Початкова синхронізація"
+
+#: src/pykantui/pages/init_wizard.py:333
+#, python-brace-format
+msgid ""
+"Create a project in {provider}, then return here and check again. No local "
+"files have been created."
+msgstr ""
+"Створіть проєкт у {provider}, потім поверніться сюди й перевірте ще раз. "
+"Локальні файли ще не створено."
+
+#: src/pykantui/pages/init_wizard.py:341
+msgid "Check again"
+msgstr "Перевірити ще раз"
+
+#: src/pykantui/pages/init_wizard.py:467
+msgid "pykantui - setup"
+msgstr "pykantui - налаштування"
+
+#: src/pykantui/pages/init_wizard.py:499 src/pykantui/pages/init_wizard.py:504
+msgid "Setup stopped"
+msgstr "Налаштування зупинено"
+
+#: src/pykantui/pages/init_wizard.py:500 src/pykantui/pages/init_wizard.py:507
+msgid "Could not finish setup"
+msgstr "Не вдалося завершити налаштування"
+
+#: src/pykantui/pages/init_wizard.py:509
+msgid ""
+"An unexpected error stopped setup. The last completed step is shown behind "
+"this message. Close it, then run `kbn init` again."
+msgstr ""
+"Неочікувана помилка зупинила налаштування. Останній завершений крок показано"
+" за цим повідомленням. Закрийте його та знову запустіть `kbn init`."
+
+#: src/pykantui/pages/sync.py:76
+msgid "SYNC PREVIEW"
+msgstr "ПОПЕРЕДНІЙ ПЕРЕГЛЯД СИНХРОНІЗАЦІЇ"
+
+#: src/pykantui/pages/sync.py:85
+msgid "LOCAL ONLY"
+msgstr "ЛИШЕ ЛОКАЛЬНО"
+
+#: src/pykantui/pages/sync.py:87
+msgid ""
+"• Private Markdown notes\n"
+"• Local Git history\n"
+"• Credentials and cache files"
+msgstr ""
+"• Приватні нотатки Markdown\n"
+"• Локальна історія Git\n"
+"• Облікові дані та файли кешу"
+
+#: src/pykantui/pages/sync.py:92
+msgid ""
+"Choose provider or local for each conflicting field. Undecided cards stay "
+"local."
+msgstr ""
+"Для кожного конфліктного поля виберіть версію провайдера або локальну. "
+"Невирішені картки залишаться локальними."
+
+#: src/pykantui/pages/sync.py:95
+msgid "RESOLVE CONFLICTS"
+msgstr "ВИРІШИТИ КОНФЛІКТИ"
+
+#: src/pykantui/pages/sync.py:105
+msgid "Keep undecided"
+msgstr "Залишити невирішеним"
+
+#: src/pykantui/pages/sync.py:107 src/pykantui/pages/sync.py:120
+#, python-brace-format
+msgid "Use {provider} version"
+msgstr "Використати версію {provider}"
+
+#: src/pykantui/pages/sync.py:110
+msgid "Send local version"
+msgstr "Надіслати локальну версію"
+
+#: src/pykantui/pages/sync.py:124
+#, python-brace-format
+msgid "Overwrite {provider}"
+msgstr "Перезаписати {provider}"
+
+#: src/pykantui/pages/sync.py:130
+msgid "Pull only"
+msgstr "Тільки тягнути"
+
+#: src/pykantui/pages/sync.py:131
+msgid "Send ready changes"
+msgstr "Надіслати готові зміни"
+
+#: src/pykantui/tui/app.py:133
+msgid "Run this pykantui board command"
+msgstr "Виконайте цю команду плати pykantui"
+
+#: src/pykantui/tui/app.py:142
+#, python-brace-format
+msgid "Run the {menu} command in pykantui"
+msgstr "Виконайте команду {menu} у pykantui"
+
+#: src/pykantui/tui/app.py:148
+#, python-brace-format
+msgid "Sync with {provider}…"
+msgstr "Синхронізувати з {provider}…"
+
+#: src/pykantui/tui/app.py:190
+msgid "card"
+msgid_plural "cards"
+msgstr[0] "картка"
+msgstr[1] "картки"
+msgstr[2] "картки"
+
+#: src/pykantui/tui/app.py:195
+#, python-brace-format
+msgid "{shown} of {total} · {detail}"
+msgstr "{shown} з {total} · {detail}"
+
+#: src/pykantui/tui/app.py:196
+#, python-brace-format
+msgid "{shown} of {total}"
+msgstr "{shown} з {total}"
+
+#: src/pykantui/tui/app.py:259
+msgid "Check your configuration"
+msgstr "Перевірте конфігурацію"
+
+#: src/pykantui/tui/app.py:277
+#, python-brace-format
+msgid "Unknown theme {theme!r}; using {fallback}"
+msgstr "Невідома тема {theme!r}; за допомогою {fallback}"
+
+#: src/pykantui/tui/app.py:301
+msgid "confirm on"
+msgstr "підтвердити на"
+
+#: src/pykantui/tui/app.py:301
+msgid "confirm off"
+msgstr "підтвердити вимкнення"
+
+#: src/pykantui/tui/app.py:361
+#, python-brace-format
+msgid "{provider} cannot create cards here"
+msgstr "{provider} не може створювати картки тут"
+
+#: src/pykantui/tui/app.py:398
+msgid "Create failed"
+msgstr "Не вдалося створити"
+
+#: src/pykantui/tui/app.py:400 src/pykantui/tui/app.py:446
+msgid "Saved locally"
+msgstr "Збережено локально"
+
+#: src/pykantui/tui/app.py:415 src/pykantui/tui/app.py:451
+#, python-brace-format
+msgid "{provider} cards cannot be edited here"
+msgstr "Картки {provider} тут не можна редагувати"
+
+#: src/pykantui/tui/app.py:443
+msgid "Save failed"
+msgstr "Не вдалося зберегти"
+
+#: src/pykantui/tui/menu_items.py:55
+msgid "⌂ Home · ▥ Kanban"
+msgstr "⌂ Головна · ▥ Kanban"
+
+#: src/pykantui/tui/menu_items.py:67
+msgid "Reload files"
+msgstr "Перезавантажте файли"
+
+#: src/pykantui/tui/menu_items.py:75
+msgid "Sync with provider…"
+msgstr "Синхронізувати з постачальником…"
+
+#: src/pykantui/tui/menu_items.py:78 src/pykantui/tui/palette.py:169
+msgid "Help"
+msgstr "Довідка"
+
+#: src/pykantui/tui/menu_items.py:105
+msgid "+ Save this filter…"
+msgstr "+ Зберегти цей фільтр…"
+
+#: src/pykantui/tui/menu_items.py:106
+msgid "Clear filters"
+msgstr "Очистити фільтри"
+
+#: src/pykantui/tui/menu_items.py:116 src/pykantui/tui/widgets/menu_bar.py:200
+msgid "⇵ Reverse"
+msgstr "⇵ Реверс"
+
+#: src/pykantui/tui/menu_items.py:121
+msgid "Add column…"
+msgstr "Додати стовпець…"
+
+#: src/pykantui/tui/menu_items.py:122
+msgid "Rename this column…"
+msgstr "Перейменуйте цей стовпець…"
+
+#: src/pykantui/tui/menu_items.py:123
+msgid "Hide this column"
+msgstr "Сховати цей стовпець"
+
+#: src/pykantui/tui/menu_items.py:124
+msgid "Delete this column…"
+msgstr "Видалити цей стовпець…"
+
+#: src/pykantui/tui/menu_items.py:125
+msgid "Expand all columns"
+msgstr "Розгорнути всі стовпці"
+
+#: src/pykantui/tui/menu_items.py:141
+msgid "[ Narrow work items"
+msgstr "[ Вузькі предмети роботи"
+
+#: src/pykantui/tui/menu_items.py:142
+msgid "] Widen work items"
+msgstr "] Розширте робочі елементи"
+
+#: src/pykantui/tui/menu_items.py:143
+msgid "\\ Reset divider"
+msgstr "\\ Скинути роздільник"
+
+#: src/pykantui/tui/menu_items.py:151
+#, python-brace-format
+msgid "Movement: {mode}"
+msgstr "Механізм: {mode}"
+
+#: src/pykantui/tui/menu_items.py:156
+msgid "Confirm moves"
+msgstr "Підтверджуйте ходи"
+
+#: src/pykantui/tui/menu_items.py:159
+msgid "Card detail"
+msgstr "Деталі картки"
+
+#: src/pykantui/tui/menu_items.py:163
+msgid "Collapse this column"
+msgstr "Згорнути цей стовпець"
+
+#: src/pykantui/tui/controllers/actions.py:256 src/pykantui/tui/menu_items.py:170
+msgid "Keys"
+msgstr "Ключі"
+
+#: src/pykantui/tui/controllers/actions.py:247 src/pykantui/tui/menu_items.py:173
+msgid "Where things are stored"
+msgstr "Де зберігаються речі"
+
+#: src/pykantui/tui/palette.py:40
+msgid "Return to the Kanban home board"
+msgstr "Поверніться до домашньої дошки Kanban"
+
+#: src/pykantui/tui/palette.py:41
+msgid "Create a card or reload Markdown files"
+msgstr "Створіть картку або перезавантажте файли Markdown"
+
+#: src/pykantui/tui/palette.py:54
+msgid "State, provider fields, and saved filters"
+msgstr "Стан, поля постачальника та збережені фільтри"
+
+#: src/pykantui/tui/palette.py:55
+msgid "Manual, title, due date, age, or reverse"
+msgstr "Інструкція, назва, дата виконання, вік або реверс"
+
+#: src/pykantui/tui/palette.py:56
+msgid "Add, rename, hide, delete, or expand"
+msgstr "Додайте, перейменуйте, приховайте, видаліть або розгорніть"
+
+#: src/pykantui/tui/palette.py:57
+msgid "Kanban, Split, Rows, and board behavior"
+msgstr "Kanban, Split, Rows і поведінка дошки"
+
+#: src/pykantui/tui/palette.py:60
+msgid "Change the filters applied to visible cards"
+msgstr "Змініть фільтри, застосовані до видимих карток"
+
+#: src/pykantui/tui/palette.py:61
+msgid "Change the order of visible cards"
+msgstr "Змініть порядок видимих карток"
+
+#: src/pykantui/tui/palette.py:62
+msgid "Change the current board columns"
+msgstr "Змінити поточні стовпці дошки"
+
+#: src/pykantui/tui/palette.py:63
+msgid "Change the layout or board behavior"
+msgstr "Змініть макет або поведінку дошки"
+
+#: src/pykantui/tui/palette.py:64
+msgid "Open this pykantui help topic"
+msgstr "Відкрийте цю тему довідки pykantui"
+
+#: src/pykantui/tui/palette.py:72 src/pykantui/tui/widgets/dropdowns.py:67
+msgid "State"
+msgstr "Держава"
+
+#: src/pykantui/tui/palette.py:72
+msgid "Blocked, overdue, due dates, and local notes"
+msgstr "Заблоковані, прострочені, дати виконання та локальні примітки"
+
+#: src/pykantui/tui/palette.py:76
+msgid "Provider fields"
+msgstr "Поля постачальника"
+
+#: src/pykantui/tui/palette.py:77
+#, python-brace-format
+msgid "Filters supported by {provider}"
+msgstr "Фільтри, які підтримуються {provider}"
+
+#: src/pykantui/tui/palette.py:82
+msgid "Saved filters"
+msgstr "Збережені фільтри"
+
+#: src/pykantui/tui/palette.py:83
+msgid "Apply a saved combination of filters"
+msgstr "Застосувати збережену комбінацію фільтрів"
+
+#: src/pykantui/tui/palette.py:107
+msgid "Layout"
+msgstr "Макет"
+
+#: src/pykantui/tui/palette.py:107
+msgid "Kanban, Split, or Rows"
+msgstr "Kanban, Split або Rows"
+
+#: src/pykantui/tui/palette.py:108
+msgid "Split pane"
+msgstr "Розділена панель"
+
+#: src/pykantui/tui/palette.py:108
+msgid "Resize or reset the work-items divider"
+msgstr "Змініть розмір або скиньте роздільник робочих елементів"
+
+#: src/pykantui/tui/palette.py:109
+msgid "Behavior"
+msgstr "Поведінка"
+
+#: src/pykantui/tui/palette.py:109
+msgid "Movement, confirmation, detail, and columns"
+msgstr "Рух, підтвердження, деталізація та стовпці"
+
+#: src/pykantui/tui/palette.py:141
+msgid "Board"
+msgstr "дошка"
+
+#: src/pykantui/tui/palette.py:142
+msgid "Home, create cards, and reload local files"
+msgstr "Home, створіть картки та перезавантажте локальні файли"
+
+#: src/pykantui/tui/palette.py:147
+msgid "Organize"
+msgstr "Організуйте"
+
+#: src/pykantui/tui/palette.py:148
+msgid "Filter, sort, columns, and layouts"
+msgstr "Фільтр, сортування, стовпці та макети"
+
+#: src/pykantui/tui/palette.py:164
+msgid "Review local and provider changes before syncing"
+msgstr "Перегляньте локальні зміни та зміни постачальника перед синхронізацією"
+
+#: src/pykantui/tui/palette.py:170
+msgid "Keys and where pykantui stores data"
+msgstr "Ключі та де pykantui зберігає дані"
+
+#: src/pykantui/tui/palette.py:177
+msgid "System"
+msgstr "система"
+
+#: src/pykantui/tui/palette.py:178
+msgid "Theme, screenshot, maximize, and application commands"
+msgstr "Тема, знімок екрана, розгортання та команди програми"
+
+#: src/pykantui/tui/controllers/actions.py:42
+#, python-brace-format
+msgid "Movement mode: {mode}"
+msgstr "Режим руху: {mode}"
+
+#: src/pykantui/tui/controllers/actions.py:49
+msgid "Moves will ask for confirmation"
+msgstr "Переміщення запитуватимуть підтвердження"
+
+#: src/pykantui/tui/controllers/actions.py:49
+msgid "Moves apply immediately"
+msgstr "Рухи застосовуються негайно"
+
+#: src/pykantui/tui/controllers/actions.py:163
+msgid "Sprints are a Jira board setting"
+msgstr "Спринт – це налаштування дошки Jira"
+
+#: src/pykantui/tui/controllers/actions.py:165
+msgid "sprint"
+msgstr "спринт"
+
+#: src/pykantui/tui/controllers/actions.py:166
+#, python-brace-format
+msgid "Source: {source}. Press Search to re-run."
+msgstr "Джерело: {source}. Натисніть Пошук для повторного запуску."
+
+#: src/pykantui/tui/controllers/actions.py:208
+#, python-brace-format
+msgid "Saved filter {name}"
+msgstr "Збережений фільтр {name}"
+
+#: src/pykantui/tui/controllers/actions.py:244
+msgid "in memory (demo board)"
+msgstr "в пам'яті (демонстраційна плата)"
+
+#: src/pykantui/tui/controllers/actions.py:246
+#, python-brace-format
+msgid "Columns and filters: {path}"
+msgstr "Стовпці та фільтри: {path}"
+
+#: src/pykantui/tui/controllers/actions.py:253
+msgid ""
+"hjkl move focus · HL move card · JK reorder · v detail · , menu\n"
+"z collapse · Z expand all · n new · e edit · d delete · r reload · F5 sync"
+msgstr ""
+"hjkl перемістити фокус · HL перемістити картку · JK змінити порядок · v "
+"деталь · , меню\n"
+"z згорнути · Z розгорнути все · n новий · e редагувати · d видалити · r "
+"перезавантажити · F5 синхронізувати"
+
+#: src/pykantui/tui/controllers/columns.py:32
+msgid "New card here"
+msgstr "Нова картка тут"
+
+#: src/pykantui/tui/controllers/columns.py:35
+msgid "Rename column…"
+msgstr "Перейменувати стовпець…"
+
+#: src/pykantui/tui/controllers/columns.py:36
+msgid "Add column after…"
+msgstr "Додати стовпець після…"
+
+#: src/pykantui/tui/controllers/columns.py:37
+msgid "Hide column"
+msgstr "Сховати стовпець"
+
+#: src/pykantui/tui/controllers/columns.py:40
+msgid "Delete all cards…"
+msgstr "Видалити всі картки…"
+
+#: src/pykantui/tui/controllers/columns.py:42
+msgid "Delete column…"
+msgstr "Видалити стовпець…"
+
+#: src/pykantui/tui/controllers/columns.py:86
+msgid "Rename column"
+msgstr "Перейменувати стовпець"
+
+#: src/pykantui/tui/controllers/columns.py:91
+msgid "New column name"
+msgstr "Нова назва стовпця"
+
+#: src/pykantui/tui/controllers/columns.py:96
+#, python-brace-format
+msgid "There is already a column called {name}"
+msgstr "Уже існує колонка під назвою {name}"
+
+#: src/pykantui/tui/controllers/columns.py:102
+msgid "At least one column has to stay visible"
+msgstr "Принаймні один стовпець має бути видимим"
+
+#: src/pykantui/tui/controllers/columns.py:106
+#, python-brace-format
+msgid "Delete the {column} column?"
+msgstr "Видалити стовпець {column}?"
+
+#: src/pykantui/tui/controllers/columns.py:107
+msgid "Delete column"
+msgstr "Видалити стовпець"
+
+#: src/pykantui/tui/controllers/columns.py:110
+msgid "A board needs at least one column"
+msgstr "Для дошки потрібен принаймні один стовпець"
+
+#: src/pykantui/tui/controllers/columns.py:124
+#, python-brace-format
+msgid "{column} is already empty"
+msgstr "{column} уже порожній"
+
+#: src/pykantui/tui/controllers/columns.py:126
+#, python-brace-format
+msgid "Delete {count} card(s) from {column}?"
+msgstr "Видалити картку(и) {count} із {column}?"
+
+#: src/pykantui/tui/controllers/columns.py:127
+msgid "Delete cards"
+msgstr "Видалити картки"
+
+#: src/pykantui/tui/controllers/sync.py:27
+msgid "this board already shows everything"
+msgstr "ця дошка вже все показує"
+
+#: src/pykantui/tui/controllers/sync.py:36
+#, python-brace-format
+msgid "could not load the team's cards: {error}"
+msgstr "не вдалося завантажити картки команди: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:43
+msgid "showing the whole project — their cards are read-only"
+msgstr "показує весь проект — їхні картки доступні лише для читання"
+
+#: src/pykantui/tui/controllers/sync.py:45
+msgid "showing only your cards"
+msgstr "показувати лише ваші картки"
+
+#: src/pykantui/tui/controllers/sync.py:56
+#, python-brace-format
+msgid "Reload failed: {error}"
+msgstr "Не вдалося перезавантажити: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:62
+msgid "Columns reloaded"
+msgstr "Стовпці перезавантажено"
+
+#: src/pykantui/tui/controllers/sync.py:66
+msgid "Reloaded local files"
+msgstr "Перезавантажено локальні файли"
+
+#: src/pykantui/tui/controllers/sync.py:73
+msgid "This local board has no provider to sync"
+msgstr "Ця локальна дошка не має провайдера для синхронізації"
+
+#: src/pykantui/tui/controllers/sync.py:79
+msgid "This backend cannot sync"
+msgstr "Цей сервер не може синхронізуватися"
+
+#: src/pykantui/tui/controllers/sync.py:85
+#, python-brace-format
+msgid "Sync preview failed: {error}"
+msgstr "Помилка попереднього перегляду синхронізації: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:95
+msgid "Sync cancelled — local changes kept"
+msgstr "Синхронізацію скасовано — локальні зміни збережено"
+
+#: src/pykantui/tui/controllers/sync.py:109
+#, python-brace-format
+msgid "Sync failed: {error}"
+msgstr "Помилка синхронізації: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:115
+msgid "Sync complete"
+msgstr "Синхронізація завершена"
+
+#: src/pykantui/tui/widgets/app_header.py:37
+msgid "⎇ Sync"
+msgstr "⎇ Синхронізація"
+
+#: src/pykantui/tui/widgets/board.py:234
+msgid "At least one column has to stay open"
+msgstr "Принаймні одна колонка має залишатися відкритою"
+
+#: src/pykantui/tui/widgets/board.py:382 src/pykantui/tui/widgets/board.py:429
+msgid "Move blocked"
+msgstr "Переїзд заблоковано"
+
+#: src/pykantui/tui/widgets/board.py:405
+#, python-brace-format
+msgid "Saved to Markdown. Sync sends it to {provider}."
+msgstr "Збережено в Markdown. Синхронізація надсилає його на {provider}."
+
+#: src/pykantui/tui/widgets/board.py:409
+#, python-brace-format
+msgid "This writes to {provider}."
+msgstr "Це пише до {provider}."
+
+#: src/pykantui/tui/widgets/board.py:411
+msgid "This marks the task finished."
+msgstr "Це означає, що завдання виконано."
+
+#: src/pykantui/tui/widgets/board.py:413
+msgid "This clears the start and finish dates."
+msgstr "Це очищає дати початку та завершення."
+
+#: src/pykantui/tui/widgets/board.py:435
+msgid "Move failed"
+msgstr "Не вдалося перемістити"
+
+#: src/pykantui/tui/widgets/board.py:455
+#, python-brace-format
+msgid "Moved to {column}"
+msgstr "Переміщено до {column}"
+
+#: src/pykantui/tui/widgets/board.py:460
+msgid "Moved"
+msgstr "Переїхав"
+
+#: src/pykantui/tui/widgets/board.py:465
+msgid "Reordering needs Manual sort — the board is showing a sorted view"
+msgstr ""
+"Перевпорядкування потребує ручного сортування — на дошці відображається "
+"відсортований вигляд"
+
+#: src/pykantui/tui/widgets/board.py:478
+msgid "Reorder failed"
+msgstr "Помилка повторного замовлення"
+
+#: src/pykantui/tui/widgets/board.py:488
+msgid "Delete failed"
+msgstr "Не вдалося видалити"
+
+#: src/pykantui/tui/widgets/board.py:502
+msgid "Nothing is blocking this task"
+msgstr "Ніщо не блокує це завдання"
+
+#: src/pykantui/tui/widgets/board.py:502
+msgid "Blockers"
+msgstr "Блокатори"
+
+#: src/pykantui/tui/widgets/card.py:152
+#, python-brace-format
+msgid "age {days}d"
+msgstr "вік {days}д"
+
+#: src/pykantui/tui/widgets/card.py:156
+msgid "no due date"
+msgstr "без терміну"
+
+#: src/pykantui/tui/widgets/card.py:158
+#, python-brace-format
+msgid "overdue {days}d"
+msgstr "прострочено {days}д"
+
+#: src/pykantui/tui/widgets/card.py:160
+msgid "due today"
+msgstr "термін сьогодні"
+
+#: src/pykantui/tui/widgets/card.py:162
+#, python-brace-format
+msgid "due in {days}d"
+msgstr "термін через {days}д"
+
+#: src/pykantui/tui/widgets/card.py:166
+#, python-brace-format
+msgid "blocked ({count})"
+msgstr "заблоковано ({count})"
+
+#: src/pykantui/tui/widgets/card.py:166
+msgid "unblocked"
+msgstr "розблоковано"
+
+#: src/pykantui/tui/widgets/card.py:168
+#, python-brace-format
+msgid "blocking {count}"
+msgstr "блокування {count}"
+
+#: src/pykantui/tui/widgets/card_fields.py:127
+#: src/pykantui/tui/widgets/work_items.py:110
+#: src/pykantui/workspace/outbound.py:62
+msgid "Description"
+msgstr "опис"
+
+#: src/pykantui/tui/widgets/card_fields.py:137
+msgid "Save"
+msgstr "Зберегти"
+
+#: src/pykantui/tui/widgets/card_fields.py:138
+msgid "Save draft locally"
+msgstr "Зберегти чернетку локально"
+
+#: src/pykantui/tui/widgets/card_fields.py:138
+msgid "Save locally"
+msgstr "Зберегти локально"
+
+#: src/pykantui/tui/widgets/card_fields.py:226
+msgid "Read-only on this backend"
+msgstr "Лише читання на цьому сервері"
+
+#: src/pykantui/tui/widgets/compact_footer.py:63
+#: src/pykantui/tui/widgets/compact_footer.py:78
+msgid "Details"
+msgstr "Деталі"
+
+#: src/pykantui/tui/widgets/compact_footer.py:64
+msgid "Kanban"
+msgstr "Канбан"
+
+#: src/pykantui/tui/widgets/compact_footer.py:70
+msgid "Choose column"
+msgstr "Виберіть колонку"
+
+#: src/pykantui/tui/widgets/compact_footer.py:81
+#: src/pykantui/tui/widgets/dropdowns.py:115
+#: src/pykantui/tui/widgets/dropdowns.py:224
+msgid "Search"
+msgstr "Пошук"
+
+#: src/pykantui/tui/widgets/dropdowns.py:66
+msgid "Any state"
+msgstr "Будь-який стан"
+
+#: src/pykantui/tui/widgets/dropdowns.py:88
+msgid "Saved filter"
+msgstr "Збережений фільтр"
+
+#: src/pykantui/tui/widgets/dropdowns.py:89
+msgid "Saved"
+msgstr "Збережено"
+
+#: src/pykantui/tui/widgets/dropdowns.py:105
+#: src/pykantui/tui/widgets/dropdowns.py:147
+#: src/pykantui/tui/widgets/dropdowns.py:160
+#, python-brace-format
+msgid "Any {field}"
+msgstr "Будь-який {field}"
+
+#: src/pykantui/tui/widgets/dropdowns.py:115
+msgid "title or notes…"
+msgstr "заголовок або примітки…"
+
+#: src/pykantui/tui/widgets/dropdowns.py:189
+msgid "Created From"
+msgstr "Створено з"
+
+#: src/pykantui/tui/widgets/dropdowns.py:193
+msgid "Created Until"
+msgstr "Створено до"
+
+#: src/pykantui/tui/widgets/dropdowns.py:202
+#: src/pykantui/tui/widgets/dropdowns.py:218
+#: src/pykantui/tui/widgets/dropdowns.py:227
+msgid "Live provider queries are unavailable in this workspace"
+msgstr "Запити до постачальників у реальному часі недоступні в цій робочій області"
+
+#: src/pykantui/tui/widgets/dropdowns.py:208
+#, python-brace-format
+msgid "Type in a {language} expression to search issues…"
+msgstr "Введіть вираз {language} для пошуку проблем…"
+
+#: src/pykantui/tui/widgets/menu_bar.py:201
+msgid "+ Save"
+msgstr "+ Зберегти"
+
+#: src/pykantui/tui/widgets/menu_bar.py:202
+msgid "Clear"
+msgstr "ясно"
+
+#: src/pykantui/tui/widgets/work_items.py:95
+msgid "Open the card to view or add provider comments."
+msgstr "Відкрийте картку, щоб переглянути або додати коментарі постачальника."
+
+#: src/pykantui/tui/widgets/work_items.py:101
+msgid "Attachments are not stored in local Markdown."
+msgstr "Вкладення не зберігаються в локальному Markdown."
+
+#: src/pykantui/tui/widgets/work_items.py:109
+msgid "Key"
+msgstr "ключ"
+
+#: src/pykantui/tui/widgets/work_items.py:109
+#: src/pykantui/workspace/outbound.py:65
+msgid "Status"
+msgstr "Статус"
+
+#: src/pykantui/tui/widgets/work_items.py:109
+#: src/pykantui/tui/widgets/work_items.py:111
+#: src/pykantui/workspace/outbound.py:60
+msgid "Summary"
+msgstr "Резюме"
+
+#: src/pykantui/workspace/models.py:67 src/pykantui/workspace/status.py:68
+#: src/pykantui/workspace/status.py:179
+msgid "conflict"
+msgid_plural "conflicts"
+msgstr[0] "конфлікт"
+msgstr[1] "конфлікти"
+msgstr[2] "конфлікти"
+
+#: src/pykantui/workspace/models.py:67
+msgid "provider check unavailable"
+msgstr "перевірка провайдера недоступна"
+
+#: src/pykantui/workspace/models.py:77
+#, python-brace-format
+msgid "      provider: {value}"
+msgstr "      провайдер: {value}"
+
+#: src/pykantui/workspace/models.py:78
+#, python-brace-format
+msgid "      local: {value}"
+msgstr "      локально: {value}"
+
+#: src/pykantui/workspace/models.py:164
+#, python-brace-format
+msgid "READY TO SEND ({count})"
+msgstr "ГОТОВО ДО НАДСИЛАННЯ ({count})"
+
+#: src/pykantui/workspace/models.py:166
+#, python-brace-format
+msgid "CREATE ({count})"
+msgstr "СТВОРИТИ ({count})"
+
+#: src/pykantui/workspace/models.py:172
+#, python-brace-format
+msgid "UPDATE ({count})"
+msgstr "ОНОВИТИ ({count})"
+
+#: src/pykantui/workspace/models.py:182
+#, python-brace-format
+msgid "BLOCKED ({count})"
+msgstr "ЗАБЛОКОВАНО ({count})"
+
+#: src/pykantui/workspace/outbound.py:72
+msgid "Parent"
+msgstr "Батьківський елемент"
+
+#: src/pykantui/workspace/outbound.py:76
+msgid "provider default"
+msgstr "типове значення провайдера"
+
+#: src/pykantui/workspace/outbound.py:79
+#, python-brace-format
+msgid "type: {value}"
+msgstr "тип: {value}"
+
+#: src/pykantui/workspace/outbound.py:81
+#, python-brace-format
+msgid "column: {value}"
+msgstr "колонка: {value}"
+
+#: src/pykantui/workspace/outbound.py:83
+#, python-brace-format
+msgid "fields: {value}"
+msgstr "поля: {value}"
+
+#: src/pykantui/workspace/status.py:66
+msgid "synced"
+msgstr "синхронізовано"
+
+#: src/pykantui/workspace/status.py:67 src/pykantui/workspace/status.py:177
+msgid "unsent edit"
+msgid_plural "unsent edits"
+msgstr[0] "не надіслано"
+msgstr[1] "не надіслано"
+msgstr[2] "не надіслано"
+
+#: src/pykantui/workspace/status.py:69 src/pykantui/workspace/status.py:181
+msgid "not synced"
+msgstr "не синхронізовано"
+
+#: src/pykantui/workspace/status.py:70 src/pykantui/workspace/status.py:175
+msgid "invalid Markdown"
+msgstr "недійсний Markdown"
+
+#: src/pykantui/workspace/status.py:183
+msgid "all synced"
+msgstr "все синхронізовано"
+
+#~ msgid "Authenticate with {provider}"
+#~ msgstr "Автентифікуватися через {provider}"
+
+#~ msgid "Enter an existing key"
+#~ msgstr "Ввести наявний ключ"
+
+#~ msgid "Opening {provider} authentication"
+#~ msgstr "Opening {provider} authentication"
+
+#~ msgid "Authentication page opened"
+#~ msgstr "Authentication page opened"
+
+#~ msgid "{credentials} · no OAuth app registration"
+#~ msgstr "{credentials} · реєстрація застосунку OAuth не потрібна"
+
+#~ msgid "{credentials} · Power-Up registration required"
+#~ msgstr "{credentials} · потрібна реєстрація Power-Up"
+
+#~ msgid "Set up {provider} authentication"
+#~ msgstr "Налаштувати автентифікацію {provider}"
+
+#~ msgid "choose an authentication method"
+#~ msgstr "виберіть спосіб автентифікації"
+
+#~ msgid "Opening the board"
+#~ msgstr "Відкривається дошка"

@@ -1,0 +1,100 @@
+# Publishes to PyPI through trusted publishing (OIDC) — no API token lives in
+# this repository or in its secrets. PyPI is configured to trust exactly this
+# repo and this filename, so `release.yml` is not a name you can change freely:
+# renaming it breaks the trust relationship until PyPI is updated to match.
+#
+# Cut a release by tagging a commit whose pyproject version matches the tag:
+#
+#     git tag v0.1.0 && git push origin v0.1.0
+
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: check (py${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+
+      - run: python -m pip install -e ".[dev]"
+
+      - run: ruff check .
+
+      - run: mypy
+
+      - name: Scan repository for secrets
+        run: python tools/secret_scan.py .
+
+      - name: Audit Python dependencies
+        run: python -m pip_audit . --progress-spinner off --strict
+
+      # The TUI suites boot a real Textual app per test, so this is minutes
+      # rather than seconds. Worth it on the path to publishing.
+      - run: python -m unittest discover -s tests -t .
+
+  build:
+    name: build
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # A tag that disagrees with pyproject would publish a version nobody can
+      # trace back to a commit. Cheaper to fail here than to yank a release.
+      - name: Tag must match the packaged version
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          tagged="${GITHUB_REF_NAME#v}"
+          packaged=$(python -c "import tomllib,pathlib; \
+            print(tomllib.loads(pathlib.Path('pyproject.toml').read_text())['project']['version'])")
+          echo "tag=$tagged  pyproject=$packaged"
+          test "$tagged" = "$packaged"
+
+      - run: python -m pip install build
+
+      - run: python -m build
+
+      - run: python -m pip install twine && twine check dist/*
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  publish:
+    name: publish to PyPI
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      # The whole point: this mints the short-lived OIDC token PyPI trusts.
+      # Nothing else in this workflow needs it, so it is scoped to this job.
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - uses: pypa/gh-action-pypi-publish@release/v1

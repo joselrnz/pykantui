@@ -1,0 +1,1821 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: pykantui 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 18:39-0500\n"
+"PO-Revision-Date: 2026-08-12 00:00-0500\n"
+"Last-Translator: pykantui contributors\n"
+"Language: ko\n"
+"Language-Team: Korean\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: src/pykantui/cli/main.py:33
+msgid "Terminal kanban board"
+msgstr "터미널 칸반 보드"
+
+#: src/pykantui/cli/main.py:39
+msgid "interface language; saved to config.json (default: auto)"
+msgstr "인터페이스 언어; config.json에 저장됨(기본값: 자동)"
+
+#: src/pykantui/cli/main.py:45
+msgid ""
+"adjacent commits H/L immediately; jump highlights a column and waits for "
+"enter"
+msgstr "인접 항목은 즉시 H/L을 커밋합니다. 점프는 열을 강조 표시하고 Enter를 기다립니다."
+
+#: src/pykantui/cli/main.py:50
+msgid "theme name; saved to config.json (default: cyberpunk)"
+msgstr "테마 이름; config.json에 저장됨(기본값: 사이버펑크)"
+
+#: src/pykantui/cli/main.py:56
+msgid "corner style for cards, fields and dialogs; saved to config.json"
+msgstr "카드, 필드 및 대화 상자의 코너 스타일; config.json에 저장되었습니다."
+
+#: src/pykantui/cli/main.py:62
+msgid "apply column moves without the confirmation dialog"
+msgstr "확인 대화상자 없이 열 이동 적용"
+
+#: src/pykantui/cli/main.py:66
+msgid "open a throwaway board with sample tasks"
+msgstr "샘플 작업이 포함된 일회용 보드 열기"
+
+#: src/pykantui/cli/main.py:68
+msgid "open a local JSON board (the default)"
+msgstr "로컬 JSON 보드 열기(기본값)"
+
+#: src/pykantui/cli/main.py:69
+msgid "path to the board file"
+msgstr "보드 파일 경로"
+
+#: src/pykantui/cli/main.py:71
+msgid "print the board as text, without starting the TUI"
+msgstr "TUI를 시작하지 않고 보드를 텍스트로 인쇄합니다."
+
+#: src/pykantui/cli/main.py:146 src/pykantui/cli/main.py:237
+#, python-brace-format
+msgid "error: {error}"
+msgstr "오류: {error}"
+
+#: src/pykantui/cli/main.py:238
+msgid "(run `kbn sync` to fix, or `kbn board --file ...` for a local board)"
+msgstr "(수정하려면 `kbn sync`를 실행하고, 로컬 보드의 경우 `kbn board --file ...`를 실행하세요)"
+
+#: src/pykantui/commands/columns.py:24
+msgid "add, rename, reorder or delete board columns"
+msgstr "보드 열 추가, 이름 바꾸기, 순서 변경 또는 삭제"
+
+#: src/pykantui/commands/columns.py:28
+msgid "show the current columns (the default)"
+msgstr "현재 열 표시(기본값)"
+
+#: src/pykantui/commands/columns.py:30
+msgid "add a column"
+msgstr "열을 추가하다"
+
+#: src/pykantui/commands/columns.py:32
+msgid "column id, name or position to insert after"
+msgstr "뒤에 삽입할 열 ID, 이름 또는 위치"
+
+#: src/pykantui/commands/columns.py:33
+msgid "comma-separated provider statuses for this column"
+msgstr "이 열의 쉼표로 구분된 공급자 상태"
+
+#: src/pykantui/commands/columns.py:34
+msgid "create it hidden"
+msgstr "숨겨진 것을 만들어라"
+
+#: src/pykantui/commands/columns.py:36
+msgid "rename a column"
+msgstr "열 이름 바꾸기"
+
+#: src/pykantui/commands/columns.py:40
+msgid "delete a column and rehome its cards"
+msgstr "열을 삭제하고 해당 카드를 다시 넣습니다."
+
+#: src/pykantui/commands/columns.py:42
+msgid "where its cards go (default: the first column)"
+msgstr "카드가 있는 곳(기본값: 첫 번째 열)"
+
+#: src/pykantui/commands/columns.py:44
+msgid "change a column's position"
+msgstr "열 위치 변경"
+
+#: src/pykantui/commands/columns.py:46
+msgid "1-based position"
+msgstr "1 기반 위치"
+
+#: src/pykantui/commands/columns.py:48
+msgid "set which column means reset, start or finish"
+msgstr "재설정, 시작 또는 종료를 의미하는 열 설정"
+
+#: src/pykantui/commands/columns.py:52
+msgid "set the provider statuses that land in a column"
+msgstr "열에 있는 공급자 상태를 설정합니다."
+
+#: src/pykantui/commands/columns.py:54
+msgid "comma-separated; empty string clears them"
+msgstr "쉼표로 구분; 빈 문자열은 이를 지웁니다."
+
+#: src/pykantui/commands/columns.py:56
+msgid "make a hidden column visible"
+msgstr "숨겨진 열을 보이게 만들기"
+
+#: src/pykantui/commands/columns.py:58
+msgid "hide a column without deleting it"
+msgstr "열을 삭제하지 않고 숨기기"
+
+#: src/pykantui/commands/columns.py:63
+msgid "set the number of visible columns, adding or removing at the end"
+msgstr "표시되는 열 수를 설정하고 끝에 추가하거나 제거합니다."
+
+#: src/pykantui/commands/columns.py:67
+msgid "restore the default shape"
+msgstr "기본 모양 복원"
+
+#: src/pykantui/commands/columns.py:68 src/pykantui/commands/tasks.py:45
+msgid "skip the confirmation"
+msgstr "확인을 건너뛰세요"
+
+#: src/pykantui/commands/graph.py:25
+msgid "render the workspace as an HTML graph"
+msgstr "작업 공간을 HTML 그래프로 렌더링"
+
+#: src/pykantui/commands/graph.py:27 src/pykantui/commands/sync.py:31
+msgid "the workspace (default: found by walking up)"
+msgstr "작업 공간(기본값: 걸어가면 찾을 수 있음)"
+
+#: src/pykantui/commands/graph.py:32
+#, python-brace-format
+msgid "where to write it (default: ./{name})"
+msgstr "어디에 쓸지 (기본값: ./{name})"
+
+#: src/pykantui/commands/graph.py:34
+msgid "open it in a browser afterwards"
+msgstr "나중에 브라우저에서 열어보세요"
+
+#: src/pykantui/commands/init.py:43
+msgid "create a workspace from a tracker"
+msgstr "트래커에서 작업 공간 만들기"
+
+#: src/pykantui/commands/init.py:45
+msgid "which tracker; see --list-types"
+msgstr "어떤 추적기; --list-types 참조"
+
+#: src/pykantui/commands/init.py:46
+msgid "print the available trackers and exit"
+msgstr "사용 가능한 추적기를 인쇄하고 종료합니다."
+
+#: src/pykantui/commands/init.py:50
+msgid "print the boards/projects this token can see, ready to paste into .env"
+msgstr "이 토큰이 볼 수 있는 보드/프로젝트를 인쇄하여 .env에 붙여넣을 준비가 되었습니다."
+
+#: src/pykantui/commands/init.py:52
+msgid "where to create the workspace"
+msgstr "작업 공간을 만드는 위치"
+
+#: src/pykantui/commands/init.py:53
+msgid "a name for the workspace"
+msgstr "작업공간의 이름"
+
+#: src/pykantui/commands/init.py:58
+msgid "type the path instead of browsing for it"
+msgstr "경로를 찾아보는 대신 경로를 입력하세요."
+
+#: src/pykantui/commands/init.py:64
+msgid "column folder naming (default: slug — lowercase, dashes)"
+msgstr "열 폴더 이름 지정(기본값: slug — 소문자, 대시)"
+
+#: src/pykantui/commands/init.py:66
+msgid "do not create a git repository"
+msgstr "git 저장소를 만들지 마세요"
+
+#: src/pykantui/commands/init.py:67
+msgid "set up but do not pull yet"
+msgstr "설정했지만 아직 당기지 마세요"
+
+#: src/pykantui/commands/init.py:72
+msgid "finish after setup instead of opening the new board"
+msgstr "새 보드를 여는 대신 설정 후 완료"
+
+#: src/pykantui/commands/init.py:74
+msgid "never prompt; fail instead"
+msgstr "메시지를 표시하지 않습니다. 대신 실패하다"
+
+#: src/pykantui/commands/init_interactive.py:113
+msgid "Authentication cancelled"
+msgstr "Authentication cancelled"
+
+#: src/pykantui/commands/init_interactive.py:140
+#, python-brace-format
+msgid "Validated project: {project}"
+msgstr "Validated project: {project}"
+
+#: src/pykantui/commands/init_interactive.py:176
+msgid "skipped"
+msgstr "건너뜀"
+
+#: src/pykantui/commands/init_interactive.py:198
+msgid "Setup complete"
+msgstr "설정 완료"
+
+#: src/pykantui/commands/init_interactive.py:230
+msgid "Enter credentials again"
+msgstr "Enter credentials again"
+
+#: src/pykantui/commands/init_interactive.py:231
+msgid "retry authentication"
+msgstr "retry authentication"
+
+#: src/pykantui/commands/init_interactive.py:238
+msgid "Cancel setup"
+msgstr "Cancel setup"
+
+#: src/pykantui/commands/init_interactive.py:239
+msgid "create nothing"
+msgstr "create nothing"
+
+#: src/pykantui/commands/init_interactive.py:242
+msgid "No workspace or credential file has been created."
+msgstr "No workspace or credential file has been created."
+
+#: src/pykantui/commands/init_interactive.py:245
+#, python-brace-format
+msgid "Could not connect to {provider}"
+msgstr "Could not connect to {provider}"
+
+#: src/pykantui/commands/init_interactive.py:246
+msgid "retry or cancel"
+msgstr "retry or cancel"
+
+#: src/pykantui/commands/init_interactive.py:289
+#, python-brace-format
+msgid "Configured project {project} is not visible; choose an available project"
+msgstr "Configured project {project} is not visible; choose an available project"
+
+#: src/pykantui/commands/init_interactive.py:292
+#: src/pykantui/commands/init_interactive.py:300
+#: src/pykantui/pages/init_wizard.py:328
+#, python-brace-format
+msgid "No {provider} projects found"
+msgstr "{provider} 프로젝트를 찾을 수 없습니다"
+
+#: src/pykantui/commands/init_interactive.py:295
+#, python-brace-format
+msgid "Checking {provider} projects again"
+msgstr "{provider} 프로젝트를 다시 확인하는 중"
+
+#: src/pykantui/commands/init_interactive.py:298
+#, python-brace-format
+msgid "{provider} projects found"
+msgstr "{provider} 프로젝트를 찾았습니다"
+
+#: src/pykantui/commands/new.py:44
+msgid "draft a story as markdown, without sending it"
+msgstr "스토리를 보내지 않고 마크다운으로 초안 작성"
+
+#: src/pykantui/commands/new.py:46
+msgid "the story title"
+msgstr "이야기 제목"
+
+#: src/pykantui/commands/new.py:47
+msgid "the workspace"
+msgstr "작업 공간"
+
+#: src/pykantui/commands/new.py:48
+msgid "which column to draft it into"
+msgstr "초안을 작성할 열"
+
+#: src/pykantui/commands/new.py:53
+msgid "issue type; see --types for what this project accepts"
+msgstr "이슈 유형; 이 프로젝트에서 허용하는 내용은 --types를 참조하세요."
+
+#: src/pykantui/commands/new.py:55
+msgid "the description"
+msgstr "설명"
+
+#: src/pykantui/commands/new.py:56
+msgid "key of the epic it belongs to"
+msgstr "그것이 속한 서사시의 열쇠"
+
+#: src/pykantui/commands/new.py:57
+msgid "repeatable"
+msgstr "반복 가능"
+
+#: src/pykantui/commands/new.py:58
+msgid "repeatable Jira component"
+msgstr "반복 가능한 Jira 구성 요소"
+
+#: src/pykantui/commands/new.py:61
+msgid "list the columns and exit"
+msgstr "열을 나열하고 종료합니다."
+
+#: src/pykantui/commands/new.py:62
+msgid "list the issue types and exit"
+msgstr "문제 유형을 나열하고 종료합니다."
+
+#: src/pykantui/commands/new.py:63
+msgid "list Jira components and exit"
+msgstr "Jira 구성 요소를 나열하고 종료"
+
+#: src/pykantui/commands/new.py:67
+msgid "do not assign it to yourself (drafts are your work by default)"
+msgstr "자신에게 할당하지 마십시오(기본적으로 초안은 귀하의 작업입니다)."
+
+#: src/pykantui/commands/sync.py:29
+msgid "reconcile a workspace with its provider"
+msgstr "작업 공간을 공급자와 조정"
+
+#: src/pykantui/commands/sync.py:32
+msgid "do not ask before sending changes to the provider"
+msgstr "공급자에게 변경 사항을 보내기 전에 묻지 마십시오."
+
+#: src/pykantui/commands/sync.py:33
+msgid "show what would be sent, and send nothing"
+msgstr "보낼 내용을 표시하고 아무것도 보내지 않음"
+
+#: src/pykantui/commands/sync.py:34
+msgid "never send, whatever changed locally"
+msgstr "로컬에서 변경된 내용은 절대 보내지 마세요."
+
+#: src/pykantui/commands/sync.py:35
+msgid "ignore the cached issue list"
+msgstr "캐시된 문제 목록 무시"
+
+#: src/pykantui/commands/sync.py:39
+msgid "write only issues assigned to or reported by you (the cache still holds all)"
+msgstr "귀하에게 할당되었거나 귀하가 보고한 문제만 기록합니다(캐시는 여전히 모든 것을 보유합니다)."
+
+#: src/pykantui/commands/sync.py:45
+msgid "mirror the whole project, whatever the workspace is set to"
+msgstr "작업 공간이 무엇으로 설정되어 있든 전체 프로젝트를 미러링합니다."
+
+#: src/pykantui/commands/sync.py:51
+msgid "send even where the provider also changed the issue, overwriting it"
+msgstr "공급자가 문제를 변경한 경우에도 덮어써서 보냅니다."
+
+#: src/pykantui/commands/sync.py:56
+msgid "use provider values for conflicts while sending safe local changes"
+msgstr "안전한 로컬 변경을 보내면서 충돌에는 공급자 값 사용"
+
+#: src/pykantui/commands/sync.py:61
+msgid ""
+"retry draft creates whose previous outcome was unknown, after checking the "
+"provider"
+msgstr "공급자를 확인한 후 이전 결과를 알 수 없는 초안 생성을 다시 시도합니다"
+
+#: src/pykantui/commands/sync.py:63
+msgid "do not commit the result"
+msgstr "결과를 커밋하지 마십시오"
+
+#: src/pykantui/commands/tasks.py:21
+msgid "add or remove cards"
+msgstr "카드 추가 또는 제거"
+
+#: src/pykantui/commands/tasks.py:25
+msgid "add one card, or several numbered ones"
+msgstr "하나의 카드 또는 여러 개의 번호가 매겨진 카드 추가"
+
+#: src/pykantui/commands/tasks.py:27
+msgid "column id, name or position (default: the first)"
+msgstr "열 ID, 이름 또는 위치(기본값: 첫 번째)"
+
+#: src/pykantui/commands/tasks.py:28
+msgid "add this many, numbered from 1"
+msgstr "1부터 번호가 매겨진 이만큼을 추가하세요."
+
+#: src/pykantui/commands/tasks.py:29
+msgid "body text for the card"
+msgstr "카드 본문 텍스트"
+
+#: src/pykantui/commands/tasks.py:30
+msgid "due date, or +N for N days from today"
+msgstr "마감일 또는 오늘부터 N일인 경우 +N"
+
+#: src/pykantui/commands/tasks.py:35
+msgid "comma-separated card ids that must finish first"
+msgstr "먼저 완료되어야 하는 쉼표로 구분된 카드 ID"
+
+#: src/pykantui/commands/tasks.py:39
+msgid "delete cards by id"
+msgstr "ID별로 카드 삭제"
+
+#: src/pykantui/commands/tasks.py:43
+msgid "delete every card in a column"
+msgstr "열의 모든 카드 삭제"
+
+#: src/pykantui/commands/onboarding/connection.py:25
+#, python-brace-format
+msgid "Listing {provider} projects"
+msgstr "Listing {provider} projects"
+
+#: src/pykantui/commands/onboarding/connection.py:27
+msgid "project"
+msgstr "project"
+
+#: src/pykantui/commands/onboarding/connection.py:27
+msgid "projects"
+msgstr "projects"
+
+#: src/pykantui/commands/onboarding/connection.py:28
+#, python-brace-format
+msgid "{count} {noun} available"
+msgstr "{count} {noun} available"
+
+#: src/pykantui/commands/onboarding/connection.py:30
+#, python-brace-format
+msgid "Confirming {provider} identity"
+msgstr "Confirming {provider} identity"
+
+#: src/pykantui/commands/onboarding/connection.py:32
+#, python-brace-format
+msgid "Connected as {identity}"
+msgstr "Connected as {identity}"
+
+#: src/pykantui/commands/onboarding/credentials.py:53
+#, python-brace-format
+msgid "Detected {provider} credentials: {sources}"
+msgstr "Detected {provider} credentials: {sources}"
+
+#: src/pykantui/commands/onboarding/credentials.py:62
+#, python-brace-format
+msgid "Set up {provider} credentials"
+msgstr "{provider} 자격 증명 설정"
+
+#: src/pykantui/commands/onboarding/credentials.py:63
+msgid "choose how to provide credentials"
+msgstr "자격 증명 제공 방법 선택"
+
+#: src/pykantui/commands/onboarding/credentials.py:98
+#, python-brace-format
+msgid "{provider} still needs {fields}"
+msgstr "{provider} still needs {fields}"
+
+#: src/pykantui/commands/onboarding/credentials.py:116
+msgid "Credentials are already stored privately in ~/.pykantui/auth.json"
+msgstr "Credentials are already stored privately in ~/.pykantui/auth.json"
+
+#: src/pykantui/commands/onboarding/credentials.py:119
+msgid ""
+"Credentials supplied by command line will be stored privately after "
+"validation"
+msgstr ""
+"Credentials supplied by command line will be stored privately after "
+"validation"
+
+#: src/pykantui/commands/onboarding/credentials.py:128
+#, python-brace-format
+msgid "Keep {provider} credentials?"
+msgstr "{provider} 자격 증명을 저장할까요?"
+
+#: src/pykantui/commands/onboarding/credentials.py:129
+msgid "choose where credentials are reused"
+msgstr "자격 증명 재사용 위치 선택"
+
+#: src/pykantui/commands/onboarding/credentials.py:133
+msgid "Using existing environment variables; no credential was copied"
+msgstr "Using existing environment variables; no credential was copied"
+
+#: src/pykantui/commands/onboarding/credentials.py:137
+#, python-brace-format
+msgid "Credentials are not saved. For future runs, set: {names}"
+msgstr "Credentials are not saved. For future runs, set: {names}"
+
+#: src/pykantui/commands/onboarding/credentials.py:196
+msgid "Get personal credentials"
+msgstr "개인 자격 증명 받기"
+
+#: src/pykantui/commands/onboarding/credentials.py:197
+msgid "no app registration"
+msgstr "앱 등록 불필요"
+
+#: src/pykantui/commands/onboarding/credentials.py:199
+#, python-brace-format
+msgid "Set up {provider} API access"
+msgstr "{provider} API 액세스 설정"
+
+#: src/pykantui/commands/onboarding/credentials.py:200
+msgid "Power-Up registration required"
+msgstr "Power-Up 등록 필요"
+
+#: src/pykantui/commands/onboarding/credentials.py:202
+msgid "Open provider credential page"
+msgstr "공급자 자격 증명 페이지 열기"
+
+#: src/pykantui/commands/onboarding/credentials.py:203
+msgid "open the provider credential page"
+msgstr "공급자 자격 증명 페이지 열기"
+
+#: src/pykantui/commands/onboarding/credentials.py:217
+msgid "Enter existing credentials"
+msgstr "기존 자격 증명 입력"
+
+#: src/pykantui/commands/onboarding/credentials.py:221
+msgid "Paste the credential into a masked field."
+msgstr "마스킹된 필드에 자격 증명을 붙여넣으세요."
+
+#: src/pykantui/commands/onboarding/credentials.py:230
+msgid "Save privately"
+msgstr "비공개로 저장"
+
+#: src/pykantui/commands/onboarding/credentials.py:234
+msgid "Owner-only, outside every workspace and local Git history."
+msgstr "Owner-only, outside every workspace and local Git history."
+
+#: src/pykantui/commands/onboarding/credentials.py:240
+msgid "Use environment"
+msgstr "환경 변수 사용"
+
+#: src/pykantui/commands/onboarding/credentials.py:244
+msgid "Keep using the value already exported or loaded from .env; do not copy it."
+msgstr "Keep using the value already exported or loaded from .env; do not copy it."
+
+#: src/pykantui/commands/onboarding/credentials.py:252
+msgid "Use once"
+msgstr "한 번만 사용"
+
+#: src/pykantui/commands/onboarding/credentials.py:253
+msgid "not saved"
+msgstr "저장 안 함"
+
+#: src/pykantui/commands/onboarding/credentials.py:256
+msgid ""
+"Available for this setup only. Configure the listed environment variables "
+"for reuse."
+msgstr ""
+"Available for this setup only. Configure the listed environment variables "
+"for reuse."
+
+#: src/pykantui/commands/onboarding/credentials.py:268
+#, python-brace-format
+msgid "Opening {provider} credential page"
+msgstr "{provider} 자격 증명 페이지 여는 중"
+
+#: src/pykantui/commands/onboarding/credentials.py:271
+msgid "Credential page opened"
+msgstr "자격 증명 페이지를 열었습니다"
+
+#: src/pykantui/commands/onboarding/credentials.py:273
+#, python-brace-format
+msgid "Open this address in a browser: {url}"
+msgstr "Open this address in a browser: {url}"
+
+#: src/pykantui/commands/onboarding/credentials.py:293
+#, python-brace-format
+msgid "Environment: {names}"
+msgstr "Environment: {names}"
+
+#: src/pykantui/core/actions.py:113 src/pykantui/tui/widgets/app_header.py:33
+msgid "⌘ Menu"
+msgstr "⌘ 메뉴"
+
+#: src/pykantui/core/actions.py:115
+msgid "▥ View"
+msgstr "▥ 보기"
+
+#: src/pykantui/i18n/catalog.py:14
+msgid "Filter"
+msgstr "필터"
+
+#: src/pykantui/i18n/catalog.py:15 src/pykantui/tui/widgets/dropdowns.py:78
+msgid "Sort"
+msgstr "정렬"
+
+#: src/pykantui/i18n/catalog.py:16
+msgid "Columns"
+msgstr "열"
+
+#: src/pykantui/i18n/catalog.py:17
+msgid "View"
+msgstr "보기"
+
+#: src/pykantui/i18n/catalog.py:18 src/pykantui/tui/controllers/columns.py:91
+msgid "Blocked"
+msgstr "차단됨"
+
+#: src/pykantui/i18n/catalog.py:19
+msgid "Unblocked"
+msgstr "차단 해제됨"
+
+#: src/pykantui/i18n/catalog.py:20
+msgid "Overdue"
+msgstr "연체"
+
+#: src/pykantui/i18n/catalog.py:21
+msgid "Due today"
+msgstr "오늘 마감"
+
+#: src/pykantui/i18n/catalog.py:22
+msgid "No due date"
+msgstr "마감일 없음"
+
+#: src/pykantui/i18n/catalog.py:23
+msgid "Has notes"
+msgstr "메모 있음"
+
+#: src/pykantui/i18n/catalog.py:24 src/pykantui/tui/widgets/dropdowns.py:77
+msgid "Manual"
+msgstr "매뉴얼"
+
+#: src/pykantui/i18n/catalog.py:25
+msgid "Due"
+msgstr "마감"
+
+#: src/pykantui/i18n/catalog.py:26
+msgid "Age"
+msgstr "나이"
+
+#: src/pykantui/i18n/catalog.py:27
+msgid "Rows"
+msgstr "목록"
+
+#: src/pykantui/i18n/catalog.py:28
+msgid "Split"
+msgstr "분할"
+
+#: src/pykantui/i18n/catalog.py:29
+msgid "adjacent"
+msgstr "인접한"
+
+#: src/pykantui/i18n/catalog.py:30
+msgid "jump"
+msgstr "점프"
+
+#: src/pykantui/i18n/catalog.py:31
+msgid "New folder"
+msgstr "새 폴더"
+
+#: src/pykantui/i18n/catalog.py:32
+msgid "Work Items"
+msgstr "작업 항목"
+
+#: src/pykantui/i18n/catalog.py:33
+msgid "Info"
+msgstr "정보"
+
+#: src/pykantui/i18n/catalog.py:34
+msgid "Comments"
+msgstr "댓글"
+
+#: src/pykantui/i18n/catalog.py:35
+msgid "Related"
+msgstr "관련"
+
+#: src/pykantui/i18n/catalog.py:36
+msgid "Attachments"
+msgstr "첨부파일"
+
+#: src/pykantui/i18n/catalog.py:37
+msgid "Links"
+msgstr "링크"
+
+#: src/pykantui/i18n/catalog.py:38
+msgid "Subtasks"
+msgstr "하위 작업"
+
+#: src/pykantui/i18n/catalog.py:39 src/pykantui/pages/init_wizard.py:272
+msgid "Project"
+msgstr "프로젝트"
+
+#: src/pykantui/i18n/catalog.py:40
+msgid "Sprint"
+msgstr "스프린트"
+
+#: src/pykantui/i18n/catalog.py:41
+msgid "Query"
+msgstr "쿼리"
+
+#: src/pykantui/i18n/catalog.py:42
+msgid "Reporter"
+msgstr "기자"
+
+#: src/pykantui/i18n/catalog.py:43
+msgid "Created"
+msgstr "생성됨"
+
+#: src/pykantui/i18n/catalog.py:44
+msgid "Last Update"
+msgstr "마지막 업데이트"
+
+#: src/pykantui/i18n/catalog.py:45 src/pykantui/workspace/outbound.py:71
+msgid "Due Date"
+msgstr "마감일"
+
+#: src/pykantui/i18n/catalog.py:46
+msgid "Resolved"
+msgstr "해결됨"
+
+#: src/pykantui/i18n/catalog.py:47
+msgid "Resolution"
+msgstr "해상도"
+
+#: src/pykantui/i18n/catalog.py:48
+msgid "Blocked by"
+msgstr "차단한 사람"
+
+#: src/pykantui/i18n/catalog.py:49
+msgid "Time Tracking"
+msgstr "시간 추적"
+
+#: src/pykantui/i18n/catalog.py:50
+msgid "Highest"
+msgstr "최고"
+
+#: src/pykantui/i18n/catalog.py:51
+msgid "Blocker"
+msgstr "차단제"
+
+#: src/pykantui/i18n/catalog.py:52
+msgid "Critical"
+msgstr "심각"
+
+#: src/pykantui/i18n/catalog.py:53
+msgid "High"
+msgstr "높음"
+
+#: src/pykantui/i18n/catalog.py:54
+msgid "Medium"
+msgstr "중간"
+
+#: src/pykantui/i18n/catalog.py:55
+msgid "Normal"
+msgstr "보통"
+
+#: src/pykantui/i18n/catalog.py:56
+msgid "Low"
+msgstr "낮음"
+
+#: src/pykantui/i18n/catalog.py:57
+msgid "Lowest"
+msgstr "최저"
+
+#: src/pykantui/i18n/catalog.py:58
+msgid "Trivial"
+msgstr "사소한"
+
+#: src/pykantui/pages/chooser.py:130
+msgid "Choose one"
+msgstr "하나를 선택하세요"
+
+#: src/pykantui/pages/chooser.py:131
+msgid "type to filter"
+msgstr "필터링할 유형"
+
+#: src/pykantui/pages/chooser.py:141 src/pykantui/pages/folder.py:216
+#: src/pykantui/pages/init_wizard.py:112 src/pykantui/pages/init_wizard.py:324
+msgid "Back"
+msgstr "뒤로"
+
+#: src/pykantui/pages/chooser.py:142
+msgid "↑↓ move · type to filter · enter choose · esc cancel"
+msgstr "↑↓ 이동 · 필터 입력 · Enter 선택 · Esc 취소"
+
+#: src/pykantui/pages/chooser.py:153 src/pykantui/pages/confirm.py:43
+#: src/pykantui/pages/edit.py:109 src/pykantui/pages/folder.py:240
+#: src/pykantui/pages/init_wizard.py:120 src/pykantui/pages/init_wizard.py:340
+#: src/pykantui/pages/sync.py:129 src/pykantui/tui/controllers/columns.py:136
+#: src/pykantui/tui/widgets/compact_footer.py:72
+msgid "Cancel"
+msgstr "취소"
+
+#: src/pykantui/pages/chooser.py:154
+msgid "Choose"
+msgstr "선택"
+
+#: src/pykantui/pages/confirm.py:36
+msgid "Move this card?"
+msgstr "이 카드를 이동하시겠습니까?"
+
+#: src/pykantui/pages/confirm.py:42 src/pykantui/tui/widgets/compact_footer.py:71
+#: src/pykantui/tui/widgets/compact_footer.py:76
+msgid "Move"
+msgstr "이동"
+
+#: src/pykantui/pages/detail.py:87 src/pykantui/tui/widgets/work_items.py:112
+msgid "Private Markdown notes · local only"
+msgstr "비공개 Markdown 메모 · 로컬 전용"
+
+#: src/pykantui/pages/detail.py:92 src/pykantui/pages/init_wizard.py:183
+msgid "Close"
+msgstr "닫기"
+
+#: src/pykantui/pages/detail.py:113
+msgid "Read-only"
+msgstr "읽기 전용"
+
+#: src/pykantui/pages/detail.py:115 src/pykantui/tui/widgets/compact_footer.py:62
+#: src/pykantui/tui/widgets/compact_footer.py:77
+msgid "Edit"
+msgstr "편집"
+
+#: src/pykantui/pages/detail.py:125
+msgid "[$success]finished[/]"
+msgstr "[$success]완료[/]"
+
+#: src/pykantui/pages/detail.py:127
+msgid "in progress"
+msgstr "진행 중"
+
+#: src/pykantui/pages/detail.py:129
+msgid "not started"
+msgstr "시작되지 않음"
+
+#: src/pykantui/pages/detail.py:133
+#, python-brace-format
+msgid "[$error]blocked by {count}[/]"
+msgstr "[$error]가 {count}[/]에 의해 차단되었습니다."
+
+#: src/pykantui/pages/detail.py:135
+#, python-brace-format
+msgid "[$warning]blocking {count}[/]"
+msgstr "[$warning]{count}[/] 차단"
+
+#: src/pykantui/pages/detail.py:139
+#, python-brace-format
+msgid "[$error]{days}d overdue[/]"
+msgstr "[$error]{days}d 기한 초과[/]"
+
+#: src/pykantui/pages/detail.py:141
+msgid "[$warning]due today[/]"
+msgstr "[$warning]오늘 마감[/]"
+
+#: src/pykantui/pages/detail.py:178
+msgid "This backend is read-only"
+msgstr "이 백엔드는 읽기 전용입니다."
+
+#: src/pykantui/pages/detail.py:202
+msgid "A card needs a summary"
+msgstr "카드에는 요약이 필요합니다."
+
+#: src/pykantui/pages/edit.py:55
+#, python-brace-format
+msgid "Edit {key}"
+msgstr "{key} 편집"
+
+#: src/pykantui/pages/edit.py:55 src/pykantui/tui/menu_items.py:64
+#: src/pykantui/tui/widgets/compact_footer.py:81
+msgid "New card"
+msgstr "새 카드"
+
+#: src/pykantui/pages/edit.py:61
+msgid "What needs doing?"
+msgstr "무엇을 해야 합니까?"
+
+#: src/pykantui/pages/edit.py:61
+msgid "Title"
+msgstr "제목"
+
+#: src/pykantui/pages/edit.py:70 src/pykantui/workspace/outbound.py:67
+msgid "Assignee"
+msgstr "양수인"
+
+#: src/pykantui/pages/edit.py:74 src/pykantui/tui/widgets/work_items.py:109
+#: src/pykantui/workspace/outbound.py:64
+msgid "Type"
+msgstr "유형"
+
+#: src/pykantui/pages/edit.py:83 src/pykantui/tui/widgets/card_fields.py:209
+msgid "Select a priority"
+msgstr "우선순위를 선택하세요"
+
+#: src/pykantui/pages/edit.py:84 src/pykantui/workspace/outbound.py:68
+msgid "Priority"
+msgstr "우선순위"
+
+#: src/pykantui/pages/edit.py:90
+msgid "Due date"
+msgstr "마감일"
+
+#: src/pykantui/pages/edit.py:95 src/pykantui/workspace/outbound.py:69
+msgid "Labels"
+msgstr "라벨"
+
+#: src/pykantui/pages/edit.py:97 src/pykantui/workspace/outbound.py:70
+msgid "Components"
+msgstr "구성 요소"
+
+#: src/pykantui/pages/edit.py:124 src/pykantui/pages/edit.py:125
+#: src/pykantui/tui/widgets/card_fields.py:199
+#: src/pykantui/tui/widgets/compact_footer.py:79
+msgid "Column"
+msgstr "칼럼"
+
+#: src/pykantui/pages/edit.py:165
+msgid "A card needs a title"
+msgstr "카드에는 제목이 필요합니다"
+
+#: src/pykantui/pages/folder.py:207
+msgid "Where should it live?"
+msgstr "어디에 살아야합니까?"
+
+#: src/pykantui/pages/folder.py:222
+msgid "↑ Parent"
+msgstr "↑ 부모"
+
+#: src/pykantui/pages/folder.py:223 src/pykantui/tui/widgets/menu_bar.py:99
+msgid "⌂ Home"
+msgstr "⌂ 홈"
+
+#: src/pykantui/pages/folder.py:224
+msgid "/ Path…"
+msgstr "/ 경로…"
+
+#: src/pykantui/pages/folder.py:233
+msgid "↑↓ move · enter open · backspace parent · . hidden"
+msgstr "↑↓ 이동 · 열기 입력 · 백스페이스 부모 · . 숨겨진"
+
+#: src/pykantui/pages/folder.py:242
+msgid "Choose folder"
+msgstr "폴더 선택"
+
+#: src/pykantui/pages/grouped_palette.py:141
+msgid "Search commands or groups…"
+msgstr "명령 또는 그룹 검색..."
+
+#: src/pykantui/pages/init_wizard.py:121
+msgid "Continue"
+msgstr "계속"
+
+#: src/pykantui/pages/init_wizard.py:254
+msgid "Open board"
+msgstr "보드 열기"
+
+#: src/pykantui/pages/init_wizard.py:254
+msgid "Finish"
+msgstr "완료"
+
+#: src/pykantui/pages/init_wizard.py:271
+msgid "Provider"
+msgstr "제공자"
+
+#: src/pykantui/pages/init_wizard.py:273
+msgid "Workspace"
+msgstr "작업 공간"
+
+#: src/pykantui/pages/init_wizard.py:274
+msgid "Initial sync"
+msgstr "초기 동기화"
+
+#: src/pykantui/pages/init_wizard.py:333
+#, python-brace-format
+msgid ""
+"Create a project in {provider}, then return here and check again. No local "
+"files have been created."
+msgstr "{provider}에서 프로젝트를 만든 후 여기로 돌아와 다시 확인하세요. 로컬 파일은 아직 생성되지 않았습니다."
+
+#: src/pykantui/pages/init_wizard.py:341
+msgid "Check again"
+msgstr "다시 확인"
+
+#: src/pykantui/pages/init_wizard.py:467
+msgid "pykantui - setup"
+msgstr "pykantui-설정"
+
+#: src/pykantui/pages/init_wizard.py:499 src/pykantui/pages/init_wizard.py:504
+msgid "Setup stopped"
+msgstr "설정이 중지되었습니다."
+
+#: src/pykantui/pages/init_wizard.py:500 src/pykantui/pages/init_wizard.py:507
+msgid "Could not finish setup"
+msgstr "설정을 완료할 수 없습니다."
+
+#: src/pykantui/pages/init_wizard.py:509
+msgid ""
+"An unexpected error stopped setup. The last completed step is shown behind "
+"this message. Close it, then run `kbn init` again."
+msgstr ""
+"예기치 않은 오류로 설정이 중단되었습니다. 마지막으로 완료된 단계가 이 메시지 뒤에 표시됩니다. 닫은 다음 `kbn init`을 다시 "
+"실행하세요."
+
+#: src/pykantui/pages/sync.py:76
+msgid "SYNC PREVIEW"
+msgstr "동기화 미리보기"
+
+#: src/pykantui/pages/sync.py:85
+msgid "LOCAL ONLY"
+msgstr "로컬 전용"
+
+#: src/pykantui/pages/sync.py:87
+msgid ""
+"• Private Markdown notes\n"
+"• Local Git history\n"
+"• Credentials and cache files"
+msgstr ""
+"• 비공개 Markdown 메모\n"
+"• 로컬 Git 기록\n"
+"• 자격 증명 및 캐시 파일"
+
+#: src/pykantui/pages/sync.py:92
+msgid ""
+"Choose provider or local for each conflicting field. Undecided cards stay "
+"local."
+msgstr "충돌하는 각 필드에서 공급자 또는 로컬을 선택하세요. 결정하지 않은 카드는 로컬에 남습니다."
+
+#: src/pykantui/pages/sync.py:95
+msgid "RESOLVE CONFLICTS"
+msgstr "충돌 해결"
+
+#: src/pykantui/pages/sync.py:105
+msgid "Keep undecided"
+msgstr "결정하지 않음"
+
+#: src/pykantui/pages/sync.py:107 src/pykantui/pages/sync.py:120
+#, python-brace-format
+msgid "Use {provider} version"
+msgstr "{provider} 버전 사용"
+
+#: src/pykantui/pages/sync.py:110
+msgid "Send local version"
+msgstr "로컬 버전 보내기"
+
+#: src/pykantui/pages/sync.py:124
+#, python-brace-format
+msgid "Overwrite {provider}"
+msgstr "{provider} 덮어쓰기"
+
+#: src/pykantui/pages/sync.py:130
+msgid "Pull only"
+msgstr "당기기만"
+
+#: src/pykantui/pages/sync.py:131
+msgid "Send ready changes"
+msgstr "준비된 변경 보내기"
+
+#: src/pykantui/tui/app.py:133
+msgid "Run this pykantui board command"
+msgstr "이 pykantui 보드 명령을 실행하세요."
+
+#: src/pykantui/tui/app.py:142
+#, python-brace-format
+msgid "Run the {menu} command in pykantui"
+msgstr "pykantui에서 {menu} 명령을 실행합니다."
+
+#: src/pykantui/tui/app.py:148
+#, python-brace-format
+msgid "Sync with {provider}…"
+msgstr "{provider}와 동기화…"
+
+#: src/pykantui/tui/app.py:190
+msgid "card"
+msgid_plural "cards"
+msgstr[0] "카드"
+
+#: src/pykantui/tui/app.py:195
+#, python-brace-format
+msgid "{shown} of {total} · {detail}"
+msgstr "{total}의 {shown} · {detail}"
+
+#: src/pykantui/tui/app.py:196
+#, python-brace-format
+msgid "{shown} of {total}"
+msgstr "{total}의 {shown}"
+
+#: src/pykantui/tui/app.py:259
+msgid "Check your configuration"
+msgstr "구성을 확인하세요"
+
+#: src/pykantui/tui/app.py:277
+#, python-brace-format
+msgid "Unknown theme {theme!r}; using {fallback}"
+msgstr "알 수 없는 테마 {theme!r}; {fallback} 사용"
+
+#: src/pykantui/tui/app.py:301
+msgid "confirm on"
+msgstr "에 확인"
+
+#: src/pykantui/tui/app.py:301
+msgid "confirm off"
+msgstr "확인하다"
+
+#: src/pykantui/tui/app.py:361
+#, python-brace-format
+msgid "{provider} cannot create cards here"
+msgstr "{provider}는 여기에서 카드를 생성할 수 없습니다."
+
+#: src/pykantui/tui/app.py:398
+msgid "Create failed"
+msgstr "생성 실패"
+
+#: src/pykantui/tui/app.py:400 src/pykantui/tui/app.py:446
+msgid "Saved locally"
+msgstr "로컬에 저장됨"
+
+#: src/pykantui/tui/app.py:415 src/pykantui/tui/app.py:451
+#, python-brace-format
+msgid "{provider} cards cannot be edited here"
+msgstr "{provider} 카드는 여기에서 편집할 수 없습니다."
+
+#: src/pykantui/tui/app.py:443
+msgid "Save failed"
+msgstr "저장 실패"
+
+#: src/pykantui/tui/menu_items.py:55
+msgid "⌂ Home · ▥ Kanban"
+msgstr "⌂ 홈 · ▥ 칸반"
+
+#: src/pykantui/tui/menu_items.py:67
+msgid "Reload files"
+msgstr "파일 다시 로드"
+
+#: src/pykantui/tui/menu_items.py:75
+msgid "Sync with provider…"
+msgstr "공급자와 동기화…"
+
+#: src/pykantui/tui/menu_items.py:78 src/pykantui/tui/palette.py:169
+msgid "Help"
+msgstr "도움말"
+
+#: src/pykantui/tui/menu_items.py:105
+msgid "+ Save this filter…"
+msgstr "+ 이 필터를 저장하세요..."
+
+#: src/pykantui/tui/menu_items.py:106
+msgid "Clear filters"
+msgstr "필터 지우기"
+
+#: src/pykantui/tui/menu_items.py:116 src/pykantui/tui/widgets/menu_bar.py:200
+msgid "⇵ Reverse"
+msgstr "⇵ 역방향"
+
+#: src/pykantui/tui/menu_items.py:121
+msgid "Add column…"
+msgstr "열 추가…"
+
+#: src/pykantui/tui/menu_items.py:122
+msgid "Rename this column…"
+msgstr "이 열의 이름을 바꾸세요..."
+
+#: src/pykantui/tui/menu_items.py:123
+msgid "Hide this column"
+msgstr "이 열 숨기기"
+
+#: src/pykantui/tui/menu_items.py:124
+msgid "Delete this column…"
+msgstr "이 열 삭제…"
+
+#: src/pykantui/tui/menu_items.py:125
+msgid "Expand all columns"
+msgstr "모든 열 확장"
+
+#: src/pykantui/tui/menu_items.py:141
+msgid "[ Narrow work items"
+msgstr "[ 좁은 작업 항목"
+
+#: src/pykantui/tui/menu_items.py:142
+msgid "] Widen work items"
+msgstr "] 작업 항목 확대"
+
+#: src/pykantui/tui/menu_items.py:143
+msgid "\\ Reset divider"
+msgstr "\\ 구분선 재설정"
+
+#: src/pykantui/tui/menu_items.py:151
+#, python-brace-format
+msgid "Movement: {mode}"
+msgstr "무브먼트: {mode}"
+
+#: src/pykantui/tui/menu_items.py:156
+msgid "Confirm moves"
+msgstr "이동 확인"
+
+#: src/pykantui/tui/menu_items.py:159
+msgid "Card detail"
+msgstr "카드 세부정보"
+
+#: src/pykantui/tui/menu_items.py:163
+msgid "Collapse this column"
+msgstr "이 열 접기"
+
+#: src/pykantui/tui/controllers/actions.py:256 src/pykantui/tui/menu_items.py:170
+msgid "Keys"
+msgstr "열쇠"
+
+#: src/pykantui/tui/controllers/actions.py:247 src/pykantui/tui/menu_items.py:173
+msgid "Where things are stored"
+msgstr "물건을 보관하는 곳"
+
+#: src/pykantui/tui/palette.py:40
+msgid "Return to the Kanban home board"
+msgstr "칸반 홈보드로 돌아가기"
+
+#: src/pykantui/tui/palette.py:41
+msgid "Create a card or reload Markdown files"
+msgstr "카드를 생성하거나 Markdown 파일을 다시 로드하세요."
+
+#: src/pykantui/tui/palette.py:54
+msgid "State, provider fields, and saved filters"
+msgstr "상태, 공급자 필드 및 저장된 필터"
+
+#: src/pykantui/tui/palette.py:55
+msgid "Manual, title, due date, age, or reverse"
+msgstr "매뉴얼, 제목, 마감일, 연령 또는 역순"
+
+#: src/pykantui/tui/palette.py:56
+msgid "Add, rename, hide, delete, or expand"
+msgstr "추가, 이름 바꾸기, 숨기기, 삭제 또는 확장"
+
+#: src/pykantui/tui/palette.py:57
+msgid "Kanban, Split, Rows, and board behavior"
+msgstr "Kanban, 분할, 행 및 보드 동작"
+
+#: src/pykantui/tui/palette.py:60
+msgid "Change the filters applied to visible cards"
+msgstr "표시되는 카드에 적용된 필터 변경"
+
+#: src/pykantui/tui/palette.py:61
+msgid "Change the order of visible cards"
+msgstr "표시되는 카드의 순서 변경"
+
+#: src/pykantui/tui/palette.py:62
+msgid "Change the current board columns"
+msgstr "현재 보드 열 변경"
+
+#: src/pykantui/tui/palette.py:63
+msgid "Change the layout or board behavior"
+msgstr "레이아웃 또는 보드 동작 변경"
+
+#: src/pykantui/tui/palette.py:64
+msgid "Open this pykantui help topic"
+msgstr "이 pykantui 도움말 항목을 엽니다."
+
+#: src/pykantui/tui/palette.py:72 src/pykantui/tui/widgets/dropdowns.py:67
+msgid "State"
+msgstr "상태"
+
+#: src/pykantui/tui/palette.py:72
+msgid "Blocked, overdue, due dates, and local notes"
+msgstr "차단됨, 연체됨, 마감일 및 로컬 메모"
+
+#: src/pykantui/tui/palette.py:76
+msgid "Provider fields"
+msgstr "제공자 필드"
+
+#: src/pykantui/tui/palette.py:77
+#, python-brace-format
+msgid "Filters supported by {provider}"
+msgstr "{provider}에서 지원되는 필터"
+
+#: src/pykantui/tui/palette.py:82
+msgid "Saved filters"
+msgstr "저장된 필터"
+
+#: src/pykantui/tui/palette.py:83
+msgid "Apply a saved combination of filters"
+msgstr "저장된 필터 조합 적용"
+
+#: src/pykantui/tui/palette.py:107
+msgid "Layout"
+msgstr "레이아웃"
+
+#: src/pykantui/tui/palette.py:107
+msgid "Kanban, Split, or Rows"
+msgstr "칸반, 분할 또는 행"
+
+#: src/pykantui/tui/palette.py:108
+msgid "Split pane"
+msgstr "분할 창"
+
+#: src/pykantui/tui/palette.py:108
+msgid "Resize or reset the work-items divider"
+msgstr "작업 항목 구분선 크기 조정 또는 재설정"
+
+#: src/pykantui/tui/palette.py:109
+msgid "Behavior"
+msgstr "행동"
+
+#: src/pykantui/tui/palette.py:109
+msgid "Movement, confirmation, detail, and columns"
+msgstr "이동, 확인, 상세정보 및 컬럼"
+
+#: src/pykantui/tui/palette.py:141
+msgid "Board"
+msgstr "보드"
+
+#: src/pykantui/tui/palette.py:142
+msgid "Home, create cards, and reload local files"
+msgstr "홈, 카드 생성 및 로컬 파일 다시 로드"
+
+#: src/pykantui/tui/palette.py:147
+msgid "Organize"
+msgstr "정리"
+
+#: src/pykantui/tui/palette.py:148
+msgid "Filter, sort, columns, and layouts"
+msgstr "필터링, 정렬, 열 및 레이아웃"
+
+#: src/pykantui/tui/palette.py:164
+msgid "Review local and provider changes before syncing"
+msgstr "동기화하기 전에 로컬 및 공급자 변경 사항을 검토하세요."
+
+#: src/pykantui/tui/palette.py:170
+msgid "Keys and where pykantui stores data"
+msgstr "키 및 pykantui가 데이터를 저장하는 위치"
+
+#: src/pykantui/tui/palette.py:177
+msgid "System"
+msgstr "시스템"
+
+#: src/pykantui/tui/palette.py:178
+msgid "Theme, screenshot, maximize, and application commands"
+msgstr "테마, 스크린샷, 최대화 및 응용 프로그램 명령"
+
+#: src/pykantui/tui/controllers/actions.py:42
+#, python-brace-format
+msgid "Movement mode: {mode}"
+msgstr "이동 모드: {mode}"
+
+#: src/pykantui/tui/controllers/actions.py:49
+msgid "Moves will ask for confirmation"
+msgstr "이동에서 확인을 요청합니다."
+
+#: src/pykantui/tui/controllers/actions.py:49
+msgid "Moves apply immediately"
+msgstr "이동이 즉시 적용됩니다."
+
+#: src/pykantui/tui/controllers/actions.py:163
+msgid "Sprints are a Jira board setting"
+msgstr "스프린트는 Jira 보드 설정입니다."
+
+#: src/pykantui/tui/controllers/actions.py:165
+msgid "sprint"
+msgstr "전력 질주"
+
+#: src/pykantui/tui/controllers/actions.py:166
+#, python-brace-format
+msgid "Source: {source}. Press Search to re-run."
+msgstr "출처: {source}. 다시 실행하려면 검색을 누르세요."
+
+#: src/pykantui/tui/controllers/actions.py:208
+#, python-brace-format
+msgid "Saved filter {name}"
+msgstr "저장된 필터 {name}"
+
+#: src/pykantui/tui/controllers/actions.py:244
+msgid "in memory (demo board)"
+msgstr "메모리(데모 보드)"
+
+#: src/pykantui/tui/controllers/actions.py:246
+#, python-brace-format
+msgid "Columns and filters: {path}"
+msgstr "열 및 필터: {path}"
+
+#: src/pykantui/tui/controllers/actions.py:253
+msgid ""
+"hjkl move focus · HL move card · JK reorder · v detail · , menu\n"
+"z collapse · Z expand all · n new · e edit · d delete · r reload · F5 sync"
+msgstr ""
+"hjkl 이동 포커스 · HL 이동 카드 · JK 재정렬 · v 세부정보 · , 메뉴\n"
+"z 축소 · Z 모두 확장 · n 새로 만들기 · e 편집 · d 삭제 · r 다시 로드 · F5 동기화"
+
+#: src/pykantui/tui/controllers/columns.py:32
+msgid "New card here"
+msgstr "여기에 새 카드가 있습니다."
+
+#: src/pykantui/tui/controllers/columns.py:35
+msgid "Rename column…"
+msgstr "열 이름 바꾸기…"
+
+#: src/pykantui/tui/controllers/columns.py:36
+msgid "Add column after…"
+msgstr "다음에 열 추가…"
+
+#: src/pykantui/tui/controllers/columns.py:37
+msgid "Hide column"
+msgstr "열 숨기기"
+
+#: src/pykantui/tui/controllers/columns.py:40
+msgid "Delete all cards…"
+msgstr "모든 카드 삭제…"
+
+#: src/pykantui/tui/controllers/columns.py:42
+msgid "Delete column…"
+msgstr "열 삭제…"
+
+#: src/pykantui/tui/controllers/columns.py:86
+msgid "Rename column"
+msgstr "열 이름 바꾸기"
+
+#: src/pykantui/tui/controllers/columns.py:91
+msgid "New column name"
+msgstr "새 열 이름"
+
+#: src/pykantui/tui/controllers/columns.py:96
+#, python-brace-format
+msgid "There is already a column called {name}"
+msgstr "{name}라는 열이 이미 있습니다."
+
+#: src/pykantui/tui/controllers/columns.py:102
+msgid "At least one column has to stay visible"
+msgstr "하나 이상의 열이 계속 표시되어야 합니다."
+
+#: src/pykantui/tui/controllers/columns.py:106
+#, python-brace-format
+msgid "Delete the {column} column?"
+msgstr "{column} 열을 삭제하시겠습니까?"
+
+#: src/pykantui/tui/controllers/columns.py:107
+msgid "Delete column"
+msgstr "열 삭제"
+
+#: src/pykantui/tui/controllers/columns.py:110
+msgid "A board needs at least one column"
+msgstr "보드에는 하나 이상의 열이 필요합니다."
+
+#: src/pykantui/tui/controllers/columns.py:124
+#, python-brace-format
+msgid "{column} is already empty"
+msgstr "{column}는 이미 비어 있습니다."
+
+#: src/pykantui/tui/controllers/columns.py:126
+#, python-brace-format
+msgid "Delete {count} card(s) from {column}?"
+msgstr "{column}에서 {count} 카드를 삭제하시겠습니까?"
+
+#: src/pykantui/tui/controllers/columns.py:127
+msgid "Delete cards"
+msgstr "카드 삭제"
+
+#: src/pykantui/tui/controllers/sync.py:27
+msgid "this board already shows everything"
+msgstr "이 보드에는 이미 모든 것이 표시되어 있습니다."
+
+#: src/pykantui/tui/controllers/sync.py:36
+#, python-brace-format
+msgid "could not load the team's cards: {error}"
+msgstr "팀 카드를 로드할 수 없습니다: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:43
+msgid "showing the whole project — their cards are read-only"
+msgstr "전체 프로젝트 표시 - 해당 카드는 읽기 전용입니다."
+
+#: src/pykantui/tui/controllers/sync.py:45
+msgid "showing only your cards"
+msgstr "당신의 카드만 보여줌"
+
+#: src/pykantui/tui/controllers/sync.py:56
+#, python-brace-format
+msgid "Reload failed: {error}"
+msgstr "새로고침 실패: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:62
+msgid "Columns reloaded"
+msgstr "열이 다시 로드되었습니다."
+
+#: src/pykantui/tui/controllers/sync.py:66
+msgid "Reloaded local files"
+msgstr "로컬 파일을 다시 로드했습니다."
+
+#: src/pykantui/tui/controllers/sync.py:73
+msgid "This local board has no provider to sync"
+msgstr "이 지역 보드에는 동기화할 공급자가 없습니다."
+
+#: src/pykantui/tui/controllers/sync.py:79
+msgid "This backend cannot sync"
+msgstr "이 백엔드는 동기화할 수 없습니다."
+
+#: src/pykantui/tui/controllers/sync.py:85
+#, python-brace-format
+msgid "Sync preview failed: {error}"
+msgstr "동기화 미리보기 실패: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:95
+msgid "Sync cancelled — local changes kept"
+msgstr "동기화가 취소됨 - 로컬 변경 사항이 유지됨"
+
+#: src/pykantui/tui/controllers/sync.py:109
+#, python-brace-format
+msgid "Sync failed: {error}"
+msgstr "동기화 실패: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:115
+msgid "Sync complete"
+msgstr "동기화 완료"
+
+#: src/pykantui/tui/widgets/app_header.py:37
+msgid "⎇ Sync"
+msgstr "⎇ 동기화"
+
+#: src/pykantui/tui/widgets/board.py:234
+msgid "At least one column has to stay open"
+msgstr "하나 이상의 열이 열려 있어야 합니다."
+
+#: src/pykantui/tui/widgets/board.py:382 src/pykantui/tui/widgets/board.py:429
+msgid "Move blocked"
+msgstr "이동이 차단됨"
+
+#: src/pykantui/tui/widgets/board.py:405
+#, python-brace-format
+msgid "Saved to Markdown. Sync sends it to {provider}."
+msgstr "Markdown에 저장되었습니다. 동기화는 이를 {provider}로 보냅니다."
+
+#: src/pykantui/tui/widgets/board.py:409
+#, python-brace-format
+msgid "This writes to {provider}."
+msgstr "{provider}에 씁니다."
+
+#: src/pykantui/tui/widgets/board.py:411
+msgid "This marks the task finished."
+msgstr "이는 작업이 완료되었음을 나타냅니다."
+
+#: src/pykantui/tui/widgets/board.py:413
+msgid "This clears the start and finish dates."
+msgstr "그러면 시작 날짜와 종료 날짜가 지워집니다."
+
+#: src/pykantui/tui/widgets/board.py:435
+msgid "Move failed"
+msgstr "이동 실패"
+
+#: src/pykantui/tui/widgets/board.py:455
+#, python-brace-format
+msgid "Moved to {column}"
+msgstr "{column}로 이동했습니다."
+
+#: src/pykantui/tui/widgets/board.py:460
+msgid "Moved"
+msgstr "이동됨"
+
+#: src/pykantui/tui/widgets/board.py:465
+msgid "Reordering needs Manual sort — the board is showing a sorted view"
+msgstr "재정렬 필요 수동 정렬 - 보드에 정렬된 보기가 표시됩니다."
+
+#: src/pykantui/tui/widgets/board.py:478
+msgid "Reorder failed"
+msgstr "재주문 실패"
+
+#: src/pykantui/tui/widgets/board.py:488
+msgid "Delete failed"
+msgstr "삭제 실패"
+
+#: src/pykantui/tui/widgets/board.py:502
+msgid "Nothing is blocking this task"
+msgstr "이 작업을 차단하는 항목이 없습니다."
+
+#: src/pykantui/tui/widgets/board.py:502
+msgid "Blockers"
+msgstr "차단제"
+
+#: src/pykantui/tui/widgets/card.py:152
+#, python-brace-format
+msgid "age {days}d"
+msgstr "{days}일 경과"
+
+#: src/pykantui/tui/widgets/card.py:156
+msgid "no due date"
+msgstr "기한 없음"
+
+#: src/pykantui/tui/widgets/card.py:158
+#, python-brace-format
+msgid "overdue {days}d"
+msgstr "{days}일 지연"
+
+#: src/pykantui/tui/widgets/card.py:160
+msgid "due today"
+msgstr "오늘 마감"
+
+#: src/pykantui/tui/widgets/card.py:162
+#, python-brace-format
+msgid "due in {days}d"
+msgstr "{days}일 후 마감"
+
+#: src/pykantui/tui/widgets/card.py:166
+#, python-brace-format
+msgid "blocked ({count})"
+msgstr "차단됨({count})"
+
+#: src/pykantui/tui/widgets/card.py:166
+msgid "unblocked"
+msgstr "차단 해제됨"
+
+#: src/pykantui/tui/widgets/card.py:168
+#, python-brace-format
+msgid "blocking {count}"
+msgstr "{count} 차단"
+
+#: src/pykantui/tui/widgets/card_fields.py:127
+#: src/pykantui/tui/widgets/work_items.py:110
+#: src/pykantui/workspace/outbound.py:62
+msgid "Description"
+msgstr "설명"
+
+#: src/pykantui/tui/widgets/card_fields.py:137
+msgid "Save"
+msgstr "저장"
+
+#: src/pykantui/tui/widgets/card_fields.py:138
+msgid "Save draft locally"
+msgstr "초안을 로컬에 저장"
+
+#: src/pykantui/tui/widgets/card_fields.py:138
+msgid "Save locally"
+msgstr "로컬에 저장"
+
+#: src/pykantui/tui/widgets/card_fields.py:226
+msgid "Read-only on this backend"
+msgstr "이 백엔드에서는 읽기 전용입니다."
+
+#: src/pykantui/tui/widgets/compact_footer.py:63
+#: src/pykantui/tui/widgets/compact_footer.py:78
+msgid "Details"
+msgstr "상세"
+
+#: src/pykantui/tui/widgets/compact_footer.py:64
+msgid "Kanban"
+msgstr "칸반"
+
+#: src/pykantui/tui/widgets/compact_footer.py:70
+msgid "Choose column"
+msgstr "열 선택"
+
+#: src/pykantui/tui/widgets/compact_footer.py:81
+#: src/pykantui/tui/widgets/dropdowns.py:115
+#: src/pykantui/tui/widgets/dropdowns.py:224
+msgid "Search"
+msgstr "검색"
+
+#: src/pykantui/tui/widgets/dropdowns.py:66
+msgid "Any state"
+msgstr "모든 주"
+
+#: src/pykantui/tui/widgets/dropdowns.py:88
+msgid "Saved filter"
+msgstr "저장된 필터"
+
+#: src/pykantui/tui/widgets/dropdowns.py:89
+msgid "Saved"
+msgstr "저장됨"
+
+#: src/pykantui/tui/widgets/dropdowns.py:105
+#: src/pykantui/tui/widgets/dropdowns.py:147
+#: src/pykantui/tui/widgets/dropdowns.py:160
+#, python-brace-format
+msgid "Any {field}"
+msgstr "모든 {field}"
+
+#: src/pykantui/tui/widgets/dropdowns.py:115
+msgid "title or notes…"
+msgstr "제목이나 메모…"
+
+#: src/pykantui/tui/widgets/dropdowns.py:189
+msgid "Created From"
+msgstr "다음에서 생성됨"
+
+#: src/pykantui/tui/widgets/dropdowns.py:193
+msgid "Created Until"
+msgstr "생성 날짜:"
+
+#: src/pykantui/tui/widgets/dropdowns.py:202
+#: src/pykantui/tui/widgets/dropdowns.py:218
+#: src/pykantui/tui/widgets/dropdowns.py:227
+msgid "Live provider queries are unavailable in this workspace"
+msgstr "이 작업공간에서는 실시간 공급자 쿼리를 사용할 수 없습니다."
+
+#: src/pykantui/tui/widgets/dropdowns.py:208
+#, python-brace-format
+msgid "Type in a {language} expression to search issues…"
+msgstr "문제를 검색하려면 {language} 표현식을 입력하세요…"
+
+#: src/pykantui/tui/widgets/menu_bar.py:201
+msgid "+ Save"
+msgstr "+ 저장"
+
+#: src/pykantui/tui/widgets/menu_bar.py:202
+msgid "Clear"
+msgstr "지우기"
+
+#: src/pykantui/tui/widgets/work_items.py:95
+msgid "Open the card to view or add provider comments."
+msgstr "카드를 열어 제공자 의견을 보거나 추가하세요."
+
+#: src/pykantui/tui/widgets/work_items.py:101
+msgid "Attachments are not stored in local Markdown."
+msgstr "첨부 파일은 로컬 Markdown에 저장되지 않습니다."
+
+#: src/pykantui/tui/widgets/work_items.py:109
+msgid "Key"
+msgstr "열쇠"
+
+#: src/pykantui/tui/widgets/work_items.py:109
+#: src/pykantui/workspace/outbound.py:65
+msgid "Status"
+msgstr "상태"
+
+#: src/pykantui/tui/widgets/work_items.py:109
+#: src/pykantui/tui/widgets/work_items.py:111
+#: src/pykantui/workspace/outbound.py:60
+msgid "Summary"
+msgstr "요약"
+
+#: src/pykantui/workspace/models.py:67 src/pykantui/workspace/status.py:68
+#: src/pykantui/workspace/status.py:179
+msgid "conflict"
+msgid_plural "conflicts"
+msgstr[0] "충돌"
+
+#: src/pykantui/workspace/models.py:67
+msgid "provider check unavailable"
+msgstr "공급자 확인을 사용할 수 없음"
+
+#: src/pykantui/workspace/models.py:77
+#, python-brace-format
+msgid "      provider: {value}"
+msgstr "      공급자: {value}"
+
+#: src/pykantui/workspace/models.py:78
+#, python-brace-format
+msgid "      local: {value}"
+msgstr "      로컬: {value}"
+
+#: src/pykantui/workspace/models.py:164
+#, python-brace-format
+msgid "READY TO SEND ({count})"
+msgstr "전송 준비 완료 ({count})"
+
+#: src/pykantui/workspace/models.py:166
+#, python-brace-format
+msgid "CREATE ({count})"
+msgstr "만들기 ({count})"
+
+#: src/pykantui/workspace/models.py:172
+#, python-brace-format
+msgid "UPDATE ({count})"
+msgstr "업데이트 ({count})"
+
+#: src/pykantui/workspace/models.py:182
+#, python-brace-format
+msgid "BLOCKED ({count})"
+msgstr "차단됨 ({count})"
+
+#: src/pykantui/workspace/outbound.py:72
+msgid "Parent"
+msgstr "상위"
+
+#: src/pykantui/workspace/outbound.py:76
+msgid "provider default"
+msgstr "공급자 기본값"
+
+#: src/pykantui/workspace/outbound.py:79
+#, python-brace-format
+msgid "type: {value}"
+msgstr "유형: {value}"
+
+#: src/pykantui/workspace/outbound.py:81
+#, python-brace-format
+msgid "column: {value}"
+msgstr "열: {value}"
+
+#: src/pykantui/workspace/outbound.py:83
+#, python-brace-format
+msgid "fields: {value}"
+msgstr "필드: {value}"
+
+#: src/pykantui/workspace/status.py:66
+msgid "synced"
+msgstr "동기화됨"
+
+#: src/pykantui/workspace/status.py:67 src/pykantui/workspace/status.py:177
+msgid "unsent edit"
+msgid_plural "unsent edits"
+msgstr[0] "미전송"
+
+#: src/pykantui/workspace/status.py:69 src/pykantui/workspace/status.py:181
+msgid "not synced"
+msgstr "미동기화"
+
+#: src/pykantui/workspace/status.py:70 src/pykantui/workspace/status.py:175
+msgid "invalid Markdown"
+msgstr "잘못된 Markdown"
+
+#: src/pykantui/workspace/status.py:183
+msgid "all synced"
+msgstr "모두 동기화됨"
+
+#~ msgid "Authenticate with {provider}"
+#~ msgstr "{provider}로 인증"
+
+#~ msgid "Enter an existing key"
+#~ msgstr "기존 키 입력"
+
+#~ msgid "Opening {provider} authentication"
+#~ msgstr "Opening {provider} authentication"
+
+#~ msgid "Authentication page opened"
+#~ msgstr "Authentication page opened"
+
+#~ msgid "{credentials} · no OAuth app registration"
+#~ msgstr "{credentials} · OAuth 앱 등록 불필요"
+
+#~ msgid "{credentials} · Power-Up registration required"
+#~ msgstr "{credentials} · Power-Up 등록 필요"
+
+#~ msgid "Set up {provider} authentication"
+#~ msgstr "{provider} 인증 설정"
+
+#~ msgid "choose an authentication method"
+#~ msgstr "인증 방법 선택"
+
+#~ msgid "Opening the board"
+#~ msgstr "보드 여는 중"

@@ -1,0 +1,106 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pykantui"
+version = "1.0.0"
+description = "Local-first terminal kanban board with provider-neutral Markdown sync"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Jose Lorenzo" }]
+keywords = ["kanban", "tui", "textual", "jira", "terminal"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Utilities",
+]
+
+# Upper bounds are deliberate. We depend on Textual widget internals and on
+# pydantic v2 model semantics; a silent major bump breaks the TUI.
+dependencies = [
+    "textual>=8.0,<9",
+    "pydantic>=2.11,<3",
+    # Every provider talks HTTP through one pooled client. Not an optional
+    # extra: Plane and Trello need nothing beyond it, so a base install can
+    # reach both without pulling in a vendor SDK.
+    "httpx>=0.27,<1",
+    # Cross-platform advisory locks keep two terminals from syncing and
+    # rewriting the same Markdown tree at once.
+    "filelock>=3.16,<4",
+    # Issue frontmatter. A human edits these files in an ordinary editor, so
+    # the reader has to be a real YAML parser rather than a tolerant regex
+    # that silently mis-reads `title: Fix: the thing`.
+    "pyyaml>=6,<7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "babel>=2.17,<3",
+    "build>=1.2,<2",
+    "coverage[toml]>=7.6,<8",
+    "hatchling>=1.27,<2",
+    "hypothesis>=6.130,<7",
+    "pip-audit>=2.10,<3",
+    "ruff>=0.15,<1",
+    "mypy>=1.11",
+    "pillow>=11,<13",
+    "types-PyYAML",
+]
+
+[project.scripts]
+kbn = "pykantui.cli:main"
+pykantui = "pykantui.cli:main"
+
+[project.urls]
+Repository = "https://github.com/joselrnz/pykantui"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pykantui"]
+
+[tool.ruff]
+line-length = 120
+src = ["src", "tests"]
+extend-exclude = ["reference"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.11"
+files = ["src", "tests", "tools"]
+exclude = "^reference/"
+strict = true
+warn_unreachable = true
+
+# Optional rasterizers probed at runtime by the screenshot tools; neither
+# ships type stubs and neither is a declared dependency.
+[[tool.mypy.overrides]]
+module = ["cairosvg", "resvg_py"]
+ignore_missing_imports = true
+
+# tools/ scripts import their siblings by bare name, which works at runtime
+# because the script directory is on sys.path. Each sibling is still checked
+# in full as tools.<name>; only the bare-name reference is exempted.
+[[tool.mypy.overrides]]
+module = [
+    "live_provider_certification",
+    "live_tui_mutation_sync",
+    "provider_evidence",
+    "split_sidebar_screenshots",
+]
+ignore_missing_imports = true
+
+[tool.coverage.run]
+branch = true
+parallel = true
+source = ["pykantui"]
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
+skip_covered = true

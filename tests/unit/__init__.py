@@ -1,0 +1,1 @@
+"""Fast unit-level contracts."""

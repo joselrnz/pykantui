@@ -1,0 +1,1821 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: pykantui 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 18:39-0500\n"
+"PO-Revision-Date: 2026-08-12 00:00-0500\n"
+"Last-Translator: pykantui contributors\n"
+"Language: ja\n"
+"Language-Team: Japanese\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: src/pykantui/cli/main.py:33
+msgid "Terminal kanban board"
+msgstr "ターミナルかんばん"
+
+#: src/pykantui/cli/main.py:39
+msgid "interface language; saved to config.json (default: auto)"
+msgstr "インターフェース言語。 config.json に保存 (デフォルト: 自動)"
+
+#: src/pykantui/cli/main.py:45
+msgid ""
+"adjacent commits H/L immediately; jump highlights a column and waits for "
+"enter"
+msgstr "隣接する場合は H/L を即座にコミットします。ジャンプは列をハイライトし、入力を待ちます"
+
+#: src/pykantui/cli/main.py:50
+msgid "theme name; saved to config.json (default: cyberpunk)"
+msgstr "テーマ名; config.json に保存 (デフォルト: サイバーパンク)"
+
+#: src/pykantui/cli/main.py:56
+msgid "corner style for cards, fields and dialogs; saved to config.json"
+msgstr "カード、フィールド、ダイアログのコーナー スタイル。 config.json に保存されました"
+
+#: src/pykantui/cli/main.py:62
+msgid "apply column moves without the confirmation dialog"
+msgstr "確認ダイアログを表示せずに列の移動を適用します"
+
+#: src/pykantui/cli/main.py:66
+msgid "open a throwaway board with sample tasks"
+msgstr "サンプルタスクを含む使い捨てボードを開く"
+
+#: src/pykantui/cli/main.py:68
+msgid "open a local JSON board (the default)"
+msgstr "ローカル JSON ボードを開きます (デフォルト)"
+
+#: src/pykantui/cli/main.py:69
+msgid "path to the board file"
+msgstr "ボードファイルへのパス"
+
+#: src/pykantui/cli/main.py:71
+msgid "print the board as text, without starting the TUI"
+msgstr "TUI を起動せずにボードをテキストとして印刷します"
+
+#: src/pykantui/cli/main.py:146 src/pykantui/cli/main.py:237
+#, python-brace-format
+msgid "error: {error}"
+msgstr "エラー: {error}"
+
+#: src/pykantui/cli/main.py:238
+msgid "(run `kbn sync` to fix, or `kbn board --file ...` for a local board)"
+msgstr "(修正するには `kbn sync` を実行し、ローカル ボードの場合は `kbn board --file ...` を実行します)"
+
+#: src/pykantui/commands/columns.py:24
+msgid "add, rename, reorder or delete board columns"
+msgstr "ボード列の追加、名前変更、並べ替え、または削除"
+
+#: src/pykantui/commands/columns.py:28
+msgid "show the current columns (the default)"
+msgstr "現在の列を表示します (デフォルト)"
+
+#: src/pykantui/commands/columns.py:30
+msgid "add a column"
+msgstr "列を追加する"
+
+#: src/pykantui/commands/columns.py:32
+msgid "column id, name or position to insert after"
+msgstr "列 ID、名前、または後に挿入する位置"
+
+#: src/pykantui/commands/columns.py:33
+msgid "comma-separated provider statuses for this column"
+msgstr "この列のカンマ区切りのプロバイダーステータス"
+
+#: src/pykantui/commands/columns.py:34
+msgid "create it hidden"
+msgstr "隠して作成します"
+
+#: src/pykantui/commands/columns.py:36
+msgid "rename a column"
+msgstr "列の名前を変更する"
+
+#: src/pykantui/commands/columns.py:40
+msgid "delete a column and rehome its cards"
+msgstr "列を削除してカードのホームを変更する"
+
+#: src/pykantui/commands/columns.py:42
+msgid "where its cards go (default: the first column)"
+msgstr "カードの配置場所 (デフォルト: 最初の列)"
+
+#: src/pykantui/commands/columns.py:44
+msgid "change a column's position"
+msgstr "列の位置を変更する"
+
+#: src/pykantui/commands/columns.py:46
+msgid "1-based position"
+msgstr "1 ベースのポジション"
+
+#: src/pykantui/commands/columns.py:48
+msgid "set which column means reset, start or finish"
+msgstr "どの列がリセット、開始、または終了を意味するかを設定します"
+
+#: src/pykantui/commands/columns.py:52
+msgid "set the provider statuses that land in a column"
+msgstr "列に表示されるプロバイダーのステータスを設定します"
+
+#: src/pykantui/commands/columns.py:54
+msgid "comma-separated; empty string clears them"
+msgstr "カンマ区切り。空の文字列はそれらをクリアします"
+
+#: src/pykantui/commands/columns.py:56
+msgid "make a hidden column visible"
+msgstr "非表示の列を表示する"
+
+#: src/pykantui/commands/columns.py:58
+msgid "hide a column without deleting it"
+msgstr "列を削除せずに非表示にする"
+
+#: src/pykantui/commands/columns.py:63
+msgid "set the number of visible columns, adding or removing at the end"
+msgstr "表示される列の数を設定し、最後に追加または削除します"
+
+#: src/pykantui/commands/columns.py:67
+msgid "restore the default shape"
+msgstr "デフォルトの形状を復元する"
+
+#: src/pykantui/commands/columns.py:68 src/pykantui/commands/tasks.py:45
+msgid "skip the confirmation"
+msgstr "確認をスキップする"
+
+#: src/pykantui/commands/graph.py:25
+msgid "render the workspace as an HTML graph"
+msgstr "ワークスペースを HTML グラフとしてレンダリングします"
+
+#: src/pykantui/commands/graph.py:27 src/pykantui/commands/sync.py:31
+msgid "the workspace (default: found by walking up)"
+msgstr "ワークスペース (デフォルト: 上に歩いていくと見つかります)"
+
+#: src/pykantui/commands/graph.py:32
+#, python-brace-format
+msgid "where to write it (default: ./{name})"
+msgstr "どこに書き込むか (デフォルト: ./{name})"
+
+#: src/pykantui/commands/graph.py:34
+msgid "open it in a browser afterwards"
+msgstr "後でブラウザで開いてください"
+
+#: src/pykantui/commands/init.py:43
+msgid "create a workspace from a tracker"
+msgstr "トラッカーからワークスペースを作成する"
+
+#: src/pykantui/commands/init.py:45
+msgid "which tracker; see --list-types"
+msgstr "どのトラッカー。 --list-typesを参照"
+
+#: src/pykantui/commands/init.py:46
+msgid "print the available trackers and exit"
+msgstr "利用可能なトラッカーを印刷して終了します"
+
+#: src/pykantui/commands/init.py:50
+msgid "print the boards/projects this token can see, ready to paste into .env"
+msgstr "このトークンが参照できるボード/プロジェクトを印刷し、.env に貼り付ける準備ができました。"
+
+#: src/pykantui/commands/init.py:52
+msgid "where to create the workspace"
+msgstr "ワークスペースを作成する場所"
+
+#: src/pykantui/commands/init.py:53
+msgid "a name for the workspace"
+msgstr "ワークスペースの名前"
+
+#: src/pykantui/commands/init.py:58
+msgid "type the path instead of browsing for it"
+msgstr "パスを参照する代わりに入力します"
+
+#: src/pykantui/commands/init.py:64
+msgid "column folder naming (default: slug — lowercase, dashes)"
+msgstr "列フォルダーの名前 (デフォルト: スラグ - 小文字、ダッシュ)"
+
+#: src/pykantui/commands/init.py:66
+msgid "do not create a git repository"
+msgstr "gitリポジトリを作成しないでください"
+
+#: src/pykantui/commands/init.py:67
+msgid "set up but do not pull yet"
+msgstr "セットアップしましたが、まだプルしていません"
+
+#: src/pykantui/commands/init.py:72
+msgid "finish after setup instead of opening the new board"
+msgstr "新しいボードを開くのではなく、セットアップ後に終了します"
+
+#: src/pykantui/commands/init.py:74
+msgid "never prompt; fail instead"
+msgstr "決してプロンプトを出さないでください。代わりに失敗する"
+
+#: src/pykantui/commands/init_interactive.py:113
+msgid "Authentication cancelled"
+msgstr "Authentication cancelled"
+
+#: src/pykantui/commands/init_interactive.py:140
+#, python-brace-format
+msgid "Validated project: {project}"
+msgstr "Validated project: {project}"
+
+#: src/pykantui/commands/init_interactive.py:176
+msgid "skipped"
+msgstr "スキップ"
+
+#: src/pykantui/commands/init_interactive.py:198
+msgid "Setup complete"
+msgstr "セットアップ完了"
+
+#: src/pykantui/commands/init_interactive.py:230
+msgid "Enter credentials again"
+msgstr "Enter credentials again"
+
+#: src/pykantui/commands/init_interactive.py:231
+msgid "retry authentication"
+msgstr "retry authentication"
+
+#: src/pykantui/commands/init_interactive.py:238
+msgid "Cancel setup"
+msgstr "Cancel setup"
+
+#: src/pykantui/commands/init_interactive.py:239
+msgid "create nothing"
+msgstr "create nothing"
+
+#: src/pykantui/commands/init_interactive.py:242
+msgid "No workspace or credential file has been created."
+msgstr "No workspace or credential file has been created."
+
+#: src/pykantui/commands/init_interactive.py:245
+#, python-brace-format
+msgid "Could not connect to {provider}"
+msgstr "Could not connect to {provider}"
+
+#: src/pykantui/commands/init_interactive.py:246
+msgid "retry or cancel"
+msgstr "retry or cancel"
+
+#: src/pykantui/commands/init_interactive.py:289
+#, python-brace-format
+msgid "Configured project {project} is not visible; choose an available project"
+msgstr "Configured project {project} is not visible; choose an available project"
+
+#: src/pykantui/commands/init_interactive.py:292
+#: src/pykantui/commands/init_interactive.py:300
+#: src/pykantui/pages/init_wizard.py:328
+#, python-brace-format
+msgid "No {provider} projects found"
+msgstr "{provider} のプロジェクトが見つかりません"
+
+#: src/pykantui/commands/init_interactive.py:295
+#, python-brace-format
+msgid "Checking {provider} projects again"
+msgstr "{provider} のプロジェクトを再確認しています"
+
+#: src/pykantui/commands/init_interactive.py:298
+#, python-brace-format
+msgid "{provider} projects found"
+msgstr "{provider} のプロジェクトが見つかりました"
+
+#: src/pykantui/commands/new.py:44
+msgid "draft a story as markdown, without sending it"
+msgstr "ストーリーを送信せずにマークダウンとして下書きする"
+
+#: src/pykantui/commands/new.py:46
+msgid "the story title"
+msgstr "物語のタイトル"
+
+#: src/pykantui/commands/new.py:47
+msgid "the workspace"
+msgstr "ワークスペース"
+
+#: src/pykantui/commands/new.py:48
+msgid "which column to draft it into"
+msgstr "どの列に下書きするか"
+
+#: src/pykantui/commands/new.py:53
+msgid "issue type; see --types for what this project accepts"
+msgstr "問題の種類。このプロジェクトが受け入れる内容については、--types を参照してください。"
+
+#: src/pykantui/commands/new.py:55
+msgid "the description"
+msgstr "説明"
+
+#: src/pykantui/commands/new.py:56
+msgid "key of the epic it belongs to"
+msgstr "属するエピックのキー"
+
+#: src/pykantui/commands/new.py:57
+msgid "repeatable"
+msgstr "繰り返し可能な"
+
+#: src/pykantui/commands/new.py:58
+msgid "repeatable Jira component"
+msgstr "繰り返し指定できる Jira コンポーネント"
+
+#: src/pykantui/commands/new.py:61
+msgid "list the columns and exit"
+msgstr "列をリストして終了します"
+
+#: src/pykantui/commands/new.py:62
+msgid "list the issue types and exit"
+msgstr "問題の種類をリストして終了します"
+
+#: src/pykantui/commands/new.py:63
+msgid "list Jira components and exit"
+msgstr "Jira コンポーネントを一覧表示して終了"
+
+#: src/pykantui/commands/new.py:67
+msgid "do not assign it to yourself (drafts are your work by default)"
+msgstr "自分自身に割り当てないでください (デフォルトでは、下書きはあなたの仕事です)"
+
+#: src/pykantui/commands/sync.py:29
+msgid "reconcile a workspace with its provider"
+msgstr "ワークスペースとそのプロバイダーを調整する"
+
+#: src/pykantui/commands/sync.py:32
+msgid "do not ask before sending changes to the provider"
+msgstr "変更をプロバイダーに送信する前に質問しないでください"
+
+#: src/pykantui/commands/sync.py:33
+msgid "show what would be sent, and send nothing"
+msgstr "送信される内容を表示し、何も送信しない"
+
+#: src/pykantui/commands/sync.py:34
+msgid "never send, whatever changed locally"
+msgstr "ローカルで変更されたものは送信しないでください"
+
+#: src/pykantui/commands/sync.py:35
+msgid "ignore the cached issue list"
+msgstr "キャッシュされた問題リストを無視する"
+
+#: src/pykantui/commands/sync.py:39
+msgid "write only issues assigned to or reported by you (the cache still holds all)"
+msgstr "あなたに割り当てられた、またはあなたによって報告された書き込み専用の問題 (キャッシュにはすべてが保持されます)"
+
+#: src/pykantui/commands/sync.py:45
+msgid "mirror the whole project, whatever the workspace is set to"
+msgstr "ワークスペースの設定に関係なく、プロジェクト全体をミラーリングします。"
+
+#: src/pykantui/commands/sync.py:51
+msgid "send even where the provider also changed the issue, overwriting it"
+msgstr "プロバイダーが問題を変更した場合にも送信し、上書きします"
+
+#: src/pykantui/commands/sync.py:56
+msgid "use provider values for conflicts while sending safe local changes"
+msgstr "安全なローカル変更を送信しながら競合にはプロバイダーの値を使用"
+
+#: src/pykantui/commands/sync.py:61
+msgid ""
+"retry draft creates whose previous outcome was unknown, after checking the "
+"provider"
+msgstr "プロバイダーを確認した後、前回の結果が不明な下書き作成を再試行する"
+
+#: src/pykantui/commands/sync.py:63
+msgid "do not commit the result"
+msgstr "結果をコミットしないでください"
+
+#: src/pykantui/commands/tasks.py:21
+msgid "add or remove cards"
+msgstr "カードを追加または削除する"
+
+#: src/pykantui/commands/tasks.py:25
+msgid "add one card, or several numbered ones"
+msgstr "1 枚のカード、または複数の数字のカードを追加します"
+
+#: src/pykantui/commands/tasks.py:27
+msgid "column id, name or position (default: the first)"
+msgstr "列 ID、名前、または位置 (デフォルト: 最初)"
+
+#: src/pykantui/commands/tasks.py:28
+msgid "add this many, numbered from 1"
+msgstr "1 から番号を付けてこの数を追加します"
+
+#: src/pykantui/commands/tasks.py:29
+msgid "body text for the card"
+msgstr "カードの本文"
+
+#: src/pykantui/commands/tasks.py:30
+msgid "due date, or +N for N days from today"
+msgstr "期日、または今日から N 日の場合は +N"
+
+#: src/pykantui/commands/tasks.py:35
+msgid "comma-separated card ids that must finish first"
+msgstr "最初に終了する必要があるカンマ区切りのカード ID"
+
+#: src/pykantui/commands/tasks.py:39
+msgid "delete cards by id"
+msgstr "IDでカードを削除する"
+
+#: src/pykantui/commands/tasks.py:43
+msgid "delete every card in a column"
+msgstr "列内のすべてのカードを削除する"
+
+#: src/pykantui/commands/onboarding/connection.py:25
+#, python-brace-format
+msgid "Listing {provider} projects"
+msgstr "Listing {provider} projects"
+
+#: src/pykantui/commands/onboarding/connection.py:27
+msgid "project"
+msgstr "project"
+
+#: src/pykantui/commands/onboarding/connection.py:27
+msgid "projects"
+msgstr "projects"
+
+#: src/pykantui/commands/onboarding/connection.py:28
+#, python-brace-format
+msgid "{count} {noun} available"
+msgstr "{count} {noun} available"
+
+#: src/pykantui/commands/onboarding/connection.py:30
+#, python-brace-format
+msgid "Confirming {provider} identity"
+msgstr "Confirming {provider} identity"
+
+#: src/pykantui/commands/onboarding/connection.py:32
+#, python-brace-format
+msgid "Connected as {identity}"
+msgstr "Connected as {identity}"
+
+#: src/pykantui/commands/onboarding/credentials.py:53
+#, python-brace-format
+msgid "Detected {provider} credentials: {sources}"
+msgstr "Detected {provider} credentials: {sources}"
+
+#: src/pykantui/commands/onboarding/credentials.py:62
+#, python-brace-format
+msgid "Set up {provider} credentials"
+msgstr "{provider} の認証情報を設定"
+
+#: src/pykantui/commands/onboarding/credentials.py:63
+msgid "choose how to provide credentials"
+msgstr "認証情報の入力方法を選択"
+
+#: src/pykantui/commands/onboarding/credentials.py:98
+#, python-brace-format
+msgid "{provider} still needs {fields}"
+msgstr "{provider} still needs {fields}"
+
+#: src/pykantui/commands/onboarding/credentials.py:116
+msgid "Credentials are already stored privately in ~/.pykantui/auth.json"
+msgstr "Credentials are already stored privately in ~/.pykantui/auth.json"
+
+#: src/pykantui/commands/onboarding/credentials.py:119
+msgid ""
+"Credentials supplied by command line will be stored privately after "
+"validation"
+msgstr ""
+"Credentials supplied by command line will be stored privately after "
+"validation"
+
+#: src/pykantui/commands/onboarding/credentials.py:128
+#, python-brace-format
+msgid "Keep {provider} credentials?"
+msgstr "{provider} の認証情報を保存しますか？"
+
+#: src/pykantui/commands/onboarding/credentials.py:129
+msgid "choose where credentials are reused"
+msgstr "認証情報の再利用先を選択"
+
+#: src/pykantui/commands/onboarding/credentials.py:133
+msgid "Using existing environment variables; no credential was copied"
+msgstr "Using existing environment variables; no credential was copied"
+
+#: src/pykantui/commands/onboarding/credentials.py:137
+#, python-brace-format
+msgid "Credentials are not saved. For future runs, set: {names}"
+msgstr "Credentials are not saved. For future runs, set: {names}"
+
+#: src/pykantui/commands/onboarding/credentials.py:196
+msgid "Get personal credentials"
+msgstr "個人用認証情報を取得"
+
+#: src/pykantui/commands/onboarding/credentials.py:197
+msgid "no app registration"
+msgstr "アプリの登録は不要"
+
+#: src/pykantui/commands/onboarding/credentials.py:199
+#, python-brace-format
+msgid "Set up {provider} API access"
+msgstr "{provider} の API アクセスを設定"
+
+#: src/pykantui/commands/onboarding/credentials.py:200
+msgid "Power-Up registration required"
+msgstr "Power-Up の登録が必要"
+
+#: src/pykantui/commands/onboarding/credentials.py:202
+msgid "Open provider credential page"
+msgstr "プロバイダーの認証情報ページを開く"
+
+#: src/pykantui/commands/onboarding/credentials.py:203
+msgid "open the provider credential page"
+msgstr "プロバイダーの認証情報ページを開く"
+
+#: src/pykantui/commands/onboarding/credentials.py:217
+msgid "Enter existing credentials"
+msgstr "既存の認証情報を入力"
+
+#: src/pykantui/commands/onboarding/credentials.py:221
+msgid "Paste the credential into a masked field."
+msgstr "マスクされた欄に認証情報を貼り付けます。"
+
+#: src/pykantui/commands/onboarding/credentials.py:230
+msgid "Save privately"
+msgstr "非公開で保存"
+
+#: src/pykantui/commands/onboarding/credentials.py:234
+msgid "Owner-only, outside every workspace and local Git history."
+msgstr "Owner-only, outside every workspace and local Git history."
+
+#: src/pykantui/commands/onboarding/credentials.py:240
+msgid "Use environment"
+msgstr "環境変数を使用"
+
+#: src/pykantui/commands/onboarding/credentials.py:244
+msgid "Keep using the value already exported or loaded from .env; do not copy it."
+msgstr "Keep using the value already exported or loaded from .env; do not copy it."
+
+#: src/pykantui/commands/onboarding/credentials.py:252
+msgid "Use once"
+msgstr "一度だけ使用"
+
+#: src/pykantui/commands/onboarding/credentials.py:253
+msgid "not saved"
+msgstr "保存しない"
+
+#: src/pykantui/commands/onboarding/credentials.py:256
+msgid ""
+"Available for this setup only. Configure the listed environment variables "
+"for reuse."
+msgstr ""
+"Available for this setup only. Configure the listed environment variables "
+"for reuse."
+
+#: src/pykantui/commands/onboarding/credentials.py:268
+#, python-brace-format
+msgid "Opening {provider} credential page"
+msgstr "{provider} の認証情報ページを開いています"
+
+#: src/pykantui/commands/onboarding/credentials.py:271
+msgid "Credential page opened"
+msgstr "認証情報ページを開きました"
+
+#: src/pykantui/commands/onboarding/credentials.py:273
+#, python-brace-format
+msgid "Open this address in a browser: {url}"
+msgstr "Open this address in a browser: {url}"
+
+#: src/pykantui/commands/onboarding/credentials.py:293
+#, python-brace-format
+msgid "Environment: {names}"
+msgstr "Environment: {names}"
+
+#: src/pykantui/core/actions.py:113 src/pykantui/tui/widgets/app_header.py:33
+msgid "⌘ Menu"
+msgstr "⌘ メニュー"
+
+#: src/pykantui/core/actions.py:115
+msgid "▥ View"
+msgstr "▥ 表示"
+
+#: src/pykantui/i18n/catalog.py:14
+msgid "Filter"
+msgstr "絞り込み"
+
+#: src/pykantui/i18n/catalog.py:15 src/pykantui/tui/widgets/dropdowns.py:78
+msgid "Sort"
+msgstr "並べ替え"
+
+#: src/pykantui/i18n/catalog.py:16
+msgid "Columns"
+msgstr "列"
+
+#: src/pykantui/i18n/catalog.py:17
+msgid "View"
+msgstr "表示"
+
+#: src/pykantui/i18n/catalog.py:18 src/pykantui/tui/controllers/columns.py:91
+msgid "Blocked"
+msgstr "ブロックされました"
+
+#: src/pykantui/i18n/catalog.py:19
+msgid "Unblocked"
+msgstr "ブロック解除されました"
+
+#: src/pykantui/i18n/catalog.py:20
+msgid "Overdue"
+msgstr "期限を過ぎました"
+
+#: src/pykantui/i18n/catalog.py:21
+msgid "Due today"
+msgstr "本日締切"
+
+#: src/pykantui/i18n/catalog.py:22
+msgid "No due date"
+msgstr "期限なし"
+
+#: src/pykantui/i18n/catalog.py:23
+msgid "Has notes"
+msgstr "メモあり"
+
+#: src/pykantui/i18n/catalog.py:24 src/pykantui/tui/widgets/dropdowns.py:77
+msgid "Manual"
+msgstr "マニュアル"
+
+#: src/pykantui/i18n/catalog.py:25
+msgid "Due"
+msgstr "期限"
+
+#: src/pykantui/i18n/catalog.py:26
+msgid "Age"
+msgstr "年齢"
+
+#: src/pykantui/i18n/catalog.py:27
+msgid "Rows"
+msgstr "一覧"
+
+#: src/pykantui/i18n/catalog.py:28
+msgid "Split"
+msgstr "分割"
+
+#: src/pykantui/i18n/catalog.py:29
+msgid "adjacent"
+msgstr "隣接する"
+
+#: src/pykantui/i18n/catalog.py:30
+msgid "jump"
+msgstr "ジャンプ"
+
+#: src/pykantui/i18n/catalog.py:31
+msgid "New folder"
+msgstr "新規フォルダー"
+
+#: src/pykantui/i18n/catalog.py:32
+msgid "Work Items"
+msgstr "作業項目"
+
+#: src/pykantui/i18n/catalog.py:33
+msgid "Info"
+msgstr "情報"
+
+#: src/pykantui/i18n/catalog.py:34
+msgid "Comments"
+msgstr "コメント"
+
+#: src/pykantui/i18n/catalog.py:35
+msgid "Related"
+msgstr "関連"
+
+#: src/pykantui/i18n/catalog.py:36
+msgid "Attachments"
+msgstr "添付ファイル"
+
+#: src/pykantui/i18n/catalog.py:37
+msgid "Links"
+msgstr "リンク"
+
+#: src/pykantui/i18n/catalog.py:38
+msgid "Subtasks"
+msgstr "サブタスク"
+
+#: src/pykantui/i18n/catalog.py:39 src/pykantui/pages/init_wizard.py:272
+msgid "Project"
+msgstr "プロジェクト"
+
+#: src/pykantui/i18n/catalog.py:40
+msgid "Sprint"
+msgstr "スプリント"
+
+#: src/pykantui/i18n/catalog.py:41
+msgid "Query"
+msgstr "クエリ"
+
+#: src/pykantui/i18n/catalog.py:42
+msgid "Reporter"
+msgstr "記者"
+
+#: src/pykantui/i18n/catalog.py:43
+msgid "Created"
+msgstr "作成されました"
+
+#: src/pykantui/i18n/catalog.py:44
+msgid "Last Update"
+msgstr "最終更新"
+
+#: src/pykantui/i18n/catalog.py:45 src/pykantui/workspace/outbound.py:71
+msgid "Due Date"
+msgstr "期限"
+
+#: src/pykantui/i18n/catalog.py:46
+msgid "Resolved"
+msgstr "解決済み"
+
+#: src/pykantui/i18n/catalog.py:47
+msgid "Resolution"
+msgstr "解像度"
+
+#: src/pykantui/i18n/catalog.py:48
+msgid "Blocked by"
+msgstr "によってブロックされました"
+
+#: src/pykantui/i18n/catalog.py:49
+msgid "Time Tracking"
+msgstr "時間の追跡"
+
+#: src/pykantui/i18n/catalog.py:50
+msgid "Highest"
+msgstr "最高"
+
+#: src/pykantui/i18n/catalog.py:51
+msgid "Blocker"
+msgstr "ブロッカー"
+
+#: src/pykantui/i18n/catalog.py:52
+msgid "Critical"
+msgstr "クリティカル"
+
+#: src/pykantui/i18n/catalog.py:53
+msgid "High"
+msgstr "高"
+
+#: src/pykantui/i18n/catalog.py:54
+msgid "Medium"
+msgstr "中"
+
+#: src/pykantui/i18n/catalog.py:55
+msgid "Normal"
+msgstr "ノーマル"
+
+#: src/pykantui/i18n/catalog.py:56
+msgid "Low"
+msgstr "低い"
+
+#: src/pykantui/i18n/catalog.py:57
+msgid "Lowest"
+msgstr "最低"
+
+#: src/pykantui/i18n/catalog.py:58
+msgid "Trivial"
+msgstr "つまらない"
+
+#: src/pykantui/pages/chooser.py:130
+msgid "Choose one"
+msgstr "1 つ選択してください"
+
+#: src/pykantui/pages/chooser.py:131
+msgid "type to filter"
+msgstr "フィルターに入力します"
+
+#: src/pykantui/pages/chooser.py:141 src/pykantui/pages/folder.py:216
+#: src/pykantui/pages/init_wizard.py:112 src/pykantui/pages/init_wizard.py:324
+msgid "Back"
+msgstr "戻る"
+
+#: src/pykantui/pages/chooser.py:142
+msgid "↑↓ move · type to filter · enter choose · esc cancel"
+msgstr "↑↓ 移動 · フィルタに入力 · Enter 選択 · Esc キャンセル"
+
+#: src/pykantui/pages/chooser.py:153 src/pykantui/pages/confirm.py:43
+#: src/pykantui/pages/edit.py:109 src/pykantui/pages/folder.py:240
+#: src/pykantui/pages/init_wizard.py:120 src/pykantui/pages/init_wizard.py:340
+#: src/pykantui/pages/sync.py:129 src/pykantui/tui/controllers/columns.py:136
+#: src/pykantui/tui/widgets/compact_footer.py:72
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: src/pykantui/pages/chooser.py:154
+msgid "Choose"
+msgstr "選択"
+
+#: src/pykantui/pages/confirm.py:36
+msgid "Move this card?"
+msgstr "このカードを移動しますか?"
+
+#: src/pykantui/pages/confirm.py:42 src/pykantui/tui/widgets/compact_footer.py:71
+#: src/pykantui/tui/widgets/compact_footer.py:76
+msgid "Move"
+msgstr "移動"
+
+#: src/pykantui/pages/detail.py:87 src/pykantui/tui/widgets/work_items.py:112
+msgid "Private Markdown notes · local only"
+msgstr "プライベート Markdown メモ · ローカルのみ"
+
+#: src/pykantui/pages/detail.py:92 src/pykantui/pages/init_wizard.py:183
+msgid "Close"
+msgstr "閉じる"
+
+#: src/pykantui/pages/detail.py:113
+msgid "Read-only"
+msgstr "読み取り専用"
+
+#: src/pykantui/pages/detail.py:115 src/pykantui/tui/widgets/compact_footer.py:62
+#: src/pykantui/tui/widgets/compact_footer.py:77
+msgid "Edit"
+msgstr "編集"
+
+#: src/pykantui/pages/detail.py:125
+msgid "[$success]finished[/]"
+msgstr "[$success]終了[/]"
+
+#: src/pykantui/pages/detail.py:127
+msgid "in progress"
+msgstr "進行中"
+
+#: src/pykantui/pages/detail.py:129
+msgid "not started"
+msgstr "始まっていない"
+
+#: src/pykantui/pages/detail.py:133
+#, python-brace-format
+msgid "[$error]blocked by {count}[/]"
+msgstr "[$error]は{count}[/]によってブロックされました"
+
+#: src/pykantui/pages/detail.py:135
+#, python-brace-format
+msgid "[$warning]blocking {count}[/]"
+msgstr "[$warning]ブロッキング {count}[/]"
+
+#: src/pykantui/pages/detail.py:139
+#, python-brace-format
+msgid "[$error]{days}d overdue[/]"
+msgstr "[$error]{days}期限を過ぎました[/]"
+
+#: src/pykantui/pages/detail.py:141
+msgid "[$warning]due today[/]"
+msgstr "[$warning]今日締め切り[/]"
+
+#: src/pykantui/pages/detail.py:178
+msgid "This backend is read-only"
+msgstr "このバックエンドは読み取り専用です"
+
+#: src/pykantui/pages/detail.py:202
+msgid "A card needs a summary"
+msgstr "カードには概要が必要です"
+
+#: src/pykantui/pages/edit.py:55
+#, python-brace-format
+msgid "Edit {key}"
+msgstr "{key}を編集"
+
+#: src/pykantui/pages/edit.py:55 src/pykantui/tui/menu_items.py:64
+#: src/pykantui/tui/widgets/compact_footer.py:81
+msgid "New card"
+msgstr "新規カード"
+
+#: src/pykantui/pages/edit.py:61
+msgid "What needs doing?"
+msgstr "何をする必要があるでしょうか?"
+
+#: src/pykantui/pages/edit.py:61
+msgid "Title"
+msgstr "タイトル"
+
+#: src/pykantui/pages/edit.py:70 src/pykantui/workspace/outbound.py:67
+msgid "Assignee"
+msgstr "譲受人"
+
+#: src/pykantui/pages/edit.py:74 src/pykantui/tui/widgets/work_items.py:109
+#: src/pykantui/workspace/outbound.py:64
+msgid "Type"
+msgstr "種類"
+
+#: src/pykantui/pages/edit.py:83 src/pykantui/tui/widgets/card_fields.py:209
+msgid "Select a priority"
+msgstr "優先順位を選択してください"
+
+#: src/pykantui/pages/edit.py:84 src/pykantui/workspace/outbound.py:68
+msgid "Priority"
+msgstr "優先順位"
+
+#: src/pykantui/pages/edit.py:90
+msgid "Due date"
+msgstr "期限"
+
+#: src/pykantui/pages/edit.py:95 src/pykantui/workspace/outbound.py:69
+msgid "Labels"
+msgstr "ラベル"
+
+#: src/pykantui/pages/edit.py:97 src/pykantui/workspace/outbound.py:70
+msgid "Components"
+msgstr "コンポーネント"
+
+#: src/pykantui/pages/edit.py:124 src/pykantui/pages/edit.py:125
+#: src/pykantui/tui/widgets/card_fields.py:199
+#: src/pykantui/tui/widgets/compact_footer.py:79
+msgid "Column"
+msgstr "コラム"
+
+#: src/pykantui/pages/edit.py:165
+msgid "A card needs a title"
+msgstr "カードにはタイトルが必要です"
+
+#: src/pykantui/pages/folder.py:207
+msgid "Where should it live?"
+msgstr "どこに住めばいいのでしょうか？"
+
+#: src/pykantui/pages/folder.py:222
+msgid "↑ Parent"
+msgstr "↑親"
+
+#: src/pykantui/pages/folder.py:223 src/pykantui/tui/widgets/menu_bar.py:99
+msgid "⌂ Home"
+msgstr "⌂ ホーム"
+
+#: src/pykantui/pages/folder.py:224
+msgid "/ Path…"
+msgstr "/ パス…"
+
+#: src/pykantui/pages/folder.py:233
+msgid "↑↓ move · enter open · backspace parent · . hidden"
+msgstr "↑↓ 移動 · Enter open · Backspace 親 · 。隠された"
+
+#: src/pykantui/pages/folder.py:242
+msgid "Choose folder"
+msgstr "フォルダーを選択してください"
+
+#: src/pykantui/pages/grouped_palette.py:141
+msgid "Search commands or groups…"
+msgstr "コマンドまたはグループを検索…"
+
+#: src/pykantui/pages/init_wizard.py:121
+msgid "Continue"
+msgstr "続行"
+
+#: src/pykantui/pages/init_wizard.py:254
+msgid "Open board"
+msgstr "ボードを開く"
+
+#: src/pykantui/pages/init_wizard.py:254
+msgid "Finish"
+msgstr "完了"
+
+#: src/pykantui/pages/init_wizard.py:271
+msgid "Provider"
+msgstr "プロバイダー"
+
+#: src/pykantui/pages/init_wizard.py:273
+msgid "Workspace"
+msgstr "ワークスペース"
+
+#: src/pykantui/pages/init_wizard.py:274
+msgid "Initial sync"
+msgstr "初回同期"
+
+#: src/pykantui/pages/init_wizard.py:333
+#, python-brace-format
+msgid ""
+"Create a project in {provider}, then return here and check again. No local "
+"files have been created."
+msgstr "{provider} でプロジェクトを作成してから、ここに戻ってもう一度確認してください。ローカルファイルはまだ作成されていません。"
+
+#: src/pykantui/pages/init_wizard.py:341
+msgid "Check again"
+msgstr "もう一度確認"
+
+#: src/pykantui/pages/init_wizard.py:467
+msgid "pykantui - setup"
+msgstr "pykantui - セットアップ"
+
+#: src/pykantui/pages/init_wizard.py:499 src/pykantui/pages/init_wizard.py:504
+msgid "Setup stopped"
+msgstr "セットアップが停止しました"
+
+#: src/pykantui/pages/init_wizard.py:500 src/pykantui/pages/init_wizard.py:507
+msgid "Could not finish setup"
+msgstr "セットアップを完了できませんでした"
+
+#: src/pykantui/pages/init_wizard.py:509
+msgid ""
+"An unexpected error stopped setup. The last completed step is shown behind "
+"this message. Close it, then run `kbn init` again."
+msgstr ""
+"予期しないエラーによりセットアップが停止しました。最後に完了した手順がこのメッセージの背後に表示されています。閉じてから、もう一度 `kbn init`"
+" を実行してください。"
+
+#: src/pykantui/pages/sync.py:76
+msgid "SYNC PREVIEW"
+msgstr "同期プレビュー"
+
+#: src/pykantui/pages/sync.py:85
+msgid "LOCAL ONLY"
+msgstr "ローカルのみ"
+
+#: src/pykantui/pages/sync.py:87
+msgid ""
+"• Private Markdown notes\n"
+"• Local Git history\n"
+"• Credentials and cache files"
+msgstr ""
+"• 非公開 Markdown ノート\n"
+"• ローカル Git 履歴\n"
+"• 認証情報とキャッシュファイル"
+
+#: src/pykantui/pages/sync.py:92
+msgid ""
+"Choose provider or local for each conflicting field. Undecided cards stay "
+"local."
+msgstr "競合する各フィールドでプロバイダー側かローカル側を選択します。未決定のカードはローカルに残ります。"
+
+#: src/pykantui/pages/sync.py:95
+msgid "RESOLVE CONFLICTS"
+msgstr "競合を解決"
+
+#: src/pykantui/pages/sync.py:105
+msgid "Keep undecided"
+msgstr "未決定のまま"
+
+#: src/pykantui/pages/sync.py:107 src/pykantui/pages/sync.py:120
+#, python-brace-format
+msgid "Use {provider} version"
+msgstr "{provider} のバージョンを使用"
+
+#: src/pykantui/pages/sync.py:110
+msgid "Send local version"
+msgstr "ローカル版を送信"
+
+#: src/pykantui/pages/sync.py:124
+#, python-brace-format
+msgid "Overwrite {provider}"
+msgstr "{provider} を上書き"
+
+#: src/pykantui/pages/sync.py:130
+msgid "Pull only"
+msgstr "引くだけ"
+
+#: src/pykantui/pages/sync.py:131
+msgid "Send ready changes"
+msgstr "準備済みの変更を送信"
+
+#: src/pykantui/tui/app.py:133
+msgid "Run this pykantui board command"
+msgstr "この pykantui ボード コマンドを実行します。"
+
+#: src/pykantui/tui/app.py:142
+#, python-brace-format
+msgid "Run the {menu} command in pykantui"
+msgstr "pykantui で {menu} コマンドを実行します。"
+
+#: src/pykantui/tui/app.py:148
+#, python-brace-format
+msgid "Sync with {provider}…"
+msgstr "{provider} と同期します…"
+
+#: src/pykantui/tui/app.py:190
+msgid "card"
+msgid_plural "cards"
+msgstr[0] "カード"
+
+#: src/pykantui/tui/app.py:195
+#, python-brace-format
+msgid "{shown} of {total} · {detail}"
+msgstr "{shown} の {total} · {detail}"
+
+#: src/pykantui/tui/app.py:196
+#, python-brace-format
+msgid "{shown} of {total}"
+msgstr "{shown}/{total}"
+
+#: src/pykantui/tui/app.py:259
+msgid "Check your configuration"
+msgstr "設定を確認してください"
+
+#: src/pykantui/tui/app.py:277
+#, python-brace-format
+msgid "Unknown theme {theme!r}; using {fallback}"
+msgstr "不明なテーマ {theme!r}; {fallback}を使用"
+
+#: src/pykantui/tui/app.py:301
+msgid "confirm on"
+msgstr "確認する"
+
+#: src/pykantui/tui/app.py:301
+msgid "confirm off"
+msgstr "オフを確認する"
+
+#: src/pykantui/tui/app.py:361
+#, python-brace-format
+msgid "{provider} cannot create cards here"
+msgstr "{provider} はここではカードを作成できません"
+
+#: src/pykantui/tui/app.py:398
+msgid "Create failed"
+msgstr "作成に失敗しました"
+
+#: src/pykantui/tui/app.py:400 src/pykantui/tui/app.py:446
+msgid "Saved locally"
+msgstr "ローカルに保存されました"
+
+#: src/pykantui/tui/app.py:415 src/pykantui/tui/app.py:451
+#, python-brace-format
+msgid "{provider} cards cannot be edited here"
+msgstr "{provider} カードはここでは編集できません"
+
+#: src/pykantui/tui/app.py:443
+msgid "Save failed"
+msgstr "保存に失敗しました"
+
+#: src/pykantui/tui/menu_items.py:55
+msgid "⌂ Home · ▥ Kanban"
+msgstr "⌂ ホーム · ▥ カンバン"
+
+#: src/pykantui/tui/menu_items.py:67
+msgid "Reload files"
+msgstr "ファイルをリロードする"
+
+#: src/pykantui/tui/menu_items.py:75
+msgid "Sync with provider…"
+msgstr "プロバイダーと同期します…"
+
+#: src/pykantui/tui/menu_items.py:78 src/pykantui/tui/palette.py:169
+msgid "Help"
+msgstr "ヘルプ"
+
+#: src/pykantui/tui/menu_items.py:105
+msgid "+ Save this filter…"
+msgstr "+ このフィルターを保存…"
+
+#: src/pykantui/tui/menu_items.py:106
+msgid "Clear filters"
+msgstr "フィルターをクリアする"
+
+#: src/pykantui/tui/menu_items.py:116 src/pykantui/tui/widgets/menu_bar.py:200
+msgid "⇵ Reverse"
+msgstr "⇵ 逆方向"
+
+#: src/pykantui/tui/menu_items.py:121
+msgid "Add column…"
+msgstr "列を追加…"
+
+#: src/pykantui/tui/menu_items.py:122
+msgid "Rename this column…"
+msgstr "この列の名前を変更します…"
+
+#: src/pykantui/tui/menu_items.py:123
+msgid "Hide this column"
+msgstr "この列を非表示にする"
+
+#: src/pykantui/tui/menu_items.py:124
+msgid "Delete this column…"
+msgstr "この列を削除してください…"
+
+#: src/pykantui/tui/menu_items.py:125
+msgid "Expand all columns"
+msgstr "すべての列を展開します"
+
+#: src/pykantui/tui/menu_items.py:141
+msgid "[ Narrow work items"
+msgstr "[ 狭い作業項目"
+
+#: src/pykantui/tui/menu_items.py:142
+msgid "] Widen work items"
+msgstr "】作業項目を拡充"
+
+#: src/pykantui/tui/menu_items.py:143
+msgid "\\ Reset divider"
+msgstr "\\ ディバイダーをリセット"
+
+#: src/pykantui/tui/menu_items.py:151
+#, python-brace-format
+msgid "Movement: {mode}"
+msgstr "ムーブメント: {mode}"
+
+#: src/pykantui/tui/menu_items.py:156
+msgid "Confirm moves"
+msgstr "動きを確認する"
+
+#: src/pykantui/tui/menu_items.py:159
+msgid "Card detail"
+msgstr "カード詳細"
+
+#: src/pykantui/tui/menu_items.py:163
+msgid "Collapse this column"
+msgstr "この列を折りたたむ"
+
+#: src/pykantui/tui/controllers/actions.py:256 src/pykantui/tui/menu_items.py:170
+msgid "Keys"
+msgstr "キー"
+
+#: src/pykantui/tui/controllers/actions.py:247 src/pykantui/tui/menu_items.py:173
+msgid "Where things are stored"
+msgstr "物が保管されている場所"
+
+#: src/pykantui/tui/palette.py:40
+msgid "Return to the Kanban home board"
+msgstr "カンバンのホームボードに戻る"
+
+#: src/pykantui/tui/palette.py:41
+msgid "Create a card or reload Markdown files"
+msgstr "カードを作成するか、Markdown ファイルをリロードしてください"
+
+#: src/pykantui/tui/palette.py:54
+msgid "State, provider fields, and saved filters"
+msgstr "状態、プロバイダーフィールド、および保存されたフィルター"
+
+#: src/pykantui/tui/palette.py:55
+msgid "Manual, title, due date, age, or reverse"
+msgstr "マニュアル、タイトル、期限、経過年数、または裏面"
+
+#: src/pykantui/tui/palette.py:56
+msgid "Add, rename, hide, delete, or expand"
+msgstr "追加、名前変更、非表示、削除、または展開"
+
+#: src/pykantui/tui/palette.py:57
+msgid "Kanban, Split, Rows, and board behavior"
+msgstr "カンバン、分割、行、およびボードの動作"
+
+#: src/pykantui/tui/palette.py:60
+msgid "Change the filters applied to visible cards"
+msgstr "表示されているカードに適用されるフィルターを変更する"
+
+#: src/pykantui/tui/palette.py:61
+msgid "Change the order of visible cards"
+msgstr "表示されるカードの順序を変更する"
+
+#: src/pykantui/tui/palette.py:62
+msgid "Change the current board columns"
+msgstr "現在のボード列を変更する"
+
+#: src/pykantui/tui/palette.py:63
+msgid "Change the layout or board behavior"
+msgstr "レイアウトまたはボードの動作を変更する"
+
+#: src/pykantui/tui/palette.py:64
+msgid "Open this pykantui help topic"
+msgstr "この pykantui ヘルプ トピックを開きます"
+
+#: src/pykantui/tui/palette.py:72 src/pykantui/tui/widgets/dropdowns.py:67
+msgid "State"
+msgstr "州"
+
+#: src/pykantui/tui/palette.py:72
+msgid "Blocked, overdue, due dates, and local notes"
+msgstr "ブロックされている、期限切れ、期日、およびローカルメモ"
+
+#: src/pykantui/tui/palette.py:76
+msgid "Provider fields"
+msgstr "プロバイダーフィールド"
+
+#: src/pykantui/tui/palette.py:77
+#, python-brace-format
+msgid "Filters supported by {provider}"
+msgstr "{provider} でサポートされているフィルター"
+
+#: src/pykantui/tui/palette.py:82
+msgid "Saved filters"
+msgstr "保存されたフィルター"
+
+#: src/pykantui/tui/palette.py:83
+msgid "Apply a saved combination of filters"
+msgstr "保存したフィルターの組み合わせを適用する"
+
+#: src/pykantui/tui/palette.py:107
+msgid "Layout"
+msgstr "レイアウト"
+
+#: src/pykantui/tui/palette.py:107
+msgid "Kanban, Split, or Rows"
+msgstr "カンバン、分割、または行"
+
+#: src/pykantui/tui/palette.py:108
+msgid "Split pane"
+msgstr "分割ペイン"
+
+#: src/pykantui/tui/palette.py:108
+msgid "Resize or reset the work-items divider"
+msgstr "作業項目の分割線のサイズ変更またはリセット"
+
+#: src/pykantui/tui/palette.py:109
+msgid "Behavior"
+msgstr "行動"
+
+#: src/pykantui/tui/palette.py:109
+msgid "Movement, confirmation, detail, and columns"
+msgstr "移動、確認、詳細、コラム"
+
+#: src/pykantui/tui/palette.py:141
+msgid "Board"
+msgstr "理事会"
+
+#: src/pykantui/tui/palette.py:142
+msgid "Home, create cards, and reload local files"
+msgstr "ホーム、カードの作成、ローカル ファイルのリロード"
+
+#: src/pykantui/tui/palette.py:147
+msgid "Organize"
+msgstr "整理する"
+
+#: src/pykantui/tui/palette.py:148
+msgid "Filter, sort, columns, and layouts"
+msgstr "フィルター、並べ替え、列、レイアウト"
+
+#: src/pykantui/tui/palette.py:164
+msgid "Review local and provider changes before syncing"
+msgstr "同期する前にローカルとプロバイダーの変更を確認する"
+
+#: src/pykantui/tui/palette.py:170
+msgid "Keys and where pykantui stores data"
+msgstr "キーと pykantui がデータを保存する場所"
+
+#: src/pykantui/tui/palette.py:177
+msgid "System"
+msgstr "システム"
+
+#: src/pykantui/tui/palette.py:178
+msgid "Theme, screenshot, maximize, and application commands"
+msgstr "テーマ、スクリーンショット、最大化、およびアプリケーションコマンド"
+
+#: src/pykantui/tui/controllers/actions.py:42
+#, python-brace-format
+msgid "Movement mode: {mode}"
+msgstr "移動モード：{mode}"
+
+#: src/pykantui/tui/controllers/actions.py:49
+msgid "Moves will ask for confirmation"
+msgstr "移動すると確認が求められます"
+
+#: src/pykantui/tui/controllers/actions.py:49
+msgid "Moves apply immediately"
+msgstr "移動はすぐに適用されます"
+
+#: src/pykantui/tui/controllers/actions.py:163
+msgid "Sprints are a Jira board setting"
+msgstr "スプリントは Jira ボード設定です"
+
+#: src/pykantui/tui/controllers/actions.py:165
+msgid "sprint"
+msgstr "スプリント"
+
+#: src/pykantui/tui/controllers/actions.py:166
+#, python-brace-format
+msgid "Source: {source}. Press Search to re-run."
+msgstr "出典: {source}。再実行するには検索を押してください。"
+
+#: src/pykantui/tui/controllers/actions.py:208
+#, python-brace-format
+msgid "Saved filter {name}"
+msgstr "保存されたフィルター {name}"
+
+#: src/pykantui/tui/controllers/actions.py:244
+msgid "in memory (demo board)"
+msgstr "メモリ内 (デモボード)"
+
+#: src/pykantui/tui/controllers/actions.py:246
+#, python-brace-format
+msgid "Columns and filters: {path}"
+msgstr "列とフィルター: {path}"
+
+#: src/pykantui/tui/controllers/actions.py:253
+msgid ""
+"hjkl move focus · HL move card · JK reorder · v detail · , menu\n"
+"z collapse · Z expand all · n new · e edit · d delete · r reload · F5 sync"
+msgstr ""
+"hjklムーブフォーカス・HLムーブカード・JKリオーダー・v詳細・メニュー\n"
+"z 折りたたむ · Z すべて展開 · n 新規 · e 編集 · d 削除 · r 再ロード · F5 同期"
+
+#: src/pykantui/tui/controllers/columns.py:32
+msgid "New card here"
+msgstr "新しいカードはこちら"
+
+#: src/pykantui/tui/controllers/columns.py:35
+msgid "Rename column…"
+msgstr "列の名前を変更…"
+
+#: src/pykantui/tui/controllers/columns.py:36
+msgid "Add column after…"
+msgstr "…の後に列を追加"
+
+#: src/pykantui/tui/controllers/columns.py:37
+msgid "Hide column"
+msgstr "列を非表示にする"
+
+#: src/pykantui/tui/controllers/columns.py:40
+msgid "Delete all cards…"
+msgstr "すべてのカードを削除します…"
+
+#: src/pykantui/tui/controllers/columns.py:42
+msgid "Delete column…"
+msgstr "列を削除…"
+
+#: src/pykantui/tui/controllers/columns.py:86
+msgid "Rename column"
+msgstr "列名の変更"
+
+#: src/pykantui/tui/controllers/columns.py:91
+msgid "New column name"
+msgstr "新しい列名"
+
+#: src/pykantui/tui/controllers/columns.py:96
+#, python-brace-format
+msgid "There is already a column called {name}"
+msgstr "すでに {name} という列があります"
+
+#: src/pykantui/tui/controllers/columns.py:102
+msgid "At least one column has to stay visible"
+msgstr "少なくとも 1 つの列が表示されたままである必要があります"
+
+#: src/pykantui/tui/controllers/columns.py:106
+#, python-brace-format
+msgid "Delete the {column} column?"
+msgstr "{column} 列を削除しますか?"
+
+#: src/pykantui/tui/controllers/columns.py:107
+msgid "Delete column"
+msgstr "列の削除"
+
+#: src/pykantui/tui/controllers/columns.py:110
+msgid "A board needs at least one column"
+msgstr "ボードには少なくとも 1 つの列が必要です"
+
+#: src/pykantui/tui/controllers/columns.py:124
+#, python-brace-format
+msgid "{column} is already empty"
+msgstr "{column} はすでに空です"
+
+#: src/pykantui/tui/controllers/columns.py:126
+#, python-brace-format
+msgid "Delete {count} card(s) from {column}?"
+msgstr "{count} カードを {column} から削除しますか?"
+
+#: src/pykantui/tui/controllers/columns.py:127
+msgid "Delete cards"
+msgstr "カードを削除する"
+
+#: src/pykantui/tui/controllers/sync.py:27
+msgid "this board already shows everything"
+msgstr "このボードにはすでにすべてが示されています"
+
+#: src/pykantui/tui/controllers/sync.py:36
+#, python-brace-format
+msgid "could not load the team's cards: {error}"
+msgstr "チームのカードをロードできませんでした: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:43
+msgid "showing the whole project — their cards are read-only"
+msgstr "プロジェクト全体を表示 - カードは読み取り専用です"
+
+#: src/pykantui/tui/controllers/sync.py:45
+msgid "showing only your cards"
+msgstr "自分のカードだけを表示する"
+
+#: src/pykantui/tui/controllers/sync.py:56
+#, python-brace-format
+msgid "Reload failed: {error}"
+msgstr "リロードに失敗しました: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:62
+msgid "Columns reloaded"
+msgstr "列が再ロードされました"
+
+#: src/pykantui/tui/controllers/sync.py:66
+msgid "Reloaded local files"
+msgstr "ローカルファイルをリロードしました"
+
+#: src/pykantui/tui/controllers/sync.py:73
+msgid "This local board has no provider to sync"
+msgstr "このローカル ボードには同期するプロバイダーがありません"
+
+#: src/pykantui/tui/controllers/sync.py:79
+msgid "This backend cannot sync"
+msgstr "このバックエンドは同期できません"
+
+#: src/pykantui/tui/controllers/sync.py:85
+#, python-brace-format
+msgid "Sync preview failed: {error}"
+msgstr "同期プレビューに失敗しました: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:95
+msgid "Sync cancelled — local changes kept"
+msgstr "同期はキャンセルされました - ローカルの変更は保持されました"
+
+#: src/pykantui/tui/controllers/sync.py:109
+#, python-brace-format
+msgid "Sync failed: {error}"
+msgstr "同期に失敗しました: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:115
+msgid "Sync complete"
+msgstr "同期が完了しました"
+
+#: src/pykantui/tui/widgets/app_header.py:37
+msgid "⎇ Sync"
+msgstr "⎇ 同期"
+
+#: src/pykantui/tui/widgets/board.py:234
+msgid "At least one column has to stay open"
+msgstr "少なくとも 1 つの列を開いたままにする必要があります"
+
+#: src/pykantui/tui/widgets/board.py:382 src/pykantui/tui/widgets/board.py:429
+msgid "Move blocked"
+msgstr "移動がブロックされました"
+
+#: src/pykantui/tui/widgets/board.py:405
+#, python-brace-format
+msgid "Saved to Markdown. Sync sends it to {provider}."
+msgstr "Markdownに保存されました。同期はそれを {provider} に送信します。"
+
+#: src/pykantui/tui/widgets/board.py:409
+#, python-brace-format
+msgid "This writes to {provider}."
+msgstr "これは {provider} に書き込みます。"
+
+#: src/pykantui/tui/widgets/board.py:411
+msgid "This marks the task finished."
+msgstr "これでタスクが完了したことがマークされます。"
+
+#: src/pykantui/tui/widgets/board.py:413
+msgid "This clears the start and finish dates."
+msgstr "これにより、開始日と終了日がクリアされます。"
+
+#: src/pykantui/tui/widgets/board.py:435
+msgid "Move failed"
+msgstr "移動に失敗しました"
+
+#: src/pykantui/tui/widgets/board.py:455
+#, python-brace-format
+msgid "Moved to {column}"
+msgstr "{column} に移動しました"
+
+#: src/pykantui/tui/widgets/board.py:460
+msgid "Moved"
+msgstr "移転しました"
+
+#: src/pykantui/tui/widgets/board.py:465
+msgid "Reordering needs Manual sort — the board is showing a sorted view"
+msgstr "並べ替えには手動での並べ替えが必要です - ボードには並べ替えられたビューが表示されます"
+
+#: src/pykantui/tui/widgets/board.py:478
+msgid "Reorder failed"
+msgstr "再注文に失敗しました"
+
+#: src/pykantui/tui/widgets/board.py:488
+msgid "Delete failed"
+msgstr "削除に失敗しました"
+
+#: src/pykantui/tui/widgets/board.py:502
+msgid "Nothing is blocking this task"
+msgstr "このタスクを妨げるものは何もありません"
+
+#: src/pykantui/tui/widgets/board.py:502
+msgid "Blockers"
+msgstr "ブロッカー"
+
+#: src/pykantui/tui/widgets/card.py:152
+#, python-brace-format
+msgid "age {days}d"
+msgstr "経過{days}日"
+
+#: src/pykantui/tui/widgets/card.py:156
+msgid "no due date"
+msgstr "期限なし"
+
+#: src/pykantui/tui/widgets/card.py:158
+#, python-brace-format
+msgid "overdue {days}d"
+msgstr "{days}日超過"
+
+#: src/pykantui/tui/widgets/card.py:160
+msgid "due today"
+msgstr "本日期限"
+
+#: src/pykantui/tui/widgets/card.py:162
+#, python-brace-format
+msgid "due in {days}d"
+msgstr "あと{days}日"
+
+#: src/pykantui/tui/widgets/card.py:166
+#, python-brace-format
+msgid "blocked ({count})"
+msgstr "ブロックされました ({count})"
+
+#: src/pykantui/tui/widgets/card.py:166
+msgid "unblocked"
+msgstr "ブロックされていない"
+
+#: src/pykantui/tui/widgets/card.py:168
+#, python-brace-format
+msgid "blocking {count}"
+msgstr "{count} をブロックしています"
+
+#: src/pykantui/tui/widgets/card_fields.py:127
+#: src/pykantui/tui/widgets/work_items.py:110
+#: src/pykantui/workspace/outbound.py:62
+msgid "Description"
+msgstr "説明"
+
+#: src/pykantui/tui/widgets/card_fields.py:137
+msgid "Save"
+msgstr "保存"
+
+#: src/pykantui/tui/widgets/card_fields.py:138
+msgid "Save draft locally"
+msgstr "下書きをローカルに保存する"
+
+#: src/pykantui/tui/widgets/card_fields.py:138
+msgid "Save locally"
+msgstr "ローカルに保存"
+
+#: src/pykantui/tui/widgets/card_fields.py:226
+msgid "Read-only on this backend"
+msgstr "このバックエンドでは読み取り専用です"
+
+#: src/pykantui/tui/widgets/compact_footer.py:63
+#: src/pykantui/tui/widgets/compact_footer.py:78
+msgid "Details"
+msgstr "詳細"
+
+#: src/pykantui/tui/widgets/compact_footer.py:64
+msgid "Kanban"
+msgstr "カンバン"
+
+#: src/pykantui/tui/widgets/compact_footer.py:70
+msgid "Choose column"
+msgstr "列を選択してください"
+
+#: src/pykantui/tui/widgets/compact_footer.py:81
+#: src/pykantui/tui/widgets/dropdowns.py:115
+#: src/pykantui/tui/widgets/dropdowns.py:224
+msgid "Search"
+msgstr "検索"
+
+#: src/pykantui/tui/widgets/dropdowns.py:66
+msgid "Any state"
+msgstr "どの州でも"
+
+#: src/pykantui/tui/widgets/dropdowns.py:88
+msgid "Saved filter"
+msgstr "保存されたフィルター"
+
+#: src/pykantui/tui/widgets/dropdowns.py:89
+msgid "Saved"
+msgstr "保存されました"
+
+#: src/pykantui/tui/widgets/dropdowns.py:105
+#: src/pykantui/tui/widgets/dropdowns.py:147
+#: src/pykantui/tui/widgets/dropdowns.py:160
+#, python-brace-format
+msgid "Any {field}"
+msgstr "任意の {field}"
+
+#: src/pykantui/tui/widgets/dropdowns.py:115
+msgid "title or notes…"
+msgstr "タイトルとかメモとか…"
+
+#: src/pykantui/tui/widgets/dropdowns.py:189
+msgid "Created From"
+msgstr "作成元"
+
+#: src/pykantui/tui/widgets/dropdowns.py:193
+msgid "Created Until"
+msgstr "作成日まで"
+
+#: src/pykantui/tui/widgets/dropdowns.py:202
+#: src/pykantui/tui/widgets/dropdowns.py:218
+#: src/pykantui/tui/widgets/dropdowns.py:227
+msgid "Live provider queries are unavailable in this workspace"
+msgstr "ライブプロバイダークエリはこのワークスペースでは使用できません"
+
+#: src/pykantui/tui/widgets/dropdowns.py:208
+#, python-brace-format
+msgid "Type in a {language} expression to search issues…"
+msgstr "{language} 式を入力して問題を検索します…"
+
+#: src/pykantui/tui/widgets/menu_bar.py:201
+msgid "+ Save"
+msgstr "+ 保存"
+
+#: src/pykantui/tui/widgets/menu_bar.py:202
+msgid "Clear"
+msgstr "クリア"
+
+#: src/pykantui/tui/widgets/work_items.py:95
+msgid "Open the card to view or add provider comments."
+msgstr "カードを開いてプロバイダーのコメントを表示または追加します。"
+
+#: src/pykantui/tui/widgets/work_items.py:101
+msgid "Attachments are not stored in local Markdown."
+msgstr "添付ファイルはローカルの Markdown には保存されません。"
+
+#: src/pykantui/tui/widgets/work_items.py:109
+msgid "Key"
+msgstr "キー"
+
+#: src/pykantui/tui/widgets/work_items.py:109
+#: src/pykantui/workspace/outbound.py:65
+msgid "Status"
+msgstr "ステータス"
+
+#: src/pykantui/tui/widgets/work_items.py:109
+#: src/pykantui/tui/widgets/work_items.py:111
+#: src/pykantui/workspace/outbound.py:60
+msgid "Summary"
+msgstr "概要"
+
+#: src/pykantui/workspace/models.py:67 src/pykantui/workspace/status.py:68
+#: src/pykantui/workspace/status.py:179
+msgid "conflict"
+msgid_plural "conflicts"
+msgstr[0] "競合"
+
+#: src/pykantui/workspace/models.py:67
+msgid "provider check unavailable"
+msgstr "プロバイダーの確認を利用できません"
+
+#: src/pykantui/workspace/models.py:77
+#, python-brace-format
+msgid "      provider: {value}"
+msgstr "      プロバイダー: {value}"
+
+#: src/pykantui/workspace/models.py:78
+#, python-brace-format
+msgid "      local: {value}"
+msgstr "      ローカル: {value}"
+
+#: src/pykantui/workspace/models.py:164
+#, python-brace-format
+msgid "READY TO SEND ({count})"
+msgstr "送信準備完了 ({count})"
+
+#: src/pykantui/workspace/models.py:166
+#, python-brace-format
+msgid "CREATE ({count})"
+msgstr "作成 ({count})"
+
+#: src/pykantui/workspace/models.py:172
+#, python-brace-format
+msgid "UPDATE ({count})"
+msgstr "更新 ({count})"
+
+#: src/pykantui/workspace/models.py:182
+#, python-brace-format
+msgid "BLOCKED ({count})"
+msgstr "ブロック ({count})"
+
+#: src/pykantui/workspace/outbound.py:72
+msgid "Parent"
+msgstr "親"
+
+#: src/pykantui/workspace/outbound.py:76
+msgid "provider default"
+msgstr "プロバイダーの既定値"
+
+#: src/pykantui/workspace/outbound.py:79
+#, python-brace-format
+msgid "type: {value}"
+msgstr "種類: {value}"
+
+#: src/pykantui/workspace/outbound.py:81
+#, python-brace-format
+msgid "column: {value}"
+msgstr "列: {value}"
+
+#: src/pykantui/workspace/outbound.py:83
+#, python-brace-format
+msgid "fields: {value}"
+msgstr "フィールド: {value}"
+
+#: src/pykantui/workspace/status.py:66
+msgid "synced"
+msgstr "同期済み"
+
+#: src/pykantui/workspace/status.py:67 src/pykantui/workspace/status.py:177
+msgid "unsent edit"
+msgid_plural "unsent edits"
+msgstr[0] "未送信"
+
+#: src/pykantui/workspace/status.py:69 src/pykantui/workspace/status.py:181
+msgid "not synced"
+msgstr "未同期"
+
+#: src/pykantui/workspace/status.py:70 src/pykantui/workspace/status.py:175
+msgid "invalid Markdown"
+msgstr "無効な Markdown"
+
+#: src/pykantui/workspace/status.py:183
+msgid "all synced"
+msgstr "すべて同期されました"
+
+#~ msgid "Authenticate with {provider}"
+#~ msgstr "{provider} で認証"
+
+#~ msgid "Enter an existing key"
+#~ msgstr "既存のキーを入力"
+
+#~ msgid "Opening {provider} authentication"
+#~ msgstr "Opening {provider} authentication"
+
+#~ msgid "Authentication page opened"
+#~ msgstr "Authentication page opened"
+
+#~ msgid "{credentials} · no OAuth app registration"
+#~ msgstr "{credentials} · OAuth アプリの登録は不要"
+
+#~ msgid "{credentials} · Power-Up registration required"
+#~ msgstr "{credentials} · Power-Up の登録が必要"
+
+#~ msgid "Set up {provider} authentication"
+#~ msgstr "{provider} 認証を設定"
+
+#~ msgid "choose an authentication method"
+#~ msgstr "認証方法を選択"
+
+#~ msgid "Opening the board"
+#~ msgstr "ボードを開いています"

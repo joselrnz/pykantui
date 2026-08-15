@@ -1,0 +1,31 @@
+__pycache__/
+*.py[cod]
+.venv/
+build/
+dist/
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.vscode/
+
+# Third-party reference clones. Each is its own git repo, read-only, and is
+# never committed here.
+/reference/*/
+
+# Live credentials: Jira and Plane API tokens. Never committed. `.env.example`
+# is the committed copy, and carries placeholders only.
+.env
+.env.*
+!.env.example
+
+# Cached API responses inside a workspace. A cache, never committed.
+.pykantui/cache/
+
+# Local integration workspaces and personal planning/tool configuration.
+/.docker-workspace/
+/.project/
+/.claude/
+
+# Local evidence bundles and build outputs (437MB of PNG/GIF/wheel artifacts).
+/artifacts/

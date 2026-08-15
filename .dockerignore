@@ -1,0 +1,35 @@
+# Never build a credential into an image. An image layer is forever, and a
+# layer holding .env survives every later `rm` in the Dockerfile.
+.env
+.env.*
+!.env.example
+vault.env
+*.pem
+*.key
+
+# Host-specific and rebuildable.
+#
+# The `**/` matters: a bare `__pycache__/` matches only at the context root, so
+# without it 115 Windows-built .pyc files for a different Python version were
+# being copied into the image.
+.venv/
+venv/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+**/*.egg-info/
+build/
+dist/
+
+# Big and irrelevant to a build.
+.git/
+.github/
+htmlcov/
+.coverage
+
+# Local scratch that should never define the build.
+*.svg
+graph.html

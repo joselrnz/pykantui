@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="1200" height="340"
+     role="img" aria-label="pykantui — a terminal kanban board, local JSON or a live Jira project">
+
+  <!-- The app's own palette (tui/themes.py): true black, one electric blue,
+       pure greyscale neutrals. Nothing is tinted, which is what makes the blue
+       read as loudly as it does. The window carries its own dark background,
+       so this reads the same on a light or a dark README. -->
+  <defs>
+    <linearGradient id="wordmark" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0070F3"/>
+      <stop offset="100%" stop-color="#7928CA"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0070F3" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#0070F3" stop-opacity="0"/>
+    </linearGradient>
+    <style>
+      .mono { font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+                           "DejaVu Sans Mono", monospace; }
+    </style>
+  </defs>
+
+  <!-- terminal window -->
+  <rect x="10" y="10" width="1180" height="320" rx="16" fill="#0A0A0A" stroke="#333333" stroke-width="1.5"/>
+  <rect x="10" y="10" width="1180" height="150" rx="16" fill="url(#glow)"/>
+
+  <!-- title bar -->
+  <g>
+    <circle cx="42" cy="42" r="6.5" fill="#FF0080"/>
+    <circle cx="66" cy="42" r="6.5" fill="#F5A623"/>
+    <circle cx="90" cy="42" r="6.5" fill="#50E3C2"/>
+    <text class="mono" x="600" y="47" text-anchor="middle" font-size="15" fill="#888888">
+      pykantui — Board · adjacent mode · confirm on
+    </text>
+    <line x1="10" y1="70" x2="1190" y2="70" stroke="#222222" stroke-width="1.5"/>
+  </g>
+
+  <!-- wordmark: py + kan + tui — python, kanban, tui -->
+  <g>
+    <text class="mono" x="64" y="188" font-size="78" font-weight="700" letter-spacing="-1">
+      <tspan fill="#666666">py</tspan><tspan fill="#EDEDED">kan</tspan><tspan fill="url(#wordmark)">tui</tspan>
+    </text>
+    <!-- block cursor, the app's own $block-cursor-background -->
+    <rect x="424" y="128" width="34" height="70" fill="#0070F3" opacity="0.95">
+      <animate attributeName="opacity" values="0.95;0.95;0.1;0.1" dur="1.2s" repeatCount="indefinite"/>
+    </rect>
+
+    <text class="mono" x="66" y="236" font-size="20" fill="#888888">
+      a terminal kanban board with a pluggable task backend
+    </text>
+    <text class="mono" x="66" y="272" font-size="18" fill="#555555">
+      <tspan fill="#0070F3">H</tspan> move card left   <tspan fill="#0070F3">L</tspan> move card right
+      <tspan fill="#0070F3">v</tspan> open   <tspan fill="#0070F3">z</tspan> collapse   <tspan fill="#0070F3">/</tspan> search
+    </text>
+  </g>
+
+  <!-- a board in miniature: a card crossing from Doing into Review -->
+  <g transform="translate(690, 96)">
+    <g font-size="11" class="mono" fill="#888888" text-anchor="middle">
+      <text x="55" y="0">To Do</text>
+      <text x="177" y="0">Doing</text>
+      <text x="299" y="0">Review</text>
+      <text x="421" y="0">Done</text>
+    </g>
+
+    <!-- columns -->
+    <g fill="none" stroke="#333333" stroke-width="1.2">
+      <rect x="4" y="12" width="102" height="180" rx="8"/>
+      <rect x="126" y="12" width="102" height="180" rx="8"/>
+      <rect x="248" y="12" width="102" height="180" rx="8"/>
+      <rect x="370" y="12" width="102" height="180" rx="8"/>
+    </g>
+
+    <!-- cards -->
+    <g stroke-width="1.2">
+      <rect x="14" y="26" width="82" height="26" rx="6" fill="#111111" stroke="#444444"/>
+      <rect x="14" y="60" width="82" height="26" rx="6" fill="#111111" stroke="#444444"/>
+      <rect x="14" y="94" width="82" height="26" rx="6" fill="#111111" stroke="#444444"/>
+
+      <rect x="136" y="26" width="82" height="26" rx="6" fill="#111111" stroke="#444444"/>
+
+      <!-- the one in flight, carrying the focus ring -->
+      <rect x="200" y="62" width="82" height="26" rx="6" fill="#0A1B2E" stroke="#0070F3" stroke-width="1.8">
+        <animate attributeName="x" values="136;136;200;200" dur="3.2s" repeatCount="indefinite"/>
+      </rect>
+
+      <rect x="380" y="26" width="82" height="26" rx="6" fill="#0D1F1B" stroke="#50E3C2"/>
+    </g>
+
+    <!-- the move, as an arrow between the two columns -->
+    <g stroke="#0070F3" stroke-width="1.6" fill="none" opacity="0.85">
+      <path d="M 232 75 L 258 75"/>
+      <path d="M 252 70 L 258 75 L 252 80"/>
+    </g>
+
+    <text class="mono" x="238" y="214" font-size="11" fill="#666666" text-anchor="middle">
+      moving a card in Jira is a workflow transition
+    </text>
+  </g>
+</svg>

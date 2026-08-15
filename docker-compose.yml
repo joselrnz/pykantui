@@ -1,0 +1,101 @@
+# Running pykantui somewhere that is not Windows.
+#
+#   docker compose run --rm tests      the suite, on Ubuntu
+#   docker compose run --rm checks     ruff and mypy
+#   docker compose run --rm smoke      build/install the wheel and smoke the CLI
+#   docker compose run --rm coverage   randomized parallel suite + coverage gate
+#   docker compose run --rm security   scan secrets and audit dependencies
+#   docker compose run --rm live       the provider audit, against real accounts
+#   docker compose run --rm shell      a prompt, for poking at it
+#
+# Credentials are passed at *run* time via env_file, never copied into the
+# image -- see .dockerignore. An image layer holding a token survives every
+# later deletion, and images get pushed.
+
+services:
+  tests:
+    build: .
+    image: pykantui:dev
+    command: python -m unittest discover -s tests
+
+  checks:
+    build: .
+    image: pykantui:dev
+    command: >
+      bash -lc "
+        python -m ruff check src/ tests/ tools/ &&
+        python -m mypy &&
+        echo 'ruff and mypy clean on linux'
+      "
+
+  smoke:
+    build: .
+    image: pykantui:dev
+    command: >
+      bash -lc "
+        python -m build --wheel --outdir /tmp/dist &&
+        python -m pip install --force-reinstall --no-deps /tmp/dist/*.whl &&
+        cd /tmp &&
+        python -c 'from pykantui.config.paths import data_dir; assert str(data_dir()) == \"/home/kbn/.pykantui\"' &&
+        kbn --help >/dev/null &&
+        kbn --locale es --help | grep -F 'Tablero kanban para la terminal' >/dev/null &&
+        kbn --locale fr --help | grep -F 'Tableau kanban pour terminal' >/dev/null &&
+        kbn --locale de --help | grep -F 'Kanban-Board im Terminal' >/dev/null &&
+        kbn --locale zh --help | grep -F '终端看板' >/dev/null &&
+        kbn --locale zh_TW --help | grep -F '終端機看板' >/dev/null &&
+        kbn --locale ar --help | grep -F 'لوحة كانبان في الطرفية' >/dev/null &&
+        kbn init --help >/dev/null &&
+        kbn init --list-types >/dev/null &&
+        echo 'wheel and CLI smoke clean on linux'
+      "
+
+  coverage:
+    build: .
+    image: pykantui:dev
+    command: python tools/coverage_gate.py
+
+  security:
+    build: .
+    image: pykantui:dev
+    command: >
+      bash -lc "
+        python tools/secret_scan.py . &&
+        python -m pip_audit . --progress-spinner off --strict &&
+        echo 'secret and dependency scans clean on linux'
+      "
+
+  # Provider-facing services may use secrets. `required: false` keeps every
+  # offline gate runnable on a machine that has never had a .env.
+  live:
+    build: .
+    image: pykantui:dev
+    env_file:
+      - path: .env
+        required: false
+    command: python /app/tests/live/docker_live.py
+
+  shell:
+    build: .
+    image: pykantui:dev
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # Windows Terminal supports 24-bit color, but that capability is not
+      # forwarded into `docker compose run`. Without COLORTERM, Rich/Textual
+      # reduce cyberpunk's #0A0E14 and #11161D surfaces to the same ANSI black.
+      COLORTERM: truecolor
+      TERM: xterm-256color
+    stdin_open: true
+    tty: true
+    volumes:
+      # A workspace on the host, so a board created in here survives the
+      # container and can be inspected from Windows.
+      - ./.docker-workspace:/work
+      # The source, live. Installed with `pip install -e`, so editing a file on
+      # Windows changes what runs here on the next command -- no rebuild.
+      # Without this the container silently runs whatever the image was built
+      # from, which looks exactly like a change that did not work.
+      - ./src:/app/src:ro
+    working_dir: /work
+    command: bash

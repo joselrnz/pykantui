@@ -1,0 +1,1805 @@
+/* $background, not $surface: surface is the raised colour for panels, and
+   using it for the screen made everything behind the cards too light. */
+Screen {
+    background: $background;
+}
+
+/* The global header owns app-wide actions. The row below it is reserved for
+   board search and filters, so neither line has to repeat Menu or Sync. */
+AppHeader {
+    dock: top;
+    width: 100%;
+    height: 1;
+    background: $panel;
+    color: $text-muted;
+}
+
+#app-header-menu {
+    width: 8;
+    height: 1;
+    padding: 0 1;
+    color: $text;
+    text-style: bold;
+}
+
+#app-header-title {
+    width: 1fr;
+    height: 1;
+    content-align: center middle;
+    text-overflow: ellipsis;
+}
+
+#app-header-provider,
+#app-header-sync {
+    width: auto;
+    height: 1;
+    padding: 0 1;
+}
+
+#app-header-sync {
+    color: $accent;
+    text-style: bold;
+}
+
+#app-header-exit {
+    width: 3;
+    height: 1;
+    content-align: center middle;
+    color: $error;
+    text-style: bold;
+}
+
+#app-header-menu:hover,
+#app-header-sync:hover,
+#app-header-exit:hover {
+    background: $foreground 10%;
+}
+
+/* Transparent, not $surface: on a theme whose surface is a lighter grey
+   than its background — textual-dark is #1E1E1E over #121212 — a filled bar
+   reads as a grey slab pasted over the board. jiratui does the same thing:
+   transparent backgrounds throughout, the borders carry the structure. */
+#menu-bar {
+    width: 100%;
+    height: 1;
+    background: transparent;
+}
+
+#bar-row {
+    width: 100%;
+    height: 1;
+}
+
+#bar-caret:hover, .bar-label:hover, .bar-command:hover, .chip:hover {
+    color: $accent;
+    text-style: bold;
+}
+
+/* Borrowed from jiratui: a rounded border whose title is the field name and
+   whose subtitle is the shortcut key. See reference/jiratui. */
+.dropdown {
+    /* $primary-lighten-3, as jiratui does: a full-strength border on every
+       field makes the header shout. Focus goes to $accent, so the field you
+       are in is the loud one. */
+    border: round $primary-lighten-3;
+    padding: 0 1;
+    height: 3;
+    margin: 0 1 0 0;
+    background: $background;
+}
+
+.dropdown:focus, .dropdown:focus-within {
+    border: round $accent;
+}
+
+/* The Cyberpunk reference reserves full cyan for required/state accents and
+   uses its pale derived cyan for the active field outline. */
+.-theme-cyberpunk .dropdown:focus,
+.-theme-cyberpunk .dropdown:focus-within {
+    border: round $accent-lighten-3;
+}
+
+/* Textual's SelectCurrent uses the raised surface token in the reference.
+   Inputs and dates deliberately stay on the darker app background. */
+.-theme-cyberpunk Select.dropdown {
+    background: $surface;
+}
+
+/* Exact field-state values from the Cyberpunk reference. Required controls
+   keep full cyan; ordinary focused controls use the pale derived cyan. */
+.-theme-cyberpunk .dropdown.required,
+.-theme-cyberpunk .dropdown.required:focus,
+.-theme-cyberpunk .dropdown.required:focus-within {
+    border: round $accent;
+}
+
+#bar-row .dropdown {
+    height: 1;
+    border: none;
+    width: 24;
+    background: transparent;
+}
+
+.bar-label {
+    width: auto;
+    height: 1;
+    padding: 0 1;
+    color: $text-muted;
+}
+
+#bar-status {
+    width: 1fr;
+    height: 1;
+    content-align: right middle;
+    color: $text-muted;
+}
+
+#bar-caret {
+    width: 3;
+    height: 1;
+    content-align: center middle;
+    color: $text-muted;
+}
+
+#bar-panel {
+    width: 100%;
+    height: auto;
+    padding: 0 1;
+    background: transparent;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-size-vertical: 1;
+    scrollbar-color: $primary;
+    scrollbar-color-hover: $accent;
+    scrollbar-color-active: $accent;
+    scrollbar-background: $panel;
+}
+
+/* Provider rows share the available width. Unsupported provider fields are
+   absent, so a Trello board never inherits Jira-shaped empty boxes. */
+.filter-row {
+    width: 100%;
+    height: 3;
+    margin: 0 0 1 0;
+}
+
+.filter-row .dropdown {
+    width: 1fr;
+}
+
+.filter-grid {
+    width: 100%;
+    height: 3;
+    margin: 0 0 1 0;
+    grid-size: 4 1;
+    grid-columns: 1fr 1fr 1fr 1fr;
+    grid-gutter: 0 0;
+}
+
+.bar-command {
+    width: auto;
+    height: 1;
+    padding: 0 1;
+    color: $text-muted;
+}
+
+
+CompactFooter {
+    dock: bottom;
+    width: 100%;
+    height: 1;
+    padding: 0 1;
+    background: $panel;
+    color: $text-muted;
+}
+
+.footer-hint {
+    width: auto;
+    height: 1;
+    margin-right: 3;
+}
+
+/* Jira adds sprint, its query language and the explicit remote Search action. */
+.filter-grid.filter-grid-7 {
+    grid-size: 7 1;
+    grid-columns: 19 18 19 15 22 1fr 12;
+}
+
+.filter-grid .dropdown,
+.filter-grid .input-checkbox {
+    width: 100%;
+    margin: 0;
+}
+
+.chip-row {
+    width: 100%;
+    height: auto;
+    margin: 0 0 1 0;
+}
+
+.input-checkbox {
+    height: 3;
+    width: auto;
+    margin: 0 1 0 0;
+    padding: 0 1;
+    border: round $primary-lighten-3;
+    background: $background;
+}
+
+/* An outline pill like every other button. A filled Button paints its
+   corner cells, so a rounded border over a filled block still reads square —
+   the colour has to live in the border, not behind it. */
+#filter-search {
+    height: 3;
+    width: 100%;
+    margin: 0;
+    border: round $accent;
+    background: transparent;
+    color: $text-accent;
+    text-style: bold;
+}
+
+#filter-search:hover {
+    border: round $accent-lighten-3;
+    background: transparent;
+    color: $text-accent;
+}
+
+#filter-search:focus {
+    border: round $accent-lighten-3;
+    background: transparent;
+    color: $text-accent;
+    text-style: bold;
+}
+
+#filter-search.-active {
+    border: round $accent;
+    background: transparent;
+    color: $text-accent;
+    text-style: bold reverse;
+}
+
+#filter-search:disabled,
+#filter-search:disabled:hover,
+#filter-search:disabled:focus {
+    border: round $border;
+    background: transparent;
+    color: $text-disabled;
+    text-style: none;
+}
+
+.chip-title {
+    width: 8;
+    height: 1;
+    color: $text-muted;
+    text-style: bold;
+}
+
+.chip {
+    width: auto;
+    height: 1;
+    margin: 0 1 0 0;
+    padding: 0 1;
+    background: $boost;
+    color: $text-muted;
+}
+
+.chip.-on {
+    background: $accent;
+    color: $text;
+    text-style: bold;
+}
+
+/* A keyline where the bar ends and the board begins. It lives on the board,
+   not on the bar, so it is drawn at every bar level — the bar is one row when
+   collapsed and a dozen when expanded, and a border there would move with it.
+   $primary-darken-2 reads as a dark blue on both bundled themes. */
+#board {
+    height: 1fr;
+    padding: 0 1;
+    border-top: solid $primary-darken-2;
+}
+
+/* Width is set from KanbanBoard.size_columns(), not here: fr units expand
+   to the full container once the columns stop fitting. */
+BoardColumn {
+    width: 24;
+    height: 100%;
+    padding: 0 1;
+    background: $background;
+    border: round $panel;
+}
+
+/* ---- rows / split workspace ----------------------------------------- */
+
+#work-items-view {
+    height: 1fr;
+    padding: 0 1;
+    border-top: solid $primary-darken-2;
+    background: $background;
+}
+
+.-theme-cyberpunk .input-checkbox:focus {
+    border: round $accent-lighten-3;
+}
+
+.-theme-cyberpunk .input-checkbox.-on > .toggle--button {
+    background: $success;
+    color: $accent;
+}
+
+#work-items-list-pane {
+    width: 100%;
+    height: 100%;
+    border: round $primary-darken-2;
+    background: $background;
+}
+
+#work-items-view.split #work-items-list-pane {
+    width: 35fr;
+}
+
+#work-item-resizer {
+    display: none;
+    width: 1;
+    height: 100%;
+    background: transparent;
+}
+
+#work-items-view.split #work-item-resizer {
+    display: block;
+}
+
+#work-item-resizer:hover,
+#work-item-resizer.-dragging {
+    background: $accent;
+}
+
+#work-items-heading {
+    height: 2;
+    width: 100%;
+    padding: 0 1;
+    content-align: center middle;
+    color: $text-primary;
+    text-style: bold;
+}
+
+#work-items-table {
+    height: 1fr;
+    background: $background;
+}
+
+#work-items-table > .datatable--header {
+    background: $panel;
+    color: $text;
+    text-style: bold;
+}
+
+#work-items-table > .datatable--cursor {
+    background: $primary;
+    color: $text;
+}
+
+#work-item-detail-pane {
+    width: 65fr;
+    height: 100%;
+    border: round $primary-darken-2;
+    background: $background;
+    padding: 0 1;
+}
+
+#work-item-tabs {
+    width: 100%;
+    height: 1fr;
+    background: $background;
+}
+
+#work-item-tabs ContentSwitcher,
+#work-item-tabs TabPane {
+    height: 1fr;
+    background: $background;
+}
+
+#work-item-tabs Tabs {
+    height: 3;
+    background: $background;
+    border-bottom: solid $primary-darken-2;
+}
+
+#work-item-tabs Tab {
+    color: $text-muted;
+}
+
+#work-item-tabs Tab.-active {
+    color: $accent;
+    text-style: bold;
+}
+
+/* ---- provider comments ------------------------------------------------
+   Split and the card popup share this provider-neutral thread. The list is
+   the only flexible/scrolling region; the local composer and its actions stay
+   reachable even in a short terminal. */
+
+.comments-pane {
+    width: 100%;
+    height: 1fr;
+    overflow: hidden;
+    background: $background;
+}
+
+.comments-state {
+    width: 100%;
+    height: auto;
+    padding: 0 1;
+    color: $text-muted;
+}
+
+.comments-list {
+    width: 100%;
+    height: 1fr;
+    min-height: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-size-vertical: 1;
+    scrollbar-color: $primary;
+    scrollbar-color-hover: $accent;
+    scrollbar-color-active: $accent;
+    scrollbar-background: $panel;
+}
+
+.comment-entry {
+    width: 100%;
+    height: auto;
+    min-height: 4;
+    margin: 0 0 1 0;
+    padding: 0 1;
+    border-left: solid $primary-darken-2;
+    background: $surface;
+}
+
+.comment-entry.pending-comment {
+    border-left: solid $warning;
+}
+
+.comment-header {
+    width: 100%;
+    height: 1;
+}
+
+.comment-author {
+    width: 1fr;
+    height: 1;
+    color: $text-primary;
+    text-style: bold;
+}
+
+.comment-time {
+    width: auto;
+    height: 1;
+    color: $text-muted;
+}
+
+.comment-body {
+    width: 100%;
+    height: auto;
+    color: $text;
+}
+
+.comment-state {
+    width: 100%;
+    height: 1;
+    color: $warning;
+}
+
+.comment-draft {
+    width: 100%;
+    height: 8;
+    min-height: 5;
+    margin: 1 0 0 0;
+    border: round $primary-lighten-3;
+    background: $background;
+    scrollbar-size-vertical: 1;
+    scrollbar-color: $primary;
+    scrollbar-color-hover: $accent;
+    scrollbar-color-active: $accent;
+    scrollbar-background: $panel;
+}
+
+.comment-draft:focus {
+    border: round $accent;
+}
+
+.comment-actions {
+    width: 100%;
+    height: 3;
+    align: right middle;
+}
+
+.comment-actions Button {
+    width: auto;
+    min-width: 16;
+    height: 3;
+    margin: 0 0 0 1;
+    border: round $border;
+    background: transparent;
+    color: $text-muted;
+    text-style: none;
+}
+
+.comment-actions Button.-primary {
+    border: round $success;
+    background: transparent;
+    color: $success;
+    text-style: bold;
+}
+
+.comment-actions Button:hover,
+.comment-actions Button:focus,
+.comment-actions Button.-primary:hover,
+.comment-actions Button.-primary:focus {
+    border: round $accent-lighten-3;
+    background: transparent;
+    color: $text-accent;
+    text-style: bold;
+}
+
+.comment-actions Button.-active,
+.comment-actions Button.-primary.-active {
+    border: round $accent;
+    background: transparent;
+    color: $text-accent;
+    text-style: bold reverse;
+}
+
+.comment-actions Button:disabled,
+.comment-actions Button.-primary:disabled {
+    border: round $border;
+    background: transparent;
+    color: $text-disabled;
+    opacity: 70%;
+}
+
+.comments-pane.compact-comments .comment-draft {
+    height: 3;
+    min-height: 3;
+    margin: 0;
+}
+
+#work-item-sync {
+    width: 100%;
+    height: 2;
+    padding: 0 1;
+    color: $text-muted;
+}
+
+#work-item-detail-scroll {
+    height: 1fr;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Always reserve the scrollbar column. Without this, children sized
+       100% resolve against a width that flips by one cell depending on
+       whether the scrollbar materialized before or after their layout. */
+    scrollbar-gutter: stable;
+    scrollbar-size-vertical: 1;
+    scrollbar-color: $primary;
+    scrollbar-color-hover: $accent;
+    scrollbar-color-active: $accent;
+    scrollbar-background: $panel;
+}
+
+#work-item-info-read,
+#work-item-info-edit,
+#work-item-edit-scroll {
+    width: 100%;
+    height: 1fr;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    scrollbar-size-vertical: 1;
+    scrollbar-color: $primary;
+    scrollbar-color-hover: $accent;
+    scrollbar-color-active: $accent;
+    scrollbar-background: $panel;
+}
+
+#work-item-detail-edit {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+}
+
+.work-item-info-editor-content {
+    width: 100%;
+    height: 100%;
+    min-height: 22;
+}
+
+.work-item-detail-editor-content {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+}
+
+#work-item-edit-actions {
+    width: 100%;
+    height: auto;
+    padding: 0 1;
+    align-horizontal: right;
+}
+
+#work-item-edit-actions Button,
+#work-item-edit-actions Button.-primary {
+    min-width: 14;
+    margin-left: 1;
+    border: round $border-blurred;
+    background: transparent;
+    color: $text-muted;
+}
+
+#work-item-edit-actions Button:hover,
+#work-item-edit-actions Button:focus,
+#work-item-edit-actions Button.-primary:hover,
+#work-item-edit-actions Button.-primary:focus {
+    border: round $accent;
+    background: transparent;
+    color: $accent;
+    text-style: bold;
+}
+
+#work-item-edit-summary,
+#work-item-edit-description,
+#work-item-edit-private-notes {
+    width: 100%;
+    margin: 1 0 0 0;
+    border: round $primary-lighten-3;
+    background: $background;
+}
+
+#work-item-edit-summary { height: 3; }
+#work-item-edit-description,
+#work-item-edit-private-notes {
+    height: 1fr;
+    min-height: 8;
+}
+#work-item-edit-private-notes { border: round $warning; }
+
+.work-item-edit-field-row {
+    width: 100%;
+    height: 3;
+}
+
+.work-item-edit-field-row > * {
+    width: 1fr;
+    height: 3;
+    margin: 0 1 0 0;
+}
+
+.work-item-empty {
+    width: 100%;
+    height: 1fr;
+    padding: 1 2;
+    color: $text-muted;
+}
+
+.work-item-field-row {
+    width: 100%;
+    height: 3;
+}
+
+.work-item-field {
+    width: 1fr;
+    height: 3;
+    margin: 0 1 0 0;
+    padding: 0 1;
+    border: round $primary-lighten-3;
+    background: $background;
+}
+
+.work-item-field.workflow-status-primary,
+#work-item-edit-status.workflow-status-primary { color: $primary; border: round $primary; }
+.work-item-field.workflow-status-secondary,
+#work-item-edit-status.workflow-status-secondary { color: $secondary; border: round $secondary; }
+.work-item-field.workflow-status-accent,
+#work-item-edit-status.workflow-status-accent { color: $accent; border: round $accent; }
+.work-item-field.workflow-status-warning,
+#work-item-edit-status.workflow-status-warning { color: $warning; border: round $warning; }
+.work-item-field.workflow-status-success,
+#work-item-edit-status.workflow-status-success { color: $success; border: round $success; }
+.work-item-field.workflow-status-error,
+#work-item-edit-status.workflow-status-error { color: $error; border: round $error; }
+.work-item-field.workflow-status-foreground,
+#work-item-edit-status.workflow-status-foreground { color: $foreground; border: round $border; }
+
+#work-item-edit-status:focus {
+    background: $surface;
+    text-style: bold;
+}
+
+.work-item-field.work-item-type-primary,
+#work-item-edit-issue-type.work-item-type-primary { color: $primary; border: round $primary; }
+.work-item-field.work-item-type-secondary,
+#work-item-edit-issue-type.work-item-type-secondary { color: $secondary; border: round $secondary; }
+.work-item-field.work-item-type-accent,
+#work-item-edit-issue-type.work-item-type-accent { color: $accent; border: round $accent; }
+.work-item-field.work-item-type-warning,
+#work-item-edit-issue-type.work-item-type-warning { color: $warning; border: round $warning; }
+.work-item-field.work-item-type-success,
+#work-item-edit-issue-type.work-item-type-success { color: $success; border: round $success; }
+.work-item-field.work-item-type-error,
+#work-item-edit-issue-type.work-item-type-error { color: $error; border: round $error; }
+.work-item-field.work-item-type-foreground,
+#work-item-edit-issue-type.work-item-type-foreground { color: $foreground; border: round $border; }
+
+#work-item-edit-issue-type:focus {
+    background: $surface;
+    text-style: bold;
+}
+
+.work-item-text {
+    width: 100%;
+    min-height: 5;
+    margin: 1 0 0 0;
+    padding: 0 1;
+    border: round $primary-lighten-3;
+    background: $background;
+}
+
+#work-item-summary-row {
+    width: 100%;
+    height: 6;
+    min-height: 5;
+}
+
+#work-item-summary-row #work-item-info-summary {
+    width: 90%;
+}
+
+#work-item-summary-row #work-item-provider-link {
+    width: 1;
+    margin: 1 0 0 1;
+}
+
+.work-item-text.local-only {
+    border: round $warning;
+}
+
+#work-item-description,
+#work-item-private-notes {
+    min-height: 8;
+}
+
+.-theme-cyberpunk #work-items-list-pane,
+.-theme-cyberpunk #work-item-detail-pane {
+    background: $panel;
+    border: round $border-blurred;
+}
+
+.-theme-cyberpunk #work-item-resizer {
+    background: transparent;
+}
+
+.-theme-cyberpunk #work-item-resizer:hover,
+.-theme-cyberpunk #work-item-resizer.-dragging {
+    background: $scrollbar-active;
+}
+
+.edges-square #work-items-list-pane,
+.edges-square #work-item-detail-pane,
+.edges-square .work-item-field,
+.edges-square .work-item-text {
+    border: solid $primary-lighten-3;
+}
+
+.edges-square .work-item-field.workflow-status-primary,
+.edges-square #work-item-edit-status.workflow-status-primary { border: solid $primary; }
+.edges-square .work-item-field.workflow-status-secondary,
+.edges-square #work-item-edit-status.workflow-status-secondary { border: solid $secondary; }
+.edges-square .work-item-field.workflow-status-accent,
+.edges-square #work-item-edit-status.workflow-status-accent { border: solid $accent; }
+.edges-square .work-item-field.workflow-status-warning,
+.edges-square #work-item-edit-status.workflow-status-warning { border: solid $warning; }
+.edges-square .work-item-field.workflow-status-success,
+.edges-square #work-item-edit-status.workflow-status-success { border: solid $success; }
+.edges-square .work-item-field.workflow-status-error,
+.edges-square #work-item-edit-status.workflow-status-error { border: solid $error; }
+.edges-square .work-item-field.workflow-status-foreground,
+.edges-square #work-item-edit-status.workflow-status-foreground { border: solid $border; }
+
+.edges-square .work-item-field.work-item-type-primary,
+.edges-square #work-item-edit-issue-type.work-item-type-primary { border: solid $primary; }
+.edges-square .work-item-field.work-item-type-secondary,
+.edges-square #work-item-edit-issue-type.work-item-type-secondary { border: solid $secondary; }
+.edges-square .work-item-field.work-item-type-accent,
+.edges-square #work-item-edit-issue-type.work-item-type-accent { border: solid $accent; }
+.edges-square .work-item-field.work-item-type-warning,
+.edges-square #work-item-edit-issue-type.work-item-type-warning { border: solid $warning; }
+.edges-square .work-item-field.work-item-type-success,
+.edges-square #work-item-edit-issue-type.work-item-type-success { border: solid $success; }
+.edges-square .work-item-field.work-item-type-error,
+.edges-square #work-item-edit-issue-type.work-item-type-error { border: solid $error; }
+.edges-square .work-item-field.work-item-type-foreground,
+.edges-square #work-item-edit-issue-type.work-item-type-foreground { border: solid $border; }
+
+/* Cyberpunk treats each workflow column as a raised panel. The board itself
+   remains $background, so the near-black gutters still separate columns. */
+.-theme-cyberpunk BoardColumn {
+    background: $panel;
+    border: round $border-blurred;
+}
+
+BoardColumn.collapsed {
+    width: 6;
+    padding: 0;
+    background: $surface;
+}
+
+.-theme-cyberpunk BoardColumn.collapsed {
+    background: $background;
+    border: none;
+    outline: round $background;
+}
+
+.-theme-cyberpunk BoardColumn.collapsed .column-strip {
+    background: $panel;
+    border: round $primary;
+}
+
+BoardColumn.targeted {
+    border: round $accent;
+    background: $accent 10%;
+}
+
+.column-header {
+    width: 100%;
+    height: 1;
+}
+
+.column-title {
+    width: 1fr;
+    height: 1;
+    content-align: center middle;
+    text-style: bold;
+    color: $text-muted;
+}
+
+.column-toggle {
+    width: 2;
+    height: 1;
+    content-align: right middle;
+    color: $text-muted;
+}
+
+.column-toggle:hover {
+    color: $accent;
+    text-style: bold;
+}
+
+.column-strip {
+    width: 100%;
+    height: 1fr;
+    content-align: center top;
+    text-align: center;
+    color: $text-muted;
+    text-style: bold;
+    display: none;
+}
+
+.column-strip:hover {
+    color: $accent;
+}
+
+.column-body {
+    height: 1fr;
+    scrollbar-size-vertical: 1;
+}
+
+/* Outlined, not filled. A background paints the corner cells, and a round
+   border drawn over a filled corner still reads as a square — the same thing
+   that made the buttons look rectangular. The card is its outline. */
+TaskCard {
+    width: 100%;
+    height: auto;
+    margin: 0 0 1 0;
+    padding: 0 1;
+    background: transparent;
+    border: round $border 20%;
+}
+
+TaskCard:focus {
+    border: round $accent;
+    text-style: bold;
+}
+
+TaskCard:hover {
+    border: round $primary;
+}
+
+TaskCard.blocked {
+    border: round $error;
+}
+
+TaskCard.flash {
+    border: round $warning;
+}
+
+.card-heading {
+    width: 100%;
+    height: auto;
+}
+
+.card-title {
+    width: 1fr;
+    height: auto;
+    text-style: bold;
+}
+
+.provider-issue-link {
+    width: 1;
+    min-width: 1;
+    max-width: 1;
+    height: 1;
+    color: $accent;
+    text-style: bold;
+    content-align: center middle;
+}
+
+/* Kanban links are contextual: reserve their one-cell slot but hide the
+   action until the card is the selected keyboard target. */
+TaskCard .provider-issue-link {
+    opacity: 0;
+}
+
+TaskCard:focus .provider-issue-link {
+    opacity: 1;
+}
+
+.provider-issue-link:hover,
+.provider-issue-link:focus {
+    color: $text-success;
+    text-style: bold reverse;
+}
+
+.card-meta {
+    width: 100%;
+    height: 1;
+    color: $text-muted;
+}
+
+.card-body {
+    width: 100%;
+    height: auto;
+    padding: 1 0 0 0;
+    color: $text-muted;
+    display: none;
+}
+
+/* ModalScreen does not centre its contents by default — it lays them out from
+   the top left. Both dialogs want to sit in the middle of the board. */
+ConfirmMoveScreen,
+SyncConfirmScreen,
+SyncProgressScreen,
+TaskEditScreen,
+TaskDetailScreen,
+PromptScreen {
+    align: center middle;
+}
+
+/* ModalScreen paints "background: $background 60%" over the whole screen,
+   which blacks out the board behind a popup. These are dialogs floating on
+   the board, not pages replacing it — so no wash. Each dialog carries its own
+   solid background and border to stay legible against whatever is under it. */
+ConfirmMoveScreen,
+SyncConfirmScreen,
+SyncProgressScreen,
+TaskEditScreen,
+TaskDetailScreen,
+PromptScreen,
+ContextMenuScreen {
+    background: transparent;
+}
+
+/* The menu places itself from its anchor, so it must lay out from the top
+   left; ContextMenuScreen._place() computes the offset. */
+ContextMenuScreen {
+    align: left top;
+}
+
+#menu-dialog {
+    width: 34;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    padding: 1 1 0 1;
+    background: $panel;
+    border: round $accent;
+}
+
+#menu-heading {
+    width: 100%;
+    content-align: center middle;
+    text-style: bold;
+    padding: 0 0 1 0;
+}
+
+#menu-options {
+    height: auto;
+    max-height: 14;
+    border: none;
+    background: $surface;
+}
+
+#prompt-dialog {
+    width: 52;
+    height: auto;
+    padding: 1 2;
+    background: $panel;
+    border: round $accent;
+}
+
+#prompt-heading {
+    width: 100%;
+    content-align: center middle;
+    text-style: bold;
+    padding: 0 0 1 0;
+}
+
+#confirm-dialog {
+    width: 52;
+    height: auto;
+    padding: 1 2;
+    background: $panel;
+    border: round $accent;
+}
+
+#sync-dialog {
+    width: 88;
+    max-width: 100%;
+    height: 34;
+    max-height: 100%;
+    padding: 1 2;
+    background: $panel;
+    border: round $accent;
+}
+
+#sync-progress-dialog {
+    width: 72;
+    max-width: 100%;
+    height: 20;
+    max-height: 100%;
+    padding: 1 2;
+    background: $panel;
+    border: round $accent;
+}
+
+#sync-progress-heading {
+    width: 100%;
+    height: 1;
+    content-align: center middle;
+    text-style: bold;
+}
+
+#sync-progress-destination {
+    width: 100%;
+    height: 1;
+    content-align: center middle;
+    color: $text-muted;
+}
+
+#sync-progress-content {
+    width: 100%;
+    height: 1fr;
+    overflow-x: hidden;
+    scrollbar-size-vertical: 1;
+    scrollbar-color: $primary;
+    scrollbar-color-hover: $accent;
+    scrollbar-color-active: $accent;
+    scrollbar-background: $panel;
+}
+
+#sync-progress-spinner {
+    width: 100%;
+    height: 2;
+    color: $accent;
+}
+
+#sync-progress-phase,
+#sync-progress-fraction,
+#sync-progress-item,
+#sync-progress-summary {
+    width: 100%;
+    height: auto;
+    content-align: center middle;
+}
+
+#sync-progress-phase {
+    text-style: bold;
+    color: $accent;
+    padding: 1 0 0 0;
+}
+
+#sync-progress-fraction {
+    color: $text;
+    text-style: bold;
+    padding: 1 0 0 0;
+}
+
+#sync-progress-item,
+#sync-progress-summary {
+    color: $text-muted;
+    padding: 1 0 0 0;
+}
+
+#sync-progress-summary {
+    max-height: 3;
+}
+
+#sync-progress-phase.sync-progress-complete {
+    color: $success;
+}
+
+#sync-progress-phase.sync-progress-held {
+    color: $warning;
+}
+
+#sync-progress-phase.sync-progress-failed {
+    color: $error;
+}
+
+#sync-progress-buttons {
+    width: 100%;
+    height: auto;
+    align: center middle;
+    padding: 1 0 0 0;
+}
+
+#sync-progress-buttons Button,
+#sync-progress-buttons Button.-primary {
+    min-width: 14;
+    height: 3;
+    border: round $accent;
+    background: transparent;
+    color: $text-accent;
+    text-style: bold;
+}
+
+#sync-progress-buttons Button:hover,
+#sync-progress-buttons Button:focus,
+#sync-progress-buttons Button.-primary:hover,
+#sync-progress-buttons Button.-primary:focus {
+    border: round $accent-lighten-3;
+    background: transparent;
+    color: $text-accent;
+    text-style: bold;
+}
+
+#sync-progress-buttons Button.-active,
+#sync-progress-buttons Button.-primary.-active {
+    border: round $accent;
+    background: transparent;
+    color: $text-accent;
+    text-style: bold reverse;
+}
+
+#sync-progress-buttons Button:disabled,
+#sync-progress-buttons Button.-primary:disabled {
+    border: round $border;
+    background: transparent;
+    color: $text-disabled;
+    opacity: 70%;
+}
+
+SyncProgressScreen.compact-sync-progress #sync-progress-dialog {
+    padding: 0 1;
+}
+
+SyncProgressScreen.compact-sync-progress #sync-progress-destination {
+    display: none;
+}
+
+SyncProgressScreen.compact-sync-progress #sync-progress-spinner {
+    height: 1;
+}
+
+SyncProgressScreen.compact-sync-progress #sync-progress-phase,
+SyncProgressScreen.compact-sync-progress #sync-progress-fraction,
+SyncProgressScreen.compact-sync-progress #sync-progress-item,
+SyncProgressScreen.compact-sync-progress #sync-progress-summary {
+    height: 1;
+    max-height: 1;
+    padding: 0;
+}
+
+SyncProgressScreen.compact-sync-progress #sync-progress-buttons {
+    height: 3;
+    padding: 0;
+}
+
+#sync-content {
+    width: 100%;
+    height: 1fr;
+    scrollbar-size-vertical: 1;
+    scrollbar-color: $primary;
+    scrollbar-color-hover: $accent;
+    scrollbar-color-active: $accent;
+    scrollbar-background: $panel;
+}
+
+#sync-heading {
+    width: 100%;
+    content-align: center middle;
+    text-style: bold;
+}
+
+#sync-destination {
+    width: 100%;
+    content-align: center middle;
+    color: $text-muted;
+    padding: 0 0 1 0;
+}
+
+.sync-section {
+    color: $accent;
+    text-style: bold;
+}
+
+#sync-sendable,
+#sync-blocked,
+#sync-local {
+    width: 100%;
+    height: auto;
+}
+
+#sync-sendable {
+    color: $text;
+}
+
+#sync-blocked {
+    color: $error;
+    padding: 1 0 0 0;
+}
+
+#sync-local {
+    color: $text-muted;
+}
+
+#sync-warning {
+    width: 100%;
+    color: $warning;
+    padding: 1 0 0 0;
+}
+
+#sync-buttons {
+    width: 100%;
+    height: auto;
+    align: center middle;
+    padding: 1 0 0 0;
+}
+
+#sync-conflict-buttons {
+    width: 100%;
+    height: auto;
+    align: center middle;
+    padding: 1 0 0 0;
+}
+
+.sync-conflict-field {
+    width: 100%;
+    height: 3;
+}
+
+.sync-conflict-label {
+    width: 1fr;
+    height: 3;
+    padding: 1 1 0 0;
+    color: $text;
+}
+
+.sync-conflict-field Select {
+    width: 34;
+    max-width: 48%;
+    height: 3;
+    border: round $primary-lighten-3;
+    background: $background;
+}
+
+.sync-conflict-field Select:focus {
+    border: round $accent;
+}
+
+#confirm-heading {
+    width: 100%;
+    content-align: center middle;
+    text-style: bold;
+    padding: 0 0 1 0;
+}
+
+#confirm-card {
+    width: 100%;
+    content-align: center middle;
+    text-style: bold;
+    color: $text;
+}
+
+#confirm-route {
+    width: 100%;
+    content-align: center middle;
+    color: $text-muted;
+    padding: 0 0 1 0;
+}
+
+#confirm-warning {
+    width: 100%;
+    content-align: center middle;
+    color: $warning;
+    padding: 0 0 1 0;
+}
+
+#confirm-buttons {
+    height: auto;
+    align: center middle;
+}
+
+/* The pill rules below cover these; only the spacing is local. */
+#confirm-buttons {
+    padding: 1 0 0 0;
+}
+
+/* Compact on purpose: this is a popup, not a page. Four fields, a button
+   row, and nothing else. */
+#edit-dialog {
+    width: 88;
+    height: 90%;
+    max-height: 90%;
+    padding: 0 1;
+    background: $panel;
+    border: round $primary;
+}
+
+#edit-body {
+    width: 100%;
+    height: 1fr;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-size-vertical: 1;
+    scrollbar-color: $primary;
+    scrollbar-color-hover: $accent;
+    scrollbar-color-active: $accent;
+    scrollbar-background: $panel;
+}
+
+.edit-field-row {
+    width: 100%;
+    height: 3;
+}
+
+/* Zero the shared right margin inside the dialog, then put a single gap
+   between the two fields on the middle row. Without this the Title box ends
+   one cell short of Notes, and a dead cell shows to the right of Due date. */
+#edit-dialog .dropdown {
+    margin: 0;
+}
+
+.edit-field-row .dropdown {
+    width: 1fr;
+}
+
+#edit-column {
+    margin: 0 1 0 0;
+}
+
+#edit-notes {
+    height: 8;
+    min-height: 8;
+    margin: 0;
+    border: round $primary-lighten-3;
+    background: $background;
+}
+
+#edit-buttons {
+    height: auto;
+    align: center middle;
+    padding: 1 0 0 0;
+}
+
+/* Pill buttons.
+   Two separate things made these look rectangular. Textual's Button variants
+   set "border: tall", which renders as a solid square block. And a filled
+   background paints the corner cells too, so a round border inside a filled
+   button still reads as a rectangle — the curve has nothing to curve against.
+   These are outlines: the border carries the colour, the inside stays the
+   dialog's own background, and the rounded corners are actually visible. */
+#edit-buttons Button,
+#detail-buttons Button,
+#confirm-buttons Button,
+#sync-buttons Button,
+#edit-buttons Button.-primary,
+#detail-buttons Button.-primary,
+#confirm-buttons Button.-primary,
+#sync-buttons Button.-primary {
+    margin: 0 1;
+    min-width: 14;
+    height: 3;
+    /* $border, not $text-muted: the latter is "auto 60%", an auto-contrast
+       value that is valid for text but not for a border, and the whole
+       stylesheet fails to parse if you use it here. */
+    border: round $border;
+    background: transparent;
+    color: $text-muted;
+    text-style: none;
+}
+
+#edit-buttons Button.-primary,
+#detail-buttons Button.-primary,
+#confirm-buttons Button.-primary,
+#sync-buttons Button.-primary {
+    border: round $primary;
+    color: $primary;
+    text-style: bold;
+}
+
+#edit-buttons Button:hover,
+#detail-buttons Button:hover,
+#confirm-buttons Button:hover,
+#sync-buttons Button:hover,
+#edit-buttons Button.-primary:hover,
+#detail-buttons Button.-primary:hover,
+#confirm-buttons Button.-primary:hover,
+#sync-buttons Button.-primary:hover {
+    border: round $accent;
+    background: transparent;
+    color: $accent;
+}
+
+#edit-buttons Button:focus,
+#detail-buttons Button:focus,
+#confirm-buttons Button:focus,
+#sync-buttons Button:focus {
+    border: round $accent;
+    text-style: bold;
+}
+
+/* ---- card detail ------------------------------------------------------
+   One popup for reading and editing, so these rules cover both. It is wide
+   enough for three fields side by side, and the body scrolls rather than the
+   dialog growing past the board. */
+
+/* $surface, not $panel: in textual-dark $panel is #242F38, a blue-grey, so a
+   full-height dialog read as a navy sheet with a blue frame around it.
+   $surface (#1E1E1E) is a neutral dark that lets the blue border and the
+   field labels be the only coloured things. */
+#detail-dialog {
+    width: 88;
+    height: 90%;
+    max-height: 90%;
+    padding: 0 1;
+    background: $surface;
+    border: round $primary;
+}
+
+/* The summary line under the title. Not "#detail-status" — that id belongs
+   to the Status field, and the collision stretched the dropdown to the full
+   width of the screen. */
+#detail-headline-row {
+    width: 100%;
+    height: auto;
+}
+
+#detail-headline {
+    width: 1fr;
+    content-align: center middle;
+    text-align: center;
+    color: $text-muted;
+    padding: 0 0 1 0;
+}
+
+#detail-provider-link {
+    margin: 0 0 0 1;
+}
+
+#detail-body {
+    height: 1fr;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-size-vertical: 1;
+    scrollbar-color: $primary;
+    scrollbar-color-hover: $accent;
+    scrollbar-color-active: $accent;
+    scrollbar-background: $panel;
+}
+
+#detail-tabs {
+    width: 100%;
+    height: 1fr;
+    background: $surface;
+}
+
+#detail-tabs ContentSwitcher,
+#detail-tabs TabPane {
+    width: 100%;
+    height: 1fr;
+    padding: 0;
+    background: $surface;
+}
+
+#detail-tabs Tabs {
+    width: 100%;
+    height: 3;
+    background: $surface;
+    border-bottom: solid $primary-darken-2;
+}
+
+#detail-tabs Tab {
+    color: $text-muted;
+}
+
+#detail-tabs Tab.-active {
+    color: $accent;
+    text-style: bold;
+}
+
+TaskDetailScreen.compact-detail #detail-headline-row {
+    display: none;
+}
+
+TaskDetailScreen.compact-detail #detail-buttons {
+    height: 3;
+    padding: 0;
+}
+
+TaskDetailScreen.compact-detail .comment-draft {
+    height: 3;
+    min-height: 3;
+    margin: 0;
+}
+
+.field-row {
+    width: 100%;
+    height: 3;
+}
+
+.field-row .dropdown {
+    width: 1fr;
+    margin: 0 1 0 0;
+}
+
+#detail-notes {
+    height: 8;
+    min-height: 8;
+    margin: 1 0 0 0;
+    border: round $primary-lighten-3;
+    background: $background;
+}
+
+#detail-private-notes {
+    height: 8;
+    min-height: 8;
+    margin: 1 0 0 0;
+    border: round $warning;
+    background: $background;
+}
+
+#detail-buttons {
+    height: auto;
+    align: center middle;
+    padding: 1 0 0 0;
+}
+
+/* Popup Status and Type use the same normalized semantics as Rows/Split.
+   Keep these selectors popup-specific: the sidebar owns its own rules above. */
+#detail-status.workflow-status-primary,
+#edit-column.workflow-status-primary { color: $primary; border: round $primary; }
+#detail-status.workflow-status-secondary,
+#edit-column.workflow-status-secondary { color: $secondary; border: round $secondary; }
+#detail-status.workflow-status-accent,
+#edit-column.workflow-status-accent { color: $accent; border: round $accent; }
+#detail-status.workflow-status-warning,
+#edit-column.workflow-status-warning { color: $warning; border: round $warning; }
+#detail-status.workflow-status-success,
+#edit-column.workflow-status-success { color: $success; border: round $success; }
+#detail-status.workflow-status-error,
+#edit-column.workflow-status-error { color: $error; border: round $error; }
+#detail-status.workflow-status-foreground,
+#edit-column.workflow-status-foreground { color: $foreground; border: round $border; }
+
+#detail-issue-type.work-item-type-primary,
+#edit-issue-type.work-item-type-primary { color: $primary; border: round $primary; }
+#detail-issue-type.work-item-type-secondary,
+#edit-issue-type.work-item-type-secondary { color: $secondary; border: round $secondary; }
+#detail-issue-type.work-item-type-accent,
+#edit-issue-type.work-item-type-accent { color: $accent; border: round $accent; }
+#detail-issue-type.work-item-type-warning,
+#edit-issue-type.work-item-type-warning { color: $warning; border: round $warning; }
+#detail-issue-type.work-item-type-success,
+#edit-issue-type.work-item-type-success { color: $success; border: round $success; }
+#detail-issue-type.work-item-type-error,
+#edit-issue-type.work-item-type-error { color: $error; border: round $error; }
+#detail-issue-type.work-item-type-foreground,
+#edit-issue-type.work-item-type-foreground { color: $foreground; border: round $border; }
+
+#detail-status:focus,
+#edit-column:focus,
+#detail-issue-type:focus,
+#edit-issue-type:focus {
+    border: round $accent;
+}
+
+/* ---- square edges ------------------------------------------------------
+   `kbn --edges square`. One class on the screen flips every border, so the
+   two styles cannot drift apart the way per-widget overrides would. */
+
+.edges-square TaskCard {
+    border: solid $border 20%;
+}
+
+.edges-square TaskCard:focus {
+    border: solid $accent;
+}
+
+.edges-square TaskCard.blocked {
+    border: solid $error;
+}
+
+.edges-square TaskCard:hover {
+    border: solid $primary;
+}
+
+.edges-square TaskCard.flash {
+    border: solid $warning;
+}
+
+.edges-square BoardColumn {
+    border: solid $panel;
+}
+
+.edges-square BoardColumn.targeted {
+    border: thick $accent;
+}
+
+.edges-square .dropdown {
+    border: solid $primary-lighten-3;
+}
+
+.edges-square .dropdown:focus,
+.edges-square .dropdown:focus-within {
+    border: solid $accent;
+}
+
+.edges-square.-theme-cyberpunk .dropdown:focus,
+.edges-square.-theme-cyberpunk .dropdown:focus-within {
+    border: solid $accent-lighten-3;
+}
+
+.edges-square.-theme-cyberpunk .dropdown.required,
+.edges-square.-theme-cyberpunk .dropdown.required:focus,
+.edges-square.-theme-cyberpunk .dropdown.required:focus-within {
+    border: solid $accent;
+}
+
+.edges-square .input-checkbox {
+    border: solid $primary-lighten-3;
+}
+
+.edges-square.-theme-cyberpunk .input-checkbox:focus {
+    border: solid $accent-lighten-3;
+}
+
+.edges-square #edit-notes {
+    border: solid $primary-lighten-3;
+}
+
+.edges-square #detail-dialog,
+.edges-square #edit-dialog {
+    border: solid $primary;
+}
+
+.edges-square #menu-dialog,
+.edges-square #prompt-dialog,
+.edges-square #confirm-dialog,
+.edges-square #sync-dialog,
+.edges-square #sync-progress-dialog {
+    border: thick $accent;
+}
+
+.edges-square #edit-buttons Button,
+.edges-square #detail-buttons Button,
+.edges-square #confirm-buttons Button,
+.edges-square #sync-buttons Button,
+.edges-square #edit-buttons Button.-primary,
+.edges-square #detail-buttons Button.-primary,
+.edges-square #confirm-buttons Button.-primary,
+.edges-square #sync-buttons Button.-primary {
+    border: solid $border;
+}
+
+.edges-square #edit-buttons Button.-primary,
+.edges-square #detail-buttons Button.-primary,
+.edges-square #confirm-buttons Button.-primary,
+.edges-square #sync-buttons Button.-primary {
+    border: solid $primary;
+}
+
+/* ---- card popup fields ------------------------------------------------- */
+
+.edges-square #detail-notes {
+    border: solid $primary-lighten-3;
+}
+
+.edges-square #detail-status.workflow-status-primary,
+.edges-square #edit-column.workflow-status-primary { border: solid $primary; }
+.edges-square #detail-status.workflow-status-secondary,
+.edges-square #edit-column.workflow-status-secondary { border: solid $secondary; }
+.edges-square #detail-status.workflow-status-accent,
+.edges-square #edit-column.workflow-status-accent { border: solid $accent; }
+.edges-square #detail-status.workflow-status-warning,
+.edges-square #edit-column.workflow-status-warning { border: solid $warning; }
+.edges-square #detail-status.workflow-status-success,
+.edges-square #edit-column.workflow-status-success { border: solid $success; }
+.edges-square #detail-status.workflow-status-error,
+.edges-square #edit-column.workflow-status-error { border: solid $error; }
+.edges-square #detail-status.workflow-status-foreground,
+.edges-square #edit-column.workflow-status-foreground { border: solid $border; }
+
+.edges-square #detail-issue-type.work-item-type-primary,
+.edges-square #edit-issue-type.work-item-type-primary { border: solid $primary; }
+.edges-square #detail-issue-type.work-item-type-secondary,
+.edges-square #edit-issue-type.work-item-type-secondary { border: solid $secondary; }
+.edges-square #detail-issue-type.work-item-type-accent,
+.edges-square #edit-issue-type.work-item-type-accent { border: solid $accent; }
+.edges-square #detail-issue-type.work-item-type-warning,
+.edges-square #edit-issue-type.work-item-type-warning { border: solid $warning; }
+.edges-square #detail-issue-type.work-item-type-success,
+.edges-square #edit-issue-type.work-item-type-success { border: solid $success; }
+.edges-square #detail-issue-type.work-item-type-error,
+.edges-square #edit-issue-type.work-item-type-error { border: solid $error; }
+.edges-square #detail-issue-type.work-item-type-foreground,
+.edges-square #edit-issue-type.work-item-type-foreground { border: solid $border; }
+
+/* Sync decisions stay recognizable as buttons without Textual's filled,
+   rectangular variant styling. A transparent interior and round one-cell
+   outline preserve the cyberpunk accent while keeping the controls light. */
+#sync-buttons Button,
+#sync-conflict-buttons Button,
+.edges-square #sync-buttons Button,
+.edges-square #sync-conflict-buttons Button,
+#sync-buttons Button.-primary,
+#sync-conflict-buttons Button.-error {
+    width: auto;
+    min-width: 12;
+    height: 3;
+    margin: 0 1;
+    padding: 0 1;
+    border: round $border;
+    background: transparent;
+    color: $text-muted;
+    text-style: none;
+}
+
+#sync-buttons #sync-send,
+#sync-buttons #sync-send.-primary {
+    border: round $primary;
+    color: $primary;
+    text-style: bold;
+}
+
+#sync-conflict-buttons #sync-force,
+#sync-conflict-buttons #sync-force.-error {
+    border: round $error;
+    color: $error;
+}
+
+#sync-buttons Button:hover,
+#sync-buttons Button:focus,
+#sync-conflict-buttons Button:hover,
+#sync-conflict-buttons Button:focus {
+    border: round $accent;
+    background: transparent;
+    color: $accent;
+    text-style: bold;
+}
+
+#sync-conflict-buttons #sync-force:hover,
+#sync-conflict-buttons #sync-force:focus {
+    border: round $error;
+    color: $error;
+}

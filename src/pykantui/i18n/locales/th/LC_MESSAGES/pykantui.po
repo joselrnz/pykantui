@@ -1,0 +1,1830 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: pykantui 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 18:39-0500\n"
+"PO-Revision-Date: 2026-08-12 08:30+0000\n"
+"Last-Translator: pykantui contributors\n"
+"Language: th\n"
+"Language-Team: th\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: src/pykantui/cli/main.py:33
+msgid "Terminal kanban board"
+msgstr "บอร์ดคัมบังในเทอร์มินัล"
+
+#: src/pykantui/cli/main.py:39
+msgid "interface language; saved to config.json (default: auto)"
+msgstr "ภาษาอินเทอร์เฟซ บันทึกไปที่ config.json (ค่าเริ่มต้น: อัตโนมัติ)"
+
+#: src/pykantui/cli/main.py:45
+msgid ""
+"adjacent commits H/L immediately; jump highlights a column and waits for "
+"enter"
+msgstr "ที่อยู่ติดกันกระทำ H/L ทันที Jump ไฮไลต์คอลัมน์และรอการเข้าสู่"
+
+#: src/pykantui/cli/main.py:50
+msgid "theme name; saved to config.json (default: cyberpunk)"
+msgstr "ชื่อธีม; บันทึกไปที่ config.json (ค่าเริ่มต้น: cyberpunk)"
+
+#: src/pykantui/cli/main.py:56
+msgid "corner style for cards, fields and dialogs; saved to config.json"
+msgstr "รูปแบบมุมสำหรับการ์ด ฟิลด์ และกล่องโต้ตอบ บันทึกไว้ใน config.json"
+
+#: src/pykantui/cli/main.py:62
+msgid "apply column moves without the confirmation dialog"
+msgstr "ใช้การย้ายคอลัมน์โดยไม่มีกล่องโต้ตอบการยืนยัน"
+
+#: src/pykantui/cli/main.py:66
+msgid "open a throwaway board with sample tasks"
+msgstr "เปิดกระดานทิ้งพร้อมตัวอย่างงาน"
+
+#: src/pykantui/cli/main.py:68
+msgid "open a local JSON board (the default)"
+msgstr "เปิดบอร์ด JSON ในเครื่อง (ค่าเริ่มต้น)"
+
+#: src/pykantui/cli/main.py:69
+msgid "path to the board file"
+msgstr "เส้นทางไปยังไฟล์บอร์ด"
+
+#: src/pykantui/cli/main.py:71
+msgid "print the board as text, without starting the TUI"
+msgstr "พิมพ์บอร์ดเป็นข้อความโดยไม่ต้องเริ่ม TUI"
+
+#: src/pykantui/cli/main.py:146 src/pykantui/cli/main.py:237
+#, python-brace-format
+msgid "error: {error}"
+msgstr "ข้อผิดพลาด: {error}"
+
+#: src/pykantui/cli/main.py:238
+msgid "(run `kbn sync` to fix, or `kbn board --file ...` for a local board)"
+msgstr ""
+"(เรียกใช้ `kbn sync` เพื่อแก้ไข หรือเรียกใช้ `kbn board --file ...` "
+"สำหรับบอร์ดท้องถิ่น)"
+
+#: src/pykantui/commands/columns.py:24
+msgid "add, rename, reorder or delete board columns"
+msgstr "เพิ่ม เปลี่ยนชื่อ เรียงลำดับใหม่ หรือลบคอลัมน์ในบอร์ด"
+
+#: src/pykantui/commands/columns.py:28
+msgid "show the current columns (the default)"
+msgstr "แสดงคอลัมน์ปัจจุบัน (ค่าเริ่มต้น)"
+
+#: src/pykantui/commands/columns.py:30
+msgid "add a column"
+msgstr "เพิ่มคอลัมน์"
+
+#: src/pykantui/commands/columns.py:32
+msgid "column id, name or position to insert after"
+msgstr "รหัสคอลัมน์ ชื่อ หรือตำแหน่งที่จะแทรกหลัง"
+
+#: src/pykantui/commands/columns.py:33
+msgid "comma-separated provider statuses for this column"
+msgstr "สถานะผู้ให้บริการที่คั่นด้วยเครื่องหมายจุลภาคสำหรับคอลัมน์นี้"
+
+#: src/pykantui/commands/columns.py:34
+msgid "create it hidden"
+msgstr "สร้างมันขึ้นมาซ่อนไว้"
+
+#: src/pykantui/commands/columns.py:36
+msgid "rename a column"
+msgstr "เปลี่ยนชื่อคอลัมน์"
+
+#: src/pykantui/commands/columns.py:40
+msgid "delete a column and rehome its cards"
+msgstr "ลบคอลัมน์และจัดวางการ์ดใหม่"
+
+#: src/pykantui/commands/columns.py:42
+msgid "where its cards go (default: the first column)"
+msgstr "การ์ดไปอยู่ที่ไหน (ค่าเริ่มต้น: คอลัมน์แรก)"
+
+#: src/pykantui/commands/columns.py:44
+msgid "change a column's position"
+msgstr "เปลี่ยนตำแหน่งของคอลัมน์"
+
+#: src/pykantui/commands/columns.py:46
+msgid "1-based position"
+msgstr "ตำแหน่งตาม 1"
+
+#: src/pykantui/commands/columns.py:48
+msgid "set which column means reset, start or finish"
+msgstr "กำหนดว่าคอลัมน์ใดหมายถึงรีเซ็ต เริ่มต้น หรือสิ้นสุด"
+
+#: src/pykantui/commands/columns.py:52
+msgid "set the provider statuses that land in a column"
+msgstr "กำหนดสถานะของผู้ให้บริการที่เข้าสู่คอลัมน์"
+
+#: src/pykantui/commands/columns.py:54
+msgid "comma-separated; empty string clears them"
+msgstr "คั่นด้วยเครื่องหมายจุลภาค; สตริงว่างจะล้างข้อมูลเหล่านั้น"
+
+#: src/pykantui/commands/columns.py:56
+msgid "make a hidden column visible"
+msgstr "ทำให้มองเห็นคอลัมน์ที่ซ่อนอยู่"
+
+#: src/pykantui/commands/columns.py:58
+msgid "hide a column without deleting it"
+msgstr "ซ่อนคอลัมน์โดยไม่ต้องลบออก"
+
+#: src/pykantui/commands/columns.py:63
+msgid "set the number of visible columns, adding or removing at the end"
+msgstr "กำหนดจำนวนคอลัมน์ที่มองเห็น เพิ่มหรือลบต่อท้ายได้"
+
+#: src/pykantui/commands/columns.py:67
+msgid "restore the default shape"
+msgstr "คืนรูปร่างเริ่มต้น"
+
+#: src/pykantui/commands/columns.py:68 src/pykantui/commands/tasks.py:45
+msgid "skip the confirmation"
+msgstr "ข้ามการยืนยัน"
+
+#: src/pykantui/commands/graph.py:25
+msgid "render the workspace as an HTML graph"
+msgstr "เรนเดอร์พื้นที่ทำงานเป็นกราฟ HTML"
+
+#: src/pykantui/commands/graph.py:27 src/pykantui/commands/sync.py:31
+msgid "the workspace (default: found by walking up)"
+msgstr "พื้นที่ทำงาน (ค่าเริ่มต้น: พบโดยการเดินขึ้น)"
+
+#: src/pykantui/commands/graph.py:32
+#, python-brace-format
+msgid "where to write it (default: ./{name})"
+msgstr "จะเขียนได้ที่ไหน (ค่าเริ่มต้น: ./{name})"
+
+#: src/pykantui/commands/graph.py:34
+msgid "open it in a browser afterwards"
+msgstr "เปิดในเบราว์เซอร์หลังจากนั้น"
+
+#: src/pykantui/commands/init.py:43
+msgid "create a workspace from a tracker"
+msgstr "สร้างพื้นที่ทำงานจากตัวติดตาม"
+
+#: src/pykantui/commands/init.py:45
+msgid "which tracker; see --list-types"
+msgstr "ตัวติดตามตัวไหน ดูที่ --list-types"
+
+#: src/pykantui/commands/init.py:46
+msgid "print the available trackers and exit"
+msgstr "พิมพ์ตัวติดตามที่มีอยู่และออก"
+
+#: src/pykantui/commands/init.py:50
+msgid "print the boards/projects this token can see, ready to paste into .env"
+msgstr "พิมพ์บอร์ด/โปรเจ็กต์ที่โทเค็นนี้สามารถมองเห็นได้ พร้อมที่จะวางลงใน .env"
+
+#: src/pykantui/commands/init.py:52
+msgid "where to create the workspace"
+msgstr "ตำแหน่งที่จะสร้างพื้นที่ทำงาน"
+
+#: src/pykantui/commands/init.py:53
+msgid "a name for the workspace"
+msgstr "ชื่อของพื้นที่ทำงาน"
+
+#: src/pykantui/commands/init.py:58
+msgid "type the path instead of browsing for it"
+msgstr "พิมพ์เส้นทางแทนการเรียกดู"
+
+#: src/pykantui/commands/init.py:64
+msgid "column folder naming (default: slug — lowercase, dashes)"
+msgstr "การตั้งชื่อโฟลเดอร์คอลัมน์ (ค่าเริ่มต้น: กระสุน — ตัวพิมพ์เล็ก, ขีดกลาง)"
+
+#: src/pykantui/commands/init.py:66
+msgid "do not create a git repository"
+msgstr "อย่าสร้างที่เก็บ git"
+
+#: src/pykantui/commands/init.py:67
+msgid "set up but do not pull yet"
+msgstr "ตั้งค่าแล้วแต่ยังไม่ดึง"
+
+#: src/pykantui/commands/init.py:72
+msgid "finish after setup instead of opening the new board"
+msgstr "เสร็จสิ้นหลังจากตั้งค่าแทนการเปิดบอร์ดใหม่"
+
+#: src/pykantui/commands/init.py:74
+msgid "never prompt; fail instead"
+msgstr "ไม่เคยพร้อมท์; ล้มเหลวแทน"
+
+#: src/pykantui/commands/init_interactive.py:113
+msgid "Authentication cancelled"
+msgstr "Authentication cancelled"
+
+#: src/pykantui/commands/init_interactive.py:140
+#, python-brace-format
+msgid "Validated project: {project}"
+msgstr "Validated project: {project}"
+
+#: src/pykantui/commands/init_interactive.py:176
+msgid "skipped"
+msgstr "ข้ามแล้ว"
+
+#: src/pykantui/commands/init_interactive.py:198
+msgid "Setup complete"
+msgstr "ตั้งค่าเสร็จสมบูรณ์"
+
+#: src/pykantui/commands/init_interactive.py:230
+msgid "Enter credentials again"
+msgstr "Enter credentials again"
+
+#: src/pykantui/commands/init_interactive.py:231
+msgid "retry authentication"
+msgstr "retry authentication"
+
+#: src/pykantui/commands/init_interactive.py:238
+msgid "Cancel setup"
+msgstr "Cancel setup"
+
+#: src/pykantui/commands/init_interactive.py:239
+msgid "create nothing"
+msgstr "create nothing"
+
+#: src/pykantui/commands/init_interactive.py:242
+msgid "No workspace or credential file has been created."
+msgstr "No workspace or credential file has been created."
+
+#: src/pykantui/commands/init_interactive.py:245
+#, python-brace-format
+msgid "Could not connect to {provider}"
+msgstr "Could not connect to {provider}"
+
+#: src/pykantui/commands/init_interactive.py:246
+msgid "retry or cancel"
+msgstr "retry or cancel"
+
+#: src/pykantui/commands/init_interactive.py:289
+#, python-brace-format
+msgid "Configured project {project} is not visible; choose an available project"
+msgstr "Configured project {project} is not visible; choose an available project"
+
+#: src/pykantui/commands/init_interactive.py:292
+#: src/pykantui/commands/init_interactive.py:300
+#: src/pykantui/pages/init_wizard.py:328
+#, python-brace-format
+msgid "No {provider} projects found"
+msgstr "ไม่พบโปรเจกต์ {provider}"
+
+#: src/pykantui/commands/init_interactive.py:295
+#, python-brace-format
+msgid "Checking {provider} projects again"
+msgstr "กำลังตรวจสอบโปรเจกต์ {provider} อีกครั้ง"
+
+#: src/pykantui/commands/init_interactive.py:298
+#, python-brace-format
+msgid "{provider} projects found"
+msgstr "พบโปรเจกต์ {provider}"
+
+#: src/pykantui/commands/new.py:44
+msgid "draft a story as markdown, without sending it"
+msgstr "ร่างเรื่องราวเป็นมาร์กดาวน์โดยไม่ต้องส่ง"
+
+#: src/pykantui/commands/new.py:46
+msgid "the story title"
+msgstr "ชื่อเรื่องราว"
+
+#: src/pykantui/commands/new.py:47
+msgid "the workspace"
+msgstr "พื้นที่ทำงาน"
+
+#: src/pykantui/commands/new.py:48
+msgid "which column to draft it into"
+msgstr "คอลัมน์ไหนที่จะร่างมันลงไป"
+
+#: src/pykantui/commands/new.py:53
+msgid "issue type; see --types for what this project accepts"
+msgstr "ประเภทของปัญหา ดู --types สำหรับสิ่งที่โปรเจ็กต์นี้ยอมรับ"
+
+#: src/pykantui/commands/new.py:55
+msgid "the description"
+msgstr "คำอธิบาย"
+
+#: src/pykantui/commands/new.py:56
+msgid "key of the epic it belongs to"
+msgstr "กุญแจสำคัญของมหากาพย์ที่มันเป็นของ"
+
+#: src/pykantui/commands/new.py:57
+msgid "repeatable"
+msgstr "ทำซ้ำได้"
+
+#: src/pykantui/commands/new.py:58
+msgid "repeatable Jira component"
+msgstr "คอมโพเนนต์ Jira ที่ระบุซ้ำได้"
+
+#: src/pykantui/commands/new.py:61
+msgid "list the columns and exit"
+msgstr "แสดงรายการคอลัมน์และออก"
+
+#: src/pykantui/commands/new.py:62
+msgid "list the issue types and exit"
+msgstr "ระบุประเภทปัญหาและออก"
+
+#: src/pykantui/commands/new.py:63
+msgid "list Jira components and exit"
+msgstr "แสดงรายการคอมโพเนนต์ Jira แล้วออก"
+
+#: src/pykantui/commands/new.py:67
+msgid "do not assign it to yourself (drafts are your work by default)"
+msgstr "อย่ามอบหมายให้กับตัวคุณเอง (แบบร่างเป็นงานของคุณโดยค่าเริ่มต้น)"
+
+#: src/pykantui/commands/sync.py:29
+msgid "reconcile a workspace with its provider"
+msgstr "ปรับพื้นที่ทำงานกับผู้ให้บริการ"
+
+#: src/pykantui/commands/sync.py:32
+msgid "do not ask before sending changes to the provider"
+msgstr "อย่าถามก่อนส่งการเปลี่ยนแปลงไปยังผู้ให้บริการ"
+
+#: src/pykantui/commands/sync.py:33
+msgid "show what would be sent, and send nothing"
+msgstr "แสดงสิ่งที่จะส่งและไม่ส่งอะไรเลย"
+
+#: src/pykantui/commands/sync.py:34
+msgid "never send, whatever changed locally"
+msgstr "ไม่เคยส่ง อะไรก็ตามที่เปลี่ยนแปลงในเครื่อง"
+
+#: src/pykantui/commands/sync.py:35
+msgid "ignore the cached issue list"
+msgstr "ละเว้นรายการปัญหาที่แคชไว้"
+
+#: src/pykantui/commands/sync.py:39
+msgid "write only issues assigned to or reported by you (the cache still holds all)"
+msgstr "เขียนเฉพาะประเด็นที่ได้รับมอบหมายหรือรายงานโดยคุณ (แคชยังคงเก็บทั้งหมด)"
+
+#: src/pykantui/commands/sync.py:45
+msgid "mirror the whole project, whatever the workspace is set to"
+msgstr "มิเรอร์ทั้งโปรเจ็กต์ ไม่ว่าเวิร์กสเปซจะถูกตั้งค่าไว้ใดก็ตาม"
+
+#: src/pykantui/commands/sync.py:51
+msgid "send even where the provider also changed the issue, overwriting it"
+msgstr "ส่งแม้ในกรณีที่ผู้ให้บริการเปลี่ยนแปลงปัญหาด้วย โดยเขียนทับ"
+
+#: src/pykantui/commands/sync.py:56
+msgid "use provider values for conflicts while sending safe local changes"
+msgstr "ใช้ค่าจากผู้ให้บริการสำหรับข้อขัดแย้งพร้อมส่งการเปลี่ยนแปลงในเครื่องที่ปลอดภัย"
+
+#: src/pykantui/commands/sync.py:61
+msgid ""
+"retry draft creates whose previous outcome was unknown, after checking the "
+"provider"
+msgstr "ลองสร้างฉบับร่างที่ไม่ทราบผลลัพธ์ครั้งก่อนอีกครั้ง หลังจากตรวจสอบผู้ให้บริการ"
+
+#: src/pykantui/commands/sync.py:63
+msgid "do not commit the result"
+msgstr "อย่ากระทำผล"
+
+#: src/pykantui/commands/tasks.py:21
+msgid "add or remove cards"
+msgstr "เพิ่มหรือลบการ์ด"
+
+#: src/pykantui/commands/tasks.py:25
+msgid "add one card, or several numbered ones"
+msgstr "เพิ่มการ์ดหนึ่งใบหรือหลายใบ"
+
+#: src/pykantui/commands/tasks.py:27
+msgid "column id, name or position (default: the first)"
+msgstr "รหัสคอลัมน์ ชื่อ หรือตำแหน่ง (ค่าเริ่มต้น: อันแรก)"
+
+#: src/pykantui/commands/tasks.py:28
+msgid "add this many, numbered from 1"
+msgstr "บวกจำนวนนี้ด้วยเลข 1"
+
+#: src/pykantui/commands/tasks.py:29
+msgid "body text for the card"
+msgstr "ข้อความเนื้อหาสำหรับการ์ด"
+
+#: src/pykantui/commands/tasks.py:30
+msgid "due date, or +N for N days from today"
+msgstr "วันครบกำหนด หรือ +N สำหรับ N วันนับจากวันนี้"
+
+#: src/pykantui/commands/tasks.py:35
+msgid "comma-separated card ids that must finish first"
+msgstr "รหัสการ์ดที่คั่นด้วยเครื่องหมายจุลภาคซึ่งจะต้องกรอกให้เสร็จก่อน"
+
+#: src/pykantui/commands/tasks.py:39
+msgid "delete cards by id"
+msgstr "ลบการ์ดด้วยรหัส"
+
+#: src/pykantui/commands/tasks.py:43
+msgid "delete every card in a column"
+msgstr "ลบการ์ดทุกใบในคอลัมน์"
+
+#: src/pykantui/commands/onboarding/connection.py:25
+#, python-brace-format
+msgid "Listing {provider} projects"
+msgstr "Listing {provider} projects"
+
+#: src/pykantui/commands/onboarding/connection.py:27
+msgid "project"
+msgstr "project"
+
+#: src/pykantui/commands/onboarding/connection.py:27
+msgid "projects"
+msgstr "projects"
+
+#: src/pykantui/commands/onboarding/connection.py:28
+#, python-brace-format
+msgid "{count} {noun} available"
+msgstr "{count} {noun} available"
+
+#: src/pykantui/commands/onboarding/connection.py:30
+#, python-brace-format
+msgid "Confirming {provider} identity"
+msgstr "Confirming {provider} identity"
+
+#: src/pykantui/commands/onboarding/connection.py:32
+#, python-brace-format
+msgid "Connected as {identity}"
+msgstr "Connected as {identity}"
+
+#: src/pykantui/commands/onboarding/credentials.py:53
+#, python-brace-format
+msgid "Detected {provider} credentials: {sources}"
+msgstr "Detected {provider} credentials: {sources}"
+
+#: src/pykantui/commands/onboarding/credentials.py:62
+#, python-brace-format
+msgid "Set up {provider} credentials"
+msgstr "ตั้งค่าข้อมูลรับรอง {provider}"
+
+#: src/pykantui/commands/onboarding/credentials.py:63
+msgid "choose how to provide credentials"
+msgstr "เลือกวิธีระบุข้อมูลรับรอง"
+
+#: src/pykantui/commands/onboarding/credentials.py:98
+#, python-brace-format
+msgid "{provider} still needs {fields}"
+msgstr "{provider} still needs {fields}"
+
+#: src/pykantui/commands/onboarding/credentials.py:116
+msgid "Credentials are already stored privately in ~/.pykantui/auth.json"
+msgstr "Credentials are already stored privately in ~/.pykantui/auth.json"
+
+#: src/pykantui/commands/onboarding/credentials.py:119
+msgid ""
+"Credentials supplied by command line will be stored privately after "
+"validation"
+msgstr ""
+"Credentials supplied by command line will be stored privately after "
+"validation"
+
+#: src/pykantui/commands/onboarding/credentials.py:128
+#, python-brace-format
+msgid "Keep {provider} credentials?"
+msgstr "บันทึกข้อมูลรับรอง {provider} หรือไม่"
+
+#: src/pykantui/commands/onboarding/credentials.py:129
+msgid "choose where credentials are reused"
+msgstr "เลือกตำแหน่งที่จะใช้ข้อมูลรับรองซ้ำ"
+
+#: src/pykantui/commands/onboarding/credentials.py:133
+msgid "Using existing environment variables; no credential was copied"
+msgstr "Using existing environment variables; no credential was copied"
+
+#: src/pykantui/commands/onboarding/credentials.py:137
+#, python-brace-format
+msgid "Credentials are not saved. For future runs, set: {names}"
+msgstr "Credentials are not saved. For future runs, set: {names}"
+
+#: src/pykantui/commands/onboarding/credentials.py:196
+msgid "Get personal credentials"
+msgstr "รับข้อมูลรับรองส่วนบุคคล"
+
+#: src/pykantui/commands/onboarding/credentials.py:197
+msgid "no app registration"
+msgstr "ไม่ต้องลงทะเบียนแอป"
+
+#: src/pykantui/commands/onboarding/credentials.py:199
+#, python-brace-format
+msgid "Set up {provider} API access"
+msgstr "ตั้งค่าการเข้าถึง API ของ {provider}"
+
+#: src/pykantui/commands/onboarding/credentials.py:200
+msgid "Power-Up registration required"
+msgstr "ต้องลงทะเบียน Power-Up"
+
+#: src/pykantui/commands/onboarding/credentials.py:202
+msgid "Open provider credential page"
+msgstr "เปิดหน้าข้อมูลรับรองของผู้ให้บริการ"
+
+#: src/pykantui/commands/onboarding/credentials.py:203
+msgid "open the provider credential page"
+msgstr "เปิดหน้าข้อมูลรับรองของผู้ให้บริการ"
+
+#: src/pykantui/commands/onboarding/credentials.py:217
+msgid "Enter existing credentials"
+msgstr "ป้อนข้อมูลรับรองที่มีอยู่"
+
+#: src/pykantui/commands/onboarding/credentials.py:221
+msgid "Paste the credential into a masked field."
+msgstr "วางข้อมูลรับรองในช่องที่ปิดบังไว้"
+
+#: src/pykantui/commands/onboarding/credentials.py:230
+msgid "Save privately"
+msgstr "บันทึกแบบส่วนตัว"
+
+#: src/pykantui/commands/onboarding/credentials.py:234
+msgid "Owner-only, outside every workspace and local Git history."
+msgstr "Owner-only, outside every workspace and local Git history."
+
+#: src/pykantui/commands/onboarding/credentials.py:240
+msgid "Use environment"
+msgstr "ใช้ตัวแปรสภาพแวดล้อม"
+
+#: src/pykantui/commands/onboarding/credentials.py:244
+msgid "Keep using the value already exported or loaded from .env; do not copy it."
+msgstr "Keep using the value already exported or loaded from .env; do not copy it."
+
+#: src/pykantui/commands/onboarding/credentials.py:252
+msgid "Use once"
+msgstr "ใช้ครั้งเดียว"
+
+#: src/pykantui/commands/onboarding/credentials.py:253
+msgid "not saved"
+msgstr "ไม่บันทึก"
+
+#: src/pykantui/commands/onboarding/credentials.py:256
+msgid ""
+"Available for this setup only. Configure the listed environment variables "
+"for reuse."
+msgstr ""
+"Available for this setup only. Configure the listed environment variables "
+"for reuse."
+
+#: src/pykantui/commands/onboarding/credentials.py:268
+#, python-brace-format
+msgid "Opening {provider} credential page"
+msgstr "กำลังเปิดหน้าข้อมูลรับรองของ {provider}"
+
+#: src/pykantui/commands/onboarding/credentials.py:271
+msgid "Credential page opened"
+msgstr "เปิดหน้าข้อมูลรับรองแล้ว"
+
+#: src/pykantui/commands/onboarding/credentials.py:273
+#, python-brace-format
+msgid "Open this address in a browser: {url}"
+msgstr "Open this address in a browser: {url}"
+
+#: src/pykantui/commands/onboarding/credentials.py:293
+#, python-brace-format
+msgid "Environment: {names}"
+msgstr "Environment: {names}"
+
+#: src/pykantui/core/actions.py:113 src/pykantui/tui/widgets/app_header.py:33
+msgid "⌘ Menu"
+msgstr "⌘ เมนู"
+
+#: src/pykantui/core/actions.py:115
+msgid "▥ View"
+msgstr "▥ มุมมอง"
+
+#: src/pykantui/i18n/catalog.py:14
+msgid "Filter"
+msgstr "ตัวกรอง"
+
+#: src/pykantui/i18n/catalog.py:15 src/pykantui/tui/widgets/dropdowns.py:78
+msgid "Sort"
+msgstr "เรียงลำดับ"
+
+#: src/pykantui/i18n/catalog.py:16
+msgid "Columns"
+msgstr "คอลัมน์"
+
+#: src/pykantui/i18n/catalog.py:17
+msgid "View"
+msgstr "มุมมอง"
+
+#: src/pykantui/i18n/catalog.py:18 src/pykantui/tui/controllers/columns.py:91
+msgid "Blocked"
+msgstr "ถูกบล็อก"
+
+#: src/pykantui/i18n/catalog.py:19
+msgid "Unblocked"
+msgstr "เลิกบล็อกแล้ว"
+
+#: src/pykantui/i18n/catalog.py:20
+msgid "Overdue"
+msgstr "เกินกำหนด"
+
+#: src/pykantui/i18n/catalog.py:21
+msgid "Due today"
+msgstr "ครบกำหนดวันนี้"
+
+#: src/pykantui/i18n/catalog.py:22
+msgid "No due date"
+msgstr "ไม่มีวันครบกำหนด"
+
+#: src/pykantui/i18n/catalog.py:23
+msgid "Has notes"
+msgstr "มีบันทึก"
+
+#: src/pykantui/i18n/catalog.py:24 src/pykantui/tui/widgets/dropdowns.py:77
+msgid "Manual"
+msgstr "คู่มือ"
+
+#: src/pykantui/i18n/catalog.py:25
+msgid "Due"
+msgstr "ครบกำหนด"
+
+#: src/pykantui/i18n/catalog.py:26
+msgid "Age"
+msgstr "อายุ"
+
+#: src/pykantui/i18n/catalog.py:27
+msgid "Rows"
+msgstr "แถว"
+
+#: src/pykantui/i18n/catalog.py:28
+msgid "Split"
+msgstr "แบ่ง"
+
+#: src/pykantui/i18n/catalog.py:29
+msgid "adjacent"
+msgstr "ที่อยู่ติดกัน"
+
+#: src/pykantui/i18n/catalog.py:30
+msgid "jump"
+msgstr "กระโดด"
+
+#: src/pykantui/i18n/catalog.py:31
+msgid "New folder"
+msgstr "โฟลเดอร์ใหม่"
+
+#: src/pykantui/i18n/catalog.py:32
+msgid "Work Items"
+msgstr "รายการงาน"
+
+#: src/pykantui/i18n/catalog.py:33
+msgid "Info"
+msgstr "ข้อมูล"
+
+#: src/pykantui/i18n/catalog.py:34
+msgid "Comments"
+msgstr "ความคิดเห็น"
+
+#: src/pykantui/i18n/catalog.py:35
+msgid "Related"
+msgstr "ที่เกี่ยวข้อง"
+
+#: src/pykantui/i18n/catalog.py:36
+msgid "Attachments"
+msgstr "ไฟล์แนบ"
+
+#: src/pykantui/i18n/catalog.py:37
+msgid "Links"
+msgstr "ลิงค์"
+
+#: src/pykantui/i18n/catalog.py:38
+msgid "Subtasks"
+msgstr "งานย่อย"
+
+#: src/pykantui/i18n/catalog.py:39 src/pykantui/pages/init_wizard.py:272
+msgid "Project"
+msgstr "โครงการ"
+
+#: src/pykantui/i18n/catalog.py:40
+msgid "Sprint"
+msgstr "วิ่ง"
+
+#: src/pykantui/i18n/catalog.py:41
+msgid "Query"
+msgstr "แบบสอบถาม"
+
+#: src/pykantui/i18n/catalog.py:42
+msgid "Reporter"
+msgstr "นักข่าว"
+
+#: src/pykantui/i18n/catalog.py:43
+msgid "Created"
+msgstr "สร้างแล้ว"
+
+#: src/pykantui/i18n/catalog.py:44
+msgid "Last Update"
+msgstr "อัปเดตล่าสุด"
+
+#: src/pykantui/i18n/catalog.py:45 src/pykantui/workspace/outbound.py:71
+msgid "Due Date"
+msgstr "วันครบกำหนด"
+
+#: src/pykantui/i18n/catalog.py:46
+msgid "Resolved"
+msgstr "แก้ไขแล้ว"
+
+#: src/pykantui/i18n/catalog.py:47
+msgid "Resolution"
+msgstr "ความละเอียด"
+
+#: src/pykantui/i18n/catalog.py:48
+msgid "Blocked by"
+msgstr "ถูกบล็อกโดย"
+
+#: src/pykantui/i18n/catalog.py:49
+msgid "Time Tracking"
+msgstr "การติดตามเวลา"
+
+#: src/pykantui/i18n/catalog.py:50
+msgid "Highest"
+msgstr "สูงสุด"
+
+#: src/pykantui/i18n/catalog.py:51
+msgid "Blocker"
+msgstr "บล็อคเกอร์"
+
+#: src/pykantui/i18n/catalog.py:52
+msgid "Critical"
+msgstr "สำคัญ"
+
+#: src/pykantui/i18n/catalog.py:53
+msgid "High"
+msgstr "สูง"
+
+#: src/pykantui/i18n/catalog.py:54
+msgid "Medium"
+msgstr "ปานกลาง"
+
+#: src/pykantui/i18n/catalog.py:55
+msgid "Normal"
+msgstr "ปกติ"
+
+#: src/pykantui/i18n/catalog.py:56
+msgid "Low"
+msgstr "ต่ำ"
+
+#: src/pykantui/i18n/catalog.py:57
+msgid "Lowest"
+msgstr "ต่ำสุด"
+
+#: src/pykantui/i18n/catalog.py:58
+msgid "Trivial"
+msgstr "จิ๊บจ๊อย"
+
+#: src/pykantui/pages/chooser.py:130
+msgid "Choose one"
+msgstr "เลือกหนึ่งรายการ"
+
+#: src/pykantui/pages/chooser.py:131
+msgid "type to filter"
+msgstr "พิมพ์เพื่อกรอง"
+
+#: src/pykantui/pages/chooser.py:141 src/pykantui/pages/folder.py:216
+#: src/pykantui/pages/init_wizard.py:112 src/pykantui/pages/init_wizard.py:324
+msgid "Back"
+msgstr "ย้อนกลับ"
+
+#: src/pykantui/pages/chooser.py:142
+msgid "↑↓ move · type to filter · enter choose · esc cancel"
+msgstr "↑↓ ย้าย · พิมพ์เพื่อกรอง · ป้อนเลือก · esc ยกเลิก"
+
+#: src/pykantui/pages/chooser.py:153 src/pykantui/pages/confirm.py:43
+#: src/pykantui/pages/edit.py:109 src/pykantui/pages/folder.py:240
+#: src/pykantui/pages/init_wizard.py:120 src/pykantui/pages/init_wizard.py:340
+#: src/pykantui/pages/sync.py:129 src/pykantui/tui/controllers/columns.py:136
+#: src/pykantui/tui/widgets/compact_footer.py:72
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+#: src/pykantui/pages/chooser.py:154
+msgid "Choose"
+msgstr "เลือก"
+
+#: src/pykantui/pages/confirm.py:36
+msgid "Move this card?"
+msgstr "ย้ายการ์ดใบนี้ไหม?"
+
+#: src/pykantui/pages/confirm.py:42 src/pykantui/tui/widgets/compact_footer.py:71
+#: src/pykantui/tui/widgets/compact_footer.py:76
+msgid "Move"
+msgstr "ย้าย"
+
+#: src/pykantui/pages/detail.py:87 src/pykantui/tui/widgets/work_items.py:112
+msgid "Private Markdown notes · local only"
+msgstr "บันทึก Markdown ส่วนตัว · เฉพาะในเครื่องเท่านั้น"
+
+#: src/pykantui/pages/detail.py:92 src/pykantui/pages/init_wizard.py:183
+msgid "Close"
+msgstr "ปิด"
+
+#: src/pykantui/pages/detail.py:113
+msgid "Read-only"
+msgstr "อ่านอย่างเดียว"
+
+#: src/pykantui/pages/detail.py:115 src/pykantui/tui/widgets/compact_footer.py:62
+#: src/pykantui/tui/widgets/compact_footer.py:77
+msgid "Edit"
+msgstr "แก้ไข"
+
+#: src/pykantui/pages/detail.py:125
+msgid "[$success]finished[/]"
+msgstr "[$success]เสร็จสิ้น[/]"
+
+#: src/pykantui/pages/detail.py:127
+msgid "in progress"
+msgstr "อยู่ระหว่างดำเนินการ"
+
+#: src/pykantui/pages/detail.py:129
+msgid "not started"
+msgstr "ไม่ได้เริ่ม"
+
+#: src/pykantui/pages/detail.py:133
+#, python-brace-format
+msgid "[$error]blocked by {count}[/]"
+msgstr "[$error]บล็อกโดย{count}[/]"
+
+#: src/pykantui/pages/detail.py:135
+#, python-brace-format
+msgid "[$warning]blocking {count}[/]"
+msgstr "[$warning]การปิดกั้น {count}[/]"
+
+#: src/pykantui/pages/detail.py:139
+#, python-brace-format
+msgid "[$error]{days}d overdue[/]"
+msgstr "[$error]{days}d เกินกำหนด[/]"
+
+#: src/pykantui/pages/detail.py:141
+msgid "[$warning]due today[/]"
+msgstr "[$warning]ครบกำหนดวันนี้[/]"
+
+#: src/pykantui/pages/detail.py:178
+msgid "This backend is read-only"
+msgstr "แบ็กเอนด์นี้เป็นแบบอ่านอย่างเดียว"
+
+#: src/pykantui/pages/detail.py:202
+msgid "A card needs a summary"
+msgstr "การ์ดต้องมีบทสรุป"
+
+#: src/pykantui/pages/edit.py:55
+#, python-brace-format
+msgid "Edit {key}"
+msgstr "แก้ไข {key}"
+
+#: src/pykantui/pages/edit.py:55 src/pykantui/tui/menu_items.py:64
+#: src/pykantui/tui/widgets/compact_footer.py:81
+msgid "New card"
+msgstr "การ์ดใหม่"
+
+#: src/pykantui/pages/edit.py:61
+msgid "What needs doing?"
+msgstr "ต้องทำอะไร?"
+
+#: src/pykantui/pages/edit.py:61
+msgid "Title"
+msgstr "ชื่อเรื่อง"
+
+#: src/pykantui/pages/edit.py:70 src/pykantui/workspace/outbound.py:67
+msgid "Assignee"
+msgstr "ผู้รับมอบหมาย"
+
+#: src/pykantui/pages/edit.py:74 src/pykantui/tui/widgets/work_items.py:109
+#: src/pykantui/workspace/outbound.py:64
+msgid "Type"
+msgstr "ประเภท"
+
+#: src/pykantui/pages/edit.py:83 src/pykantui/tui/widgets/card_fields.py:209
+msgid "Select a priority"
+msgstr "เลือกลำดับความสำคัญ"
+
+#: src/pykantui/pages/edit.py:84 src/pykantui/workspace/outbound.py:68
+msgid "Priority"
+msgstr "ลำดับความสำคัญ"
+
+#: src/pykantui/pages/edit.py:90
+msgid "Due date"
+msgstr "วันครบกำหนด"
+
+#: src/pykantui/pages/edit.py:95 src/pykantui/workspace/outbound.py:69
+msgid "Labels"
+msgstr "ป้ายกำกับ"
+
+#: src/pykantui/pages/edit.py:97 src/pykantui/workspace/outbound.py:70
+msgid "Components"
+msgstr "คอมโพเนนต์"
+
+#: src/pykantui/pages/edit.py:124 src/pykantui/pages/edit.py:125
+#: src/pykantui/tui/widgets/card_fields.py:199
+#: src/pykantui/tui/widgets/compact_footer.py:79
+msgid "Column"
+msgstr "คอลัมน์"
+
+#: src/pykantui/pages/edit.py:165
+msgid "A card needs a title"
+msgstr "การ์ดต้องมีชื่อ"
+
+#: src/pykantui/pages/folder.py:207
+msgid "Where should it live?"
+msgstr "มันควรจะอยู่ที่ไหน?"
+
+#: src/pykantui/pages/folder.py:222
+msgid "↑ Parent"
+msgstr "↑ ผู้ปกครอง"
+
+#: src/pykantui/pages/folder.py:223 src/pykantui/tui/widgets/menu_bar.py:99
+msgid "⌂ Home"
+msgstr "⌂ หน้าหลัก"
+
+#: src/pykantui/pages/folder.py:224
+msgid "/ Path…"
+msgstr "/ เส้นทาง…"
+
+#: src/pykantui/pages/folder.py:233
+msgid "↑↓ move · enter open · backspace parent · . hidden"
+msgstr "↑↓ ย้าย · เข้าสู่ open · backspace parent · ซ่อนเร้น"
+
+#: src/pykantui/pages/folder.py:242
+msgid "Choose folder"
+msgstr "เลือกโฟลเดอร์"
+
+#: src/pykantui/pages/grouped_palette.py:141
+msgid "Search commands or groups…"
+msgstr "ค้นหาคำสั่งหรือกลุ่ม..."
+
+#: src/pykantui/pages/init_wizard.py:121
+msgid "Continue"
+msgstr "ดำเนินการต่อ"
+
+#: src/pykantui/pages/init_wizard.py:254
+msgid "Open board"
+msgstr "เปิดบอร์ด"
+
+#: src/pykantui/pages/init_wizard.py:254
+msgid "Finish"
+msgstr "เสร็จสิ้น"
+
+#: src/pykantui/pages/init_wizard.py:271
+msgid "Provider"
+msgstr "ผู้ให้บริการ"
+
+#: src/pykantui/pages/init_wizard.py:273
+msgid "Workspace"
+msgstr "พื้นที่ทำงาน"
+
+#: src/pykantui/pages/init_wizard.py:274
+msgid "Initial sync"
+msgstr "ซิงค์เริ่มต้น"
+
+#: src/pykantui/pages/init_wizard.py:333
+#, python-brace-format
+msgid ""
+"Create a project in {provider}, then return here and check again. No local "
+"files have been created."
+msgstr ""
+"สร้างโปรเจกต์ใน {provider} แล้วกลับมาที่นี่เพื่อตรวจสอบอีกครั้ง "
+"ยังไม่มีการสร้างไฟล์ในเครื่อง"
+
+#: src/pykantui/pages/init_wizard.py:341
+msgid "Check again"
+msgstr "ตรวจสอบอีกครั้ง"
+
+#: src/pykantui/pages/init_wizard.py:467
+msgid "pykantui - setup"
+msgstr "pykantui - ตั้งค่า"
+
+#: src/pykantui/pages/init_wizard.py:499 src/pykantui/pages/init_wizard.py:504
+msgid "Setup stopped"
+msgstr "หยุดการตั้งค่าแล้ว"
+
+#: src/pykantui/pages/init_wizard.py:500 src/pykantui/pages/init_wizard.py:507
+msgid "Could not finish setup"
+msgstr "ไม่สามารถตั้งค่าให้เสร็จสิ้นได้"
+
+#: src/pykantui/pages/init_wizard.py:509
+msgid ""
+"An unexpected error stopped setup. The last completed step is shown behind "
+"this message. Close it, then run `kbn init` again."
+msgstr ""
+"ข้อผิดพลาดที่ไม่คาดคิดทำให้การตั้งค่าหยุดลง "
+"ขั้นตอนล่าสุดที่เสร็จแล้วแสดงอยู่ด้านหลังข้อความนี้ ปิดข้อความแล้วเรียกใช้ "
+"`kbn init` อีกครั้ง"
+
+#: src/pykantui/pages/sync.py:76
+msgid "SYNC PREVIEW"
+msgstr "ตัวอย่างการซิงค์"
+
+#: src/pykantui/pages/sync.py:85
+msgid "LOCAL ONLY"
+msgstr "เฉพาะในเครื่อง"
+
+#: src/pykantui/pages/sync.py:87
+msgid ""
+"• Private Markdown notes\n"
+"• Local Git history\n"
+"• Credentials and cache files"
+msgstr ""
+"• บันทึก Markdown ส่วนตัว\n"
+"• ประวัติ Git ในเครื่อง\n"
+"• ข้อมูลรับรองและไฟล์แคช"
+
+#: src/pykantui/pages/sync.py:92
+msgid ""
+"Choose provider or local for each conflicting field. Undecided cards stay "
+"local."
+msgstr ""
+"เลือกค่าจากผู้ให้บริการหรือในเครื่องสำหรับแต่ละฟิลด์ที่ขัดแย้ง "
+"การ์ดที่ยังไม่ตัดสินใจจะอยู่ในเครื่อง"
+
+#: src/pykantui/pages/sync.py:95
+msgid "RESOLVE CONFLICTS"
+msgstr "แก้ไขข้อขัดแย้ง"
+
+#: src/pykantui/pages/sync.py:105
+msgid "Keep undecided"
+msgstr "ยังไม่ตัดสินใจ"
+
+#: src/pykantui/pages/sync.py:107 src/pykantui/pages/sync.py:120
+#, python-brace-format
+msgid "Use {provider} version"
+msgstr "ใช้เวอร์ชัน {provider}"
+
+#: src/pykantui/pages/sync.py:110
+msgid "Send local version"
+msgstr "ส่งเวอร์ชันในเครื่อง"
+
+#: src/pykantui/pages/sync.py:124
+#, python-brace-format
+msgid "Overwrite {provider}"
+msgstr "เขียนทับ {provider}"
+
+#: src/pykantui/pages/sync.py:130
+msgid "Pull only"
+msgstr "ดึงเท่านั้น"
+
+#: src/pykantui/pages/sync.py:131
+msgid "Send ready changes"
+msgstr "ส่งการเปลี่ยนแปลงที่พร้อมแล้ว"
+
+#: src/pykantui/tui/app.py:133
+msgid "Run this pykantui board command"
+msgstr "รันคำสั่งบอร์ด pykantui นี้"
+
+#: src/pykantui/tui/app.py:142
+#, python-brace-format
+msgid "Run the {menu} command in pykantui"
+msgstr "รันคำสั่ง {menu} ใน pykantui"
+
+#: src/pykantui/tui/app.py:148
+#, python-brace-format
+msgid "Sync with {provider}…"
+msgstr "ซิงค์กับ {provider}..."
+
+#: src/pykantui/tui/app.py:190
+msgid "card"
+msgid_plural "cards"
+msgstr[0] "การ์ด"
+
+#: src/pykantui/tui/app.py:195
+#, python-brace-format
+msgid "{shown} of {total} · {detail}"
+msgstr "{shown} ของ {total} · {detail}"
+
+#: src/pykantui/tui/app.py:196
+#, python-brace-format
+msgid "{shown} of {total}"
+msgstr "{shown} ของ {total}"
+
+#: src/pykantui/tui/app.py:259
+msgid "Check your configuration"
+msgstr "ตรวจสอบการกำหนดค่าของคุณ"
+
+#: src/pykantui/tui/app.py:277
+#, python-brace-format
+msgid "Unknown theme {theme!r}; using {fallback}"
+msgstr "ธีมที่ไม่รู้จัก {theme!r}; โดยใช้ {fallback}"
+
+#: src/pykantui/tui/app.py:301
+msgid "confirm on"
+msgstr "ยืนยันใน"
+
+#: src/pykantui/tui/app.py:301
+msgid "confirm off"
+msgstr "ยืนยันออก"
+
+#: src/pykantui/tui/app.py:361
+#, python-brace-format
+msgid "{provider} cannot create cards here"
+msgstr "{provider} ไม่สามารถสร้างการ์ดได้ที่นี่"
+
+#: src/pykantui/tui/app.py:398
+msgid "Create failed"
+msgstr "สร้างไม่สำเร็จ"
+
+#: src/pykantui/tui/app.py:400 src/pykantui/tui/app.py:446
+msgid "Saved locally"
+msgstr "บันทึกไว้ในเครื่อง"
+
+#: src/pykantui/tui/app.py:415 src/pykantui/tui/app.py:451
+#, python-brace-format
+msgid "{provider} cards cannot be edited here"
+msgstr "การ์ด {provider} ไม่สามารถแก้ไขได้ที่นี่"
+
+#: src/pykantui/tui/app.py:443
+msgid "Save failed"
+msgstr "บันทึกล้มเหลว"
+
+#: src/pykantui/tui/menu_items.py:55
+msgid "⌂ Home · ▥ Kanban"
+msgstr "⌂ หน้าแรก · ▥ คัมบัง"
+
+#: src/pykantui/tui/menu_items.py:67
+msgid "Reload files"
+msgstr "โหลดไฟล์ซ้ำ"
+
+#: src/pykantui/tui/menu_items.py:75
+msgid "Sync with provider…"
+msgstr "ซิงค์กับผู้ให้บริการ..."
+
+#: src/pykantui/tui/menu_items.py:78 src/pykantui/tui/palette.py:169
+msgid "Help"
+msgstr "ช่วยเหลือ"
+
+#: src/pykantui/tui/menu_items.py:105
+msgid "+ Save this filter…"
+msgstr "+ บันทึกตัวกรองนี้..."
+
+#: src/pykantui/tui/menu_items.py:106
+msgid "Clear filters"
+msgstr "ล้างตัวกรอง"
+
+#: src/pykantui/tui/menu_items.py:116 src/pykantui/tui/widgets/menu_bar.py:200
+msgid "⇵ Reverse"
+msgstr "⇵ ย้อนกลับ"
+
+#: src/pykantui/tui/menu_items.py:121
+msgid "Add column…"
+msgstr "เพิ่มคอลัมน์..."
+
+#: src/pykantui/tui/menu_items.py:122
+msgid "Rename this column…"
+msgstr "เปลี่ยนชื่อคอลัมน์นี้..."
+
+#: src/pykantui/tui/menu_items.py:123
+msgid "Hide this column"
+msgstr "ซ่อนคอลัมน์นี้"
+
+#: src/pykantui/tui/menu_items.py:124
+msgid "Delete this column…"
+msgstr "ลบคอลัมน์นี้..."
+
+#: src/pykantui/tui/menu_items.py:125
+msgid "Expand all columns"
+msgstr "ขยายคอลัมน์ทั้งหมด"
+
+#: src/pykantui/tui/menu_items.py:141
+msgid "[ Narrow work items"
+msgstr "[ รายการงานที่แคบลง"
+
+#: src/pykantui/tui/menu_items.py:142
+msgid "] Widen work items"
+msgstr "] ขยายรายการงาน"
+
+#: src/pykantui/tui/menu_items.py:143
+msgid "\\ Reset divider"
+msgstr "\\ รีเซ็ตตัวแบ่ง"
+
+#: src/pykantui/tui/menu_items.py:151
+#, python-brace-format
+msgid "Movement: {mode}"
+msgstr "การเคลื่อนไหว: {mode}"
+
+#: src/pykantui/tui/menu_items.py:156
+msgid "Confirm moves"
+msgstr "ยืนยันการเคลื่อนไหว"
+
+#: src/pykantui/tui/menu_items.py:159
+msgid "Card detail"
+msgstr "รายละเอียดบัตร"
+
+#: src/pykantui/tui/menu_items.py:163
+msgid "Collapse this column"
+msgstr "ยุบคอลัมน์นี้"
+
+#: src/pykantui/tui/controllers/actions.py:256 src/pykantui/tui/menu_items.py:170
+msgid "Keys"
+msgstr "กุญแจ"
+
+#: src/pykantui/tui/controllers/actions.py:247 src/pykantui/tui/menu_items.py:173
+msgid "Where things are stored"
+msgstr "สถานที่จัดเก็บสิ่งของต่างๆ"
+
+#: src/pykantui/tui/palette.py:40
+msgid "Return to the Kanban home board"
+msgstr "กลับไปที่บอร์ดบ้านคัมบัง"
+
+#: src/pykantui/tui/palette.py:41
+msgid "Create a card or reload Markdown files"
+msgstr "สร้างการ์ดหรือรีโหลดไฟล์ Markdown"
+
+#: src/pykantui/tui/palette.py:54
+msgid "State, provider fields, and saved filters"
+msgstr "รัฐ ฟิลด์ผู้ให้บริการ และตัวกรองที่บันทึกไว้"
+
+#: src/pykantui/tui/palette.py:55
+msgid "Manual, title, due date, age, or reverse"
+msgstr "คู่มือ ชื่อ วันครบกำหนด อายุ หรือย้อนกลับ"
+
+#: src/pykantui/tui/palette.py:56
+msgid "Add, rename, hide, delete, or expand"
+msgstr "เพิ่ม เปลี่ยนชื่อ ซ่อน ลบ หรือขยาย"
+
+#: src/pykantui/tui/palette.py:57
+msgid "Kanban, Split, Rows, and board behavior"
+msgstr "คัมบัง แยก แถว และพฤติกรรมของบอร์ด"
+
+#: src/pykantui/tui/palette.py:60
+msgid "Change the filters applied to visible cards"
+msgstr "เปลี่ยนตัวกรองที่ใช้กับการ์ดที่มองเห็นได้"
+
+#: src/pykantui/tui/palette.py:61
+msgid "Change the order of visible cards"
+msgstr "เปลี่ยนลำดับของการ์ดที่มองเห็นได้"
+
+#: src/pykantui/tui/palette.py:62
+msgid "Change the current board columns"
+msgstr "เปลี่ยนคอลัมน์บอร์ดปัจจุบัน"
+
+#: src/pykantui/tui/palette.py:63
+msgid "Change the layout or board behavior"
+msgstr "เปลี่ยนเค้าโครงหรือลักษณะการทำงานของบอร์ด"
+
+#: src/pykantui/tui/palette.py:64
+msgid "Open this pykantui help topic"
+msgstr "เปิดหัวข้อวิธีใช้ pykantui นี้"
+
+#: src/pykantui/tui/palette.py:72 src/pykantui/tui/widgets/dropdowns.py:67
+msgid "State"
+msgstr "รัฐ"
+
+#: src/pykantui/tui/palette.py:72
+msgid "Blocked, overdue, due dates, and local notes"
+msgstr "บล็อก เกินกำหนด วันครบกำหนด และหมายเหตุท้องถิ่น"
+
+#: src/pykantui/tui/palette.py:76
+msgid "Provider fields"
+msgstr "ฟิลด์ผู้ให้บริการ"
+
+#: src/pykantui/tui/palette.py:77
+#, python-brace-format
+msgid "Filters supported by {provider}"
+msgstr "ตัวกรองที่รองรับโดย {provider}"
+
+#: src/pykantui/tui/palette.py:82
+msgid "Saved filters"
+msgstr "ตัวกรองที่บันทึกไว้"
+
+#: src/pykantui/tui/palette.py:83
+msgid "Apply a saved combination of filters"
+msgstr "ใช้ชุดตัวกรองที่บันทึกไว้"
+
+#: src/pykantui/tui/palette.py:107
+msgid "Layout"
+msgstr "เค้าโครง"
+
+#: src/pykantui/tui/palette.py:107
+msgid "Kanban, Split, or Rows"
+msgstr "คัมบัง แยก หรือแถว"
+
+#: src/pykantui/tui/palette.py:108
+msgid "Split pane"
+msgstr "บานหน้าต่างแยก"
+
+#: src/pykantui/tui/palette.py:108
+msgid "Resize or reset the work-items divider"
+msgstr "ปรับขนาดหรือรีเซ็ตตัวแบ่งรายการงาน"
+
+#: src/pykantui/tui/palette.py:109
+msgid "Behavior"
+msgstr "พฤติกรรม"
+
+#: src/pykantui/tui/palette.py:109
+msgid "Movement, confirmation, detail, and columns"
+msgstr "การเคลื่อนไหว การยืนยัน รายละเอียด และคอลัมน์"
+
+#: src/pykantui/tui/palette.py:141
+msgid "Board"
+msgstr "คณะกรรมการ"
+
+#: src/pykantui/tui/palette.py:142
+msgid "Home, create cards, and reload local files"
+msgstr "หน้าแรก สร้างการ์ด และโหลดไฟล์ในเครื่องอีกครั้ง"
+
+#: src/pykantui/tui/palette.py:147
+msgid "Organize"
+msgstr "จัดระเบียบ"
+
+#: src/pykantui/tui/palette.py:148
+msgid "Filter, sort, columns, and layouts"
+msgstr "กรอง เรียงลำดับ คอลัมน์ และเค้าโครง"
+
+#: src/pykantui/tui/palette.py:164
+msgid "Review local and provider changes before syncing"
+msgstr "ตรวจสอบการเปลี่ยนแปลงในเครื่องและผู้ให้บริการก่อนทำการซิงค์"
+
+#: src/pykantui/tui/palette.py:170
+msgid "Keys and where pykantui stores data"
+msgstr "คีย์และตำแหน่งที่ pykantui จัดเก็บข้อมูล"
+
+#: src/pykantui/tui/palette.py:177
+msgid "System"
+msgstr "ระบบ"
+
+#: src/pykantui/tui/palette.py:178
+msgid "Theme, screenshot, maximize, and application commands"
+msgstr "ธีม ภาพหน้าจอ ขยายใหญ่สุด และคำสั่งแอปพลิเคชัน"
+
+#: src/pykantui/tui/controllers/actions.py:42
+#, python-brace-format
+msgid "Movement mode: {mode}"
+msgstr "โหมดการเคลื่อนไหว: {mode}"
+
+#: src/pykantui/tui/controllers/actions.py:49
+msgid "Moves will ask for confirmation"
+msgstr "การเคลื่อนไหวจะขอการยืนยัน"
+
+#: src/pykantui/tui/controllers/actions.py:49
+msgid "Moves apply immediately"
+msgstr "การเคลื่อนไหวมีผลทันที"
+
+#: src/pykantui/tui/controllers/actions.py:163
+msgid "Sprints are a Jira board setting"
+msgstr "Sprints เป็นการตั้งค่าบอร์ด Jira"
+
+#: src/pykantui/tui/controllers/actions.py:165
+msgid "sprint"
+msgstr "วิ่ง"
+
+#: src/pykantui/tui/controllers/actions.py:166
+#, python-brace-format
+msgid "Source: {source}. Press Search to re-run."
+msgstr "ที่มา: {source} กดค้นหาเพื่อเรียกใช้ใหม่"
+
+#: src/pykantui/tui/controllers/actions.py:208
+#, python-brace-format
+msgid "Saved filter {name}"
+msgstr "ตัวกรองที่บันทึกไว้ {name}"
+
+#: src/pykantui/tui/controllers/actions.py:244
+msgid "in memory (demo board)"
+msgstr "ในหน่วยความจำ (บอร์ดสาธิต)"
+
+#: src/pykantui/tui/controllers/actions.py:246
+#, python-brace-format
+msgid "Columns and filters: {path}"
+msgstr "คอลัมน์และตัวกรอง: {path}"
+
+#: src/pykantui/tui/controllers/actions.py:253
+msgid ""
+"hjkl move focus · HL move card · JK reorder · v detail · , menu\n"
+"z collapse · Z expand all · n new · e edit · d delete · r reload · F5 sync"
+msgstr ""
+"hjkl ย้ายโฟกัส · HL ย้ายการ์ด · JK จัดลำดับใหม่ · รายละเอียด v · , เมนู\n"
+"z ยุบ · Z ขยายทั้งหมด · n ใหม่ · e แก้ไข · d ลบ · r โหลดใหม่ · ซิงค์ F5"
+
+#: src/pykantui/tui/controllers/columns.py:32
+msgid "New card here"
+msgstr "การ์ดใหม่นี่."
+
+#: src/pykantui/tui/controllers/columns.py:35
+msgid "Rename column…"
+msgstr "เปลี่ยนชื่อคอลัมน์..."
+
+#: src/pykantui/tui/controllers/columns.py:36
+msgid "Add column after…"
+msgstr "เพิ่มคอลัมน์หลัง..."
+
+#: src/pykantui/tui/controllers/columns.py:37
+msgid "Hide column"
+msgstr "ซ่อนคอลัมน์"
+
+#: src/pykantui/tui/controllers/columns.py:40
+msgid "Delete all cards…"
+msgstr "ลบการ์ดทั้งหมด..."
+
+#: src/pykantui/tui/controllers/columns.py:42
+msgid "Delete column…"
+msgstr "ลบคอลัมน์..."
+
+#: src/pykantui/tui/controllers/columns.py:86
+msgid "Rename column"
+msgstr "เปลี่ยนชื่อคอลัมน์"
+
+#: src/pykantui/tui/controllers/columns.py:91
+msgid "New column name"
+msgstr "ชื่อคอลัมน์ใหม่"
+
+#: src/pykantui/tui/controllers/columns.py:96
+#, python-brace-format
+msgid "There is already a column called {name}"
+msgstr "มีคอลัมน์ชื่อ {name} อยู่แล้ว"
+
+#: src/pykantui/tui/controllers/columns.py:102
+msgid "At least one column has to stay visible"
+msgstr "ต้องมองเห็นได้อย่างน้อยหนึ่งคอลัมน์"
+
+#: src/pykantui/tui/controllers/columns.py:106
+#, python-brace-format
+msgid "Delete the {column} column?"
+msgstr "ลบคอลัมน์ {column} หรือไม่"
+
+#: src/pykantui/tui/controllers/columns.py:107
+msgid "Delete column"
+msgstr "ลบคอลัมน์"
+
+#: src/pykantui/tui/controllers/columns.py:110
+msgid "A board needs at least one column"
+msgstr "บอร์ดต้องมีอย่างน้อยหนึ่งคอลัมน์"
+
+#: src/pykantui/tui/controllers/columns.py:124
+#, python-brace-format
+msgid "{column} is already empty"
+msgstr "{column} ว่างเปล่าแล้ว"
+
+#: src/pykantui/tui/controllers/columns.py:126
+#, python-brace-format
+msgid "Delete {count} card(s) from {column}?"
+msgstr "ลบการ์ด {count} ออกจาก {column} หรือไม่"
+
+#: src/pykantui/tui/controllers/columns.py:127
+msgid "Delete cards"
+msgstr "ลบการ์ด"
+
+#: src/pykantui/tui/controllers/sync.py:27
+msgid "this board already shows everything"
+msgstr "บอร์ดนี้แสดงทุกอย่างแล้ว"
+
+#: src/pykantui/tui/controllers/sync.py:36
+#, python-brace-format
+msgid "could not load the team's cards: {error}"
+msgstr "ไม่สามารถโหลดการ์ดของทีมได้: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:43
+msgid "showing the whole project — their cards are read-only"
+msgstr "แสดงทั้งโปรเจ็กต์ — การ์ดเป็นแบบอ่านอย่างเดียว"
+
+#: src/pykantui/tui/controllers/sync.py:45
+msgid "showing only your cards"
+msgstr "แสดงเฉพาะบัตรของคุณ"
+
+#: src/pykantui/tui/controllers/sync.py:56
+#, python-brace-format
+msgid "Reload failed: {error}"
+msgstr "โหลดซ้ำล้มเหลว: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:62
+msgid "Columns reloaded"
+msgstr "โหลดคอลัมน์ใหม่แล้ว"
+
+#: src/pykantui/tui/controllers/sync.py:66
+msgid "Reloaded local files"
+msgstr "โหลดไฟล์ในเครื่องแล้ว"
+
+#: src/pykantui/tui/controllers/sync.py:73
+msgid "This local board has no provider to sync"
+msgstr "บอร์ดท้องถิ่นนี้ไม่มีผู้ให้บริการที่จะซิงค์"
+
+#: src/pykantui/tui/controllers/sync.py:79
+msgid "This backend cannot sync"
+msgstr "แบ็กเอนด์นี้ไม่สามารถซิงค์ได้"
+
+#: src/pykantui/tui/controllers/sync.py:85
+#, python-brace-format
+msgid "Sync preview failed: {error}"
+msgstr "การแสดงตัวอย่างการซิงค์ล้มเหลว: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:95
+msgid "Sync cancelled — local changes kept"
+msgstr "การซิงค์ถูกยกเลิก — การเปลี่ยนแปลงในเครื่องถูกเก็บไว้"
+
+#: src/pykantui/tui/controllers/sync.py:109
+#, python-brace-format
+msgid "Sync failed: {error}"
+msgstr "การซิงค์ล้มเหลว: {error}"
+
+#: src/pykantui/tui/controllers/sync.py:115
+msgid "Sync complete"
+msgstr "การซิงค์เสร็จสมบูรณ์"
+
+#: src/pykantui/tui/widgets/app_header.py:37
+msgid "⎇ Sync"
+msgstr "⎇ ซิงค์"
+
+#: src/pykantui/tui/widgets/board.py:234
+msgid "At least one column has to stay open"
+msgstr "ต้องเปิดไว้อย่างน้อยหนึ่งคอลัมน์"
+
+#: src/pykantui/tui/widgets/board.py:382 src/pykantui/tui/widgets/board.py:429
+msgid "Move blocked"
+msgstr "ย้ายถูกบล็อก"
+
+#: src/pykantui/tui/widgets/board.py:405
+#, python-brace-format
+msgid "Saved to Markdown. Sync sends it to {provider}."
+msgstr "บันทึกไว้ใน Markdown การซิงค์จะส่งไปที่ {provider}"
+
+#: src/pykantui/tui/widgets/board.py:409
+#, python-brace-format
+msgid "This writes to {provider}."
+msgstr "สิ่งนี้เขียนไปที่ {provider}"
+
+#: src/pykantui/tui/widgets/board.py:411
+msgid "This marks the task finished."
+msgstr "นี่แสดงว่างานเสร็จสิ้นแล้ว"
+
+#: src/pykantui/tui/widgets/board.py:413
+msgid "This clears the start and finish dates."
+msgstr "การดำเนินการนี้จะล้างวันที่เริ่มต้นและสิ้นสุด"
+
+#: src/pykantui/tui/widgets/board.py:435
+msgid "Move failed"
+msgstr "การย้ายล้มเหลว"
+
+#: src/pykantui/tui/widgets/board.py:455
+#, python-brace-format
+msgid "Moved to {column}"
+msgstr "ย้ายไปที่ {column}"
+
+#: src/pykantui/tui/widgets/board.py:460
+msgid "Moved"
+msgstr "ย้ายแล้ว"
+
+#: src/pykantui/tui/widgets/board.py:465
+msgid "Reordering needs Manual sort — the board is showing a sorted view"
+msgstr ""
+"จำเป็นต้องเรียงลำดับใหม่ การเรียงลำดับด้วยตนเอง — "
+"บอร์ดกำลังแสดงมุมมองที่เรียงลำดับ"
+
+#: src/pykantui/tui/widgets/board.py:478
+msgid "Reorder failed"
+msgstr "การสั่งซื้อใหม่ล้มเหลว"
+
+#: src/pykantui/tui/widgets/board.py:488
+msgid "Delete failed"
+msgstr "ลบไม่สำเร็จ"
+
+#: src/pykantui/tui/widgets/board.py:502
+msgid "Nothing is blocking this task"
+msgstr "ไม่มีอะไรขวางงานนี้อยู่"
+
+#: src/pykantui/tui/widgets/board.py:502
+msgid "Blockers"
+msgstr "บล็อคเกอร์"
+
+#: src/pykantui/tui/widgets/card.py:152
+#, python-brace-format
+msgid "age {days}d"
+msgstr "อายุ {days}ว"
+
+#: src/pykantui/tui/widgets/card.py:156
+msgid "no due date"
+msgstr "ไม่มีกำหนด"
+
+#: src/pykantui/tui/widgets/card.py:158
+#, python-brace-format
+msgid "overdue {days}d"
+msgstr "เกิน {days}ว"
+
+#: src/pykantui/tui/widgets/card.py:160
+msgid "due today"
+msgstr "ครบกำหนดวันนี้"
+
+#: src/pykantui/tui/widgets/card.py:162
+#, python-brace-format
+msgid "due in {days}d"
+msgstr "ครบกำหนดใน {days}ว"
+
+#: src/pykantui/tui/widgets/card.py:166
+#, python-brace-format
+msgid "blocked ({count})"
+msgstr "ถูกบล็อค ({count})"
+
+#: src/pykantui/tui/widgets/card.py:166
+msgid "unblocked"
+msgstr "เลิกบล็อก"
+
+#: src/pykantui/tui/widgets/card.py:168
+#, python-brace-format
+msgid "blocking {count}"
+msgstr "การปิดกั้น {count}"
+
+#: src/pykantui/tui/widgets/card_fields.py:127
+#: src/pykantui/tui/widgets/work_items.py:110
+#: src/pykantui/workspace/outbound.py:62
+msgid "Description"
+msgstr "คำอธิบาย"
+
+#: src/pykantui/tui/widgets/card_fields.py:137
+msgid "Save"
+msgstr "บันทึก"
+
+#: src/pykantui/tui/widgets/card_fields.py:138
+msgid "Save draft locally"
+msgstr "บันทึกฉบับร่างในเครื่อง"
+
+#: src/pykantui/tui/widgets/card_fields.py:138
+msgid "Save locally"
+msgstr "บันทึกในเครื่อง"
+
+#: src/pykantui/tui/widgets/card_fields.py:226
+msgid "Read-only on this backend"
+msgstr "อ่านอย่างเดียวบนแบ็กเอนด์นี้"
+
+#: src/pykantui/tui/widgets/compact_footer.py:63
+#: src/pykantui/tui/widgets/compact_footer.py:78
+msgid "Details"
+msgstr "รายละเอียด"
+
+#: src/pykantui/tui/widgets/compact_footer.py:64
+msgid "Kanban"
+msgstr "คัมบัง"
+
+#: src/pykantui/tui/widgets/compact_footer.py:70
+msgid "Choose column"
+msgstr "เลือกคอลัมน์"
+
+#: src/pykantui/tui/widgets/compact_footer.py:81
+#: src/pykantui/tui/widgets/dropdowns.py:115
+#: src/pykantui/tui/widgets/dropdowns.py:224
+msgid "Search"
+msgstr "ค้นหา"
+
+#: src/pykantui/tui/widgets/dropdowns.py:66
+msgid "Any state"
+msgstr "รัฐใดก็ได้"
+
+#: src/pykantui/tui/widgets/dropdowns.py:88
+msgid "Saved filter"
+msgstr "ตัวกรองที่บันทึกไว้"
+
+#: src/pykantui/tui/widgets/dropdowns.py:89
+msgid "Saved"
+msgstr "บันทึกแล้ว"
+
+#: src/pykantui/tui/widgets/dropdowns.py:105
+#: src/pykantui/tui/widgets/dropdowns.py:147
+#: src/pykantui/tui/widgets/dropdowns.py:160
+#, python-brace-format
+msgid "Any {field}"
+msgstr "{field} อะไรก็ได้"
+
+#: src/pykantui/tui/widgets/dropdowns.py:115
+msgid "title or notes…"
+msgstr "ชื่อเรื่องหรือหมายเหตุ..."
+
+#: src/pykantui/tui/widgets/dropdowns.py:189
+msgid "Created From"
+msgstr "สร้างจาก"
+
+#: src/pykantui/tui/widgets/dropdowns.py:193
+msgid "Created Until"
+msgstr "สร้างจนถึง"
+
+#: src/pykantui/tui/widgets/dropdowns.py:202
+#: src/pykantui/tui/widgets/dropdowns.py:218
+#: src/pykantui/tui/widgets/dropdowns.py:227
+msgid "Live provider queries are unavailable in this workspace"
+msgstr "คำค้นหาของผู้ให้บริการสดไม่พร้อมใช้งานในพื้นที่ทำงานนี้"
+
+#: src/pykantui/tui/widgets/dropdowns.py:208
+#, python-brace-format
+msgid "Type in a {language} expression to search issues…"
+msgstr "พิมพ์นิพจน์ {language} เพื่อค้นหาปัญหา..."
+
+#: src/pykantui/tui/widgets/menu_bar.py:201
+msgid "+ Save"
+msgstr "+ บันทึก"
+
+#: src/pykantui/tui/widgets/menu_bar.py:202
+msgid "Clear"
+msgstr "ชัดเจน"
+
+#: src/pykantui/tui/widgets/work_items.py:95
+msgid "Open the card to view or add provider comments."
+msgstr "เปิดการ์ดเพื่อดูหรือเพิ่มความคิดเห็นของผู้ให้บริการ"
+
+#: src/pykantui/tui/widgets/work_items.py:101
+msgid "Attachments are not stored in local Markdown."
+msgstr "สิ่งที่แนบมาจะไม่ถูกเก็บไว้ใน Markdown ในเครื่อง"
+
+#: src/pykantui/tui/widgets/work_items.py:109
+msgid "Key"
+msgstr "คีย์"
+
+#: src/pykantui/tui/widgets/work_items.py:109
+#: src/pykantui/workspace/outbound.py:65
+msgid "Status"
+msgstr "สถานะ"
+
+#: src/pykantui/tui/widgets/work_items.py:109
+#: src/pykantui/tui/widgets/work_items.py:111
+#: src/pykantui/workspace/outbound.py:60
+msgid "Summary"
+msgstr "สรุป"
+
+#: src/pykantui/workspace/models.py:67 src/pykantui/workspace/status.py:68
+#: src/pykantui/workspace/status.py:179
+msgid "conflict"
+msgid_plural "conflicts"
+msgstr[0] "ขัดแย้ง"
+
+#: src/pykantui/workspace/models.py:67
+msgid "provider check unavailable"
+msgstr "ไม่สามารถตรวจสอบผู้ให้บริการได้"
+
+#: src/pykantui/workspace/models.py:77
+#, python-brace-format
+msgid "      provider: {value}"
+msgstr "      ผู้ให้บริการ: {value}"
+
+#: src/pykantui/workspace/models.py:78
+#, python-brace-format
+msgid "      local: {value}"
+msgstr "      ภายในเครื่อง: {value}"
+
+#: src/pykantui/workspace/models.py:164
+#, python-brace-format
+msgid "READY TO SEND ({count})"
+msgstr "พร้อมส่ง ({count})"
+
+#: src/pykantui/workspace/models.py:166
+#, python-brace-format
+msgid "CREATE ({count})"
+msgstr "สร้าง ({count})"
+
+#: src/pykantui/workspace/models.py:172
+#, python-brace-format
+msgid "UPDATE ({count})"
+msgstr "อัปเดต ({count})"
+
+#: src/pykantui/workspace/models.py:182
+#, python-brace-format
+msgid "BLOCKED ({count})"
+msgstr "ถูกบล็อก ({count})"
+
+#: src/pykantui/workspace/outbound.py:72
+msgid "Parent"
+msgstr "รายการหลัก"
+
+#: src/pykantui/workspace/outbound.py:76
+msgid "provider default"
+msgstr "ค่าเริ่มต้นของผู้ให้บริการ"
+
+#: src/pykantui/workspace/outbound.py:79
+#, python-brace-format
+msgid "type: {value}"
+msgstr "ประเภท: {value}"
+
+#: src/pykantui/workspace/outbound.py:81
+#, python-brace-format
+msgid "column: {value}"
+msgstr "คอลัมน์: {value}"
+
+#: src/pykantui/workspace/outbound.py:83
+#, python-brace-format
+msgid "fields: {value}"
+msgstr "ฟิลด์: {value}"
+
+#: src/pykantui/workspace/status.py:66
+msgid "synced"
+msgstr "ซิงค์แล้ว"
+
+#: src/pykantui/workspace/status.py:67 src/pykantui/workspace/status.py:177
+msgid "unsent edit"
+msgid_plural "unsent edits"
+msgstr[0] "ยังไม่ส่ง"
+
+#: src/pykantui/workspace/status.py:69 src/pykantui/workspace/status.py:181
+msgid "not synced"
+msgstr "ยังไม่ซิงค์"
+
+#: src/pykantui/workspace/status.py:70 src/pykantui/workspace/status.py:175
+msgid "invalid Markdown"
+msgstr "Markdown ไม่ถูกต้อง"
+
+#: src/pykantui/workspace/status.py:183
+msgid "all synced"
+msgstr "ซิงค์ทั้งหมดแล้ว"
+
+#~ msgid "Authenticate with {provider}"
+#~ msgstr "ยืนยันตัวตนด้วย {provider}"
+
+#~ msgid "Enter an existing key"
+#~ msgstr "ป้อนคีย์ที่มีอยู่"
+
+#~ msgid "Opening {provider} authentication"
+#~ msgstr "Opening {provider} authentication"
+
+#~ msgid "Authentication page opened"
+#~ msgstr "Authentication page opened"
+
+#~ msgid "{credentials} · no OAuth app registration"
+#~ msgstr "{credentials} · ไม่ต้องลงทะเบียนแอป OAuth"
+
+#~ msgid "{credentials} · Power-Up registration required"
+#~ msgstr "{credentials} · ต้องลงทะเบียน Power-Up"
+
+#~ msgid "Set up {provider} authentication"
+#~ msgstr "ตั้งค่าการยืนยันตัวตน {provider}"
+
+#~ msgid "choose an authentication method"
+#~ msgstr "เลือกวิธีการยืนยันตัวตน"
+
+#~ msgid "Opening the board"
+#~ msgstr "กำลังเปิดบอร์ด"

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512"
+     role="img" aria-label="pykantui logo: three board columns of cards, one card active">
+
+  <!-- Cards, not columns. An earlier pass drew the columns as vertical rules
+       with cards clipped to them and it read as a mixing desk — vertical line
+       plus small horizontal pill is a fader, whatever you meant by it. What
+       says "board" instead is the stack: three columns of solid cards
+       thinning out left to right, which is what a board in flow looks like,
+       and which is still legible at 16 pixels. -->
+  <defs>
+    <linearGradient id="active" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0070F3"/>
+      <stop offset="100%" stop-color="#7928CA"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="#000000"/>
+  <rect x="7" y="7" width="498" height="498" rx="108" fill="none" stroke="#333333" stroke-width="12"/>
+
+  <!-- Nudged down so the staircase sits optically centred: the mass is all in
+       the top-left, and a bounding box centred on the square reads high. -->
+  <g transform="translate(0, 12)">
+    <!-- To Do: a full column -->
+    <g fill="#EDEDED">
+      <rect x="88" y="126" width="104" height="62" rx="18"/>
+      <rect x="88" y="212" width="104" height="62" rx="18"/>
+      <rect x="88" y="298" width="104" height="62" rx="18"/>
+    </g>
+
+    <!-- Doing: the focused card carries the accent -->
+    <rect x="204" y="126" width="104" height="62" rx="18" fill="url(#active)"/>
+    <rect x="204" y="212" width="104" height="62" rx="18" fill="#EDEDED" opacity="0.55"/>
+
+    <!-- Done -->
+    <rect x="320" y="126" width="104" height="62" rx="18" fill="#EDEDED" opacity="0.3"/>
+
+    <!-- the baseline the columns sit on, so three stacks read as one board -->
+    <rect x="88" y="386" width="336" height="12" rx="6" fill="#333333"/>
+  </g>
+</svg>

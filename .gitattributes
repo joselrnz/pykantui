@@ -1,0 +1,10 @@
+# Store all text as LF in the repository; check out with platform-native
+# endings. Ends the per-command CRLF warning spam on Windows clones.
+* text=auto
+
+# Binary payloads, never end-of-line converted or diffed as text.
+*.gif binary
+*.ico binary
+*.mo binary
+*.png binary
+*.whl binary
