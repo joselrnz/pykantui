@@ -181,7 +181,11 @@ class TaskEditScreen(ModalScreen[Task | None]):
     def on_descendant_focus(self, event: events.DescendantFocus) -> None:
         """Reveal the focused field inside a compact new-card dialog."""
         if any(ancestor.id == "edit-body" for ancestor in event.widget.ancestors):
-            event.widget.scroll_visible(animate=False, force=True, immediate=True)
+            widget = event.widget
+            # After the refresh, not immediately: focus can land while the
+            # dialog is still laying out, and a scroll computed from that
+            # stale region aims wrong once and never corrects itself.
+            self.call_after_refresh(lambda: widget.scroll_visible(animate=False, force=True, immediate=True))
 
     @on(Select.Changed, "#edit-column")
     def _status_changed(self, event: Select.Changed) -> None:

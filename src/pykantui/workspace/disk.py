@@ -135,6 +135,7 @@ def write_issues(
                 report.skipped.append((target.name, "invalid Markdown: local file was preserved"))
             continue
         notes = existing.file.notes if existing else ""
+        agent_block = existing.file.agent_block if existing else ""
         comments = comment_overrides.get(
             issue.issue_id,
             existing.file.comments if existing else (),
@@ -166,6 +167,7 @@ def write_issues(
             comments=comments,
             comment_drafts=comment_drafts,
             include_comment_region=include_comment_region,
+            agent_block=agent_block,
         )
         if existing and existing.path == target and _unchanged(workspace, target, rendered):
             reconciled.add(issue.issue_id)

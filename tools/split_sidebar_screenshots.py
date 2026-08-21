@@ -105,7 +105,7 @@ def _backend() -> ScreenshotBackend:
             metadata={
                 "key": "SCRUM-25",
                 "issue_type": "Story",
-                "assignee": "Jose Lorenzo",
+                "assignee": "Alex Morgan",
                 "reporter": "Platform team",
                 "priority": "High",
                 "labels": ["docs", "sync"],
@@ -132,7 +132,7 @@ def _jira_backend() -> OfflineJiraBackend:
                 "jira_key": "SCRUM-25",
                 "project": "SCRUM",
                 "issue_type": "Story",
-                "assignee": "Jose Lorenzo",
+                "assignee": "Alex Morgan",
                 "reporter": "Platform team",
                 "priority": "High",
                 "labels": ["docs", "sync"],

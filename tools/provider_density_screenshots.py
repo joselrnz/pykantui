@@ -71,7 +71,7 @@ def _populate(backend: BackendT) -> BackendT:
             metadata={
                 "key": "DEMO-1",
                 "issue_type": "Story",
-                "assignee": "Jose Lorenzo",
+                "assignee": "Alex Morgan",
                 "reporter": "Platform team",
                 "priority": "High",
                 "labels": ["tui", "layout"],

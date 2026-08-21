@@ -28,6 +28,7 @@ silently mis-parses ``title: Fix: the thing`` is worse than one that raises.
 from __future__ import annotations
 
 import re
+from collections.abc import Sequence
 from datetime import UTC, date, datetime
 from html import escape, unescape
 from pathlib import Path
@@ -58,6 +59,12 @@ COMMENT_DRAFTS_MARKER = (
     "<!-- pykantui:comment-drafts — yours until a confirmed sync sends them -->"
 )
 
+#: Local-only agent metadata: cross-card dependencies and delegated
+#: ownership, for MCP-driven workflows. Never read from or written to a
+#: provider -- exactly like ``pykantui:notes``. Always attribute-bearing, so
+#: (like ``pykantui:comment``) there is no static marker text, only the regex
+#: below and the ``format_agent_block``/``parse_agent_block`` helpers.
+
 #: Markers are *matched* on their token alone, so the human-readable text after
 #: it can be reworded -- or be missing entirely, in a file written by an older
 #: version -- without orphaning somebody's notes.
@@ -67,6 +74,7 @@ _COMMENTS_RE = re.compile(r"(?m)^\s*<!--\s*pykantui:comments\b[^>]*-->\s*$")
 _COMMENT_DRAFTS_RE = re.compile(r"(?m)^\s*<!--\s*pykantui:comment-drafts\b[^>]*-->\s*$")
 _COMMENT_START_RE = re.compile(r"(?m)^\s*<!--\s*pykantui:comment\s+([^>]*)-->\s*$")
 _COMMENT_DRAFT_START_RE = re.compile(r"(?m)^\s*<!--\s*pykantui:comment-draft\s+([^>]*)-->\s*$")
+_AGENT_RE = re.compile(r"(?m)^\s*<!--\s*pykantui:agent\s*([^>]*?)\s*-->\s*$")
 _ATTRIBUTE_RE = re.compile(r'([a-z][a-z0-9-]*)="([^"]*)"')
 _ANSI_RE = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]")
 _CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]")
@@ -142,6 +150,7 @@ class IssueFile:
         comments: tuple[RemoteComment, ...] = (),
         comment_drafts: tuple[CommentDraft, ...] = (),
         has_comment_region: bool = False,
+        agent_block: str = "",
         errors: tuple[str, ...] = (),
     ) -> None:
         self.front = front
@@ -150,6 +159,7 @@ class IssueFile:
         self.comments = comments
         self.comment_drafts = comment_drafts
         self.has_comment_region = has_comment_region
+        self.agent_block = agent_block
         self.errors = errors
 
     @property
@@ -175,6 +185,7 @@ def render(
     comments: tuple[RemoteComment, ...] = (),
     comment_drafts: tuple[CommentDraft, ...] = (),
     include_comment_region: bool = False,
+    agent_block: str = "",
 ) -> str:
     """Build the file for one issue, preserving ``notes`` underneath it.
 
@@ -257,6 +268,8 @@ def render(
         parts += ["", COMMENT_DRAFTS_MARKER]
         for draft in comment_drafts:
             parts += ["", *_render_comment_draft(draft)]
+    if agent_block:
+        parts += ["", f"<!-- pykantui:agent {agent_block} -->"]
     parts += ["", NOTES_MARKER]
 
     tail = notes.strip()
@@ -335,7 +348,7 @@ def parse(text: str) -> IssueFile:
     elif text.startswith("---"):
         errors.append("unterminated YAML frontmatter")
 
-    source, notes, comments, drafts, has_comment_region, comment_errors = _split_bodies(body)
+    source, notes, comments, drafts, has_comment_region, agent_block, comment_errors = _split_bodies(body)
     errors.extend(comment_errors)
     return IssueFile(
         front,
@@ -344,6 +357,7 @@ def parse(text: str) -> IssueFile:
         comments=comments,
         comment_drafts=drafts,
         has_comment_region=has_comment_region,
+        agent_block=agent_block,
         errors=tuple(errors),
     )
 
@@ -443,6 +457,30 @@ def _attributes(**values: str) -> str:
 def _marker_value(value: str) -> str:
     """Collapse untrusted metadata to one terminal-safe marker attribute."""
     return " ".join(_CONTROL_RE.sub("", _ANSI_RE.sub("", value)).split())
+
+
+def format_agent_block(blocked_by: Sequence[str] = (), assigned_agent: str = "") -> str:
+    """Build the ``pykantui:agent`` marker's attribute text.
+
+    Local-only metadata for MCP-driven workflows -- never read from or
+    written to a provider, exactly like ``pykantui:notes``. Empty when
+    neither field has a value, so a card that never uses this stays
+    byte-identical to one written before the feature existed.
+    """
+    return _attributes(
+        blocked_by=", ".join(item.strip() for item in blocked_by if item.strip()),
+        assigned_agent=assigned_agent.strip(),
+    )
+
+
+def parse_agent_block(raw: str) -> dict[str, str]:
+    """Recover the attributes from a ``pykantui:agent`` marker's raw text.
+
+    Callers should treat the result as read-only metadata: this is the file
+    format's own parser, so ``pykantui.mcp`` reads it through here rather
+    than hand-rolling a second one.
+    """
+    return {name: unescape(value) for name, value in _ATTRIBUTE_RE.findall(raw)}
 
 
 def _escape_comment_body(body: str) -> str:
@@ -572,6 +610,7 @@ def _split_bodies(
     tuple[RemoteComment, ...],
     tuple[CommentDraft, ...],
     bool,
+    str,
     tuple[str, ...],
 ]:
     match = _NOTES_RE.search(body)
@@ -579,6 +618,16 @@ def _split_bodies(
         owned, notes = body[: match.start()], body[match.end() :]
     else:
         owned, notes = body, ""
+
+    # Extracted up front, independent of where it actually sits relative to
+    # the comment region, so a hand-reordered file cannot corrupt comment or
+    # draft parsing by leaving this line as unrecognised trailing text.
+    agent_match = _AGENT_RE.search(owned)
+    if agent_match:
+        agent_block = agent_match.group(1).strip()
+        owned = owned[: agent_match.start()] + owned[agent_match.end() :]
+    else:
+        agent_block = ""
 
     comments_match = _COMMENTS_RE.search(owned)
     drafts_match = _COMMENT_DRAFTS_RE.search(owned)
@@ -612,6 +661,7 @@ def _split_bodies(
         comments,
         drafts,
         has_comment_region,
+        agent_block,
         tuple(errors),
     )
 

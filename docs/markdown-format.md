@@ -45,6 +45,8 @@ This comment came from the provider.
 This reply is still local.
 <!-- pykantui:comment-draft-end id="comment-01J5KX7K9Z8F2N4Q6P3S1T0VWA" -->
 
+<!-- pykantui:agent blocked-by="JPT-2, JPT-3" assigned-agent="codex" -->
+
 <!-- pykantui:notes — yours, never touched by a sync -->
 
 Whatever you write here survives forever.
@@ -59,11 +61,32 @@ Whatever you write here survives forever.
 | `pykantui:source` block | tracker description, locally editable | sent only after Sync confirmation; then rewritten from the provider response |
 | `pykantui:comments` block | provider discussion | refreshed for opted-in cards; local edits are never sent |
 | `pykantui:comment-drafts` block | you | sent as new comments only after Sync confirmation |
+| `pykantui:agent` marker | MCP tooling | **never sent to a provider** |
 | `pykantui:notes` block | you | **never touched** |
 
 The `notes` marker is the single most important line in the file. Without it,
 the second sync would silently eat whatever you typed, and nobody would trust
 the tool again.
+
+### The `pykantui:agent` marker
+
+```markdown
+<!-- pykantui:agent blocked-by="JPT-2, JPT-3" assigned-agent="codex" -->
+```
+
+Local-only metadata written by the MCP server (`kbn mcp serve`, see
+[`docs/mcp.md`](mcp.md)): which cards this one depends on (`blocked-by`, a
+comma-separated list of keys or local ids), and which AI agent it's been
+assigned to (`assigned-agent`, free text). Present only when set — an
+ordinary card never has this line, and one written before this feature
+existed round-trips unchanged.
+
+This is deliberately **not** the `assignee` field. `assignee` is real
+tracker identity, pushed back to the provider on sync; an unrecognized agent
+name there would either fail provider validation or silently overwrite a
+human's real assignment. `pykantui:agent` sits below the sync boundary
+entirely, the same as `notes` — never read from or written to a provider,
+surviving every sync exactly as you (or an agent) left it.
 
 ## Frontmatter
 

@@ -584,7 +584,7 @@ class TrelloProviderTests(unittest.TestCase):
         from pykantui.providers.trello.schemas import MemberWire
 
         member = MemberWire.model_validate(
-            {"id": "member-1", "fullName": "Jose", "username": "jose", "email": None}
+            {"id": "member-1", "fullName": "Alex", "username": "alex", "email": None}
         )
 
         self.assertEqual("", member_to_remote(member).email)
@@ -1955,7 +1955,7 @@ class PlaneShapeTests(unittest.TestCase):
 
         class BareListClient:
             def get(self, *_args: object, **_kwargs: object) -> object:
-                return [{"id": "member-1", "email": "jose@example.test"}]
+                return [{"id": "member-1", "email": "alex@example.test"}]
 
         api = PlaneApi(cast(JsonClient, BareListClient()), "w")
         members = api.members("p", ttl=0)

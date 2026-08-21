@@ -1,6 +1,6 @@
 <!-- markdownlint-disable-next-line MD041 -->
 <p>
-  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/header-no-frame.png" alt="pykantui — a terminal kanban board with a pluggable task backend" width="100%" style="display:block;" />
+  <img src="assets/header-no-frame.png" alt="pykantui — a terminal kanban board with a pluggable task backend" width="100%" style="display:block;" />
 </p>
 
 # pykantui
@@ -93,7 +93,7 @@ depth.
 ### View tags (rows component)
 
 <p>
-  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/demo-view-tags.gif" alt="Rows view action flow with rows, push/move/edit, and dialogs" width="100%" />
+  <img src="assets/demo-view-tags.gif" alt="Rows view action flow with rows, push/move/edit, and dialogs" width="100%" />
 </p>
 <ul>
   <li>Row actions: <strong>n</strong> / <strong>e</strong> / <strong>d</strong> for local edits</li>
@@ -106,7 +106,7 @@ depth.
 ### Kanban view
 
 <p>
-  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/demo-kanban.gif" alt="Kanban view action flow with drag, menu, and dialogs" width="100%" />
+  <img src="assets/demo-kanban.gif" alt="Kanban view action flow with drag, menu, and dialogs" width="100%" />
 </p>
 <ul>
   <li>Card movement is routed through the same confirmation and sync flow</li>
@@ -117,7 +117,7 @@ depth.
 ### Sidebar view
 
 <p>
-  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/demo-sidebar.gif" alt="Sidebar panel movement with inline details and panel controls" width="100%" />
+  <img src="assets/demo-sidebar.gif" alt="Sidebar panel movement with inline details and panel controls" width="100%" />
 </p>
 <ul>
   <li>Split behavior: <strong>[</strong> / <strong>]</strong> and <strong>\\</strong> panel control</li>
@@ -129,47 +129,47 @@ depth.
 
 ### Asana
 <p>
-  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-asana.gif" alt="pykantui Asana local action flow" width="100%" />
+  <img src="assets/live-real-9x1-asana.gif" alt="pykantui Asana local action flow" width="100%" />
 </p>
 
 ### ClickUp
 <p>
-  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-clickup.gif" alt="pykantui ClickUp local action flow" width="100%" />
+  <img src="assets/live-real-9x1-clickup.gif" alt="pykantui ClickUp local action flow" width="100%" />
 </p>
 
 ### GitHub
 <p>
-  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-github.gif" alt="pykantui GitHub local action flow" width="100%" />
+  <img src="assets/live-real-9x1-github.gif" alt="pykantui GitHub local action flow" width="100%" />
 </p>
 
 ### Jira
 <p>
-  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-jira.gif" alt="pykantui Jira local action flow" width="100%" />
+  <img src="assets/live-real-9x1-jira.gif" alt="pykantui Jira local action flow" width="100%" />
 </p>
 
 ### Linear
 <p>
-  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-linear.gif" alt="pykantui Linear local action flow" width="100%" />
+  <img src="assets/live-real-9x1-linear.gif" alt="pykantui Linear local action flow" width="100%" />
 </p>
 
 ### Monday
 <p>
-  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-monday.gif" alt="pykantui Monday local action flow" width="100%" />
+  <img src="assets/live-real-9x1-monday.gif" alt="pykantui Monday local action flow" width="100%" />
 </p>
 
 ### Plane
 <p>
-  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-plane.gif" alt="pykantui Plane local action flow" width="100%" />
+  <img src="assets/live-real-9x1-plane.gif" alt="pykantui Plane local action flow" width="100%" />
 </p>
 
 ### Shortcut
 <p>
-  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-shortcut.gif" alt="pykantui Shortcut local action flow" width="100%" />
+  <img src="assets/live-real-9x1-shortcut.gif" alt="pykantui Shortcut local action flow" width="100%" />
 </p>
 
 ### Trello
 <p>
-  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-trello.gif" alt="pykantui Trello local action flow" width="100%" />
+  <img src="assets/live-real-9x1-trello.gif" alt="pykantui Trello local action flow" width="100%" />
 </p>
 
 ## Contents
@@ -180,6 +180,7 @@ depth.
 - [Shaping the board](#shaping-the-board) — columns as configuration
 - [Cards from the command line](#cards-from-the-command-line)
 - [Backends](#backends) and [Provider workspaces](#provider-workspaces)
+- [AI agents (MCP)](#ai-agents-mcp)
 - [Where things are stored](#where-things-are-stored)
 - [Languages](#languages)
 - [How it is built](#how-it-is-built) — layout, actions, the write path
@@ -384,7 +385,7 @@ back to the rest.
 ### Defaults
 
 The starting shape, written out on first run from
-[`core/workflows.py`](https://github.com/joselrnz/pykantui/blob/main/src/pykantui/core/workflows.py):
+[`core/workflows.py`](src/pykantui/core/workflows.py):
 
 | # | Column | Jira statuses | Effect on landing |
 | --- | --- | --- | --- |
@@ -422,7 +423,7 @@ same way as in `kbn columns`. Editing a card is still the TUI's job (`e`).
 
 ## Backends
 
-[`Backend`](https://github.com/joselrnz/pykantui/blob/main/src/pykantui/sync/base.py) is the whole contract: four abstract
+[`Backend`](src/pykantui/sync/base.py) is the whole contract: four abstract
 methods plus optional writes. Anything store-specific rides in `Task.metadata`
 rather than becoming a domain field.
 
@@ -458,12 +459,34 @@ item. Credentials live in the global `auth.json`, outside the workspace.
 `api/` owns the shared HTTP transport, bounded read retries, pagination, error
 translation, and response caching. Each `providers/<name>/client.py` owns that
 service's authentication; its provider package owns endpoints and field
-mapping. See [Provider architecture](https://github.com/joselrnz/pykantui/blob/main/docs/provider-architecture.md).
+mapping. See [Provider architecture](docs/provider-architecture.md).
 
 Jira still preserves its real behavior inside `providers/jira`: Jira Cloud
 basic authentication, JQL search, board column discovery, issue creation,
 editable fields, comments, and workflow transitions. It no longer requires a
 separate SDK or a Jira-only `kbn jira` path.
+
+## AI agents (MCP)
+
+`kbn mcp serve` runs pykantui as a local MCP server — one tool surface for
+creating cards, setting dependencies between them, assigning cards to other
+agents, and moving them through columns, usable identically by Claude Code,
+Cursor, Copilot Chat, or Codex. Draft, dependency, and assignment changes are
+local and immediate; the one call that reaches a real tracker,
+`confirm_sync`, is gated by a token only `preview_sync` can issue — the same
+non-interactive path `kbn sync --yes` already proves, so both a supervised
+and a fully autonomous agent use the exact same tools.
+
+```bash
+pip install pykantui[mcp]
+kbn mcp serve
+
+# Streamable-HTTP socket connector:
+kbn mcp serve --transport socket --host 127.0.0.1 --port 9010
+```
+
+See [`docs/mcp.md`](docs/mcp.md)
+for the full tool list and the JSON/TOML each client expects.
 
 ## Where things are stored
 
@@ -491,6 +514,7 @@ src/pykantui/
   api/        shared HTTP transport, retry policy, cache, pagination and errors
   config/     where data lives (paths.py) and the saved board shape (board.py)
   core/       board logic no screen or store owns: actions, filters, workflows
+  mcp/        the `kbn mcp serve` tool surface for AI coding agents
   models/     the domain objects and the enums they are built from
   pages/      full-screen views pushed over the board: detail, edit, menu, confirm
   providers/  one package per service: field contract and endpoint mapping
@@ -518,7 +542,7 @@ Action.of(ActionKind.ACT, Act.CLEAR).chip_id   # "chip-act-clear"
 Action.from_chip_id("chip-act-clear")          # back again
 ```
 
-[`core/actions.py`](https://github.com/joselrnz/pykantui/blob/main/src/pykantui/core/actions.py) holds the vocabulary —
+[`core/actions.py`](src/pykantui/core/actions.py) holds the vocabulary —
 `ActionKind`, `Menu`, `Act`, `ViewToggle`, `ColumnCommand`, `HelpTopic` — as
 enums, so a misspelled action is a parse that returns `None` at one known place
 rather than a branch that silently never fires. The app dispatches with a single
@@ -594,16 +618,16 @@ docker compose run --rm smoke
 docker compose run --rm coverage
 ```
 
-Baseline: **ruff clean, mypy strict clean (376 files), 1,845 tests OK.**
+Baseline: **ruff clean, mypy strict clean (391 files), 1,899 tests OK.**
 The randomized coverage gate measures branches as well as statements and
 enforces the current 80% baseline. Raise the floor as mocked coverage expands
 across provider-specific remote paths.
 
 | Exhaustive shard | Tests |
 | --- | --- |
-| `test_[a-f]*.py` | 424 |
-| `test_[g-m]*.py` | 541 |
-| `test_[n-s]*.py` | 422 |
+| `test_[a-f]*.py` | 425 |
+| `test_[g-m]*.py` | 584 |
+| `test_[n-s]*.py` | 432 |
 | `test_[t-z]*.py` | 458 |
 
 Pass `-t .` so `tests` is imported as a package. Its `__init__.py` does two
@@ -633,78 +657,49 @@ The gif at the top is generated, not captured by hand:
 .\.venv\Scripts\python.exe -m pip install pillow
 .\.venv\Scripts\python.exe tools\gif.py          # assets/demo.gif
 
-# Capture local provider screenshots (no writes)
-.\.venv\Scripts\python.exe tools\live_workspace_screenshots.py \
-  --workspace-root .docker-workspace/live-e2e/PKT-E2E-20260814T122600Z-3bd16524 \
-  --output artifacts/live-provider-assets-PKT-ASSETS-20260814T202943 \
-  --run-tag PKT-ASSETS-20260814T202943 \
-  --stage provider-snapshots
+# Capture all nine privacy-safe provider journeys with the real compositor.
+$runTag = 'readme-provider-demo'
+.\.venv\Scripts\python.exe tools\provider_evidence.py \
+  --into artifacts/provider-evidence-public \
+  --run-tag $runTag
 
-# Drive a local add/edit/comment flow + screenshots on the same seeded run
-.\.venv\Scripts\python.exe tools\live_tui_actions.py \
-  --workspace-root .docker-workspace/live-e2e/PKT-E2E-20260814T122600Z-3bd16524 \
-  --artifacts artifacts/live-provider-assets-PKT-E2E-20260814T122600Z-3bd16524 \
-  --run-tag PKT-E2E-20260814T122600Z-3bd16524 \
-  --provider asana --provider clickup --provider github --provider jira --provider linear --provider monday --provider shortcut --provider trello
+# Assemble the nine provider GIFs and aggregate timeline.
+.\.venv\Scripts\python.exe tools\readme_provider_gifs.py \
+  --evidence-root artifacts/provider-evidence-public \
+  --run-tag $runTag \
+  --assets assets
 ```
-Plane is currently excluded because this environment returns `403` when Plane
-state refresh is attempted for the configured workspace.
 
-[`tools/gif.py`](https://github.com/joselrnz/pykantui/blob/main/tools/gif.py) runs the app under Textual's pilot against a
+The provider gallery is deterministic and network-free. It uses synthetic
+enterprise projects, 27 cards per provider, and no credentials or account data.
+Each GIF covers the board, local create, Markdown edit, TUI edit, move, comment,
+sync result, source-of-truth comparison, and conflict review.
+
+[`tools/gif.py`](tools/gif.py) runs the app under Textual's pilot against a
 throwaway in-memory board, reads each screen straight off the compositor as
 styled cells, draws it with Pillow, and stitches the frames with ffmpeg. No
 terminal recorder, no browser and no pty, which is why it runs the same on a
 laptop and in CI. Edit the `SCRIPT` list at the top of the file to change what
 the demo does.
 
-[`tools/screenshots.py`](https://github.com/joselrnz/pykantui/blob/main/tools/screenshots.py) does the same for stills, writing
+[`tools/screenshots.py`](tools/screenshots.py) does the same for stills, writing
 SVGs — text, so they render crisply at any size and a diff shows what actually
 changed instead of a wall of binary.
 
-[`tools/demo.tape`](https://github.com/joselrnz/pykantui/blob/main/tools/demo.tape) is a [vhs](https://github.com/charmbracelet/vhs)
+[`tools/demo.tape`](tools/demo.tape) is a [vhs](https://github.com/charmbracelet/vhs)
 script for the same demo, kept for anyone who has vhs working: it needs ttyd and
 a headless Chromium, which is exactly the machinery `tools/gif.py` avoids.
 
-## Live verification: one real card per provider
+## Provider verification
 
-We keep a reproducible proof bundle for real-provider creation/sync validation:
-
-- Run tag: `PKT-LIVE-REAL-20260814T133200Z`
-- Workspace root (inside the repo, gitignored):
-  `.docker-workspace\live-e2e\PKT-E2E-20260814T122600Z-3bd16524`
-- Validation report:
-  `...\\live-create-artifacts\\validation-PKT-LIVE-REAL-20260814T133200Z.json`
-- Screenshots (PNG+SVG): one image per provider, per layout (kanban/rows/split):
-  `...\\live-create-artifacts\\PKT-LIVE-REAL-20260814T133200Z\\live-local\\<provider>\\live-real-9x1-*.{png,svg}`
-- GIFs:
-  `assets/live-real-9x1-asana.gif`
-  `assets/live-real-9x1-clickup.gif`
-  `assets/live-real-9x1-github.gif`
-  `assets/live-real-9x1-jira.gif`
-  `assets/live-real-9x1-linear.gif`
-  `assets/live-real-9x1-monday.gif`
-  `assets/live-real-9x1-plane.gif`
-  `assets/live-real-9x1-shortcut.gif`
-  `assets/live-real-9x1-trello.gif`
-
-```powershell
-# Rebuild exactly this bundle in place (no provider writes in this script)
-.\.venv\Scripts\python.exe tools\live_workspace_screenshots.py \
-  --workspace-root .docker-workspace/live-e2e/PKT-E2E-20260814T122600Z-3bd16524 \
-  --output .docker-workspace/live-e2e/PKT-E2E-20260814T122600Z-3bd16524/live-create-artifacts/PKT-LIVE-REAL-20260814T133200Z/live-local \
-  --run-tag PKT-LIVE-REAL-20260814T133200Z \
-  --stage live-real-9x1
-
-# Recreate the per-provider GIFs from the provider PNG captures.
-# (This script uses Pillow and does not require the shell-level filtergraph.
-# It includes kanban/rows/split frames per provider.)
-.\.venv\Scripts\python.exe -c "from pathlib import Path; from PIL import Image; base=Path('.docker-workspace/live-e2e/PKT-E2E-20260814T122600Z-3bd16524/live-create-artifacts/PKT-LIVE-REAL-20260814T133200Z/live-local'); out=Path('assets'); providers=['asana','clickup','github','jira','linear','monday','plane','shortcut','trello'];\nfor p in providers:\n    d=base/p\n    frames=[Image.open(d/'live-real-9x1-kanban.png').convert('RGB'), Image.open(d/'live-real-9x1-rows.png').convert('RGB'), Image.open(d/'live-real-9x1-split.png').convert('RGB')]\n    frames[0].save(out/f'live-real-9x1-{p}.gif', save_all=True, append_images=frames[1:], duration=1400, loop=0)"
-# Combined GIF across all provider captures (one frame per provider):
-.\.venv\Scripts\python.exe -c "from pathlib import Path; from PIL import Image; import re\nbase=Path('.docker-workspace/live-e2e/PKT-E2E-20260814T122600Z-3bd16524/live-create-artifacts/PKT-LIVE-REAL-20260814T133200Z/live-local'); out=Path('assets')/ 'live-real-9x1.gif'; files=sorted(list(base.glob('*\\live-real-9x1-*.png')), key=lambda p: p.as_posix());\nframes=[]\nfor p in files:\n    if re.search(r'/[a-z]+/live-real-9x1-(kanban|rows|split)\\.png$', p.as_posix()):\n        frames.append(Image.open(p).convert('RGB'))\nframes[0].save(out, save_all=True, append_images=frames[1:], duration=800, loop=0)"
-```
-
-This run is used as the current all-provider real-card evidence bundle (create/edit
-path + readback + TUI capture).
+The checked-in GIFs are public product demonstrations, not claims about a live
+provider account. Network-free cross-provider evidence is generated by
+[`tools/provider_evidence.py`](tools/provider_evidence.py). The separate,
+credentialed certification protocol is documented in
+[`docs/live-provider-e2e-certification.md`](docs/live-provider-e2e-certification.md),
+and its private receipts and screenshots remain gitignored. Release privacy
+controls and reproduction commands are tracked in
+[`docs/release-privacy-audit.md`](docs/release-privacy-audit.md).
 
 ## License
 

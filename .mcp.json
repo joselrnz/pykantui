@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "pykantui": {
+      "type": "stdio",
+      "command": "kbn",
+      "args": ["mcp", "serve"],
+      "env": {
+        "PYTHONPATH": "src"
+      }
+    }
+  }
+}

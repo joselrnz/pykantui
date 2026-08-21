@@ -49,7 +49,7 @@ class OfflineJiraProvider(Provider):
                 status=column.name,
                 issue_type=issue_type,
                 priority=priority,
-                assignee="Jose Lorenzo",
+                assignee="Alex Morgan",
             )
             for index, title, column, issue_type, priority in (
                 (31, "Refine provider-aware filters", TODO, "Story", "High"),
@@ -60,7 +60,7 @@ class OfflineJiraProvider(Provider):
         ]
 
     def verify(self) -> RemoteUser:
-        return RemoteUser(display_name="Jose Lorenzo")
+        return RemoteUser(display_name="Alex Morgan")
 
     def list_projects(self) -> list[RemoteProject]:
         return [PROJECT]

@@ -36,15 +36,15 @@ COLUMNS = ["To Do", "In Progress", "Needs Review", "Waiting", "Done"]
 
 #: (id, column, title, assignee, priority, type, days until due)
 CARDS: list[tuple[int, int, str, str, str, str, int | None]] = [
-    (1, 1, "Set up payment logging", "Jose Lorenzo", "High", "Task", 5),
-    (2, 1, "Rotate the Jira API token", "Jose Lorenzo", "Highest", "Task", 1),
+    (1, 1, "Set up payment logging", "Alex Morgan", "High", "Task", 5),
+    (2, 1, "Rotate the Jira API token", "Alex Morgan", "Highest", "Task", 1),
     (3, 1, "Rate-limit the search endpoint", "Priya N", "Medium", "Story", 12),
     (4, 1, "Backfill the audit table", "Sam O", "Low", "Task", None),
-    (5, 2, "Upgrade Postgres to 16", "Jose Lorenzo", "High", "Story", 3),
+    (5, 2, "Upgrade Postgres to 16", "Alex Morgan", "High", "Story", 3),
     (6, 2, "Fix timezone drift on due dates", "Priya N", "Medium", "Bug", -2),
     (7, 3, "Confirm the status names with QA", "Sam O", "Medium", "Task", 4),
-    (8, 4, "Waiting on the vendor SSO answer", "Jose Lorenzo", "Low", "Task", None),
-    (9, 5, "Ship 0.1.0", "Jose Lorenzo", "High", "Story", None),
+    (8, 4, "Waiting on the vendor SSO answer", "Alex Morgan", "Low", "Task", None),
+    (9, 5, "Ship 0.1.0", "Alex Morgan", "High", "Story", None),
     (10, 5, "Write the install docs", "Priya N", "Low", "Task", None),
 ]
 
@@ -83,7 +83,7 @@ def seeded() -> JsonBackend:
                     "assignee": assignee,
                     "priority": priority,
                     "issue_type": kind,
-                    "reporter": "Jose Lorenzo",
+                    "reporter": "Alex Morgan",
                     "sprint": "SCRUM Sprint 3",
                     "labels": ["backend"] if kind != "Bug" else ["backend", "regression"],
                     "private_notes": "Local-only implementation notes.",

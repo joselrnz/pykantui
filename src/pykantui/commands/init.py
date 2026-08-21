@@ -486,6 +486,7 @@ def _create(
         project_id=project.project_id,
         key=project.key,
         name=args.name or project.name,
+        owner=project.owner,
         config=dict(config),
         column_style=ColumnStyle(args.columns),
     )
@@ -568,7 +569,7 @@ def _write_readme(workspace: Path, project: Project) -> bool:
     write_text_atomic(
         target,
         f"# {project.name or project.key or project.provider}\n\n"
-        f"Synced from **{project.provider}** by [pykantui](https://github.com/joselrnz/pykantui).\n\n"
+        f"Synced from **{project.provider}** by pykantui.\n\n"
         "One markdown file per issue. Edit them, then run `kbn sync` to send the\n"
         "changes back. Notes below the `pykantui:notes` marker are yours and are\n"
         "never overwritten.\n\n"

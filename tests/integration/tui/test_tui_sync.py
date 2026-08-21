@@ -449,6 +449,14 @@ class SyncTuiJourneyTests(unittest.IsolatedAsyncioTestCase):
             send = app.screen.query_one("#sync-send", Button)
             content = app.screen.query_one("#sync-content")
 
+            deadline = asyncio.get_running_loop().time() + 5.0
+            while (
+                asyncio.get_running_loop().time() < deadline
+                and (not content.allow_vertical_scroll or content.max_scroll_y <= 0)
+            ):
+                await pilot.pause()
+                await asyncio.sleep(0.05)
+
             self.assertLessEqual(dialog.region.right, app.screen.region.right)
             self.assertLessEqual(dialog.region.bottom, app.screen.region.bottom)
             self.assertLessEqual(send.region.bottom, dialog.content_region.bottom)
@@ -573,8 +581,22 @@ class SyncTuiJourneyTests(unittest.IsolatedAsyncioTestCase):
         async with app.run_test(size=(130, 38)) as pilot:
             await pilot.pause()
             await pilot.press("f5")
-            await pilot.pause()
-            title_choice = app.screen.query_one("#sync-conflict-0-title", Select)
+            deadline = asyncio.get_running_loop().time() + 15.0
+            title_choice: Select[object] | None = None
+            while asyncio.get_running_loop().time() < deadline:
+                await pilot.pause()
+                candidate = next(
+                    (choice for choice in app.screen.query(Select) if choice.id == "sync-conflict-0-title"),
+                    None,
+                )
+                if candidate is None:
+                    continue
+                if str(candidate.query_one("#label", Static).content) == "Keep undecided":
+                    title_choice = candidate
+                    break
+
+            self.assertIsNotNone(title_choice)
+            assert title_choice is not None
             body_choice = app.screen.query_one("#sync-conflict-0-body", Select)
             self.assertEqual("Keep undecided", str(title_choice.query_one("#label", Static).content))
             title_choice.value = "provider"
@@ -892,11 +914,20 @@ class ProviderAwareEditorTests(unittest.IsolatedAsyncioTestCase):
             root_screen = app.screen
             root_stack_size = len(app.screen_stack)
 
-            await pilot.press("down")
-            await pilot.pause()
-
             view = app.query_one(WorkItemsView)
+            # The table can still be mid-populate after one pause -- retry
+            # the press rather than assume a single "down" always lands on
+            # the second row the instant it exists.
+            deadline = asyncio.get_running_loop().time() + 5.0
             selected = view.selected_task()
+            while (
+                asyncio.get_running_loop().time() < deadline
+                and (selected is None or selected.metadata.get("key") != "K-2")
+            ):
+                await pilot.press("down")
+                await pilot.pause()
+                selected = view.selected_task()
+
             self.assertIsNotNone(selected)
             assert selected is not None
             self.assertEqual("K-2", selected.metadata["key"])

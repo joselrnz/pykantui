@@ -17,6 +17,7 @@ import tempfile
 import time
 import xml.etree.ElementTree as ET
 from collections.abc import Mapping
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, cast
 
@@ -66,6 +67,63 @@ _PROVIDER_TYPES: dict[str, tuple[str, ...]] = {
 _SAFE_TAG = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$")
 _DRIVE_PATH = re.compile(r"^[A-Za-z]:[/\\]")
 _SECRET_KEYS = ("token", "secret", "password", "authorization", "cookie", "api_key", "apikey")
+
+_ENTERPRISE_PROJECTS = {
+    "asana": ("OPS", "Portfolio Operations"),
+    "clickup": ("CLP", "Client Platform"),
+    "github": ("API", "API Platform"),
+    "jira": ("PAY", "Payment Modernization"),
+    "linear": ("INF", "Product Infrastructure"),
+    "monday": ("LCH", "Launch Operations"),
+    "plane": ("COR", "Core Services"),
+    "shortcut": ("MOB", "Mobile Engineering"),
+    "trello": ("SEC", "Security Program"),
+}
+_ENTERPRISE_CARD_TITLES = (
+    "Finalize SSO rollout",
+    "Rotate production signing keys",
+    "Publish incident response runbook",
+    "Migrate audit log pipeline",
+    "Add regional failover checks",
+    "Resolve billing reconciliation gaps",
+    "Harden webhook signature validation",
+    "Automate database recovery drill",
+    "Reduce checkout latency",
+    "Update data retention controls",
+    "Add accessibility keyboard audit",
+    "Reconcile usage metering",
+    "Expand contract test coverage",
+    "Document disaster recovery ownership",
+    "Patch dependency vulnerability",
+    "Add customer export throttling",
+    "Validate backup restoration",
+    "Improve queue saturation alerts",
+    "Add deployment approval policy",
+    "Complete privacy impact review",
+    "Migrate object storage lifecycle",
+    "Fix duplicate notification events",
+    "Add tenant isolation metrics",
+    "Review administrator permissions",
+    "Automate release rollback checks",
+    "Update API pagination contract",
+    "Prepare quarterly reliability report",
+)
+
+
+@dataclass(frozen=True, slots=True)
+class EnterpriseFixture:
+    """Synthetic, provider-specific data used only for public visual assets."""
+
+    project_key: str
+    project_name: str
+    card_titles: tuple[str, ...]
+
+
+def build_enterprise_fixture(provider_name: str) -> EnterpriseFixture:
+    """Return a deterministic public fixture with no account-derived identity."""
+
+    key, name = _ENTERPRISE_PROJECTS[provider_name]
+    return EnterpriseFixture(project_key=key, project_name=name, card_titles=_ENTERPRISE_CARD_TITLES)
 
 
 def build_edge_cases() -> list[dict[str, object]]:
@@ -430,6 +488,7 @@ async def _capture_provider_journey(
     from pykantui.commands.new import write_draft
     from pykantui.models import BoardLayout
     from pykantui.pages.detail import TaskDetailScreen
+    from pykantui.pages.sync import SyncConfirmScreen
     from pykantui.sync.provider import ProviderBackend
     from pykantui.tracker.models import CommentDraft, IssueDraft, RemoteComment, RemoteIssue, RemoteProject
     from pykantui.tracker.registry import get
@@ -478,10 +537,11 @@ async def _capture_provider_journey(
             return made
 
     spec = get(provider_name).spec
+    fixture = build_enterprise_fixture(provider_name)
     project = RemoteProject(
-        project_id=f"{provider_name}-evidence",
-        key=provider_name.upper(),
-        name=f"{spec.label} evidence board",
+        project_id=f"{provider_name}-public-demo",
+        key=fixture.project_key,
+        name=fixture.project_name,
     )
     prefix = provider_name[:3].upper()
     provider = EvidenceProvider(
@@ -489,8 +549,8 @@ async def _capture_provider_journey(
             issue(
                 f"{prefix}-{number:02d}",
                 COLUMNS[(number - 1) % len(COLUMNS)],
-                title=f"{spec.label} edge case {number:02d}",
-                body=f"Provider Markdown **body** {number:02d} · Unicode 測試 ✓",
+                title=fixture.card_titles[number - 1],
+                body=f"Program work item {number:02d} · Markdown, Unicode 測試, and audit history preserved.",
                 issue_type=_PROVIDER_TYPES[provider_name][0],
                 labels=("evidence", f"case-{number:02d}"),
             )
@@ -508,7 +568,7 @@ async def _capture_provider_journey(
         action = by_phase[phase]
         artifact = root / str(action["screenshots"]["svg"])
         artifact.parent.mkdir(parents=True, exist_ok=True)
-        app.title = f"{spec.label} · {phase} · NETWORK-FREE EVIDENCE"
+        app.title = f"{spec.label} · {fixture.project_name}"
         app.save_screenshot(str(artifact.resolve()))
 
     app = KanbanApp(backend, confirm_moves=False)
@@ -527,8 +587,8 @@ async def _capture_provider_journey(
             record,
             TODO,
             IssueDraft(
-                title=f"Local {spec.label} create · not sent",
-                body="Created locally in Markdown; provider writes remain zero.",
+                title="Document disaster recovery ownership",
+                body="Created locally in Markdown and awaiting an approved sync.",
             ),
         )
         backend.reload_local()
@@ -540,8 +600,8 @@ async def _capture_provider_journey(
         original = card_path.read_text(encoding="utf-8")
         card_path.write_text(
             original.replace(
-                f"title: {spec.label} edge case 01",
-                f"title: Markdown-edited {spec.label} card",
+                f"title: {fixture.card_titles[0]}",
+                "title: Publish incident response runbook",
             ),
             encoding="utf-8",
         )
@@ -557,7 +617,7 @@ async def _capture_provider_journey(
         if not isinstance(app.screen, TaskDetailScreen):
             raise RuntimeError(f"{spec.label} TUI editor did not open")
         summary = app.screen.query_one("#detail-summary", Input)
-        summary.value = f"TUI-edited {spec.label} card"
+        summary.value = "Finalize incident response runbook"
         save(app, "tui-edit")
         await pilot.press("ctrl+s")
         await pilot.pause()
@@ -572,7 +632,7 @@ async def _capture_provider_journey(
         save(app, "move")
 
         task = next(item for item in backend.get_tasks() if item.metadata.get("key") == f"{prefix}-01")
-        drafted = backend.save_comment_draft(task, f"Local {spec.label} comment · sync to send")
+        drafted = backend.save_comment_draft(task, "Security review complete; release approval pending.")
         if not drafted.ok:
             raise RuntimeError(drafted.message)
         await app.action_refresh_board()
@@ -594,7 +654,8 @@ async def _capture_provider_journey(
 
         await asyncio.to_thread(backend.sync_now, confirm=lambda _plan: True, commit=False)
         app.set_board_layout(BoardLayout.KANBAN)
-        await app.action_refresh_board()
+        await pilot.pause()
+        await app.workers.wait_for_complete()
         await pilot.pause()
         save(app, "sync-result")
 
@@ -608,22 +669,25 @@ async def _capture_provider_journey(
         text = card_path.read_text(encoding="utf-8")
         card_path.write_text(
             text.replace(
-                f"title: TUI-edited {spec.label} card",
-                f"title: Local conflict for {spec.label}",
+                "title: Finalize incident response runbook",
+                "title: Resolve regional rollout conflict",
             ),
             encoding="utf-8",
         )
         provider._issues = [
-            item.model_copy(update={"title": f"Provider conflict for {spec.label}"})
+            item.model_copy(update={"title": "Provider changed regional rollout scope"})
             if item.key == f"{prefix}-01"
             else item
             for item in provider._issues
         ]
         await pilot.press("f5")
-        for _ in range(12):
+        for _ in range(40):
             await pilot.pause()
-            if app.screen.id != "_default":
+            if isinstance(app.screen, SyncConfirmScreen) and app.screen.query("#sync-dialog"):
                 break
+        else:
+            raise RuntimeError(f"{spec.label} conflict preview did not finish composing")
+        await pilot.pause()
         save(app, "conflict")
 
 

@@ -95,7 +95,10 @@ class IssueWire(LinearWireModel):
     id: str = ""
     identifier: str = ""
     title: str = ""
-    description: str = ""
+    # Linear returns an explicit `null`, not a missing key, for an issue with
+    # no description -- `str = ""` only covers the key being absent, so a
+    # real, undescribed issue failed this model's validation entirely.
+    description: str | None = None
     url: str = ""
     priorityLabel: str = ""  # noqa: N815 - provider wire key
     sortOrder: int | float | str | None = None  # noqa: N815

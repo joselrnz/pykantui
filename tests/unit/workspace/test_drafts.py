@@ -580,6 +580,30 @@ class DraftLayoutTests(DraftCase):
         expected = layout.column_folder(TODO, layout.DEFAULT_COLUMN_STYLE)
         self.assertEqual(expected, path.parent.name)
 
+    def test_an_owner_repo_draft_lands_beside_its_pulled_issues(self) -> None:
+        """Regression: ``Project`` dropped ``owner`` on the way to disk, so a
+        GitHub draft landed in ``projects/repo/`` while the pull that had
+        already run wrote real issues to ``projects/owner/repo/`` -- two
+        disconnected trees the sync engine never reconciled."""
+        provider = CreatingProvider()
+        github_project = RemoteProject(project_id="acme/widgets", key="widgets", owner="acme")
+        workspace_project = Project(
+            provider=provider.spec.name,
+            project_id=github_project.project_id,
+            key=github_project.key,
+            owner=github_project.owner,
+        )
+
+        path = write_draft(
+            self.ws,
+            workspace_project,
+            TODO,
+            IssueDraft(title="Port the picker", column_id=TODO.column_id, column_name=TODO.name),
+        )
+
+        expected_dir = layout.project_dir(self.ws, provider.spec.name, github_project)
+        self.assertEqual(expected_dir, path.parent.parent)
+
 
 def _cli_module() -> Any:
     """The ``pykantui.cli.main`` *module*.

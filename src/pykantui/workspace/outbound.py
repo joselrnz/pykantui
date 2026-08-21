@@ -323,6 +323,7 @@ def create_drafts(
                     column_name=layout.column_folder(target_column, column_style),
                     notes=entry.file.notes,
                     provider=provider.spec.name,
+                    agent_block=entry.file.agent_block,
                     comments=tuple(
                         comment.model_copy(update={"issue_id": issue.issue_id})
                         for comment in entry.file.comments

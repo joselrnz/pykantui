@@ -50,7 +50,7 @@ def _backend(workspace: Path) -> ProviderBackend:
                 TODO,
                 title="Refine local-first sync confirmation",
                 body="Explain exactly what stays in Markdown and what Sync sends to Jira.",
-                assignee="Jose Lorenzo",
+                assignee="Alex Morgan",
                 issue_type="Story",
                 priority="High",
                 labels=("docs", "sync"),

@@ -37,7 +37,7 @@ def issue_to_remote(issue: IssueWire) -> RemoteIssue:
         key=issue.identifier,
         title=issue.title,
         column_id=issue.state.id,
-        body=issue.description,
+        body=issue.description or "",
         status=issue.state.name,
         priority="" if priority.lower() in _EMPTY_PRIORITY else priority,
         assignee=assignee.displayName,

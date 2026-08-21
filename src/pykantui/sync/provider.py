@@ -165,6 +165,7 @@ class ProviderBackend(Backend):
         self._paths = {}
         self._source_revisions = {}
         self._notes: dict[int, str] = {}
+        self._agent_blocks: dict[int, str] = {}
         self._comments: dict[int, tuple[RemoteComment | CommentDraft, ...]] = {}
         self._status: dict[int, SyncStatus] = {}
         for number, path in enumerate(
@@ -216,6 +217,7 @@ class ProviderBackend(Backend):
             self._paths[number] = path
             self._source_revisions[number] = revision_after
             self._notes[number] = parsed.notes
+            self._agent_blocks[number] = parsed.agent_block
             self._comments[number] = (*parsed.comments, *parsed.comment_drafts)
             # Computed from local files only -- a card showing an unsent edit
             # must not cost a request, or the board stops being instant.
@@ -259,6 +261,9 @@ class ProviderBackend(Backend):
             if number in kept_numbers
         }
         self._notes = {number: notes for number, notes in self._notes.items() if number in kept_numbers}
+        self._agent_blocks = {
+            number: block for number, block in self._agent_blocks.items() if number in kept_numbers
+        }
         self._comments = {
             number: comments for number, comments in self._comments.items() if number in kept_numbers
         }
@@ -274,6 +279,7 @@ class ProviderBackend(Backend):
             number += 1
             self._issues[number] = issue
             self._notes[number] = ""
+            self._agent_blocks[number] = ""
             self._comments[number] = ()
             self._status[number] = SyncStatus.SYNCED
             self._theirs.add(number)
@@ -300,6 +306,7 @@ class ProviderBackend(Backend):
             number += 1
             self._issues[number] = issue
             self._notes[number] = ""
+            self._agent_blocks[number] = ""
             self._comments[number] = ()
             self._status[number] = SyncStatus.SYNCED
             self._theirs.add(number)
@@ -455,6 +462,7 @@ class ProviderBackend(Backend):
                         column_name=folder,
                         notes=parsed.notes,
                         provider=self.provider.spec.name,
+                        agent_block=parsed.agent_block,
                         comments=parsed.comments,
                         comment_drafts=(*parsed.comment_drafts, new_draft),
                         include_comment_region=True,
@@ -518,6 +526,7 @@ class ProviderBackend(Backend):
                         column_name=folder,
                         notes=parsed.notes,
                         provider=self.provider.spec.name,
+                        agent_block=parsed.agent_block,
                         comments=comments,
                         comment_drafts=parsed.comment_drafts,
                         include_comment_region=True,
@@ -748,6 +757,7 @@ class ProviderBackend(Backend):
                 column_name=layout.column_folder(column, self.column_style),
                 notes=self._notes.get(number, ""),
                 provider=name,
+                agent_block=self._agent_blocks.get(number, ""),
             ),
         )
         return target
@@ -863,6 +873,7 @@ class ProviderBackend(Backend):
             project_id=self.project.project_id,
             key=self.project.key,
             name=self.project.name,
+            owner=self.project.owner,
             column_style=self.column_style,
         )
         write_draft(self.workspace, record, column, draft)

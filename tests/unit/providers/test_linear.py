@@ -17,8 +17,8 @@ import unittest
 from typing import Any
 
 from pykantui.providers.linear import LinearProvider, _is_uuid
-from pykantui.providers.linear.mapper import team_to_remote
-from pykantui.providers.linear.schemas import TeamWire
+from pykantui.providers.linear.mapper import issue_to_remote, team_to_remote
+from pykantui.providers.linear.schemas import IssueWire, TeamWire
 from pykantui.tracker.errors import ProviderError
 
 TEAM_UUID = "aaaa1111-bbbb-2222-cccc-333344445555"
@@ -141,6 +141,22 @@ class TeamResolutionTests(unittest.TestCase):
         )
 
         self.assertEqual("", team_to_remote(team).description)
+
+    def test_live_issue_with_null_description_maps_to_an_empty_body(self) -> None:
+        """The same null-for-empty quirk, on an issue rather than a team --
+        found live: a real team with even one undescribed issue failed this
+        model's validation entirely, on every sync, not just at that issue."""
+
+        issue = IssueWire.model_validate(
+            {
+                "id": "issue-1",
+                "identifier": "OPS-1",
+                "title": "No description set",
+                "description": None,
+            }
+        )
+
+        self.assertEqual("", issue_to_remote(issue).body)
 
 
 class UuidShapeTests(unittest.TestCase):

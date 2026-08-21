@@ -8,7 +8,10 @@ reachable outside the scrolling content.
 
 from __future__ import annotations
 
+import asyncio
+import time
 import unittest
+from collections.abc import Callable
 from unittest.mock import patch
 
 from textual.containers import VerticalScroll
@@ -36,6 +39,23 @@ async def settle(pilot: Pilot[None]) -> None:
     await pilot.pause()
     await pilot.app.workers.wait_for_complete()
     await pilot.pause()
+
+
+async def wait_for(pilot: Pilot[None], condition: Callable[[], bool], *, timeout: float = 5.0) -> None:
+    """Drain until ``condition`` holds; fail loudly instead of hanging.
+
+    A focus-triggered scroll is deferred a frame with ``call_after_refresh``
+    (see ``pages/detail.py`` and ``pages/edit.py``), so one ``pilot.pause()``
+    can read stale geometry the same way it can for an in-board scroll --
+    same race, same fix, applied here.
+    """
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
+        await pilot.pause()
+        if condition():
+            return
+        await asyncio.sleep(0.05)
+    raise AssertionError(f"condition never became true after {timeout}s")
 
 
 class VerticalContentLayoutTests(unittest.IsolatedAsyncioTestCase):
@@ -160,6 +180,10 @@ class VerticalContentLayoutTests(unittest.IsolatedAsyncioTestCase):
                 private_notes = app.screen.query_one("#detail-private-notes", TextArea)
                 body = app.screen.query_one("#detail-body", VerticalScroll)
 
+                # Not settle(): the popup stays open for the rest of this
+                # test, and settle()'s worker-drain hangs forever on a
+                # worker parked awaiting a dismissal that never comes.
+                await wait_for(pilot, lambda: description.region.height > 0)
                 self.assertGreaterEqual(description.region.height, MIN_WRITING_HEIGHT)
                 self.assertGreaterEqual(private_notes.region.height, MIN_WRITING_HEIGHT)
                 self.assertEqual(0, body.max_scroll_x)
@@ -209,13 +233,17 @@ class VerticalContentLayoutTests(unittest.IsolatedAsyncioTestCase):
                 save = app.screen.query_one("#detail-primary", Button)
                 close = app.screen.query_one("#detail-close", Button)
 
+                # Not settle(): the popup stays open for the rest of this
+                # test, and settle()'s worker-drain hangs forever on a
+                # worker parked awaiting a dismissal that never comes.
+                await wait_for(pilot, lambda: body.max_scroll_y > 0)
                 self.assertTrue(body.allow_vertical_scroll)
                 self.assertGreater(body.max_scroll_y, 0)
                 self.assertEqual(0, body.max_scroll_x)
                 self.assertEqual(1, body.styles.scrollbar_size_vertical)
 
                 private_notes.focus()
-                await pilot.pause()
+                await wait_for(pilot, lambda: body.scroll_y > 0)
                 self.assertGreater(body.scroll_y, 0)
                 self.assertTrue(private_notes.has_focus)
                 # Textual reserves the bottom border row of the focused
@@ -250,6 +278,10 @@ class VerticalContentLayoutTests(unittest.IsolatedAsyncioTestCase):
             save = app.screen.query_one("#edit-save", Button)
             cancel = app.screen.query_one("#edit-cancel", Button)
 
+            # Not settle(): the popup stays open for the rest of this test,
+            # and settle()'s worker-drain hangs forever on a worker parked
+            # awaiting a dismissal that never comes.
+            await wait_for(pilot, lambda: body.max_scroll_y > 0)
             self.assertTrue(body.allow_vertical_scroll)
             self.assertGreater(body.max_scroll_y, 0)
             self.assertEqual(0, body.max_scroll_x)
@@ -258,7 +290,7 @@ class VerticalContentLayoutTests(unittest.IsolatedAsyncioTestCase):
             title = app.screen.query_one("#edit-title", Input)
             title.value = "Keep this new-card draft"
             notes.focus()
-            await pilot.pause()
+            await wait_for(pilot, lambda: body.scroll_y > 0)
             self.assertGreater(body.scroll_y, 0)
             self.assertTrue(notes.has_focus)
             self.assertLessEqual(notes.region.bottom, body.content_region.bottom)

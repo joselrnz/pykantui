@@ -213,6 +213,75 @@ class MarkerTests(unittest.TestCase):
         self.assertEqual("body text", parsed.source)
 
 
+class AgentMarkerTests(unittest.TestCase):
+    """The ``pykantui:agent`` marker -- local-only MCP metadata."""
+
+    def test_an_ordinary_card_never_gets_the_marker(self) -> None:
+        """Legacy cards stay byte-identical: emitted only when set."""
+        self.assertNotIn("pykantui:agent", render())
+
+    def test_empty_agent_block_is_the_same_as_omitting_it(self) -> None:
+        self.assertEqual(render(), render(agent_block=""))
+
+    def test_the_marker_round_trips_through_parse(self) -> None:
+        block = markdown.format_agent_block(blocked_by=["T003", "T007"], assigned_agent="codex")
+        text = render(agent_block=block)
+        self.assertIn("<!-- pykantui:agent", text)
+        parsed = markdown.parse(text)
+        self.assertEqual(block, parsed.agent_block)
+        attributes = markdown.parse_agent_block(parsed.agent_block)
+        self.assertEqual("T003, T007", attributes["blocked-by"])
+        self.assertEqual("codex", attributes["assigned-agent"])
+
+    def test_only_one_field_set_omits_the_other_attribute(self) -> None:
+        block = markdown.format_agent_block(assigned_agent="claude")
+        self.assertNotIn("blocked-by", block)
+        self.assertIn('assigned-agent="claude"', block)
+
+    def test_neither_field_set_is_empty_and_unrendered(self) -> None:
+        block = markdown.format_agent_block()
+        self.assertEqual("", block)
+        self.assertNotIn("pykantui:agent", render(agent_block=block))
+
+    def test_a_quote_in_assigned_agent_escapes_and_unescapes(self) -> None:
+        block = markdown.format_agent_block(assigned_agent='agent "codex" v2')
+        text = render(agent_block=block)
+        parsed = markdown.parse(text)
+        attributes = markdown.parse_agent_block(parsed.agent_block)
+        self.assertEqual('agent "codex" v2', attributes["assigned-agent"])
+
+    def test_notes_survive_alongside_the_marker(self) -> None:
+        block = markdown.format_agent_block(assigned_agent="codex")
+        text = render(agent_block=block, notes="my private note")
+        parsed = markdown.parse(text)
+        self.assertEqual("my private note", parsed.notes)
+        self.assertEqual(block, parsed.agent_block)
+
+    def test_the_source_body_is_not_polluted_by_the_marker(self) -> None:
+        block = markdown.format_agent_block(assigned_agent="codex")
+        text = render(agent_block=block)
+        parsed = markdown.parse(text)
+        self.assertNotIn("pykantui:agent", parsed.source)
+
+    def test_a_file_with_no_agent_marker_parses_with_an_empty_block(self) -> None:
+        """A file written before this feature existed still parses."""
+        text = "---\nkey: K-1\n---\n\nbody\n\n<!-- pykantui:notes -->\nkeep me\n"
+        parsed = markdown.parse(text)
+        self.assertEqual("", parsed.agent_block)
+        self.assertEqual("keep me", parsed.notes)
+
+    def test_a_full_round_trip_with_the_marker_changes_nothing(self) -> None:
+        block = markdown.format_agent_block(blocked_by=["T003"], assigned_agent="codex")
+        once = render(agent_block=block, notes="notes stay")
+        parsed = markdown.parse(once)
+        twice = render(
+            FULL.model_copy(update={"body": parsed.source}),
+            notes=parsed.notes,
+            agent_block=parsed.agent_block,
+        )
+        self.assertEqual(once, twice)
+
+
 class RobustnessTests(unittest.TestCase):
     """The guarantees listed under "Robustness rules"."""
 

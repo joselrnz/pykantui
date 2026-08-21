@@ -174,7 +174,7 @@ class OnboardingConnectionTests(unittest.IsolatedAsyncioTestCase):
 
         def verify() -> RemoteUser:
             events.append("identity")
-            return RemoteUser(account_id="U1", display_name="Jose")
+            return RemoteUser(account_id="U1", display_name="Alex")
 
         provider.list_projects.side_effect = list_projects
         provider.verify.side_effect = verify
@@ -184,9 +184,9 @@ class OnboardingConnectionTests(unittest.IsolatedAsyncioTestCase):
 
         self.assertEqual(["projects", "identity"], events)
         self.assertEqual([project], projects)
-        self.assertEqual("Jose", user.label())
+        self.assertEqual("Alex", user.label())
         self.assertIn("1 repository", wizard.done.call_args_list[0].args[0])
-        self.assertIn("Jose", wizard.done.call_args_list[1].args[0])
+        self.assertIn("Alex", wizard.done.call_args_list[1].args[0])
 
 
 class OnboardingNavigationTests(unittest.IsolatedAsyncioTestCase):
@@ -205,7 +205,7 @@ class OnboardingNavigationTests(unittest.IsolatedAsyncioTestCase):
         from pykantui.commands.init_interactive import _journey
 
         project = RemoteProject(project_id="owner/repo", key="repo", name="Repository")
-        user = RemoteUser(account_id="U1", display_name="Jose")
+        user = RemoteUser(account_id="U1", display_name="Alex")
         setup = CredentialSetup(
             {"repo": "owner/repo"},
             {"token": "secret"},
@@ -246,7 +246,7 @@ class OnboardingNavigationTests(unittest.IsolatedAsyncioTestCase):
         from pykantui.commands.init_interactive import _journey
 
         project = RemoteProject(project_id="owner/repo", key="repo", name="Repository")
-        user = RemoteUser(account_id="U1", display_name="Jose")
+        user = RemoteUser(account_id="U1", display_name="Alex")
         setup = CredentialSetup(
             {"repo": "owner/repo"},
             {"token": "secret"},
@@ -285,7 +285,7 @@ class OnboardingNavigationTests(unittest.IsolatedAsyncioTestCase):
         from pykantui.commands.init_interactive import _journey
 
         project = RemoteProject(project_id="owner/repo", key="repo", name="Repository")
-        user = RemoteUser(account_id="U1", display_name="Jose")
+        user = RemoteUser(account_id="U1", display_name="Alex")
         setup = CredentialSetup(
             {"repo": "owner/repo"},
             {"token": "secret"},

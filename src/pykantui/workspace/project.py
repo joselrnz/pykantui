@@ -56,6 +56,11 @@ class Project(BaseModel):
     key: str = ""
     name: str = ""
 
+    #: The owner segment for a project whose id is not self-contained --
+    #: GitHub's ``owner/repo``, currently the only case. Empty for every
+    #: other provider, and for a workspace saved before this field existed.
+    owner: str = ""
+
     #: Non-secret provider settings -- base URL, board id, workspace slug.
     #: Never a token; see the module docstring.
     config: dict[str, Any] = Field(default_factory=dict)
@@ -120,7 +125,7 @@ class Project(BaseModel):
     # ---- using it --------------------------------------------------------
 
     def remote(self) -> RemoteProject:
-        return RemoteProject(project_id=self.project_id, key=self.key, name=self.name)
+        return RemoteProject(project_id=self.project_id, key=self.key, name=self.name, owner=self.owner)
 
     def open(self) -> Provider:
         """Build the provider this project points at, with its credentials.

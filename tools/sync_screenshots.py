@@ -173,7 +173,7 @@ async def render(into: Path) -> None:
                         TODO,
                         title=f"Edit a {spec.label} card",
                         body=f"This description belongs to {spec.label}.",
-                        assignee="Jose",
+                        assignee="Alex",
                         issue_type="Task",
                         labels=("demo", "tui"),
                         priority="High",

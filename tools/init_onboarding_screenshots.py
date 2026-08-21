@@ -152,25 +152,25 @@ async def render(into: Path) -> list[Path]:
                 provider.spec = get("github").spec
                 projects = [
                     RemoteProject(
-                        project_id="joselrnz/pykantui",
+                        project_id="acme-platform/pykantui",
                         key="pykantui",
                         name="pykantui",
                         description="Local-first terminal boards and provider sync.",
                     ),
                     RemoteProject(
-                        project_id="joselrnz/automation-lab",
+                        project_id="acme-platform/automation-lab",
                         key="automation-lab",
                         name="automation-lab",
                         description="Workflow experiments and task automation.",
                     ),
                     RemoteProject(
-                        project_id="joselrnz/terminal-design",
+                        project_id="acme-platform/terminal-design",
                         key="terminal-design",
                         name="terminal-design",
                         description="Terminal interface research and glyph tests.",
                     ),
                     RemoteProject(
-                        project_id="joselrnz/local-first-notes",
+                        project_id="acme-platform/local-first-notes",
                         key="local-first-notes",
                         name="local-first-notes",
                         description="Versioned Markdown notes and offline workflows.",
@@ -184,7 +184,7 @@ async def render(into: Path) -> list[Path]:
                     ),
                 ]
                 wizard.done("5 repositories available")
-                wizard.done("Connected as jose")
+                wizard.done("Connected as alex")
                 await _choose_project(wizard, cast(Provider, provider), projects, {})
                 return None
 
@@ -200,7 +200,7 @@ async def render(into: Path) -> list[Path]:
                     description="The only Linear team accessible to this token.",
                 )
                 wizard.done("1 team available")
-                wizard.done("Connected as jose")
+                wizard.done("Connected as alex")
                 await _choose_project(wizard, cast(Provider, provider), [team], {})
                 return None
 
@@ -218,12 +218,12 @@ async def render(into: Path) -> list[Path]:
             # credential/workspace separation are exercised exactly as they
             # are by ``kbn init``.
             project = RemoteProject(
-                project_id="joselrnz/pykantui",
+                project_id="acme-platform/pykantui",
                 key="pykantui",
                 name="pykantui",
                 description="Local-first terminal boards and provider sync.",
             )
-            user = RemoteUser(account_id="offline-jose", display_name="jose")
+            user = RemoteUser(account_id="offline-alex", display_name="alex")
             workspace = Path(home) / "workspace" / "pykantui"
             secret = "never-rendered"
             completion_args = argparse.Namespace(

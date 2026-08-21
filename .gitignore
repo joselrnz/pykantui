@@ -29,3 +29,8 @@ dist/
 
 # Local evidence bundles and build outputs (437MB of PNG/GIF/wheel artifacts).
 /artifacts/
+
+# Disposable local MCP probes and runtime logs may contain machine paths.
+/_tmp_*.py
+/mcp-server.log
+/mcp-server.err

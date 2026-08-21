@@ -17,6 +17,7 @@ from pykantui import __version__
 from pykantui.commands import columns as columns_command
 from pykantui.commands import graph as graph_command
 from pykantui.commands import init as init_command
+from pykantui.commands import mcp as mcp_command
 from pykantui.commands import new as new_command
 from pykantui.commands import projects as projects_command
 from pykantui.commands import sync as sync_command
@@ -81,6 +82,7 @@ def build_parser() -> argparse.ArgumentParser:
     graph_command.add_parser(sub)
     new_command.add_parser(sub)
     projects_command.add_parser(sub)
+    mcp_command.add_parser(sub)
 
     return parser
 
@@ -140,6 +142,8 @@ def _run(argv: list[str]) -> int:
         return new_command.run(args)
     if command == "projects":
         return projects_command.run(args)
+    if command == "mcp":
+        return mcp_command.run(args)
     if command == "columns":
         return columns_command.run(args)
     if command == "task":

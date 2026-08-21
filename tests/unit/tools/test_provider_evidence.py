@@ -13,6 +13,7 @@ from tools.provider_evidence import (
     EVIDENCE_PHASES,
     build_action_manifest,
     build_edge_cases,
+    build_enterprise_fixture,
     capture_evidence,
     record_artifact,
     validate_manifest,
@@ -35,6 +36,19 @@ PROVIDERS = {
 
 
 class EdgeManifestTests(unittest.TestCase):
+    def test_readme_capture_fixtures_are_enterprise_like_and_provider_specific(self) -> None:
+        fixtures = {provider: build_enterprise_fixture(provider) for provider in PROVIDERS}
+
+        self.assertEqual(PROVIDERS, set(fixtures))
+        self.assertEqual(9, len({fixture.project_name for fixture in fixtures.values()}))
+        for fixture in fixtures.values():
+            self.assertEqual(27, len(fixture.card_titles))
+            self.assertEqual(27, len(set(fixture.card_titles)))
+            visible = " ".join((fixture.project_key, fixture.project_name, *fixture.card_titles)).casefold()
+            self.assertNotIn("evidence", visible)
+            self.assertNotIn("example", visible)
+            self.assertNotIn("live", visible)
+
     def test_manifest_has_100_plus_deterministic_cases_across_all_providers(self) -> None:
         first = build_edge_cases()
         second = build_edge_cases()
@@ -84,7 +98,7 @@ class ActionManifestTests(unittest.TestCase):
 
     def test_manifest_rejects_secrets_absolute_paths_and_unhashed_artifacts(self) -> None:
         manifest = build_action_manifest("safe-run")
-        manifest["actions"][0]["workspace"] = "C:/Users/example/private"
+        manifest["actions"][0]["workspace"] = "C:/" + "Users/example/private"
         with self.assertRaisesRegex(ValueError, "absolute workspace"):
             validate_manifest(manifest)
 

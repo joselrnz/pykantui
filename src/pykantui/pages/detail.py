@@ -217,14 +217,15 @@ class TaskDetailScreen(ModalScreen[Task | None]):
         """Reveal the focused field inside a compact detail dialog."""
         if any(ancestor.id == "detail-body" for ancestor in event.widget.ancestors):
             body = self.query_one("#detail-body", VerticalScroll)
-            if event.widget.id == "detail-private-notes":
-                body.scroll_end(animate=False, force=True, immediate=True)
+            widget = event.widget
+            # After the refresh, not immediately: focus can land while the
+            # dialog is still laying out, and a scroll computed from that
+            # stale region aims wrong once and never corrects itself.
+            if widget.id == "detail-private-notes":
+                self.call_after_refresh(lambda: body.scroll_end(animate=False, force=True, immediate=True))
             else:
-                body.scroll_to_widget(
-                    event.widget,
-                    animate=False,
-                    force=True,
-                    immediate=True,
+                self.call_after_refresh(
+                    lambda: body.scroll_to_widget(widget, animate=False, force=True, immediate=True)
                 )
 
     def watch_editing(self) -> None:

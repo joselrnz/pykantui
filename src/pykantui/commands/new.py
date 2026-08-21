@@ -132,12 +132,23 @@ def run(args: argparse.Namespace) -> int:
     return 0
 
 
-def write_draft(workspace: Path, project: Project, column: RemoteColumn, draft: IssueDraft) -> Path:
+def write_draft(
+    workspace: Path,
+    project: Project,
+    column: RemoteColumn,
+    draft: IssueDraft,
+    *,
+    agent_block: str = "",
+) -> Path:
     """Write one draft file. Returns where it landed.
 
     The id is local and prefixed, never invented to look like a real one --
     a fake key would be indistinguishable from a synced issue the moment
     somebody read the file without the board next to it.
+
+    ``agent_block`` is local-only MCP metadata (dependencies, delegated
+    ownership) -- see ``workspace.markdown.format_agent_block``. Empty for
+    every ordinary draft; ``story``-skill and CLI callers never set it.
     """
     folder = ensure_workspace_path(
         workspace,
@@ -174,6 +185,7 @@ def write_draft(workspace: Path, project: Project, column: RemoteColumn, draft: 
             issue,
             column_name=layout.column_folder(column, project.column_style),
             provider=project.provider,
+            agent_block=agent_block,
         ),
     )
     return path
