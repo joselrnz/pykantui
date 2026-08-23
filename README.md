@@ -1,6 +1,6 @@
 <!-- markdownlint-disable-next-line MD041 -->
 <p>
-  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/pykantui-banner-v2.gif" alt="pykantui — local-first terminal kanban syncing a task across provider states" width="100%" style="display:block;" />
+  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/pykantui-banner-v3.gif" alt="pykantui — local-first terminal kanban syncing a task across provider states" width="100%" style="display:block;" />
 </p>
 
 # pykantui
@@ -655,7 +655,7 @@ The checked-in GIFs above are generated, not captured by hand:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install pillow
-.\.venv\Scripts\python.exe tools\banner_gif.py   # assets/pykantui-banner-v2.gif
+.\.venv\Scripts\python.exe tools\banner_gif.py   # assets/pykantui-banner-v3.gif
 .\.venv\Scripts\python.exe tools\gif.py          # assets/demo.gif
 
 # Capture all nine privacy-safe provider journeys with the real compositor.

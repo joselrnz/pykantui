@@ -30,7 +30,7 @@ class ReadmeMediaTests(unittest.TestCase):
     def test_readme_uses_the_interactive_banner(self) -> None:
         source = README.read_text(encoding="utf-8")
 
-        self.assertIn(f'{RAW_ASSET_ROOT}pykantui-banner-v2.gif', source)
+        self.assertIn(f'{RAW_ASSET_ROOT}pykantui-banner-v3.gif', source)
 
 
 if __name__ == "__main__":

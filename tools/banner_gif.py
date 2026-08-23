@@ -5,7 +5,7 @@ terminal motion: a typed sync command, keyboard-style focus moving across the
 board, and a compact completion message.
 
     python tools/banner_gif.py
-    python tools/banner_gif.py --width 1400 --out assets/pykantui-banner-v2.gif
+    python tools/banner_gif.py --width 1400 --out assets/pykantui-banner-v3.gif
 """
 
 from __future__ import annotations
@@ -20,7 +20,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "assets"
 DEFAULT_SOURCE = ASSETS / "pykantui-banner-v2.png"
-DEFAULT_OUTPUT = ASSETS / "pykantui-banner-v2.gif"
+DEFAULT_OUTPUT = ASSETS / "pykantui-banner-v3.gif"
 
 OFF_WHITE = (224, 230, 236)
 SLATE = (111, 130, 148)
@@ -40,6 +40,8 @@ CARD_RECTS = {
     "review": (1434, 240, 1647, 337),
     "done": (1674, 240, 1889, 337),
 }
+REVIEW_LABEL_MAX_WIDTH = 170
+REVIEW_LABEL_Y = 265
 
 
 @dataclass(frozen=True)
@@ -76,6 +78,26 @@ def _load_font(size: int) -> ImageFont.FreeTypeFont:
     raise RuntimeError("no supported monospace font found")
 
 
+def fit_label_font(
+    label: str,
+    *,
+    max_width: int,
+    preferred_size: int = 22,
+    minimum_size: int = 12,
+) -> ImageFont.FreeTypeFont:
+    """Return the largest supported font that keeps a card label contained."""
+    if max_width <= 0:
+        raise ValueError("max_width must be positive")
+    if minimum_size <= 0 or preferred_size < minimum_size:
+        raise ValueError("font size range is invalid")
+
+    for size in range(preferred_size, minimum_size - 1, -1):
+        font = _load_font(size)
+        if font.getlength(label) <= max_width:
+            return font
+    raise ValueError(f"label does not fit within {max_width}px: {label!r}")
+
+
 def project_version() -> str:
     """Read the release version so the banner never advertises a stale tag."""
     project = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]
@@ -87,7 +109,7 @@ def _render_frame(
     state: BannerFrame,
     font: ImageFont.FreeTypeFont,
     release_font: ImageFont.FreeTypeFont,
-    release_version: str,
+    release_label: str,
 ) -> Image.Image:
     frame = source.copy()
     draw = ImageDraw.Draw(frame)
@@ -112,7 +134,10 @@ def _render_frame(
     # rest of the board is inherited from the hand-refined PNG source.
     review_fill = source.getpixel((1635, 275))
     draw.rectangle((1447, 253, 1638, 292), fill=review_fill)
-    draw.text((1452, 265), f"[ ] Release {release_version}", font=release_font, fill=OFF_WHITE)
+    review_left, _, review_right, _ = CARD_RECTS["review"]
+    label_width = draw.textlength(release_label, font=release_font)
+    label_x = round((review_left + review_right - label_width) / 2)
+    draw.text((label_x, REVIEW_LABEL_Y), release_label, font=release_font, fill=OFF_WHITE)
 
     if state.highlight:
         box = CARD_RECTS[state.highlight]
@@ -132,12 +157,13 @@ def build_banner_gif(source_path: Path, output_path: Path, *, width: int = 1400)
         source = opened.convert("RGB")
 
     font = _load_font(29)
-    release_font = _load_font(22)
     release_version = project_version()
+    release_label = f"[ ] Release {release_version}"
+    release_font = fit_label_font(release_label, max_width=REVIEW_LABEL_MAX_WIDTH)
     timeline = build_timeline()
     height = round(source.height * width / source.width)
     frames = [
-        _render_frame(source, state, font, release_font, release_version).resize(
+        _render_frame(source, state, font, release_font, release_label).resize(
             (width, height), Image.Resampling.LANCZOS
         )
         for state in timeline

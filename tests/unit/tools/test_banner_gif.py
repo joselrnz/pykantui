@@ -7,14 +7,28 @@ import unittest
 from pathlib import Path
 
 from PIL import Image
-from tools.banner_gif import HIGHLIGHT_ORDER, build_banner_gif, build_timeline, project_version
+from tools.banner_gif import (
+    HIGHLIGHT_ORDER,
+    REVIEW_LABEL_MAX_WIDTH,
+    build_banner_gif,
+    build_timeline,
+    fit_label_font,
+    project_version,
+)
 
 ROOT = Path(__file__).parents[3]
 
 
 class BannerGifTests(unittest.TestCase):
+    def test_release_label_is_fitted_inside_the_review_card(self) -> None:
+        label = "[ ] Release 999.999.999"
+
+        font = fit_label_font(label, max_width=REVIEW_LABEL_MAX_WIDTH)
+
+        self.assertLessEqual(font.getlength(label), REVIEW_LABEL_MAX_WIDTH)
+
     def test_banner_release_label_matches_the_package(self) -> None:
-        self.assertEqual("1.2.0", project_version())
+        self.assertEqual("1.2.1", project_version())
 
     def test_timeline_types_command_and_walks_task_across_board(self) -> None:
         timeline = build_timeline()
