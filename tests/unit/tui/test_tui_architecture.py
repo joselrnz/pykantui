@@ -14,6 +14,7 @@ from pykantui.tui.controllers import (
     SyncController,
     ViewActionController,
 )
+from pykantui.tui.widgets.card_fields import CardControlKind, FieldKind
 
 
 class TuiArchitectureTests(unittest.TestCase):
@@ -66,6 +67,10 @@ class TuiArchitectureTests(unittest.TestCase):
         for source in controllers.glob("*.py"):
             with self.subTest(controller=source.name):
                 self.assertNotIn("pykantui.providers", source.read_text(encoding="utf-8"))
+
+    def test_card_control_kind_has_a_specific_reusable_name(self) -> None:
+        self.assertIs(CardControlKind, FieldKind, "the old local name remains compatible")
+        self.assertEqual(("text", "column", "priority", "date"), tuple(CardControlKind))
 
 
 if __name__ == "__main__":

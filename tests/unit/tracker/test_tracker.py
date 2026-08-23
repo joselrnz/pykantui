@@ -159,7 +159,7 @@ class ModelTests(unittest.TestCase):
 
     def test_unknown_column_group_is_rejected(self) -> None:
         with self.assertRaises(ValueError):
-            RemoteColumn(column_id="1", name="X", group="sideways")
+            RemoteColumn(column_id="1", name="X", group="sideways")  # type: ignore[arg-type]
 
     def test_filename_is_just_the_key_when_the_key_is_human(self) -> None:
         """Appending a title would churn the filename on every rename."""

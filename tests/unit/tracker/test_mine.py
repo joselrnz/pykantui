@@ -24,6 +24,7 @@ from pykantui.tracker.base import Provider
 from pykantui.tracker.errors import ProviderError
 from pykantui.tracker.mine import Scope, identify, owns
 from pykantui.tracker.models import (
+    ColumnGroup,
     IssueEdit,
     RemoteColumn,
     RemoteIssue,
@@ -36,7 +37,7 @@ from pykantui.workspace.sync import ARCHIVE_DIR, sync
 ME = "712020:0a1b2c3d"
 THEM = "712020:ffffffff"
 
-TODO = RemoteColumn(column_id="c-todo", name="To Do", position=0, group="todo")
+TODO = RemoteColumn(column_id="c-todo", name="To Do", position=0, group=ColumnGroup.TODO)
 COLUMNS = [TODO]
 PROJECT = RemoteProject(project_id="P1", key="JPT", name="jira-project-test")
 

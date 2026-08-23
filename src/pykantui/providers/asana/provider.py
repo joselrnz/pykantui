@@ -30,6 +30,7 @@ from pykantui.tracker.base import Provider
 from pykantui.tracker.columns import group_from_name
 from pykantui.tracker.errors import NotFoundError
 from pykantui.tracker.models import (
+    ColumnGroup,
     CommentDraft,
     IssueDraft,
     IssueEdit,
@@ -279,6 +280,6 @@ class AsanaProvider(Provider):
         return resolve_ids(users, value, id_key="gid", field_label="Asana user")[0]
 
 
-def _group_for(name: str) -> str:
+def _group_for(name: str) -> ColumnGroup:
     """Column meaning from the name alone; this tracker types nothing."""
     return group_from_name(name)

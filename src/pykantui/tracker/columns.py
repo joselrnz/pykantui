@@ -35,11 +35,12 @@ from pykantui.tracker.models import (
     COLUMN_STARTED,
     COLUMN_TODO,
     COLUMN_UNKNOWN,
+    ColumnGroup,
 )
 
 #: Names carrying a meaning no tracker's own type can express. Checked first,
 #: so they beat the type rather than being overruled by it.
-SPECIFIC_NAMES: tuple[tuple[str, str], ...] = (
+SPECIFIC_NAMES: tuple[tuple[str, ColumnGroup], ...] = (
     ("backlog", COLUMN_BACKLOG),
     ("icebox", COLUMN_BACKLOG),
     ("someday", COLUMN_BACKLOG),
@@ -54,7 +55,7 @@ SPECIFIC_NAMES: tuple[tuple[str, str], ...] = (
 
 #: Ordinary column names, checked last. Order matters: the first substring to
 #: match wins, so the more specific phrasings come before the looser ones.
-GENERAL_NAMES: tuple[tuple[str, str], ...] = (
+GENERAL_NAMES: tuple[tuple[str, ColumnGroup], ...] = (
     ("not started", COLUMN_TODO),
     ("in progress", COLUMN_STARTED),
     ("progress", COLUMN_STARTED),
@@ -93,9 +94,9 @@ def resolve_group(
     name: str,
     *,
     type_key: str = "",
-    type_map: Mapping[str, str] | None = None,
-    extra_names: Iterable[tuple[str, str]] = (),
-) -> str:
+    type_map: Mapping[str, ColumnGroup] | None = None,
+    extra_names: Iterable[tuple[str, ColumnGroup]] = (),
+) -> ColumnGroup:
     """Classify one column.
 
     ``type_map`` is the tracker's own vocabulary -- Linear's state types,
@@ -128,6 +129,9 @@ def resolve_group(
     return COLUMN_UNKNOWN
 
 
-def group_from_name(name: str, extra_names: Iterable[tuple[str, str]] = ()) -> str:
+def group_from_name(
+    name: str,
+    extra_names: Iterable[tuple[str, ColumnGroup]] = (),
+) -> ColumnGroup:
     """Classify from the name alone, for trackers that type nothing."""
     return resolve_group(name, extra_names=extra_names)

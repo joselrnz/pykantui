@@ -25,7 +25,7 @@ from pykantui.workspace.disk import OnDisk
 from pykantui.workspace.layout import ColumnStyle
 from pykantui.workspace.models import ConflictResolution, SyncPlan, SyncReport
 from pykantui.workspace.paths import ensure_workspace_path
-from pykantui.workspace.pending import PendingCommentJournal, PendingCreateJournal
+from pykantui.workspace.pending import PendingCommentJournal, PendingCommentState, PendingCreateJournal
 from pykantui.workspace.progress import ProgressCounter, tracked_items
 from pykantui.workspace.state import SyncState
 
@@ -117,7 +117,7 @@ def apply_comment_plan(
 
         previous_attempt = journal.attempts.get(draft.local_id)
         if previous_attempt is not None:
-            if previous_attempt.state == "confirmed":
+            if previous_attempt.state is PendingCommentState.CONFIRMED:
                 result.confirmed_remote_ids[draft.local_id] = previous_attempt.remote_id
                 continue
             if not retry_ambiguous:

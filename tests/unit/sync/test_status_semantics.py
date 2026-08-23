@@ -82,10 +82,16 @@ class LocalColumnGroupTests(unittest.TestCase):
 class ProviderColumnGroupTests(unittest.TestCase):
     """Provider boards preserve the semantic group supplied by their adapter."""
 
+    def test_remote_columns_normalize_strings_to_the_shared_enum(self) -> None:
+        column = RemoteColumn(column_id="1", name="To Do", group="todo")  # type: ignore[arg-type]
+
+        self.assertIs(ColumnGroup.TODO, column.group)
+        self.assertEqual("todo", column.model_dump(mode="json")["group"])
+
     def test_every_remote_group_round_trips_through_the_backend(self) -> None:
         backend = object.__new__(ProviderBackend)
         backend._column_ids = {  # noqa: SLF001 - isolated backend-contract fixture
-            index: RemoteColumn(column_id=str(index), name=group.value, group=group.value)
+            index: RemoteColumn(column_id=str(index), name=group.value, group=group)
             for index, group in enumerate(ColumnGroup, start=1)
         }
 

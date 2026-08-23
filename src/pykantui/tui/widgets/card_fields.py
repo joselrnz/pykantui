@@ -28,7 +28,7 @@ from pykantui.tui.widgets.dropdowns import DateInput, LabelledInput, LabelledSel
 DEFAULT_PRIORITIES = [name.title() for name in PRIORITY_ORDER[:6]]
 
 
-class FieldKind(StrEnum):
+class CardControlKind(StrEnum):
     """Which control a field is drawn as."""
 
     TEXT = "text"
@@ -49,7 +49,7 @@ class Field:
     title: str
     shortcut: str = ""
     editable: bool = False
-    kind: FieldKind = FieldKind.TEXT
+    kind: CardControlKind = CardControlKind.TEXT
 
 
 #: Laid out row by row, mirroring jiratui's Details panel.
@@ -57,7 +57,7 @@ ROWS: list[list[Field]] = [
     [Field("summary", "Summary", "*", editable=True)],
     [
         Field("assignee", "Assignee", "x", editable=True),
-        Field("status", "Status", "z", editable=True, kind=FieldKind.COLUMN),
+        Field("status", "Status", "z", editable=True, kind=CardControlKind.COLUMN),
         Field("issue_type", "Type", editable=True),
     ],
     [
@@ -67,13 +67,13 @@ ROWS: list[list[Field]] = [
     ],
     [Field("project", "Project")],
     [
-        Field("priority", "Priority", "y", editable=True, kind=FieldKind.PRIORITY),
+        Field("priority", "Priority", "y", editable=True, kind=CardControlKind.PRIORITY),
         Field("reporter", "Reporter"),
     ],
     [
         Field("created", "Created"),
         Field("updated", "Last Update"),
-        Field("due", "Due Date", editable=True, kind=FieldKind.DATE),
+        Field("due", "Due Date", editable=True, kind=CardControlKind.DATE),
     ],
     [
         Field("resolved", "Resolved"),
@@ -193,7 +193,7 @@ def build(
 
     widget: Widget
     match field.kind:
-        case FieldKind.COLUMN:
+        case CardControlKind.COLUMN:
             widget = LabelledSelect(
                 options=[(name, str(cid)) for name, cid in columns],
                 prompt=_("Column"),
@@ -202,7 +202,7 @@ def build(
                 widget_id=widget_id,
                 value=str(task.column_id) if columns else Select.NULL,
             )
-        case FieldKind.PRIORITY:
+        case CardControlKind.PRIORITY:
             options = priorities or DEFAULT_PRIORITIES
             widget = LabelledSelect(
                 options=[(_(name), name) for name in options],
@@ -212,11 +212,11 @@ def build(
                 widget_id=widget_id,
                 value=current if current in options else Select.NULL,
             )
-        case FieldKind.DATE:
+        case CardControlKind.DATE:
             date_field = DateInput(title=_(field.title), key=field.shortcut, widget_id=widget_id)
             date_field.value = current
             widget = date_field
-        case FieldKind.TEXT:
+        case CardControlKind.TEXT:
             text_field = LabelledInput(placeholder="", title=_(field.title), key=field.shortcut, widget_id=widget_id)
             text_field.value = current
             widget = text_field
@@ -225,6 +225,10 @@ def build(
     if not enabled and field.editable:
         widget.tooltip = _("Read-only on this backend")
     return widget
+
+
+# Compatibility for callers that imported the old module-local name.
+FieldKind = CardControlKind
 
 
 def apply(task: Task, values: dict[str, Any]) -> None:

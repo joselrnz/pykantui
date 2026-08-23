@@ -24,6 +24,7 @@ from pykantui.sync.provider import ProviderBackend
 from pykantui.tracker.base import Provider
 from pykantui.tracker.errors import ProviderError, TransportError
 from pykantui.tracker.models import (
+    ColumnGroup,
     CommentDraft,
     RemoteColumn,
     RemoteComment,
@@ -41,7 +42,7 @@ from tests.integration.tui.test_comments_ui import CommentsBackend, settle, wait
 CARD_COUNT = 27
 THREAD_COUNT = 23
 BASE_TIME = datetime(2026, 8, 14, 12, tzinfo=UTC)
-COLUMN = RemoteColumn(column_id="todo", name="To Do", position=0, group="todo")
+COLUMN = RemoteColumn(column_id="todo", name="To Do", position=0, group=ColumnGroup.TODO)
 
 
 class CommentMatrixProvider(Provider):

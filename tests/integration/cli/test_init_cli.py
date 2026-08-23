@@ -28,6 +28,7 @@ from pykantui.config import env as dotenv
 from pykantui.tracker import register, unregister
 from pykantui.tracker.base import Provider
 from pykantui.tracker.models import (
+    ColumnGroup,
     IssueComponent,
     IssueEdit,
     IssueType,
@@ -43,8 +44,8 @@ from pykantui.workspace.project import Project, load_secrets, resolve_fields, sa
 from pykantui.workspace.registry import load_registry
 from pykantui.workspace.sync import SyncReport
 
-TODO = RemoteColumn(column_id="1", name="To Do", group="todo")
-DONE = RemoteColumn(column_id="2", name="Done", group="done")
+TODO = RemoteColumn(column_id="1", name="To Do", group=ColumnGroup.TODO)
+DONE = RemoteColumn(column_id="2", name="Done", group=ColumnGroup.DONE)
 PROJECT = RemoteProject(project_id="P1", key="DEMO", name="Demo project")
 
 

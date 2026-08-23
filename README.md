@@ -1,6 +1,6 @@
 <!-- markdownlint-disable-next-line MD041 -->
 <p>
-  <img src="assets/header-no-frame.png" alt="pykantui — a terminal kanban board with a pluggable task backend" width="100%" style="display:block;" />
+  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/pykantui-banner-v2.gif" alt="pykantui — local-first terminal kanban syncing a task across provider states" width="100%" style="display:block;" />
 </p>
 
 # pykantui
@@ -93,7 +93,7 @@ depth.
 ### View tags (rows component)
 
 <p>
-  <img src="assets/demo-view-tags.gif" alt="Rows view action flow with rows, push/move/edit, and dialogs" width="100%" />
+  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/demo-view-tags.gif" alt="Rows view action flow with rows, push/move/edit, and dialogs" width="100%" />
 </p>
 <ul>
   <li>Row actions: <strong>n</strong> / <strong>e</strong> / <strong>d</strong> for local edits</li>
@@ -106,7 +106,7 @@ depth.
 ### Kanban view
 
 <p>
-  <img src="assets/demo-kanban.gif" alt="Kanban view action flow with drag, menu, and dialogs" width="100%" />
+  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/demo-kanban.gif" alt="Kanban view action flow with drag, menu, and dialogs" width="100%" />
 </p>
 <ul>
   <li>Card movement is routed through the same confirmation and sync flow</li>
@@ -117,7 +117,7 @@ depth.
 ### Sidebar view
 
 <p>
-  <img src="assets/demo-sidebar.gif" alt="Sidebar panel movement with inline details and panel controls" width="100%" />
+  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/demo-sidebar.gif" alt="Sidebar panel movement with inline details and panel controls" width="100%" />
 </p>
 <ul>
   <li>Split behavior: <strong>[</strong> / <strong>]</strong> and <strong>\\</strong> panel control</li>
@@ -129,47 +129,47 @@ depth.
 
 ### Asana
 <p>
-  <img src="assets/live-real-9x1-asana.gif" alt="pykantui Asana local action flow" width="100%" />
+  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-asana.gif" alt="pykantui Asana local action flow" width="100%" />
 </p>
 
 ### ClickUp
 <p>
-  <img src="assets/live-real-9x1-clickup.gif" alt="pykantui ClickUp local action flow" width="100%" />
+  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-clickup.gif" alt="pykantui ClickUp local action flow" width="100%" />
 </p>
 
 ### GitHub
 <p>
-  <img src="assets/live-real-9x1-github.gif" alt="pykantui GitHub local action flow" width="100%" />
+  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-github.gif" alt="pykantui GitHub local action flow" width="100%" />
 </p>
 
 ### Jira
 <p>
-  <img src="assets/live-real-9x1-jira.gif" alt="pykantui Jira local action flow" width="100%" />
+  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-jira.gif" alt="pykantui Jira local action flow" width="100%" />
 </p>
 
 ### Linear
 <p>
-  <img src="assets/live-real-9x1-linear.gif" alt="pykantui Linear local action flow" width="100%" />
+  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-linear.gif" alt="pykantui Linear local action flow" width="100%" />
 </p>
 
 ### Monday
 <p>
-  <img src="assets/live-real-9x1-monday.gif" alt="pykantui Monday local action flow" width="100%" />
+  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-monday.gif" alt="pykantui Monday local action flow" width="100%" />
 </p>
 
 ### Plane
 <p>
-  <img src="assets/live-real-9x1-plane.gif" alt="pykantui Plane local action flow" width="100%" />
+  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-plane.gif" alt="pykantui Plane local action flow" width="100%" />
 </p>
 
 ### Shortcut
 <p>
-  <img src="assets/live-real-9x1-shortcut.gif" alt="pykantui Shortcut local action flow" width="100%" />
+  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-shortcut.gif" alt="pykantui Shortcut local action flow" width="100%" />
 </p>
 
 ### Trello
 <p>
-  <img src="assets/live-real-9x1-trello.gif" alt="pykantui Trello local action flow" width="100%" />
+  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-trello.gif" alt="pykantui Trello local action flow" width="100%" />
 </p>
 
 ## Contents
@@ -651,10 +651,11 @@ audits are isolated under `tests/live/` and run only through the `live` service.
 
 ## Recording the demo
 
-The gif at the top is generated, not captured by hand:
+The checked-in GIFs above are generated, not captured by hand:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install pillow
+.\.venv\Scripts\python.exe tools\banner_gif.py   # assets/pykantui-banner-v2.gif
 .\.venv\Scripts\python.exe tools\gif.py          # assets/demo.gif
 
 # Capture all nine privacy-safe provider journeys with the real compositor.
@@ -669,6 +670,10 @@ $runTag = 'readme-provider-demo'
   --run-tag $runTag \
   --assets assets
 ```
+
+`tools/banner_gif.py` keeps the banner motion deterministic and restrained: it
+types one sync command, follows the task across the four board states, reports
+completion, and loops. The refined PNG remains its editable source.
 
 The provider gallery is deterministic and network-free. It uses synthetic
 enterprise projects, 27 cards per provider, and no credentials or account data.

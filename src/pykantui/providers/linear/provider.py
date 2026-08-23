@@ -36,6 +36,7 @@ from pykantui.tracker.models import (
     COLUMN_STARTED,
     COLUMN_TODO,
     COLUMN_UNKNOWN,
+    ColumnGroup,
     CommentDraft,
     IssueDraft,
     IssueEdit,
@@ -292,7 +293,7 @@ class LinearProvider(Provider):
         return resolve_ids(labels, values, name_keys=("name",), field_label="Linear label")
 
 
-def _group_for(name: str, state_type: str) -> str:
+def _group_for(name: str, state_type: str) -> ColumnGroup:
     """Linear's state type, with review promoted out of ``started``.
 
     Linear has no review type -- a "In Review" state is just another

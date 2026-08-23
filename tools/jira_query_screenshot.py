@@ -22,15 +22,15 @@ from pykantui.models import BoardLayout
 from pykantui.sync.provider import ProviderBackend
 from pykantui.tracker import get
 from pykantui.tracker.base import Provider
-from pykantui.tracker.models import RemoteColumn, RemoteIssue, RemoteProject, RemoteUser
+from pykantui.tracker.models import ColumnGroup, RemoteColumn, RemoteIssue, RemoteProject, RemoteUser
 from pykantui.tui.app import KanbanApp
 from pykantui.workspace.sync import sync
 
 SIZE = (160, 42)
 PROJECT = RemoteProject(project_id="10002", key="JPT", name="Jira filter demo")
-TODO = RemoteColumn(column_id="10000", name="To Do", position=0, group="todo")
-DOING = RemoteColumn(column_id="10001", name="In Progress", position=1, group="started")
-DONE = RemoteColumn(column_id="10002", name="Done", position=2, group="done")
+TODO = RemoteColumn(column_id="10000", name="To Do", position=0, group=ColumnGroup.TODO)
+DOING = RemoteColumn(column_id="10001", name="In Progress", position=1, group=ColumnGroup.STARTED)
+DONE = RemoteColumn(column_id="10002", name="Done", position=2, group=ColumnGroup.DONE)
 
 
 class OfflineJiraProvider(Provider):

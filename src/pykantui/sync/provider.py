@@ -625,11 +625,11 @@ class ProviderBackend(Backend):
 
     def get_active_board(self) -> Board:
         finish = next(
-            (task_column for task_column, remote in self._column_ids.items() if remote.group == "done"),
+            (task_column for task_column, remote in self._column_ids.items() if remote.group is ColumnGroup.DONE),
             len(self._columns) or 1,
         )
         start = next(
-            (task_column for task_column, remote in self._column_ids.items() if remote.group == "started"),
+            (task_column for task_column, remote in self._column_ids.items() if remote.group is ColumnGroup.STARTED),
             1,
         )
         return Board(board_id=1, name=self.project.label(), start_column=start, finish_column=finish)

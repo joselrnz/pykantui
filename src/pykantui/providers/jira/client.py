@@ -11,12 +11,14 @@ from pykantui.api import (
     JsonObject,
     ResponseCache,
     expect_object,
+    page_by_offset,
     page_objects_by_offset,
     page_objects_by_token,
     parse_json,
 )
 
 from . import routes
+from .enums import JiraFieldType, JiraSprintState, enum_values
 from .schemas import (
     BoardConfigurationWire,
     BoardWire,
@@ -24,10 +26,15 @@ from .schemas import (
     CommentWire,
     ComponentWire,
     CreatedIssueWire,
+    CreateFieldMetadataWire,
+    EditMetadataWire,
+    FieldWire,
     IssueTypesWire,
     IssueWire,
+    PriorityWire,
     ProjectStatusesWire,
     ProjectWire,
+    SprintWire,
     TransitionsWire,
     UserWire,
 )
@@ -138,6 +145,149 @@ class JiraApi:
             ),
             IssueTypesWire,
         )
+
+    def create_fields(
+        self,
+        project_id_or_key: str,
+        issue_type_id: str,
+        *,
+        ttl: float,
+    ) -> Iterator[CreateFieldMetadataWire]:
+        """Yield every create-screen field for one project and issue type."""
+
+        def fetch(start: int, size: int) -> JsonObject:
+            response = expect_object(
+                self._client.get(
+                    routes.create_field_metadata(project_id_or_key, issue_type_id),
+                    {"startAt": start, "maxResults": min(size, 200)},
+                    ttl=ttl,
+                    label="create fields",
+                ),
+                context="Jira create-field metadata response",
+            )
+            # Atlassian's current schema documents ``fields`` and ``results``.
+            # Normalize either variant before paging.
+            values = response.get("results")
+            if values is None:
+                values = response.get("fields")
+            return {**response, "values": values or []}
+
+        for row in page_objects_by_offset(fetch, page_size=200, items_key="values"):
+            yield CreateFieldMetadataWire.model_validate(row)
+
+    def edit_metadata(self, issue_id_or_key: str) -> EditMetadataWire:
+        """Return fields currently editable on one issue."""
+
+        return parse_json(
+            self._client.get(routes.edit_metadata(issue_id_or_key)),
+            EditMetadataWire,
+        )
+
+    def fields(
+        self,
+        *,
+        ttl: float,
+        field_types: tuple[JiraFieldType | str, ...] = (),
+        project_ids: tuple[str, ...] = (),
+        query: str = "",
+    ) -> Iterator[FieldWire]:
+        """Yield visible system and custom fields from Jira field search."""
+
+        normalized_types = enum_values(JiraFieldType, field_types, label="field type")
+
+        def fetch(start: int, size: int) -> JsonObject:
+            return expect_object(
+                self._client.get(
+                    routes.FIELDS,
+                    {
+                        "startAt": start,
+                        "maxResults": size,
+                        "type": normalized_types or None,
+                        "projectIds": project_ids or None,
+                        "query": query or None,
+                    },
+                    ttl=ttl,
+                    label="fields",
+                ),
+                context="Jira field-search response",
+            )
+
+        for row in page_objects_by_offset(fetch, items_key="values"):
+            yield FieldWire.model_validate(row)
+
+    def priorities(
+        self,
+        *,
+        ttl: float,
+        project_ids: tuple[str, ...] = (),
+    ) -> Iterator[PriorityWire]:
+        """Yield visible Jira priorities, optionally filtered by project."""
+
+        def fetch(start: int, size: int) -> JsonObject:
+            return expect_object(
+                self._client.get(
+                    routes.PRIORITIES,
+                    {
+                        "startAt": start,
+                        "maxResults": size,
+                        "projectId": project_ids or None,
+                    },
+                    ttl=ttl,
+                    label="priorities",
+                ),
+                context="Jira priority-search response",
+            )
+
+        for row in page_objects_by_offset(fetch, items_key="values"):
+            yield PriorityWire.model_validate(row)
+
+    def labels(self, *, ttl: float) -> Iterator[str]:
+        """Yield every visible Jira label across offset pages."""
+
+        def fetch(start: int, size: int) -> JsonObject:
+            return expect_object(
+                self._client.get(
+                    routes.LABELS,
+                    {"startAt": start, "maxResults": size},
+                    ttl=ttl,
+                    label="labels",
+                ),
+                context="Jira labels response",
+            )
+
+        for value in page_by_offset(fetch, items_key="values"):
+            if not isinstance(value, str):
+                raise ValueError("Jira labels response contained a non-string label")
+            yield value
+
+    def sprints(
+        self,
+        board_id: str,
+        *,
+        ttl: float,
+        states: tuple[JiraSprintState | str, ...] = (),
+    ) -> Iterator[SprintWire]:
+        """Yield board sprints, optionally restricted to Jira sprint states."""
+
+        normalized_states = enum_values(JiraSprintState, states, label="sprint state")
+
+        def fetch(start: int, size: int) -> JsonObject:
+            return expect_object(
+                self._client.get(
+                    routes.board_sprints(board_id),
+                    {
+                        "startAt": start,
+                        "maxResults": size,
+                        "state": normalized_states or None,
+                    },
+                    ttl=ttl,
+                    label="sprints",
+                ),
+                context="Jira board-sprints response",
+            )
+
+        for row in page_objects_by_offset(fetch, items_key="values"):
+            yield SprintWire.model_validate(row)
 
     def components(self, project_id_or_key: str, *, ttl: float) -> Iterator[ComponentWire]:
         """Yield all components configured for a Jira project."""

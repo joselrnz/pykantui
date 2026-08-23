@@ -10,6 +10,7 @@ from typing import ClassVar
 from pykantui.models import Task
 from pykantui.tracker.base import Provider
 from pykantui.tracker.models import (
+    ColumnGroup,
     IssueDraft,
     IssueEdit,
     RemoteColumn,
@@ -37,8 +38,8 @@ PROVIDER_NAMES = {
 }
 BASE_TIME = datetime(2026, 1, 1, 12, tzinfo=UTC)
 TASK_BASE_TIME = datetime(2024, 1, 1, 12)
-TODO = RemoteColumn(column_id="todo", name="To Do", position=0, group="todo")
-DONE = RemoteColumn(column_id="done", name="Done", position=1, group="done")
+TODO = RemoteColumn(column_id="todo", name="To Do", position=0, group=ColumnGroup.TODO)
+DONE = RemoteColumn(column_id="done", name="Done", position=1, group=ColumnGroup.DONE)
 COLUMNS = [TODO, DONE]
 
 

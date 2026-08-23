@@ -26,13 +26,21 @@ from pykantui.mcp import cards, server
 from pykantui.tracker import register, unregister
 from pykantui.tracker.base import Provider
 from pykantui.tracker.errors import ProviderError
-from pykantui.tracker.models import IssueDraft, IssueEdit, RemoteColumn, RemoteIssue, RemoteProject, RemoteUser
+from pykantui.tracker.models import (
+    ColumnGroup,
+    IssueDraft,
+    IssueEdit,
+    RemoteColumn,
+    RemoteIssue,
+    RemoteProject,
+    RemoteUser,
+)
 from pykantui.tracker.spec import Capabilities, FieldKind, ProviderField, ProviderSpec
 from pykantui.workspace import sync as workspace_sync
 
-TODO = RemoteColumn(column_id="1", name="To Do", group="todo")
-DOING = RemoteColumn(column_id="2", name="Doing", group="started")
-DONE = RemoteColumn(column_id="3", name="Done", group="done")
+TODO = RemoteColumn(column_id="1", name="To Do", group=ColumnGroup.TODO)
+DOING = RemoteColumn(column_id="2", name="Doing", group=ColumnGroup.STARTED)
+DONE = RemoteColumn(column_id="3", name="Done", group=ColumnGroup.DONE)
 PROJECT = RemoteProject(project_id="P1", key="DEMO", name="Demo project")
 
 

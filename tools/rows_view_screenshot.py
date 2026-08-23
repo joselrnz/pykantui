@@ -30,7 +30,7 @@ from pykantui.pages.menu import ContextMenuScreen
 from pykantui.sync.provider import ProviderBackend
 from pykantui.tracker import get
 from pykantui.tracker.base import Provider
-from pykantui.tracker.models import RemoteColumn, RemoteIssue, RemoteProject, RemoteUser
+from pykantui.tracker.models import ColumnGroup, RemoteColumn, RemoteIssue, RemoteProject, RemoteUser
 from pykantui.tui.app import KanbanApp
 from pykantui.tui.widgets.work_items import WorkItemsView
 from pykantui.workspace.sync import sync
@@ -42,10 +42,10 @@ PROJECT = RemoteProject(
     key="SCRUM",
     name="Rows interaction demo",
 )
-TODO = RemoteColumn(column_id="c-todo", name="To Do", position=0, group="todo")
-DOING = RemoteColumn(column_id="c-doing", name="In Progress", position=1, group="started")
-REVIEW = RemoteColumn(column_id="c-review", name="In Review", position=2, group="review")
-DONE = RemoteColumn(column_id="c-done", name="Done", position=3, group="done")
+TODO = RemoteColumn(column_id="c-todo", name="To Do", position=0, group=ColumnGroup.TODO)
+DOING = RemoteColumn(column_id="c-doing", name="In Progress", position=1, group=ColumnGroup.STARTED)
+REVIEW = RemoteColumn(column_id="c-review", name="In Review", position=2, group=ColumnGroup.REVIEW)
+DONE = RemoteColumn(column_id="c-done", name="Done", position=3, group=ColumnGroup.DONE)
 COLUMNS = [TODO, DOING, REVIEW, DONE]
 
 

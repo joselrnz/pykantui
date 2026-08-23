@@ -140,6 +140,83 @@ class IssueTypesWire(JiraWireModel):
     values: list[IssueTypeWire] = Field(default_factory=list)
 
 
+class JsonTypeWire(JiraWireModel):
+    """Jira field data-type description."""
+
+    type: str = ""
+    items: str | None = None
+    system: str | None = None
+    custom: str | None = None
+    customId: int | None = None  # noqa: N815 - provider wire key
+    configuration: dict[str, PydanticJsonValue] = Field(default_factory=dict)
+
+
+class FieldMetadataWire(JiraWireModel):
+    """Capabilities and constraints for one editable Jira field."""
+
+    key: str = ""
+    name: str = ""
+    required: bool = False
+    operations: list[str] = Field(default_factory=list)
+    field_schema: JsonTypeWire = Field(default_factory=JsonTypeWire, alias="schema")
+    allowedValues: list[PydanticJsonValue] = Field(default_factory=list)  # noqa: N815
+    hasDefaultValue: bool = False  # noqa: N815
+    defaultValue: PydanticJsonValue = None  # noqa: N815
+    autoCompleteUrl: str = ""  # noqa: N815
+    configuration: dict[str, PydanticJsonValue] = Field(default_factory=dict)
+
+
+class CreateFieldMetadataWire(FieldMetadataWire):
+    """Create-screen metadata, which also identifies the field."""
+
+    fieldId: str = ""  # noqa: N815 - provider wire key
+
+
+class EditMetadataWire(JiraWireModel):
+    """Field directory returned by an issue's edit-metadata route."""
+
+    fields: dict[str, FieldMetadataWire] = Field(default_factory=dict)
+
+
+class FieldWire(JiraWireModel):
+    """System or custom field returned by Jira field search."""
+
+    id: str = ""
+    key: str = ""
+    name: str = ""
+    description: str = ""
+    field_schema: JsonTypeWire = Field(default_factory=JsonTypeWire, alias="schema")
+    isLocked: bool = False  # noqa: N815 - provider wire key
+    isUnscreenable: bool = False  # noqa: N815 - provider wire key
+    searcherKey: str = ""  # noqa: N815 - provider wire key
+
+
+class PriorityWire(JiraWireModel):
+    """One Jira issue priority."""
+
+    id: str = ""
+    name: str = ""
+    description: str = ""
+    isDefault: bool = False  # noqa: N815 - provider wire key
+    iconUrl: str = ""  # noqa: N815 - provider wire key
+    statusColor: str = ""  # noqa: N815 - provider wire key
+
+
+class SprintWire(JiraWireModel):
+    """One sprint visible through Jira Software's agile API."""
+
+    id: int | str = ""
+    name: str = ""
+    state: str = ""
+    goal: str = ""
+    originBoardId: int | str = ""  # noqa: N815 - provider wire key
+    startDate: str | None = None  # noqa: N815 - provider wire key
+    endDate: str | None = None  # noqa: N815 - provider wire key
+    completeDate: str | None = None  # noqa: N815 - provider wire key
+    createdDate: str | None = None  # noqa: N815 - provider wire key
+    self: str = ""
+
+
 class TransitionTargetWire(JiraWireModel):
     """Destination status for a transition."""
 
@@ -202,11 +279,17 @@ __all__ = [
     "ComponentWire",
     "CommentWire",
     "CommentsPageWire",
+    "CreateFieldMetadataWire",
+    "EditMetadataWire",
+    "FieldMetadataWire",
+    "FieldWire",
     "IssueTypeWire",
     "IssueTypesWire",
     "IssueWire",
     "ProjectStatusesWire",
     "ProjectWire",
+    "PriorityWire",
+    "SprintWire",
     "StatusWire",
     "TransitionsWire",
     "UserWire",

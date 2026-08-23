@@ -6,14 +6,14 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from pykantui.tracker.models import RemoteColumn, RemoteProject
+from pykantui.tracker.models import ColumnGroup, RemoteColumn, RemoteProject
 from pykantui.workspace import graph as graph_module
 from pykantui.workspace import layout
 from pykantui.workspace.status import SyncStatus
 
-TODO = RemoteColumn(column_id="1", name="To Do", group="todo")
-DOING = RemoteColumn(column_id="2", name="In Progress", group="started")
-DONE = RemoteColumn(column_id="3", name="Done", group="done")
+TODO = RemoteColumn(column_id="1", name="To Do", group=ColumnGroup.TODO)
+DOING = RemoteColumn(column_id="2", name="In Progress", group=ColumnGroup.STARTED)
+DONE = RemoteColumn(column_id="3", name="Done", group=ColumnGroup.DONE)
 COLUMNS = [TODO, DOING, DONE]
 PROJECT = RemoteProject(project_id="P1", key="JPT")
 

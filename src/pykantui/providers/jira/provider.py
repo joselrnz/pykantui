@@ -31,6 +31,7 @@ from pykantui.tracker.models import (
     COLUMN_DONE,
     COLUMN_STARTED,
     COLUMN_TODO,
+    ColumnGroup,
     CommentDraft,
     IssueComponent,
     IssueDraft,
@@ -390,10 +391,11 @@ class JiraProvider(Provider):
         follow-up read. That read is also what catches a field Jira quietly
         dropped -- the created issue is the truth, not the request.
 
-        Measured against a live project, only ``summary``, ``issuetype`` and ``project``
-        are required (``reporter`` defaults to the caller). A workflow with
-        more required fields fails here with Jira's own message, which names
-        the field -- better than a guess about what it might have wanted.
+        Measured against a live project, only ``summary``, ``issuetype`` and
+        ``project`` are required (``reporter`` defaults to the caller). Project
+        configurations may require custom fields too; create metadata detects
+        those before the POST when Jira exposes it, with Jira's create response
+        remaining the compatibility fallback.
         """
         # By id, not key: ``project_id`` here is Jira's numeric project id (see
         # ``list_projects``), and sending that as a key gets the misleading
@@ -403,6 +405,11 @@ class JiraProvider(Provider):
         # and Jira reports an unknown type as a permission error on the
         # project, which sends you looking in entirely the wrong place.
         fields = self.build_create_payload(project_id, draft)
+        issue_type = fields.get("issuetype")
+        issue_type_id = (
+            str(issue_type.get("id") or "") if isinstance(issue_type, dict) else ""
+        )
+        self._validate_create_fields(project_id, issue_type_id, fields)
 
         # api/2: the description round-trips as text rather than as ADF.
         created = self.api.create_issue(fields)
@@ -425,6 +432,56 @@ class JiraProvider(Provider):
     def build_create_payload(self, project_id: str, draft: IssueDraft) -> JsonObject:
         issue_type = self.resolve_issue_type(project_id, draft.issue_type)
         return create_issue_fields(project_id, draft, issue_type)
+
+    def _validate_create_fields(
+        self,
+        project_id: str,
+        issue_type_id: str,
+        fields: JsonObject,
+    ) -> None:
+        """Reject required create-screen fields the neutral draft cannot fill.
+
+        Jira projects can make arbitrary custom fields mandatory. The generic
+        issue draft intentionally does not accept arbitrary JSON, so discovering
+        that gap before the POST prevents a partial or misleading create flow.
+        """
+
+        if not issue_type_id:
+            return
+        try:
+            metadata = self.api.create_fields(
+                project_id,
+                issue_type_id,
+                ttl=TTL_STRUCTURE,
+            )
+            missing = [
+                item
+                for item in metadata
+                if item.required
+                and "set" in item.operations
+                and not item.hasDefaultValue
+                and (item.fieldId or item.key) not in fields
+                # Jira supplies the authenticated user when reporter is required.
+                and (item.fieldId or item.key) != "reporter"
+            ]
+        except NotFoundError:
+            # Preserve compatibility with Jira deployments that do not expose
+            # the granular create-metadata route. Jira's create response still
+            # names any required field it cannot populate.
+            return
+
+        if not missing:
+            return
+        labels = ", ".join(
+            f"{item.name or item.fieldId} ({item.fieldId or item.key})" for item in missing
+        )
+        raise ProviderError(
+            f"Jira requires create fields pykantui cannot supply: {labels}",
+            hint=(
+                "Give these fields defaults in the Jira field configuration, "
+                "or create this issue in Jira. No issue was posted."
+            ),
+        )
 
     def update_issue(self, issue: RemoteIssue, edit: IssueEdit) -> None:
         """Push a markdown edit back to Jira.
@@ -497,7 +554,7 @@ class JiraProvider(Provider):
         self._transitions.clear()
 
 
-def _group_for(name: str, category: str) -> str:
+def _group_for(name: str, category: str) -> ColumnGroup:
     """Column meaning from this tracker's own type, with the shared
     name heuristics either side of it. See tracker.columns."""
     return resolve_group(name, type_key=category, type_map=_CATEGORY_GROUPS)

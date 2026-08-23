@@ -37,6 +37,7 @@ from pykantui.tracker.errors import NotFoundError, UnsupportedError
 from pykantui.tracker.models import (
     COLUMN_DONE,
     COLUMN_TODO,
+    ColumnGroup,
     CommentDraft,
     IssueDraft,
     IssueEdit,
@@ -382,6 +383,6 @@ def is_pull_request(raw: Mapping[str, object]) -> bool:
     return bool(raw.get("pull_request"))
 
 
-def _group_for(name: str) -> str:
+def _group_for(name: str) -> ColumnGroup:
     """Column meaning from the name alone; this tracker types nothing."""
     return group_from_name(name)

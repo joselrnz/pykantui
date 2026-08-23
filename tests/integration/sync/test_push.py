@@ -20,15 +20,15 @@ from pathlib import Path
 from pykantui.sync.provider import ProviderBackend
 from pykantui.tracker.base import Provider
 from pykantui.tracker.errors import ProviderError
-from pykantui.tracker.models import IssueEdit, RemoteColumn, RemoteIssue, RemoteProject, RemoteUser
+from pykantui.tracker.models import ColumnGroup, IssueEdit, RemoteColumn, RemoteIssue, RemoteProject, RemoteUser
 from pykantui.tracker.spec import Capabilities, FieldKind, ProviderField, ProviderSpec
 from pykantui.workspace import layout, markdown
 from pykantui.workspace.sync import sync
 
-TODO = RemoteColumn(column_id="c-todo", name="To Do", position=0, group="todo")
-DOING = RemoteColumn(column_id="c-doing", name="In Progress", position=1, group="started")
-REVIEW = RemoteColumn(column_id="c-review", name="In Review", position=2, group="review")
-DONE = RemoteColumn(column_id="c-done", name="Done", position=3, group="done")
+TODO = RemoteColumn(column_id="c-todo", name="To Do", position=0, group=ColumnGroup.TODO)
+DOING = RemoteColumn(column_id="c-doing", name="In Progress", position=1, group=ColumnGroup.STARTED)
+REVIEW = RemoteColumn(column_id="c-review", name="In Review", position=2, group=ColumnGroup.REVIEW)
+DONE = RemoteColumn(column_id="c-done", name="Done", position=3, group=ColumnGroup.DONE)
 COLUMNS = [TODO, DOING, REVIEW, DONE]
 
 PROJECT = RemoteProject(project_id="P1", key="JPT", name="jira-project-test")

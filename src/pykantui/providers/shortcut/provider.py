@@ -33,6 +33,7 @@ from pykantui.tracker.models import (
     COLUMN_DONE,
     COLUMN_STARTED,
     COLUMN_TODO,
+    ColumnGroup,
     CommentDraft,
     IssueDraft,
     IssueEdit,
@@ -273,7 +274,7 @@ class ShortcutProvider(Provider):
         return resolve_ids(records, value, field_label="Shortcut member")
 
 
-def _group_for(name: str, state_type: str) -> str:
+def _group_for(name: str, state_type: str) -> ColumnGroup:
     """Column meaning from Shortcut's state type, with the shared name
     heuristics either side of it. See tracker.columns."""
     return resolve_group(name, type_key=state_type, type_map=_STATE_TYPES)

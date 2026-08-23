@@ -29,6 +29,7 @@ from pykantui.tracker.errors import NotFoundError, ProviderError
 from pykantui.tracker.models import (
     COLUMN_DONE,
     COLUMN_TODO,
+    ColumnGroup,
     CommentDraft,
     IssueDraft,
     IssueEdit,
@@ -396,7 +397,7 @@ def _epoch(value: Any) -> Any:
     return epoch_to_iso(value)
 
 
-def _group_for(name: str, status_type: str) -> str:
+def _group_for(name: str, status_type: str) -> ColumnGroup:
     """Column meaning from this tracker's own type, with the shared
     name heuristics either side of it. See tracker.columns."""
     return resolve_group(name, type_key=status_type, type_map=_STATUS_TYPES)

@@ -16,6 +16,7 @@ from pykantui.sync.provider import ProviderBackend
 from pykantui.tracker.base import Provider
 from pykantui.tracker.errors import NotFoundError, ProviderError, TransportError
 from pykantui.tracker.models import (
+    ColumnGroup,
     CommentDraft,
     IssueEdit,
     RemoteColumn,
@@ -29,10 +30,10 @@ from pykantui.workspace import layout, markdown
 from pykantui.workspace.comments import _finalized_draft_ids
 from pykantui.workspace.models import PendingCommentPush, SyncPlan, SyncReport
 from pykantui.workspace.outbound import CommentApplyResult
-from pykantui.workspace.pending import PendingCommentJournal
+from pykantui.workspace.pending import PendingCommentJournal, PendingCommentState
 from pykantui.workspace.sync import preview, sync
 
-TODO = RemoteColumn(column_id="todo", name="To Do", position=0, group="todo")
+TODO = RemoteColumn(column_id="todo", name="To Do", position=0, group=ColumnGroup.TODO)
 PROJECT = RemoteProject(project_id="P1", key="JPT", name="Comment Project")
 ISSUE = RemoteIssue(
     issue_id="10018",
@@ -921,8 +922,9 @@ class PendingCommentJournalTests(unittest.TestCase):
         journal.confirm(self.path, LOCAL_ID, remote_id="remote-1")
 
         restored = PendingCommentJournal.load(self.path).attempts[LOCAL_ID]
-        self.assertEqual("confirmed", restored.state)
+        self.assertIs(PendingCommentState.CONFIRMED, restored.state)
         self.assertEqual("remote-1", restored.remote_id)
+        self.assertIn('"state": "confirmed"', self.path.read_text(encoding="utf-8"))
 
     def test_blank_remote_id_cannot_confirm_an_attempt(self) -> None:
         journal = PendingCommentJournal()
@@ -938,7 +940,7 @@ class PendingCommentJournalTests(unittest.TestCase):
             journal.confirm(self.path, LOCAL_ID, remote_id="   ")
 
         restored = PendingCommentJournal.load(self.path).attempts[LOCAL_ID]
-        self.assertEqual("attempting", restored.state)
+        self.assertIs(PendingCommentState.ATTEMPTING, restored.state)
         self.assertEqual("", restored.remote_id)
 
     def test_corrupt_journal_fails_closed(self) -> None:

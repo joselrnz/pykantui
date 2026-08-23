@@ -28,6 +28,7 @@ from pykantui.commands.new import DRAFT_PREFIX, is_draft, write_draft
 from pykantui.tracker.base import Provider
 from pykantui.tracker.errors import ProviderError, TransportError, UnsupportedError
 from pykantui.tracker.models import (
+    ColumnGroup,
     CommentDraft,
     IssueDraft,
     IssueEdit,
@@ -44,8 +45,8 @@ from pykantui.workspace.project import Project
 from pykantui.workspace.state import SyncState
 from pykantui.workspace.sync import SyncPlan, SyncReport, sync
 
-TODO = RemoteColumn(column_id="c-todo", name="To Do", position=0, group="todo")
-DOING = RemoteColumn(column_id="c-doing", name="In Progress", position=1, group="started")
+TODO = RemoteColumn(column_id="c-todo", name="To Do", position=0, group=ColumnGroup.TODO)
+DOING = RemoteColumn(column_id="c-doing", name="In Progress", position=1, group=ColumnGroup.STARTED)
 COLUMNS = [TODO, DOING]
 
 PROJECT = RemoteProject(project_id="P1", key="JPT", name="jira-project-test")

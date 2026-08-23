@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from datetime import UTC, datetime
+from enum import StrEnum
 from pathlib import Path
 from typing import Literal
 
@@ -14,6 +15,13 @@ from pykantui.tracker.errors import ProviderError
 
 PENDING_CREATE_SCHEMA = 1
 PENDING_COMMENT_SCHEMA = 1
+
+
+class PendingCommentState(StrEnum):
+    """Durable states for a non-idempotent comment attempt."""
+
+    ATTEMPTING = "attempting"
+    CONFIRMED = "confirmed"
 
 
 class PendingCreate(BaseModel):
@@ -70,13 +78,13 @@ class PendingComment(BaseModel):
     issue_id: str
     filename: str
     signature: str
-    state: Literal["attempting", "confirmed"] = "attempting"
+    state: PendingCommentState = PendingCommentState.ATTEMPTING
     remote_id: str = ""
     attempted_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
 
     @model_validator(mode="after")
     def _confirmed_attempt_has_a_remote_id(self) -> PendingComment:
-        if self.state == "confirmed" and not self.remote_id.strip():
+        if self.state is PendingCommentState.CONFIRMED and not self.remote_id.strip():
             raise ValueError("a confirmed comment attempt requires a remote id")
         return self
 
@@ -121,7 +129,11 @@ class PendingCommentJournal(BaseModel):
     def confirm(self, path: Path, local_id: str, *, remote_id: str) -> None:
         attempt = self.attempts[local_id]
         self.attempts[local_id] = PendingComment.model_validate(
-            {**attempt.model_dump(), "state": "confirmed", "remote_id": remote_id}
+            {
+                **attempt.model_dump(),
+                "state": PendingCommentState.CONFIRMED,
+                "remote_id": remote_id,
+            }
         )
         self.save(path)
 
@@ -139,6 +151,7 @@ class PendingCommentJournal(BaseModel):
 __all__ = [
     "PendingComment",
     "PendingCommentJournal",
+    "PendingCommentState",
     "PendingCreate",
     "PendingCreateJournal",
 ]

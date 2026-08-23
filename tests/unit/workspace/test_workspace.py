@@ -14,16 +14,16 @@ from collections.abc import Callable, Iterator
 from pathlib import Path
 
 from pykantui.tracker.base import Provider
-from pykantui.tracker.models import IssueEdit, RemoteColumn, RemoteIssue, RemoteProject, RemoteUser
+from pykantui.tracker.models import ColumnGroup, IssueEdit, RemoteColumn, RemoteIssue, RemoteProject, RemoteUser
 from pykantui.tracker.spec import Capabilities, FieldKind, ProviderField, ProviderSpec
 from pykantui.workspace import layout, markdown
 from pykantui.workspace.layout import ColumnStyle
 from pykantui.workspace.state import SyncState
 from pykantui.workspace.sync import PendingPush, SyncPlan, SyncReport, sync
 
-TODO = RemoteColumn(column_id="1", name="To Do", position=0, group="todo")
-DOING = RemoteColumn(column_id="2", name="In Progress", position=1, group="started")
-DONE = RemoteColumn(column_id="3", name="Done", position=2, group="done")
+TODO = RemoteColumn(column_id="1", name="To Do", position=0, group=ColumnGroup.TODO)
+DOING = RemoteColumn(column_id="2", name="In Progress", position=1, group=ColumnGroup.STARTED)
+DONE = RemoteColumn(column_id="3", name="Done", position=2, group=ColumnGroup.DONE)
 
 PROJECT = RemoteProject(project_id="JPT", key="JPT", name="jira-project-test")
 
@@ -415,7 +415,7 @@ class SpacesTests(WorkspaceCase):
         self.assertEqual(DONE.column_id, provider.pushed[0][1].column_id)
 
     def test_a_column_named_only_with_symbols_still_gets_a_folder(self) -> None:
-        odd = RemoteColumn(column_id="9", name="???", group="todo")
+        odd = RemoteColumn(column_id="9", name="???", group=ColumnGroup.TODO)
         provider = FakeProvider([issue("K-1", odd)], columns=[odd])
         self.run_sync(provider)
         self.assertEqual(1, len(list((self.ws / "fake/projects/JPT").glob("*/K-1.md"))))

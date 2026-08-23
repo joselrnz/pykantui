@@ -19,7 +19,7 @@ from unittest.mock import patch
 
 from pykantui.tracker.base import Provider
 from pykantui.tracker.errors import ProviderError
-from pykantui.tracker.models import IssueEdit, RemoteColumn, RemoteIssue, RemoteProject, RemoteUser
+from pykantui.tracker.models import ColumnGroup, IssueEdit, RemoteColumn, RemoteIssue, RemoteProject, RemoteUser
 from pykantui.tracker.spec import Capabilities, FieldKind, ProviderField, ProviderSpec
 from pykantui.workspace import layout
 from pykantui.workspace.locking import exclusive_workspace
@@ -28,8 +28,8 @@ from pykantui.workspace.outbound import apply_plan
 from pykantui.workspace.state import SyncState
 from pykantui.workspace.sync import sync
 
-TODO = RemoteColumn(column_id="c1", name="To Do", position=0, group="todo")
-DOING = RemoteColumn(column_id="c2", name="In Progress", position=1, group="started")
+TODO = RemoteColumn(column_id="c1", name="To Do", position=0, group=ColumnGroup.TODO)
+DOING = RemoteColumn(column_id="c2", name="In Progress", position=1, group=ColumnGroup.STARTED)
 PROJECT = RemoteProject(project_id="P1", key="ACME", name="widgets")
 
 
@@ -465,7 +465,7 @@ class BoardShapeTests(Case):
         self.sync(provider)
         self.assertTrue(list(self.ws.rglob("to-do/ACME-1.md")))
 
-        renamed = RemoteColumn(column_id="c1", name="Backlog", position=0, group="todo")
+        renamed = RemoteColumn(column_id="c1", name="Backlog", position=0, group=ColumnGroup.TODO)
         moved = Fake([issue("ACME-1", renamed)], columns=[renamed, DOING])
         self.sync(moved, push_edits=False)
 
@@ -496,7 +496,7 @@ class BoardShapeTests(Case):
 
     def test_two_columns_that_share_a_folder_name(self) -> None:
         """Ambiguous provider columns fail before either card is written."""
-        clash = RemoteColumn(column_id="c9", name="TO-DO", position=2, group="todo")
+        clash = RemoteColumn(column_id="c9", name="TO-DO", position=2, group=ColumnGroup.TODO)
         provider = Fake([issue("ACME-1"), issue("ACME-2", clash)], columns=[TODO, clash])
 
         with self.assertRaisesRegex(ProviderError, "To Do.*TO-DO.*to-do"):
@@ -545,7 +545,7 @@ class UnicodeTests(Case):
         self.assertIn("日本語", text)
 
     def test_a_unicode_column_name(self) -> None:
-        column = RemoteColumn(column_id="c1", name="進行中", position=0, group="started")
+        column = RemoteColumn(column_id="c1", name="進行中", position=0, group=ColumnGroup.STARTED)
         provider = Fake([issue("ACME-1", column)], columns=[column])
 
         self.sync(provider, push_edits=False)

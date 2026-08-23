@@ -14,11 +14,11 @@ from pathlib import Path
 
 from pykantui.api import expect_object
 from pykantui.tracker.cache import ResponseCache
-from pykantui.tracker.models import RemoteColumn, RemoteIssue, RemoteProject
+from pykantui.tracker.models import ColumnGroup, RemoteColumn, RemoteIssue, RemoteProject
 from pykantui.workspace import graph, layout
 
-TODO = RemoteColumn(column_id="c1", name="To Do", position=0, group="todo")
-DOING = RemoteColumn(column_id="c2", name="In Progress", position=1, group="started")
+TODO = RemoteColumn(column_id="c1", name="To Do", position=0, group=ColumnGroup.TODO)
+DOING = RemoteColumn(column_id="c2", name="In Progress", position=1, group=ColumnGroup.STARTED)
 PROJECT = RemoteProject(project_id="P1", key="ACME", name="widgets")
 
 INJECTIONS = [

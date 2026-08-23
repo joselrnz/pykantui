@@ -261,23 +261,11 @@ class RemoteColumn(RemoteModel):
     #: One of :data:`COLUMN_GROUPS`. The provider decides; where it genuinely
     #: cannot tell, :data:`COLUMN_UNKNOWN` is honest and the caller falls back
     #: to matching on the name.
-    group: str = COLUMN_UNKNOWN
+    group: ColumnGroup = COLUMN_UNKNOWN
 
     #: Provider status ids that land in this column. Jira boards map several
     #: statuses onto one column, so this is a list rather than an id.
     status_ids: tuple[str, ...] = ()
-
-    @field_validator("group")
-    @classmethod
-    def _known_group(cls, value: str) -> str:
-        """Reject a group nobody downstream knows how to interpret.
-
-        A typo'd group would otherwise fail silently and much later, as a
-        column that never matches the start or finish rule.
-        """
-        if value not in COLUMN_GROUPS:
-            raise ValueError(f"group must be one of {', '.join(COLUMN_GROUPS)}, not {value!r}")
-        return value
 
     def holds(self, status_id: str) -> bool:
         return status_id == self.column_id or status_id in self.status_ids
