@@ -14,6 +14,8 @@ from pykantui.providers.asana import routes as asana_routes
 from pykantui.providers.asana.client import AsanaClient
 from pykantui.providers.clickup import routes as clickup_routes
 from pykantui.providers.clickup.client import ClickUpClient
+from pykantui.providers.forgejo import routes as forgejo_routes
+from pykantui.providers.forgejo.client import ForgejoClient
 from pykantui.providers.github import routes as github_routes
 from pykantui.providers.github.client import GitHubClient
 from pykantui.providers.github.provider import API_VERSION as GITHUB_API_VERSION
@@ -43,6 +45,10 @@ class CommentApiSurfaceTests(unittest.TestCase):
             "/repos/acme/widgets/issues/7/comments",
             github_routes.issue_comments("acme/widgets", 7),
         )
+        self.assertEqual(
+            "/repos/acme/widgets/issues/7/comments",
+            forgejo_routes.issue_comments("acme/widgets", 7),
+        )
         self.assertEqual("/rest/api/3/issue/JPT-7/comment", jira_routes.comments("JPT-7"))
         self.assertEqual(
             "/api/v1/workspaces/acme/projects/P1/work-items/I1/comments/",
@@ -64,6 +70,7 @@ class CommentApiSurfaceTests(unittest.TestCase):
         clients = [
             AsanaClient.connect("https://asana.invalid", token),
             ClickUpClient.connect("https://clickup.invalid", token),
+            ForgejoClient.connect("https://forgejo.invalid", token),
             GitHubClient.connect(
                 "https://github.invalid", token, api_version=GITHUB_API_VERSION
             ),
@@ -78,9 +85,10 @@ class CommentApiSurfaceTests(unittest.TestCase):
         for client in clients:
             self.addCleanup(client.close)
 
-        asana, clickup, github, jira, linear, monday, plane, shortcut = clients
+        asana, clickup, forgejo, github, jira, linear, monday, plane, shortcut = clients
         self.assertEqual(f"Bearer {token}", asana._client.headers["Authorization"])
         self.assertEqual(token, clickup._client.headers["Authorization"])
+        self.assertEqual(f"token {token}", forgejo._client.headers["Authorization"])
         self.assertEqual(f"Bearer {token}", github._client.headers["Authorization"])
         self.assertEqual("application/vnd.github+json", github._client.headers["Accept"])
         self.assertEqual("2026-03-10", GITHUB_API_VERSION)

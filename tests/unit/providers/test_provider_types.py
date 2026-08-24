@@ -36,6 +36,7 @@ class ProviderTypeContractTests(unittest.TestCase):
             {
                 "asana": False,
                 "clickup": True,
+                "forgejo": False,
                 "github": True,
                 "jira": True,
                 "linear": False,
@@ -57,6 +58,7 @@ class ProviderTypeContractTests(unittest.TestCase):
             {
                 "asana": False,
                 "clickup": True,
+                "forgejo": False,
                 "github": True,
                 "jira": True,
                 "linear": False,

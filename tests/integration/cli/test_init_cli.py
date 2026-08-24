@@ -124,7 +124,7 @@ class ListTypesTests(CliCase):
     def test_every_provider_is_listed(self) -> None:
         code, out = self.run_cli("init", "--list-types")
         self.assertEqual(0, code)
-        for name in ("jira", "plane", "github", "linear", "trello"):
+        for name in ("forgejo", "jira", "plane", "github", "linear", "trello"):
             self.assertIn(name, out)
 
     def test_unverified_providers_are_marked(self) -> None:

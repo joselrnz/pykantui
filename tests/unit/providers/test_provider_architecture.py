@@ -37,6 +37,7 @@ class ProviderArchitectureTests(unittest.TestCase):
             {
                 "asana",
                 "clickup",
+                "forgejo",
                 "github",
                 "jira",
                 "linear",
@@ -69,7 +70,7 @@ class ProviderArchitectureTests(unittest.TestCase):
 
     def test_migrated_rest_providers_separate_transport_mapping_and_payloads(self) -> None:
         package_root = Path(__file__).parents[3] / "src" / "pykantui" / "providers"
-        for provider in ("asana", "clickup", "github", "jira", "plane", "shortcut", "trello"):
+        for provider in ("asana", "clickup", "forgejo", "github", "jira", "plane", "shortcut", "trello"):
             with self.subTest(provider=provider):
                 root = package_root / provider
                 for module in ("client.py", "routes.py", "schemas.py", "mapper.py", "payloads.py", "provider.py"):

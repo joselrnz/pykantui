@@ -25,6 +25,7 @@ from tools.provider_evidence import (
 PROVIDERS = {
     "asana",
     "clickup",
+    "forgejo",
     "github",
     "jira",
     "linear",
@@ -40,7 +41,7 @@ class EdgeManifestTests(unittest.TestCase):
         fixtures = {provider: build_enterprise_fixture(provider) for provider in PROVIDERS}
 
         self.assertEqual(PROVIDERS, set(fixtures))
-        self.assertEqual(9, len({fixture.project_name for fixture in fixtures.values()}))
+        self.assertEqual(10, len({fixture.project_name for fixture in fixtures.values()}))
         for fixture in fixtures.values():
             self.assertEqual(27, len(fixture.card_titles))
             self.assertEqual(27, len(set(fixture.card_titles)))
@@ -234,7 +235,7 @@ class CaptureOrchestrationTests(unittest.TestCase):
             len([item for item in manifest["actions"] if item["status"] == "captured"]),
         )
         self.assertEqual(
-            72,
+            81,
             len([item for item in manifest["actions"] if item["status"] == "planned"]),
         )
         self.assertTrue(

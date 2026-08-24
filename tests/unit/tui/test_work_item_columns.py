@@ -106,6 +106,7 @@ class ProviderAvailabilityTests(unittest.TestCase):
         expected = {
             "asana": {"assignee", "created", "due", "reporter"},
             "clickup": {"assignee", "created", "due", "labels", "priority", "reporter", "type"},
+            "forgejo": {"assignee", "created", "due", "labels", "reporter"},
             "github": {"assignee", "created", "labels", "reporter", "type"},
             "jira": {
                 "assignee",

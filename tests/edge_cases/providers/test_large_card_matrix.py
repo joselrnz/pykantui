@@ -108,7 +108,7 @@ def _expected_sort(tasks: list[Task], sort_key: SortKey) -> list[Task]:
 
 
 class LargeProviderPlanningMatrixTests(unittest.TestCase):
-    def test_all_nine_providers_plan_supported_edits_moves_and_many_creates(self) -> None:
+    def test_all_ten_providers_plan_supported_edits_moves_and_many_creates(self) -> None:
         provider_specs = specs()
         self.assertEqual(PROVIDER_NAMES, {spec.name for spec in provider_specs})
 
@@ -326,11 +326,11 @@ class LargeProviderFilterMatrixTests(unittest.TestCase):
                     scenario_count += 1
                     self._assert_all_layouts(app, view, expected)
 
-        # 28 shared cases for nine providers plus 27 provider-field cases.
+        # 28 shared cases for ten providers plus 29 provider-field cases.
         # Plane deliberately has no Type capability: its type directory is
         # unavailable to supported accounts, so the UI must not promise it.
         # Every case evaluates 1,000 cards independently in each of 3 layouts.
-        self.assertEqual(279, scenario_count)
+        self.assertEqual(309, scenario_count)
 
     def test_repeated_thousand_card_filtering_stays_under_a_conservative_budget(self) -> None:
         source = tasks_for(specs()[0])

@@ -128,6 +128,7 @@ class SplitSidebarLayoutTests(unittest.IsolatedAsyncioTestCase):
         expected = {
             "asana": 45,
             "clickup": 35,
+            "forgejo": 40,
             "github": 40,
             "jira": 35,
             "linear": 40,

@@ -238,7 +238,16 @@ class AgentMarkerTests(unittest.TestCase):
         self.assertNotIn("blocked-by", block)
         self.assertIn('assigned-agent="claude"', block)
 
-    def test_neither_field_set_is_empty_and_unrendered(self) -> None:
+    def test_batch_provenance_round_trips_as_local_only_metadata(self) -> None:
+        block = markdown.format_agent_block(batch_id="release", batch_ref="issue-01")
+        parsed = markdown.parse(render(agent_block=block))
+
+        self.assertEqual(
+            {"batch-id": "release", "batch-ref": "issue-01"},
+            markdown.parse_agent_block(parsed.agent_block),
+        )
+
+    def test_no_fields_set_is_empty_and_unrendered(self) -> None:
         block = markdown.format_agent_block()
         self.assertEqual("", block)
         self.assertNotIn("pykantui:agent", render(agent_block=block))

@@ -55,6 +55,7 @@ _BASE_CASES: tuple[tuple[str, str], ...] = (
 _PROVIDER_TYPES: dict[str, tuple[str, ...]] = {
     "asana": ("Task", "Milestone"),
     "clickup": ("Task", "Subtask"),
+    "forgejo": ("Issue",),
     "github": ("Issue", "Pull request"),
     "jira": ("Task", "Bug", "Story", "Epic", "Subtask"),
     "linear": ("Issue", "Sub-issue"),
@@ -71,6 +72,7 @@ _SECRET_KEYS = ("token", "secret", "password", "authorization", "cookie", "api_k
 _ENTERPRISE_PROJECTS = {
     "asana": ("OPS", "Portfolio Operations"),
     "clickup": ("CLP", "Client Platform"),
+    "forgejo": ("FOR", "Forge Platform"),
     "github": ("API", "API Platform"),
     "jira": ("PAY", "Payment Modernization"),
     "linear": ("INF", "Product Infrastructure"),

@@ -127,6 +127,7 @@ class JiraProvider(Provider):
             move_issues=True,
             reorder_issues=False,  # Jira has no client-side row order.
             create_issues=True,
+            parent_issues=True,
             writable_fields=(
                 "title",
                 "body",

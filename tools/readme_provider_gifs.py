@@ -21,7 +21,7 @@ FRAME_PHASES = (
     "api-validated",
     "conflict",
 )
-PROVIDERS = ("asana", "clickup", "github", "jira", "linear", "monday", "plane", "shortcut", "trello")
+PROVIDERS = ("asana", "clickup", "forgejo", "github", "jira", "linear", "monday", "plane", "shortcut", "trello")
 FRAME_DURATION_MS = 1_500
 
 

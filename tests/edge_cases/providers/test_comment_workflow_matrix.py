@@ -3,7 +3,7 @@
 These tests stay above adapter transports on purpose.  The adapter payload and
 response shapes have their own contract suite; this matrix proves that the one
 workspace/backend/UI workflow consuming those normalized values behaves the
-same for all nine provider specs, without any network access.
+same for all ten provider specs, without any network access.
 """
 
 from __future__ import annotations
@@ -370,7 +370,7 @@ class TwentyPlusCommentViewTests(unittest.IsolatedAsyncioTestCase):
             ]
         }
         provider_specs = specs()
-        self.assertEqual(9, len(provider_specs))
+        self.assertEqual(10, len(provider_specs))
         self.assertTrue(all(spec.capabilities.read_comments for spec in provider_specs))
         self.assertTrue(all(spec.capabilities.create_comments for spec in provider_specs))
 

@@ -459,17 +459,24 @@ def _marker_value(value: str) -> str:
     return " ".join(_CONTROL_RE.sub("", _ANSI_RE.sub("", value)).split())
 
 
-def format_agent_block(blocked_by: Sequence[str] = (), assigned_agent: str = "") -> str:
+def format_agent_block(
+    blocked_by: Sequence[str] = (),
+    assigned_agent: str = "",
+    batch_id: str = "",
+    batch_ref: str = "",
+) -> str:
     """Build the ``pykantui:agent`` marker's attribute text.
 
     Local-only metadata for MCP-driven workflows -- never read from or
     written to a provider, exactly like ``pykantui:notes``. Empty when
-    neither field has a value, so a card that never uses this stays
+    none of these fields has a value, so a card that never uses this stays
     byte-identical to one written before the feature existed.
     """
     return _attributes(
         blocked_by=", ".join(item.strip() for item in blocked_by if item.strip()),
         assigned_agent=assigned_agent.strip(),
+        batch_id=batch_id.strip(),
+        batch_ref=batch_ref.strip(),
     )
 
 

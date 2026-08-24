@@ -6,8 +6,8 @@
 # pykantui
 
 A local-first terminal kanban board with one provider-neutral workflow for
-Jira, Linear, Asana, ClickUp, Monday.com, Plane, Trello, GitHub, and
-Shortcut. Remote work items become editable Markdown; `kbn sync` reconciles
+Jira, Linear, Asana, ClickUp, Monday.com, Plane, Trello, GitHub, Forgejo,
+and Shortcut. Remote work items become editable Markdown; `kbn sync` reconciles
 local edits with the selected provider.
 
 ![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)
@@ -48,7 +48,7 @@ kbn demo
 ```
 
 **2. Connect your tracker.** `init` is one guided session: pick your provider
-(Jira, Linear, Asana, ClickUp, Monday, Plane, Trello, GitHub, or Shortcut),
+(Jira, Linear, Asana, ClickUp, Monday, Plane, Trello, GitHub, Forgejo, or Shortcut),
 paste its API token, choose a project and a folder. It writes one Markdown
 file per work item and stores the token outside the workspace:
 
@@ -73,6 +73,7 @@ That is the whole loop. The rest of this page is reference:
 | `kbn init` | create a Markdown workspace from any supported provider |
 | `kbn` | the board for the current workspace |
 | `kbn sync` | reconcile workspace Markdown and its provider |
+| `kbn batch` | generate, review, plan, and apply declarative issue batches |
 | `kbn show` | the board as plain text, no TUI |
 | `kbn board` | your local, tracker-free board |
 
@@ -87,6 +88,13 @@ That is the whole loop. The rest of this page is reference:
 Token setup per provider is documented in `.env.example`, and
 [Provider workspaces](#provider-workspaces) covers the workspace lifecycle in
 depth.
+
+To draft ten Jira issues without creating anything, run
+`kbn batch jira -o issues.yml`, review the YAML, then use `kbn batch plan` and
+`kbn batch apply`. Optional AI suggestions are imported into a separate local
+manifest and cannot write to the provider. See
+[Declarative issue batches](docs/declarative-batches.md) for the schema,
+sub-tasks, explicit workflow routes, provenance, and recovery behavior.
 
 ## Demos (interactive)
 
@@ -135,6 +143,11 @@ depth.
 ### ClickUp
 <p>
   <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-clickup.gif" alt="pykantui ClickUp local action flow" width="100%" />
+</p>
+
+### Forgejo
+<p>
+  <img src="https://raw.githubusercontent.com/joselrnz/pykantui/main/assets/live-real-9x1-forgejo.gif" alt="pykantui Forgejo local action flow" width="100%" />
 </p>
 
 ### GitHub
@@ -466,6 +479,18 @@ basic authentication, JQL search, board column discovery, issue creation,
 editable fields, comments, and workflow transitions. It no longer requires a
 separate SDK or a Jira-only `kbn jira` path.
 
+Forgejo accepts either an instance URL such as `https://codeberg.org` or an
+explicit `/api/v1` URL. Repositories are projects; labels beginning with
+`status:` are columns, with Open/Closed as the fallback. Pull requests are
+excluded from the issue board. Forgejo's native Projects/Kanban columns are
+stored separately and are not moved by Forgejo's public issue API; pykantui
+therefore treats the `status:` labels as the board's source of truth. Use a
+scoped token with `read:user`, `read:repository`, and `write:issue`. For an
+instance signed by a private CA,
+export `SSL_CERT_FILE` in the shell before launching pykantui, pointing it to
+that CA's public PEM certificate. Workspace `.env` files deliberately cannot
+replace TLS controls; never disable verification or use the CA's private key.
+
 ## AI agents (MCP)
 
 `kbn mcp serve` runs pykantui as a local MCP server — one tool surface for
@@ -658,13 +683,13 @@ The checked-in GIFs above are generated, not captured by hand:
 .\.venv\Scripts\python.exe tools\banner_gif.py   # assets/pykantui-banner-v3.gif
 .\.venv\Scripts\python.exe tools\gif.py          # assets/demo.gif
 
-# Capture all nine privacy-safe provider journeys with the real compositor.
+# Capture all ten privacy-safe provider journeys with the real compositor.
 $runTag = 'readme-provider-demo'
 .\.venv\Scripts\python.exe tools\provider_evidence.py \
   --into artifacts/provider-evidence-public \
   --run-tag $runTag
 
-# Assemble the nine provider GIFs and aggregate timeline.
+# Assemble the ten provider GIFs and aggregate timeline.
 .\.venv\Scripts\python.exe tools\readme_provider_gifs.py \
   --evidence-root artifacts/provider-evidence-public \
   --run-tag $runTag \

@@ -12,6 +12,8 @@ from pykantui.providers.asana.mapper import task_to_remote as asana_task
 from pykantui.providers.asana.schemas import TaskWire as AsanaTaskWire
 from pykantui.providers.clickup.mapper import task_to_remote as clickup_task
 from pykantui.providers.clickup.schemas import TaskWire as ClickUpTaskWire
+from pykantui.providers.forgejo.mapper import issue_to_remote as forgejo_issue
+from pykantui.providers.forgejo.schemas import IssueWire as ForgejoIssueWire
 from pykantui.providers.github.mapper import issue_to_remote as github_issue
 from pykantui.providers.github.schemas import IssueWire as GitHubIssueWire
 from pykantui.providers.jira.mapper import issue_to_remote as jira_issue
@@ -35,7 +37,7 @@ from pykantui.tracker.registry import specs
 class EmbeddedPeopleMappingTests(unittest.TestCase):
     """People already present in bulk responses need no follow-up request."""
 
-    def test_all_nine_provider_mappers_keep_available_people_names(self) -> None:
+    def test_all_ten_provider_mappers_keep_available_people_names(self) -> None:
         issues = {
             "asana": asana_task(
                 AsanaTaskWire.model_validate(
@@ -55,6 +57,19 @@ class EmbeddedPeopleMappingTests(unittest.TestCase):
                         "creator": {"id": "r", "username": "Robin"},
                     }
                 )
+            ),
+            "forgejo": forgejo_issue(
+                ForgejoIssueWire.model_validate(
+                    {
+                        "id": "1",
+                        "assignees": [{"id": "a", "login": "Alex"}],
+                        "user": {"id": "r", "login": "Robin"},
+                    }
+                ),
+                "acme/repo",
+                "status:",
+                open_column="open",
+                closed_column="closed",
             ),
             "github": github_issue(
                 GitHubIssueWire.model_validate(
@@ -139,6 +154,7 @@ class EmbeddedPeopleMappingTests(unittest.TestCase):
             {
                 "asana",
                 "clickup",
+                "forgejo",
                 "github",
                 "jira",
                 "linear",
@@ -154,7 +170,7 @@ class EmbeddedPeopleMappingTests(unittest.TestCase):
                 self.assertEqual("Alex", issue.assignee)
                 self.assertEqual("Robin", issue.reporter)
 
-    def test_all_nine_providers_offer_the_reporter_column(self) -> None:
+    def test_all_ten_providers_offer_the_reporter_column(self) -> None:
         availability = {
             spec.name: WorkItemColumn.REPORTER in spec.available_table_fields({})
             for spec in specs()
@@ -164,6 +180,7 @@ class EmbeddedPeopleMappingTests(unittest.TestCase):
             {
                 "asana": True,
                 "clickup": True,
+                "forgejo": True,
                 "github": True,
                 "jira": True,
                 "linear": True,

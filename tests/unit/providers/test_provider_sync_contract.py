@@ -16,6 +16,7 @@ from pykantui.workspace.status import SyncStatus
 EXPECTED = {
     "asana",
     "clickup",
+    "forgejo",
     "github",
     "jira",
     "linear",

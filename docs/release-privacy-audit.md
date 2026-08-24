@@ -29,7 +29,7 @@ rewrite or repository transfer.
 | MCP tooling | `tools/mcp_socket_smoke.py` | Resolve the repository from the script location or an environment override. |
 | Local containment | `.gitignore` | Ignore disposable MCP probe scripts and server logs that may contain machine paths. |
 | Privacy gate | `tools/privacy_scan.py`, `tests/unit/tools/test_privacy_scan.py` | Scan tracked and unignored text plus image metadata without echoing matched identities. |
-| Public fixture source | `tools/provider_evidence.py` | Use nine provider-specific enterprise projects and 27 synthetic cards per provider. |
+| Public fixture source | `tools/provider_evidence.py` | Use ten provider-specific enterprise projects and 27 synthetic cards per provider. |
 | GIF assembly | `tools/readme_provider_gifs.py`, `tests/unit/tools/test_readme_provider_gifs.py` | Build complete provider journeys from validated compositor captures with metadata stripped. |
 | README media | `assets/live-real-9x1*.gif`, `assets/demo-providers-timeline.gif` | Replace account-derived captures with synthetic Textual captures. |
 
@@ -57,7 +57,7 @@ The ignored local evidence manifest is
 $env:PYTHONPATH = 'src;.'
 python -m unittest tests.unit.tools.test_privacy_scan tests.unit.tools.test_readme_provider_gifs tests.unit.tools.test_provider_evidence
 python tools/secret_scan.py .
-python tools/privacy_scan.py . --deny '<private-name>' --deny '<private-account>' --deny '<private-email>'
+python -m tools.privacy_scan . --deny '<private-name>' --deny '<private-account>' --deny '<private-email>'
 python -m ruff check tools/privacy_scan.py tools/readme_provider_gifs.py tools/provider_evidence.py tests/unit/tools
 python -m mypy tools/privacy_scan.py tools/readme_provider_gifs.py tools/provider_evidence.py tests/unit/tools/test_privacy_scan.py tests/unit/tools/test_readme_provider_gifs.py tests/unit/tools/test_provider_evidence.py
 git diff --check

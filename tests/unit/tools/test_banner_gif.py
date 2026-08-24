@@ -28,7 +28,7 @@ class BannerGifTests(unittest.TestCase):
         self.assertLessEqual(font.getlength(label), REVIEW_LABEL_MAX_WIDTH)
 
     def test_banner_release_label_matches_the_package(self) -> None:
-        self.assertEqual("1.2.1", project_version())
+        self.assertEqual("1.2.2", project_version())
 
     def test_timeline_types_command_and_walks_task_across_board(self) -> None:
         timeline = build_timeline()

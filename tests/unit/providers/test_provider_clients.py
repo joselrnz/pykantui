@@ -20,6 +20,7 @@ class ProviderClientStructureTests(unittest.TestCase):
     SETTINGS = {
         "asana": ({}, {"token": "test-token"}),
         "clickup": ({}, {"token": "test-token"}),
+        "forgejo": ({}, {"base_url": "https://forgejo.test", "token": "test-token"}),
         "github": ({}, {"token": "test-token"}),
         "jira": ({}, {"base_url": "https://example.atlassian.net", "email": "dev@example.test", "token": "test"}),
         "linear": ({}, {"token": "test-token"}),

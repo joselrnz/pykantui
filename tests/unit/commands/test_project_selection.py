@@ -111,6 +111,7 @@ class ProjectSelectionTests(unittest.TestCase):
         expected = {
             "asana": "project",
             "clickup": "list",
+            "forgejo": "repository",
             "github": "repository",
             "jira": "project",
             "linear": "team",

@@ -109,12 +109,13 @@ class ItemTypeSemanticTests(unittest.TestCase):
 class ProviderTypeAvailabilityTests(unittest.TestCase):
     """All bundled providers declare Type from their field contract."""
 
-    def test_all_nine_provider_specs_have_the_expected_type_capability(self) -> None:
+    def test_all_ten_provider_specs_have_the_expected_type_capability(self) -> None:
         providers = {spec.name: spec for spec in specs()}
         self.assertEqual(
             {
                 "asana",
                 "clickup",
+                "forgejo",
                 "github",
                 "jira",
                 "linear",
@@ -128,6 +129,7 @@ class ProviderTypeAvailabilityTests(unittest.TestCase):
         expected = {
             "asana": False,
             "clickup": True,
+            "forgejo": False,
             "github": True,
             "jira": True,
             "linear": False,

@@ -8,6 +8,7 @@ from contextlib import nullcontext
 from datetime import date
 from unittest.mock import patch
 
+from pykantui.providers.forgejo import ForgejoProvider
 from pykantui.providers.jira import JiraProvider
 from pykantui.providers.monday import MondayProvider
 from pykantui.tracker.base import Provider
@@ -120,6 +121,7 @@ def real_provider(name: str) -> Provider:
 def move_column(provider_name: str) -> str:
     return {
         "github": "status:done",
+        "forgejo": "status:done",
         "jira": "done",
         "monday": "1",
         "shortcut": "2",
@@ -150,8 +152,13 @@ class RealProviderPayloadLoadTests(unittest.TestCase):
                     if isinstance(provider, JiraProvider)
                     else nullcontext()
                 )
+                forgejo_labels = (
+                    patch.object(provider, "_resolve_label_ids", return_value=[])
+                    if isinstance(provider, ForgejoProvider)
+                    else nullcontext()
+                )
                 payloads: list[dict[str, object]] = []
-                with resolver:
+                with resolver, forgejo_labels:
                     for index in range(ADAPTER_LOAD_COUNT):
                         title = f"Create {spec.label} load item {index:04d}"
                         payload = provider.build_create_payload(

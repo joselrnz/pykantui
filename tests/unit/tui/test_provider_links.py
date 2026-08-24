@@ -13,6 +13,7 @@ from rich.style import Style
 from pykantui.models import Task
 from pykantui.providers.asana.mapper import task_to_remote as asana_task
 from pykantui.providers.clickup.mapper import task_to_remote as clickup_task
+from pykantui.providers.forgejo.mapper import issue_to_remote as forgejo_issue
 from pykantui.providers.github.mapper import issue_to_remote as github_issue
 from pykantui.providers.jira.mapper import issue_to_remote as jira_issue
 from pykantui.providers.linear.mapper import issue_to_remote as linear_issue
@@ -44,10 +45,11 @@ def external_url_launcher() -> Any:
 
 
 class ProviderIssueUrlTests(unittest.TestCase):
-    def test_all_nine_builtin_mappers_populate_remote_issue_url(self) -> None:
+    def test_all_ten_builtin_mappers_populate_remote_issue_url(self) -> None:
         sources = {
             "asana": (asana_task, "url=task.permalink_url"),
             "clickup": (clickup_task, "url=task.url"),
+            "forgejo": (forgejo_issue, "url=issue.html_url"),
             "github": (github_issue, "url=issue.html_url"),
             "jira": (jira_issue, 'url=f"{base_url}/browse/'),
             "linear": (linear_issue, "url=issue.url"),
@@ -56,7 +58,7 @@ class ProviderIssueUrlTests(unittest.TestCase):
             "shortcut": (shortcut_story, "url=story.app_url"),
             "trello": (trello_card, "url=card.url"),
         }
-        self.assertEqual(9, len(sources))
+        self.assertEqual(10, len(sources))
         for provider, (mapper, marker) in sources.items():
             with self.subTest(provider=provider):
                 self.assertIn(marker, inspect.getsource(cast(Any, mapper)))

@@ -1508,7 +1508,7 @@ class DiscoveryTests(unittest.TestCase):
         )
         result = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, check=True)
         count, loaded = result.stdout.strip().split(" ", 1)
-        self.assertEqual("9", count)
+        self.assertEqual("10", count)
         self.assertEqual("[]", loaded, "listing providers imported them")
 
     def test_verified_is_declared_by_the_provider_not_a_list(self) -> None:

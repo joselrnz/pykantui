@@ -126,6 +126,11 @@ class Capabilities(SpecModel):
     #: Can new issues be created through the app?
     create_issues: bool = False
 
+    #: Can creates name another issue as a parent? Kept separate from generic
+    #: create support because several providers expose hierarchy on reads but
+    #: cannot create it through pykantui.
+    parent_issues: bool = False
+
     #: Which fields a local markdown edit can push back, from
     #: :data:`~pykantui.tracker.models.EDITABLE_FIELDS`. Empty means the
     #: tracker is a read-only mirror.

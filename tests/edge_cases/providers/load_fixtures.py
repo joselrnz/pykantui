@@ -28,6 +28,7 @@ CARD_COUNT = 1_000
 PROVIDER_NAMES = {
     "asana",
     "clickup",
+    "forgejo",
     "github",
     "jira",
     "linear",

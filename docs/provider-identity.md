@@ -24,6 +24,7 @@ from how a similar API behaves.
 |---|---|---|---|---|
 | Jira ✅ | `GET /rest/api/3/myself` | yes | **no** — privacy-dependent | **yes**, `currentUser()` |
 | Plane ✅ | **none** | **no** — workspace-scoped key | yes, in the member list | **no** — filters ignored |
+| Forgejo 📄 | `GET /api/v1/user` | yes | **no** — nullable | yes, `assigned_by=` / `created_by=` |
 | GitHub 📄 | `GET /user` | yes | **no** — nullable | yes, `assignee=` / `creator=` |
 | Linear 📄 | `query { viewer { … } }` | yes | yes | yes, filter by `assignee.email` |
 | Asana 📄 | `GET /users/me` | yes | yes | via `assignee` on task search |
@@ -127,6 +128,23 @@ UUID.
 
 `filter=assigned/created/mentioned` exists on `/issues` and `/user/issues`,
 **not** on the repository endpoint.
+
+---
+
+## Forgejo 📄
+
+**Identity** — `GET /api/v1/user` → `id`, `login`, `full_name`, `email`.
+Pykantui uses `login` as the stable assignment handle because Forgejo's issue
+write API accepts assignee login names, while email may be absent.
+
+**People** — assignees are embedded in issue responses. Forgejo also exposes
+repository collaborators and issue-assignee endpoints when a picker needs a
+complete directory.
+
+**Mine, server-side** — `GET /api/v1/repos/{owner}/{repo}/issues` accepts
+`assigned_by`, `created_by`, and `mentioned_by`, plus `type=issues` to exclude
+pull requests. Pykantui currently fetches repository issues and applies its
+shared identity filter locally so cache and sync see the same complete set.
 
 ---
 
@@ -249,12 +267,12 @@ client-side filter on the column value is the safe assumption until tested.
 
 ## What this changes in the plan
 
-**1. Our nine `verify()` implementations are all correct.** Every path in the
+**1. Our ten `verify()` implementations are all correct.** Every path in the
 code matches what the docs or the live instances say — `/rest/api/3/myself`,
-`/user`, `/api/v3/member`, `/1/members/me`, `viewer`, `me`, `/users/me`,
-`/v2/user`. Nothing to fix there.
+`/user`, `/api/v1/user`, `/api/v3/member`, `/1/members/me`, `viewer`, `me`,
+`/users/me`, `/v2/user`. Nothing to fix there.
 
-**2. Identity must be optional-but-configurable, because of Plane.** Eight
+**2. Identity must be optional-but-configurable, because of Plane.** Nine
 providers hand us a person. Plane cannot. The design has to be "config wins,
 else ask the provider, else fail with a message naming what to set" — and that
 is driven by one real tracker, not by caution.
@@ -264,7 +282,7 @@ ClickUp, Trello, Monday. **Not** guaranteed on Jira (privacy) or GitHub
 (nullable). The chain has to be `provider id → email → username`, and for
 GitHub the `login` is the better thing to put in a file anyway.
 
-**4. Client-side filtering is the right default.** Two of the nine cannot filter
+**4. Client-side filtering is the right default.** Two of the ten cannot filter
 server-side at all — Plane ignores the parameters, Trello has none — and we
 fetch everything for the cache regardless. Server-side stays an optimisation,
 with Jira's `currentUser()` and Linear's `viewer.assignedIssues` the two
@@ -279,6 +297,7 @@ member response shape.
 ## Sources
 
 - [GitHub — Users](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28) · [Issues](https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28) · [Assignees](https://docs.github.com/en/rest/issues/assignees?apiVersion=2022-11-28)
+- [Forgejo — API usage](https://forgejo.org/docs/latest/user/api/usage/) · [Access token scope](https://forgejo.org/docs/latest/user/authentication/token-scope/) · [OpenAPI reference](https://codeberg.org/swagger.v1.json)
 - [Linear — GraphQL](https://linear.app/developers/graphql) · [Filtering](https://linear.app/developers/filtering)
 - [Asana — Get a user](https://developers.asana.com/reference/getuser)
 - [ClickUp — Get authorized user](https://developer.clickup.com/reference/getauthorizeduser)

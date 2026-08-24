@@ -103,7 +103,7 @@ class ProviderColumnGroupTests(unittest.TestCase):
     def test_every_built_in_provider_uses_the_same_backend_contract_offline(self) -> None:
         provider_specs = specs()
         self.assertEqual(
-            {"asana", "clickup", "github", "jira", "linear", "monday", "plane", "shortcut", "trello"},
+            {"asana", "clickup", "forgejo", "github", "jira", "linear", "monday", "plane", "shortcut", "trello"},
             {item.name for item in provider_specs},
         )
         with tempfile.TemporaryDirectory() as temporary:

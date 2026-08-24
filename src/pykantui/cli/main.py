@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import cast
 
 from pykantui import __version__
+from pykantui.commands import batch as batch_command
 from pykantui.commands import columns as columns_command
 from pykantui.commands import graph as graph_command
 from pykantui.commands import init as init_command
@@ -83,6 +84,7 @@ def build_parser() -> argparse.ArgumentParser:
     new_command.add_parser(sub)
     projects_command.add_parser(sub)
     mcp_command.add_parser(sub)
+    batch_command.add_parser(sub)
 
     return parser
 
@@ -144,6 +146,8 @@ def _run(argv: list[str]) -> int:
         return projects_command.run(args)
     if command == "mcp":
         return mcp_command.run(args)
+    if command == "batch":
+        return batch_command.run(args)
     if command == "columns":
         return columns_command.run(args)
     if command == "task":

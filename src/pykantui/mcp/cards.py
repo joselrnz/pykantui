@@ -337,6 +337,8 @@ def _rewrite_agent_block(
         agent_block = markdown.format_agent_block(
             blocked_by=[item for item in new_blocked_by if item.strip()],
             assigned_agent=new_agent,
+            batch_id=current.get("batch-id", ""),
+            batch_ref=current.get("batch-ref", ""),
         )
 
         issue = _reconstruct_issue(entry, ws.folders)

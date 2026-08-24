@@ -7,6 +7,7 @@ from datetime import date
 
 from pykantui.providers.asana import AsanaProvider
 from pykantui.providers.clickup import ClickUpProvider
+from pykantui.providers.forgejo import ForgejoProvider
 from pykantui.providers.github import GitHubProvider
 from pykantui.providers.github.payloads import update_issue_payload as github_update_payload
 from pykantui.providers.jira import JiraProvider
@@ -23,6 +24,7 @@ from pykantui.tracker.models import IssueDraft, IssueEdit, IssueType, RemoteIssu
 EXPECTED_EDITABLE = {
     "asana": {"title", "body", "column_id", "assignee", "due_date"},
     "clickup": {"title", "body", "column_id", "assignee", "issue_type", "priority", "labels", "due_date"},
+    "forgejo": {"title", "body", "column_id", "assignee", "labels", "due_date"},
     "github": {"title", "body", "column_id", "assignee", "issue_type", "labels"},
     "jira": {
         "title",
@@ -57,6 +59,13 @@ EXPECTED_FILTERS = {
         "priority": "Priority",
         "labels": "Tags",
         "key": "Task ID",
+    },
+    "forgejo": {
+        "scope": "Repository",
+        "status": "State",
+        "assignee": "Assignee",
+        "labels": "Labels",
+        "key": "Issue Number",
     },
     "github": {
         "scope": "Repository",
@@ -243,6 +252,17 @@ class ProviderCreatePayloadTests(unittest.TestCase):
         self.assertEqual(["user-1"], payload["assignees"])
         self.assertEqual("Bug", payload["type"])
         self.assertEqual(["backend", "state-1"], payload["labels"])
+
+    def test_forgejo_create_payload_resolves_label_ids(self) -> None:
+        provider = ForgejoProvider(
+            {"base_url": "https://forgejo.test", "repo": "a/b"},
+            {"token": "t"},
+        )
+        provider._resolve_label_ids = lambda project_id, names: [10, 11]  # type: ignore[method-assign]
+        payload = provider.build_create_payload("a/b", self.draft())
+        self.assertEqual(["user-1"], payload["assignees"])
+        self.assertEqual([10, 11], payload["labels"])
+        self.assertEqual("2026-08-20T00:00:00Z", payload["due_date"])
 
     def test_github_rejects_a_type_when_the_repository_has_none(self) -> None:
         provider = GitHubProvider({"repo": "a/b"}, {"token": "t"})
